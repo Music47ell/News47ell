@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #e30a17;
+}
+
+:root {
+  --background: rgb(252 252 252);
+  --a1: rgba(0 0 0 / 0.05);
+  --a2: rgba(0 0 0 / 0.1);
+  --foreground: rgb(28 28 29);
+  --shadow: 0px 6px 20px rgb(0 0 0 / 20%);
+
+  --unit: 8px;
+}
+
+kbd {
+  font-family: monospace;
+  background: var(--a2);
+  padding: calc(var(--unit) * 0.5);
+  border-radius: calc(var(--unit) * 0.5);
+}
+
+@layer base {
+  :root {
+    --color-main: 255, 255, 255; /* white */ /* #fff */
+    --color-text-main: 0, 0, 0; /* black */ /* #000 */
+    --color-off-main: 249, 250, 251; /* gray-50 */ /* #f9fafb */
+    --color-text-muted: 55, 65, 81; /* gray-700 */ /* #374551 */
+    --color-text-muted-hover: 107, 114, 128; /* gray-500 */ /* #63686f */
+    --color-primary: 30, 64, 175; /* blue-800 */ /* #1e40af */
+    --color-secondary: 96, 165, 250; /* blue-400 */ /* #60a5f0 */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-main: 255, 255, 255; /* white */ /* #fff */
+      --color-text-main: 0, 0, 0; /* black */ /* #000 */
+      --color-off-main: 249, 250, 251; /* gray-50 */ /* #f9fafb */
+      --color-text-muted: 55, 65, 81; /* gray-700 */ /* #374551 */
+      --color-text-muted-hover: 107, 114, 128; /* gray-500 */ /* #63686f */
+      --color-primary: 30, 64, 175; /* blue-800 */ /* #1e40af */
+      --color-secondary: 96, 165, 250; /* blue-400 */ /* #60a5f0 */
+    }
+  }
+
+  [data-theme='light'] {
+    --color-main: 255, 255, 255; /* white */ /* #fff */
+    --color-text-main: 0, 0, 0; /* black */ /* #000 */
+    --color-off-main: 249, 250, 251; /* gray-50 */ /* #f9fafb */
+    --color-text-muted: 55, 65, 81; /* gray-700 */ /* #374551 */
+    --color-text-muted-hover: 107, 114, 128; /* gray-500 */ /* #63686f */
+    --color-primary: 30, 64, 175; /* blue-800 */
+    --color-secondary: 59, 130, 246; /* blue-500 */
+  }
+
+  [data-theme='dark'] {
+    --color-main: 17, 24, 39; /* gray-900 */ /* #111823 */
+    --color-text-main: 243, 244, 246; /* gray-100 */ /* #f3f4f6 */
+    --color-off-main: 31, 41, 55; /* gray-800 */ /* #1f2935 */
+    --color-text-muted: 229, 231, 235; /* gray-200 */ /* #e5e7eb */
+    --color-text-muted-hover: 209, 213, 219; /* gray-500 */ /* #d1d5db */
+    --color-primary: 147, 197, 253; /* blue-300 */ /* #93c7fd */
+    --color-secondary: 96, 165, 250; /* blue-400 */ /* #60a5f0 */
+  }
+
+  [data-theme='solar'] {
+    --color-main: 255, 241, 242; /* rose-50 */ /* #fff1f2 */
+    --color-text-main: 26, 28, 35; /* gray-800 */ /* #1a1c23 */
+    --color-off-main: 255, 234, 236; /* rose-100 */ /* #ffecf0 */
+    --color-text-muted: 68, 64, 60; /* gray-700 */ /* #444c40 */
+    --color-text-muted-hover: 120, 113, 108; /* gray-500 */ /* #7c716c */
+    --color-primary: 180, 83, 9; /* rose-800 */ /* #b44207 */
+    --color-secondary: 248, 113, 113; /* rose-400 */ /* #f87c7c */
+  }
+
+  [data-theme='evergreen'] {
+    --color-main: 4, 120, 87; /* green-50 */ /* #04758b */
+    --color-text-main: 240, 253, 244; /* green-100 */ /* #f0fcf4 */
+    --color-off-main: 5, 150, 105; /* emerald-600 */ /* #059c6d */
+    --color-text-muted: 240, 253, 244; /* green-50 */ /* #f0fcf4 */
+    --color-text-muted-hover: 187, 247, 208; /* green-200 */ /* #bbf7d0 */
+    --color-primary: 156, 33, 5; /* amber-100 */ /* #9C2105 */
+    --color-secondary: 253, 230, 138; /* amber-300 */ /* #fde898 */
+  }
+
+  [data-theme='dracula'] {
+    --color-main: 40, 42, 54; /* gray-800 */ /* #28292e */
+    --color-text-main: 248, 248, 242; /* gray-100 */ /* #f8f8f2 */
+    --color-off-main: 98, 114, 164; /* gray-600 */ /* #616278 */
+    --color-text-muted: 153, 153, 153; /* gray-600 */ /* #999999 */
+    --color-text-muted-hover: 255, 82, 82; /* red-500 */ /* #ff5252 */
+    --color-primary: 189, 147, 249; /* purple-500 */ /* #b9a1f9 */
+    --color-secondary: 139, 233, 253; /* blue-400 */ /* #8bb9fd */
+  }
+
+  [data-theme='hackernews'] {
+    --color-main: 246, 246, 239; /* gray-100 */ /* #f6f6ef */
+    --color-text-main: 0, 0, 0; /* black */ /* #000 */
+    --color-off-main: 248, 248, 236; /* gray-200 */ /* #f8f8ec */
+    --color-text-muted: 130, 130, 130; /* gray-500 */ /* #828282 */
+    --color-text-muted-hover: 130, 130, 130; /* gray-500 */ /* #828282 */
+    --color-primary: 255, 102, 0; /* orange-500 */ /* #ff6600 */
+    --color-secondary: 245, 98, 0; /* orange-400 */ /* #f55c00 */
+  }
+
+  .theme-gradient {
+    --tw-gradient-stops: rgb(var(--color-secondary)), rgb(var(--color-primary));
+    background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+  }
+}

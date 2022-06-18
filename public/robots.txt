@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.news47ell.com/sitemap.xml

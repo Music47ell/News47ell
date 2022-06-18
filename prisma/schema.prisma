@@ -1,0 +1,30 @@
+// This is the Prisma schema file, learn more about it at
+// https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+// Schema
+
+model PostMeta {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  slug      String   @unique
+  likes     Int      @default(0)
+  dislikes  Int      @default(0)
+}
+
+model ReactionByUser {
+  id        String   @id
+  updatedAt DateTime @default(now())
+  like      Boolean  @default(false)
+  dislike  Boolean  @default(false)
+}
