@@ -8,7 +8,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import { default as Link } from '@/components/Link'
 
-import { BiLoader } from 'react-icons/bi'
+import { BiLoader, BiCheckCircle, BiInfoCircle } from 'react-icons/bi'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Admin({ user }): JSX.Element {
@@ -80,16 +80,22 @@ export default function Admin({ user }): JSX.Element {
             {posts.map((post, index) => (
               <div key={index} className="pb-4 mt-8">
                 <div className="flex flex-row">
-                  <h2 className="text-xl font-semibold">{post.title}</h2>
-                  <span
-                    className={`${
-                      post.published === true
-                        ? 'bg-green-200 text-green-600'
-                        : 'bg-pink-200 text-pink-600'
-                    } inline-block py-1 px-2 last:mr-0 ml-1 text-xs font-semibold uppercase rounded`}
-                  >
-                    {post.published === true ? 'Published' : 'Draft'}
-                  </span>
+                  <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
+                    {post.published === true ? (
+                      <BiCheckCircle
+                        className={`${
+                          post.published === true ? 'text-green-600' : 'text-yellow-600'
+                        } inline-block mr-1 w-5 h-5`}
+                      />
+                    ) : (
+                      <BiInfoCircle
+                        className={`${
+                          post.published === true ? 'text-green-600' : 'text-yellow-600'
+                        } inline-block mr-1 w-5 h-5`}
+                      />
+                    )}
+                    <h2 className="text-xl font-semibold">{post.title}</h2>
+                  </button>
                 </div>
                 <Link href={`/admin/edit/post/${post.id}`} className="mr-4 text-sm text-blue-500">
                   Edit Post
@@ -106,16 +112,22 @@ export default function Admin({ user }): JSX.Element {
             {pages.map((page, index) => (
               <div key={index} className="pb-4 mt-8">
                 <div className="flex flex-row">
-                  <h2 className="text-xl font-semibold">{page.title}</h2>
-                  <span
-                    className={`${
-                      page.published === true
-                        ? 'bg-green-200 text-green-600'
-                        : 'bg-pink-200 text-pink-600'
-                    } inline-block py-1 px-2 last:mr-0 ml-1 text-xs font-semibold uppercase rounded`}
-                  >
-                    {page.published === true ? 'Published' : 'Draft'}
-                  </span>
+                  <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
+                    {page.published === true ? (
+                      <BiCheckCircle
+                        className={`${
+                          page.published === true ? 'text-green-600' : 'text-yellow-600'
+                        } inline-block mr-1 w-5 h-5`}
+                      />
+                    ) : (
+                      <BiInfoCircle
+                        className={`${
+                          page.published === true ? 'text-green-600' : 'text-yellow-600'
+                        } inline-block mr-1 w-5 h-5`}
+                      />
+                    )}
+                    <h2 className="text-xl font-semibold">{page.title}</h2>
+                  </button>
                 </div>
                 <Link href={`/admin/edit/page/${page.id}`} className="mr-4 text-sm text-blue-500">
                   Edit Page
