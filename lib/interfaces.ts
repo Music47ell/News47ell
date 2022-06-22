@@ -12,10 +12,6 @@ export interface Comment {
   frontMatter: PostFrontMatter
 }
 
-export interface IGiscus {
-  mapping: string
-}
-
 export interface Layout {
   posts: PostFrontMatter[]
   title: string

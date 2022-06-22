@@ -39,21 +39,6 @@ const siteMetadata = {
     { href: 'https://tailwindcss.com/', title: 'Tailwind CSS', icon: 'SiTailwindcss' },
     { href: 'https://vercel.com/', title: 'Vercel', icon: 'SiVercel' },
   ],
-  comment: {
-    provider: 'giscus',
-    giscusConfig: {
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
-      repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
-      categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
-      mapping: 'pathname',
-      reactions: '1',
-      metadata: '0',
-      theme: 'dark',
-      darkTheme: 'dark',
-      themeURL: '',
-    },
-  },
   analytics: {
     umamiWebsiteId: process.env.NEXT_PUBLIC_UMAMI_SITE_ID,
     umamiScriptUrl: process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL,

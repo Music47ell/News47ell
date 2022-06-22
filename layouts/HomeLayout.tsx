@@ -20,7 +20,7 @@ export default function HomeLayout(): JSX.Element {
   return (
     <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
       <div className="xl:mt-16 divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 items-center pt-6 pb-6 my-4 space-y-2 md:space-y-5">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 items-center py-6 my-4 space-y-2 md:space-y-5">
           <div className="xl:col-span-2 sm:pr-8">
             <p
               className={`mb-8 text-4xl leading-[60px] font-extrabold tracking-tight bg-clip-text md:text-7xl md:leading-[86px]`}
@@ -28,8 +28,8 @@ export default function HomeLayout(): JSX.Element {
               Howdy, fellow!
             </p>
 
-            <div className="text-lg leading-8 text-gray-600 dark:text-gray-400">
-              <h1 className="text-gray-900 dark:text-gray-200">
+            <div className="text-lg leading-8">
+              <h1>
                 I'm <span className="font-medium">Ahmet ALMAZ</span> - 🤘{' '}
                 <span className="font-medium">Metalhead</span> and{' '}
                 <span className="font-medium">Full Stack Developer</span> in 🇹🇷{' '}

@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const posts = db
     .map((post: any) => ({
       id: post.id,
-      date: post.date,
+      published_at: post.published_at,
       updated_at: post.updated_at,
       title: post.title,
       slug: post.slug,

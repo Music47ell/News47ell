@@ -55,7 +55,7 @@ const SearchLayout: FC = () => {
       <h1 className="p-4 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100">
         Search the blog
       </h1>
-      <div className="pt-6 pb-6 border-t border-b border-gray-200 dark:border-gray-700">
+      <div className="py-6 border-t border-b border-gray-200 dark:border-gray-700">
         <div className="relative m-auto max-w-lg">
           <input
             id="search"
@@ -84,7 +84,7 @@ const SearchLayout: FC = () => {
                   <div className="overflow-hidden flex-1 truncate">
                     <div className="pb-1 font-medium">{result.title}</div>
                     <div className="font-mono text-xs text-secondary">
-                      {formatDate(result.date)}
+                      {formatDate(result.published_at)}
                     </div>
                   </div>
                 </div>

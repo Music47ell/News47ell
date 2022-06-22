@@ -24,6 +24,10 @@ export async function getStaticProps({ params }) {
   const { slug } = params as { slug: string }
   const data = await getContentBySlugFrom('posts', slug)
 
+  if (!data) {
+    return { notFound: true }
+  }
+
   const author = await getAuthorByUserId(data.user_id)
 
   const content = data.content
@@ -32,15 +36,19 @@ export async function getStaticProps({ params }) {
 
   const frontMatter = {
     title: data.title,
-    date: data.date,
+    published_at: data.published_at,
     updated_at: data.updated_at,
     slug: data.slug,
+    category: data.category,
     tags: data.tags,
     description: data.description,
+    layout: data.layout,
     author,
     wordCount,
     readingTime,
   }
+
+  console.log(frontMatter)
 
   const db = await getContentFrontMatter('posts')
   const posts = db.map((post) => ({

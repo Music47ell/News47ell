@@ -10,7 +10,7 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
     <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         {posts.map((frontMatter) => {
-          const { slug, linked, date, updated_at, title, description } = frontMatter
+          const { slug, linked, published_at, updated_at, title, description } = frontMatter
           return (
             <li key={slug} className="py-12">
               <article className="h-entry">
@@ -19,10 +19,10 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time
-                        dateTime={updated_at ? updated_at : date}
+                        dateTime={updated_at ? updated_at : published_at}
                         className="dt-edited text-muted"
                       >
-                        {formatDate(updated_at ? updated_at : date)}
+                        {formatDate(updated_at ? updated_at : published_at)}
                       </time>
                     </dd>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"></dd>
