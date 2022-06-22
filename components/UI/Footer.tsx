@@ -57,6 +57,11 @@ export default function Footer(): JSX.Element {
         <div className="mt-4">
           <HCard />
         </div>
+        <div className="mb-4 text-center">
+          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</a>
+          An IndieWeb Webring 🕸💍
+          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</a>
+        </div>
       </div>
     </footer>
   )

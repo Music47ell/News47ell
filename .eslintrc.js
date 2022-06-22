@@ -56,7 +56,6 @@ module.exports = {
         'p-note',
         'p-country-name',
         'p-country-flag',
-        'giscus',
         'copyright',
         'year',
         'site-credit',

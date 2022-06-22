@@ -118,11 +118,11 @@ export const BlogSEO = ({
   authorDetails,
   title,
   description,
-  date,
+  published_at,
   updated_at,
   url,
 }: BlogSeoProps) => {
-  const publishedAt = new Date(date).toString()
+  const publishedAt = new Date(published_at).toString()
   const updatedAt = new Date(updated_at).toString()
 
   const ogImage = generateSocialImage({
@@ -169,7 +169,7 @@ export const BlogSEO = ({
         twImage={ogImage}
       />
       <Head>
-        {date && <meta property="article:published_time" content={publishedAt} />}
+        {published_at && <meta property="article:published_time" content={publishedAt} />}
         {updated_at && <meta property="article:modified_time" content={updatedAt} />}
         <script
           type="application/ld+json"

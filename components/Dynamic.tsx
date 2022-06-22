@@ -12,10 +12,3 @@ export const AudioToggle = dynamic(
   },
   { ssr: false }
 )
-
-export const Giscus = dynamic(
-  () => {
-    return import('@/components/comments/Giscus')
-  },
-  { ssr: false }
-)

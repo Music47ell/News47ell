@@ -76,7 +76,7 @@ export type RaindropStatsCard = {
 export type PostFrontMatter = {
   id: string
   title: string
-  date: string
+  published_at: string
   updated_at: string
   tags?: string[]
   category: string

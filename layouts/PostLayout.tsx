@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SiTwitter } from 'react-icons/si'
-import Comments from '@/components/comments'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import PageTitle from '@/components/UI/PageTitle'
 import { BlogSEO } from '@/components/SEO'
 import Share from '@/components/blog/Share'
 import Tag from '@/components/Tag'
+import Category from '@/components/Category'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/utils/formatDate'
 import { IPostLayout } from 'lib/interfaces'
@@ -16,7 +16,18 @@ import Markdown from '@/components/blog/Markdown'
 import { getGravatar } from '@/utils/getGravatar'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
-  const { slug, linked, updated_at, title, tags, wordCount, readingTime, author } = frontMatter
+  const {
+    slug,
+    linked,
+    published_at,
+    updated_at,
+    title,
+    category,
+    tags,
+    wordCount,
+    readingTime,
+    author,
+  } = frontMatter
 
   const { value, isLoading } = useSlugStats(encodeURIComponent(`/blog/${slug}`))
 
@@ -27,7 +38,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
         authorDetails={author}
         {...frontMatter}
       />
-      <main className="container grid relative grid-cols-10 gap-8 px-6 mx-auto max-w-3xl lg:max-w-5xl">
+      <main className="relative px-6 mx-auto max-w-3xl lg:max-w-5xl">
         <div className="flex flex-col col-span-10 lg:col-span-7">
           <div className="p-4 -mx-4 rounded md:border border-gray-600">
             <article className="h-entry">
@@ -37,8 +48,12 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <Link href={slug} className="u-url">
-                        <time dateTime={updated_at} itemProp="datePublished" className="dt-edited">
-                          {formatDate(updated_at)}
+                        <time
+                          dateTime={updated_at ? updated_at : published_at}
+                          itemProp="datePublished"
+                          className="dt-edited"
+                        >
+                          {formatDate(updated_at ? updated_at : published_at)}
                         </time>
                       </Link>
                     </dd>
@@ -58,7 +73,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                 className="divide-y divide-gray-200 dark:divide-gray-700"
                 style={{ gridTemplateRows: 'auto 1fr' }}
               >
-                <dl className="pt-6 pb-6">
+                <dl className="py-6">
                   <dt className="sr-only">Authors</dt>
                   <dd>
                     <ul className="flex justify-center space-x-8">
@@ -122,14 +137,13 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                     </ul>
                   </dd>
                 </dl>
-                <div className="xl:col-span-3 xl:row-span-2 xl:pb-0 divide-y">
+                <div className="xl:col-span-3 xl:row-span-2 py-6 xl:pb-0 divide-y">
                   <div itemProp="articleBody" className="max-w-none text-base e-content">
                     <Markdown>{content}</Markdown>
                   </div>
                 </div>
                 <ReactionsButton slug={slug} />
                 <Share title={title} slug={slug} />
-                <Comments frontMatter={frontMatter} />
                 <footer>
                   <div className="text-sm font-medium leading-5">
                     {tags && (
@@ -142,6 +156,12 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                         </div>
                       </div>
                     )}
+                    <div className="py-4">
+                      <h2 className="text-xs tracking-wide uppercase">Category</h2>
+                      <div className="flex flex-wrap">
+                        <Category key={category} text={category} />
+                      </div>
+                    </div>
                     {(next || prev) && (
                       <div className="flex justify-between py-4">
                         {prev && (

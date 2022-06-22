@@ -76,15 +76,15 @@ const ProfileCard = (): JSX.Element => {
 
 const ProfileInfo = () => (
   <div className="block py-4 px-6 bg-off-main">
-    <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Ahmet ALMAZ</h1>
-    <p className="py-2 text-gray-700 dark:text-gray-400">Metalhead | Full Stack Developer</p>
-    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+    <h1 className="text-xl font-semibold">Ahmet ALMAZ</h1>
+    <p className="py-2">Metalhead | Full Stack Developer</p>
+    <div className="flex items-center mt-4">
       <BiBriefcase className="w-6 h-6" />
 
       <p className="px-2 text-base">Self-employed - available for hire</p>
     </div>
 
-    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+    <div className="flex items-center mt-4">
       <BiMap className="w-6 h-6" />
 
       <p className="px-2 text-base">
@@ -93,13 +93,13 @@ const ProfileInfo = () => (
       </p>
     </div>
 
-    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+    <div className="flex items-center mt-4">
       <BiEnvelope className="w-6 h-6" />
       <Link className="px-2 text-base" href={`mailto:${siteMetadata.email}`}>
         {siteMetadata.email}
       </Link>
     </div>
-    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+    <div className="flex items-center mt-4">
       <BiLinkExternal className="w-6 h-6" />
       <p className="px-2 text-base">
         <a target="_blank" href="https://github.com/music47ell" rel="noreferrer">

@@ -33,7 +33,7 @@ export const generateRSS = async () => {
       title: post.title,
       link: `${siteMetadata.siteUrl}/blog/${post.slug}`,
       description: post.description,
-      date: new Date(post.date),
+      date: new Date(post.published_at),
     })
   })
 

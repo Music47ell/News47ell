@@ -13,7 +13,7 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 
   const [shareSucceed, setShareSucceed] = useState(false)
   return (
-    <div className="pt-6 pb-6 text-sm text-center">
+    <div className="py-6 text-sm text-center">
       <button
         onClick={async () => {
           if (navigator.share) {

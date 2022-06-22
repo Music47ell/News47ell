@@ -17,6 +17,10 @@ export async function getStaticProps({ params }) {
   const { slug } = params
   const data = await getContentBySlugFrom('pages', slug)
 
+  if (!data) {
+    return { notFound: true }
+  }
+
   const author = await getAuthorByUserId(data.user_id)
 
   const content = data.content

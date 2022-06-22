@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .map((post: any) => ({
       id: post.id,
-      date: post.date,
+      published_at: post.published_at,
       updated_at: post.updated_at,
       title: post.title,
       slug: post.slug,

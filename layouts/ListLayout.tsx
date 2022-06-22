@@ -3,6 +3,7 @@ import Pagination from '@/components/blog/Pagination'
 import { useSFX } from '@/hooks/useSFX'
 import formatDate from '@/utils/formatDate'
 import { Layout } from 'lib/interfaces'
+import kebabCase from '@/utils/kebabCase'
 
 export default function ListLayout({
   title,
@@ -14,10 +15,8 @@ export default function ListLayout({
   const { playMouseClick } = useSFX()
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
-      <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 text-gray-900 dark:text-gray-100">
-        {title}
-      </h1>
+    <main className="container px-6 mx-auto max-w-3xl">
+      <h1 className="mb-8 font-serif text-4xl">{title}</h1>
       {displayPosts.map((post) => (
         <Link
           key={post.id}
@@ -37,10 +36,10 @@ export default function ListLayout({
               <div className="p-4 bg-gray-300 dark:bg-gray-700">
                 <div className="flex flex-wrap items-center space-x-2 text-sm">
                   <time
-                    dateTime={post.updated_at ? post.updated_at : post.date}
+                    dateTime={post.updated_at ? post.updated_at : post.published_at}
                     className="dt-edited text-muted"
                   >
-                    {formatDate(post.updated_at ? post.updated_at : post.date)}
+                    {formatDate(post.updated_at ? post.updated_at : post.published_at)}
                   </time>
                   <span>·</span>
                   <span>{post.category}</span>

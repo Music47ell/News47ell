@@ -23,7 +23,7 @@ export const getContentFrontMatter = async (from: string) => {
   })
 
   allFrontMatter.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
+    return new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
   })
 
   return allFrontMatter
@@ -42,7 +42,7 @@ export const getAllContentFrontMatter = async (from: string) => {
   })
 
   allFrontMatter.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
+    return new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
   })
 
   return allFrontMatter
@@ -94,10 +94,11 @@ export const getContentBySlugFrom = async (from: string, slug: string) => {
         description: frontmatter.description,
         slug: frontmatter.slug,
         published: frontmatter.published,
-        date: frontmatter.date,
+        published_at: frontmatter.published_at,
         cover_image: frontmatter.cover_image,
         category: frontmatter.category,
         tags: frontmatter.tags,
+        layout: frontmatter.layout,
         content: md,
       }
     }
@@ -215,7 +216,7 @@ export const getSearchResults = async (from: string, query: string) => {
   })
 
   searchResults.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
+    return new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
   })
 
   return searchResults
