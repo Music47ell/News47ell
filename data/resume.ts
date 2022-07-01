@@ -17,7 +17,7 @@ const resumeEN = {
     },
     {
       title: 'Back End',
-      description: 'C, C++, PHP, Node.js, Express.js',
+      description: 'C, C++, PHP, Python, Node.js, Express.js',
     },
     {
       title: 'Database',
@@ -57,6 +57,11 @@ const resumeEN = {
       title: 'Back End Development and APIs',
       provider: 'FreeCodeCamp',
       href: 'https://www.freecodecamp.org/certification/music47ell/back-end-development-and-apis',
+    },
+    {
+      title: 'Scientific Computing with Python',
+      provider: 'FreeCodeCamp',
+      href: 'https://www.freecodecamp.org/certification/music47ell/scientific-computing-with-python-v7',
     },
   ],
   jobs: [

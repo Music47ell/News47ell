@@ -72,31 +72,15 @@ export function useStatisticsStats() {
     count: c.y,
   })).length
 
-  const isMobile = Number(
-    data?.Devices?.filter((device) => device.x === 'tablet').map((device) => device.y)
+  const isMobile = data?.Devices?.filter((device) => device.x === 'mobile' || device.x === 'tablet')
+    .map((device) => device.y)
+    .reduce((a, b) => a + b, 0)
+
+  const isDesktop = data?.Devices?.filter(
+    (device) => device.x === 'desktop' || device.x === 'laptop'
   )
-  const isDesktop = Number(
-    data?.Devices?.filter((device) => device.x === 'desktop' || device.x === 'laptop').map(
-      (device) => device.y
-    )
-  )
-  const macintosh = Number(data?.OS?.filter((s) => s.x === 'Mac OS').map((s) => s.y))
-  const windows = Number(data?.OS?.filter((s) => s.x?.includes('Windows')).map((s) => s.y))
-  const linux = Number(data?.OS?.filter((s) => s.x?.includes('Linux')).map((s) => s.y))
-  const android = Number(data?.OS?.filter((s) => s.x?.includes('Android')).map((s) => s.y))
-  const ios = Number(data?.OS?.filter((s) => s.x?.includes('iOS')).map((s) => s.y))
-  const safari = Number(
-    data?.Browsers?.filter((browser) => browser.x?.includes('safari')).map((s) => s.y)
-  )
-  const chrome = Number(
-    data?.Browsers?.filter((browser) => browser.x?.includes('chrome')).map((s) => s.y)
-  )
-  const firefox = Number(
-    data?.Browsers?.filter((browser) => browser.x?.includes('firefox')).map((s) => s.y)
-  )
-  const edge = Number(
-    data?.Browsers?.filter((browser) => browser.x?.includes('edge')).map((s) => s.y)
-  )
+    .map((device) => device.y)
+    .reduce((a, b) => a + b, 0)
 
   return {
     stats: {
@@ -107,15 +91,6 @@ export function useStatisticsStats() {
       countries,
       isMobile,
       isDesktop,
-      macintosh,
-      windows,
-      linux,
-      android,
-      ios,
-      safari,
-      chrome,
-      edge,
-      firefox,
       isLoading: !error && !data,
       isError: error,
     },

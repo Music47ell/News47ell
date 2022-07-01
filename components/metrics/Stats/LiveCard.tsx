@@ -5,7 +5,7 @@ export default function LiveCard(): JSX.Element {
   const { active, isLoading } = useActiveStats()
 
   return (
-    <div className="flex relative flex-col p-4 w-full rounded border border-gray-200 dark:border-gray-500">
+    <div className="flex relative flex-col p-4 w-full rounded bg-off-main text-off-main">
       {isLoading ? (
         <LoadingSpinner />
       ) : (

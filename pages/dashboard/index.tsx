@@ -2,11 +2,6 @@ import { BiTerminal, BiMusic, BiFilm, BiBookmark } from 'react-icons/bi'
 import { default as Link } from '@/components/Link'
 
 import StatsLayout from '@/layouts/StatsLayout'
-import { LiveCard, ViewsCard } from '@/components/metrics/Stats'
-import { AllReactions, IndividualReactions } from '@/components/metrics/Reactions'
-import { CodeStatsCard } from '@/components/metrics/CodeStats'
-import { RaindropCountCard } from '@/components/metrics/Raindrop'
-import { TraktCard } from '@/components/metrics/Trakt'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import React from 'react'
@@ -22,7 +17,7 @@ export default function Stats(): JSX.Element {
       <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
         <div className="relative">
           <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Dashboard</h1>
-          <span className="text-2xl">(updated every 60 seconds)</span>
+          {/*<span className="text-2xl">(updated every 60 seconds)</span>*/}
         </div>
 
         <div className="flex flex-wrap">
@@ -61,20 +56,6 @@ export default function Stats(): JSX.Element {
                 </Link>
               </li>
             </ul>
-          </div>
-        </div>
-
-        <div>
-          <LiveCard />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-2 w-full">
-            <ViewsCard />
-            <AllReactions />
-            <CodeStatsCard />
-            <RaindropCountCard />
-          </div>
-          <div className="grid grid-cols-1 gap-2 my-1 w-full">
-            <IndividualReactions />
-            <TraktCard />
           </div>
         </div>
         <StatsLayout />
