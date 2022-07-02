@@ -1,9 +1,12 @@
+// scope=user-read-currently-playing%20 user-top-read%20user-read-recently-played
+
 const client_id = process.env.SPOTIFY_CLIENT_ID
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
@@ -44,6 +47,17 @@ export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken()
 
   return fetch(NOW_PLAYING_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const getRecentTracks = async () => {
+  const { access_token } = await getAccessToken()
+
+  return fetch(RECENT_TRACKS_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },

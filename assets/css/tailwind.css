@@ -76,8 +76,8 @@ kbd {
     --color-off-main: 249, 250, 251; /* gray-50 */ /* #f9fafb */
     --color-text-muted: 55, 65, 81; /* gray-700 */ /* #374551 */
     --color-text-muted-hover: 107, 114, 128; /* gray-500 */ /* #63686f */
-    --color-primary: 30, 64, 175; /* blue-800 */
-    --color-secondary: 59, 130, 246; /* blue-500 */
+    --color-primary: 174, 175, 175; /* blue-800 */ /* #aeafaf */
+    --color-secondary: 55, 55, 55; /* blue-500 */ /* #373737  */
   }
 
   [data-theme='dark'] {
@@ -93,10 +93,10 @@ kbd {
   [data-theme='solar'] {
     --color-main: 255, 241, 242; /* rose-50 */ /* #fff1f2 */
     --color-text-main: 26, 28, 35; /* gray-800 */ /* #1a1c23 */
-    --color-off-main: 255, 234, 236; /* rose-100 */ /* #ffecf0 */
+    --color-off-main: 229, 212, 216; /* rose-100 */ /* #e5d4d8 */
     --color-text-muted: 68, 64, 60; /* gray-700 */ /* #444c40 */
     --color-text-muted-hover: 120, 113, 108; /* gray-500 */ /* #7c716c */
-    --color-primary: 180, 83, 9; /* rose-800 */ /* #b44207 */
+    --color-primary: 153, 141, 144; /* rose-800 */ /* #998d90 */
     --color-secondary: 248, 113, 113; /* rose-400 */ /* #f87c7c */
   }
 
@@ -106,8 +106,8 @@ kbd {
     --color-off-main: 5, 150, 105; /* emerald-600 */ /* #059c6d */
     --color-text-muted: 240, 253, 244; /* green-50 */ /* #f0fcf4 */
     --color-text-muted-hover: 187, 247, 208; /* green-200 */ /* #bbf7d0 */
-    --color-primary: 156, 33, 5; /* amber-100 */ /* #9C2105 */
-    --color-secondary: 253, 230, 138; /* amber-300 */ /* #fde898 */
+    --color-primary: 20, 248, 179; /* amber-100 */ /* #14f8b3 */
+    --color-secondary: 5, 61, 44; /* amber-300 */ /* #053d2c */
   }
 
   [data-theme='dracula'] {
@@ -123,11 +123,11 @@ kbd {
   [data-theme='hackernews'] {
     --color-main: 246, 246, 239; /* gray-100 */ /* #f6f6ef */
     --color-text-main: 0, 0, 0; /* black */ /* #000 */
-    --color-off-main: 248, 248, 236; /* gray-200 */ /* #f8f8ec */
-    --color-text-muted: 130, 130, 130; /* gray-500 */ /* #828282 */
-    --color-text-muted-hover: 130, 130, 130; /* gray-500 */ /* #828282 */
+    --color-off-main: 130, 130, 130; /* gray-200 */ /* #f8f8ec */
+    --color-text-muted: 0, 0, 0; /* gray-500 */ /* #828282 */
+    --color-text-muted-hover: 248, 248, 236; /* gray-500 */ /* #828282 */
     --color-primary: 255, 102, 0; /* orange-500 */ /* #ff6600 */
-    --color-secondary: 245, 98, 0; /* orange-400 */ /* #f55c00 */
+    --color-secondary: 246, 246, 239; /* orange-400 */ /* #f55c00 */
   }
 
   .theme-gradient {
