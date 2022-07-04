@@ -202,7 +202,7 @@ export default function Stats() {
                             id="email"
                             name="email"
                             type="email"
-                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none"
+                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none text-primary"
                             placeholder="Enter your email"
                             required
                             value={email}
@@ -221,7 +221,7 @@ export default function Stats() {
                             id="message"
                             name="message"
                             onChange={(e) => setNote(e.target.value)}
-                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none"
+                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none text-primary"
                             placeholder="Enter your note"
                             required
                           />

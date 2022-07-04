@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       id: post.id,
       published_at: post.published_at,
       updated_at: post.updated_at,
+      description: post.description,
       title: post.title,
       slug: post.slug,
       category: post.category,
