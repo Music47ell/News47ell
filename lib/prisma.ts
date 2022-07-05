@@ -55,7 +55,7 @@ export const getTopReactions = async () => {
     title: slug
       .replace(/-/g, ' ')
       .replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase()),
-    slug,
+    slug: `/blog/${slug}`,
     total: likes,
   }))
 

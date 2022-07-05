@@ -8,33 +8,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const stats = await response.json()
 
-  const showsPosters = await Promise.all(
-    stats.map(async (show) => {
-      const id = show.show.ids.imdb
+  const ids = stats
+    .map((show) => show.show.ids.imdb)
+    .filter((show, index, self) => self.indexOf(show) === index)
+    .slice(0, 10)
+
+  const shows = await Promise.all(
+    ids.map(async (id) => {
       const tmdb = await getTMDB(id)
       const tmdbJson = await tmdb.json()
-      const posterPath = tmdbJson.tv_results[0]?.poster_path
+      const posterPath = tmdbJson.tv_results[0].poster_path
       const poster = `https://image.tmdb.org/t/p/original${posterPath}`
       const link = `https://www.imdb.com/title/${id}`
       return {
-        key: show.id,
+        key: id,
         id,
-        title: show.show.title,
+        title: tmdbJson.tv_results[0].name,
         poster,
         link,
       }
     })
   )
-
-  const shows = showsPosters
-    .filter((show) => !show.poster.includes('undefined'))
-    .filter(
-      (
-        (s) => (o) =>
-          ((k) => !s.has(k) && s.add(k))(['title', 'id'].map((k) => o[k]).join('|'))
-      )(new Set())
-    )
-    .slice(0, 10)
 
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
 

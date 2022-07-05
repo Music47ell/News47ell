@@ -48,8 +48,6 @@ export async function getStaticProps({ params }) {
     readingTime,
   }
 
-  console.log(frontMatter)
-
   const db = await getContentFrontMatter('posts')
   const posts = db.map((post) => ({
     title: post.title,

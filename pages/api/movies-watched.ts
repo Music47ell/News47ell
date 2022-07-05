@@ -8,25 +8,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const stats = await response.json()
 
-  const moviesPosters = await Promise.all(
-    stats.map(async (movie) => {
-      const id = movie.movie.ids.imdb
+  const ids = stats
+    .map((movie) => movie.movie.ids.imdb)
+    .filter((movie, index, self) => self.indexOf(movie) === index)
+    .slice(0, 10)
+
+  const movies = await Promise.all(
+    ids.map(async (id) => {
       const tmdb = await getTMDB(id)
       const tmdbJson = await tmdb.json()
       const posterPath = tmdbJson.movie_results[0].poster_path
       const poster = `https://image.tmdb.org/t/p/original${posterPath}`
       const link = `https://www.imdb.com/title/${id}`
       return {
-        key: movie.id,
+        key: id,
         id,
-        title: movie.movie.title,
+        title: tmdbJson.movie_results[0].title,
         poster,
         link,
       }
     })
   )
-
-  const movies = moviesPosters.filter((movie) => !movie.poster.includes('undefined')).slice(0, 10)
 
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
 
