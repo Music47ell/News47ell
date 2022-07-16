@@ -10,7 +10,6 @@ import { default as Link } from '@/components/Link'
 
 import { BiLoader, BiCheckCircle, BiInfoCircle } from 'react-icons/bi'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Admin({ user }): JSX.Element {
   const router = useRouter()
   const [posts, setPosts] = useState([])

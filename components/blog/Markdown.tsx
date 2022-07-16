@@ -3,7 +3,6 @@
 import ReactMarkdown, { Options } from 'react-markdown'
 import { default as Link } from '@/components/Link'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Markdown({ children }): JSX.Element {
   const customRenderers: Options['components'] = {
     p: ({ node, children }: { node: any; children: any }) => {

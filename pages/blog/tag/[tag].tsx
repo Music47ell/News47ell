@@ -7,7 +7,6 @@ import { getAllTags } from '@/lib/tags'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import kebabCase from '@/utils/kebabCase'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const tags = await getAllTags()
 
@@ -41,7 +40,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { posts, tag } }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Tag({ posts, tag }: InferGetStaticPropsType<typeof getStaticProps>) {
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)

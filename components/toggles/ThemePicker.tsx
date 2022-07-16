@@ -12,20 +12,22 @@ const themes = [
     title: 'Dark',
   },
   {
-    title: 'Solar',
-  },
-  {
-    title: 'Evergreen',
-  },
-  {
     title: 'Dracula',
   },
   {
     title: 'Hackernews',
   },
+  {
+    title: 'Nord',
+  },
+  {
+    title: 'Ferrari',
+  },
+  {
+    title: 'DOS',
+  },
 ]
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function ThemePicker({ open }) {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -39,7 +41,7 @@ export default function ThemePicker({ open }) {
 
   return (
     <div
-      className={`shadow-sm bg-off-main overflow-hidden absolute w-full transition-all  ${
+      className={`shadow-sm overflow-hidden absolute w-full bg-nfh-accent-secondary transition-all  ${
         open
           ? 'translate-y-0 duration-[400ms] ease-out'
           : '-translate-y-full duration-200 ease-in opacity-0'

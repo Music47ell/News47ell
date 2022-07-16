@@ -25,7 +25,7 @@ export default function Stats(): JSX.Element {
             <ul className="flex flex-row flex-wrap pt-3 pb-4 mb-0 list-none" role="tablist">
               <li className="flex-auto mr-2 last:mr-0 -mb-px text-center">
                 <Link
-                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg text-main bg-off-main"
+                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
                   href="/dashboard/codes"
                 >
                   <BiTerminal className="m-auto w-6 h-6" />
@@ -33,7 +33,7 @@ export default function Stats(): JSX.Element {
               </li>
               <li className="flex-auto mr-2 last:mr-0 -mb-px text-center">
                 <Link
-                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg text-main bg-off-main"
+                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
                   href="/dashboard/music"
                 >
                   <BiMusic className="m-auto w-6 h-6" />
@@ -42,7 +42,7 @@ export default function Stats(): JSX.Element {
               <li className="flex-auto mr-2 last:mr-0 -mb-px text-center">
                 <Link
                   href="/dashboard/shows"
-                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg text-main bg-off-main"
+                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
                 >
                   <BiFilm className="m-auto w-6 h-6" />
                 </Link>
@@ -50,7 +50,7 @@ export default function Stats(): JSX.Element {
               <li className="flex-auto mr-2 last:mr-0 -mb-px text-center">
                 <Link
                   href="/dashboard/bookmarks"
-                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg text-main bg-off-main"
+                  className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
                 >
                   <BiBookmark className="m-auto w-6 h-6" />
                 </Link>

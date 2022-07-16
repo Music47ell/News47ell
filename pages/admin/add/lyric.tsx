@@ -8,7 +8,6 @@ import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function AddLyric({ user }): JSX.Element {
   const router = useRouter()
 

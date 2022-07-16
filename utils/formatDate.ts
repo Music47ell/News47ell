@@ -1,6 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const formatDate = (date: string) => {
   const options: Intl.DateTimeFormatOptions = {
     hour: '2-digit',

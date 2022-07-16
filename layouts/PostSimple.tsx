@@ -29,7 +29,7 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time
                         dateTime={updated_at ? updated_at : published_at}
-                        className="text-muted"
+                        className="text-nfh-text-secondary"
                       >
                         {formatDate(updated_at ? updated_at : published_at)}
                       </time>

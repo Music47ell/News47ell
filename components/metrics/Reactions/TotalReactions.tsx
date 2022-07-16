@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function TotalReactions({ reactionsCount }) {
   return (
     <div className="flex items-center text-center rounded-lg">

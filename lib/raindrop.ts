@@ -1,6 +1,5 @@
 const { RAINDROP_ACCESS_TOKEN } = process.env
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getRaindropCount = async () => {
   if (RAINDROP_ACCESS_TOKEN === null || RAINDROP_ACCESS_TOKEN === undefined) {
     throw new Error(`No Raindrop API key found!`)
@@ -15,7 +14,6 @@ export const getRaindropCount = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getRaindropCollection = async (id: string, page: number) => {
   if (RAINDROP_ACCESS_TOKEN === null || RAINDROP_ACCESS_TOKEN === undefined) {
     throw new Error(`No Raindrop API key found!`)

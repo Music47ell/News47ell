@@ -92,9 +92,9 @@ export default function Chart(): JSX.Element {
       </div>
 
       {isLoading ? (
-        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 rounded opacity-75 animate-pulse bg-primary"></div>
+        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 bg-nfh-background-secondary rounded opacity-75 animate-pulse"></div>
       ) : (
-        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 rounded opacity-75 bg-primary">
+        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 bg-nfh-background-secondary rounded opacity-75">
           <CJS
             type="line"
             data={chartData}

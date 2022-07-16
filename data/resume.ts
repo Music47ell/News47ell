@@ -59,6 +59,11 @@ const resumeEN = {
       href: 'https://www.freecodecamp.org/certification/music47ell/back-end-development-and-apis',
     },
     {
+      title: 'Quality Assurance',
+      provider: 'FreeCodeCamp',
+      href: 'https://www.freecodecamp.org/certification/music47ell/quality-assurance-v7',
+    },
+    {
       title: 'Scientific Computing with Python',
       provider: 'FreeCodeCamp',
       href: 'https://www.freecodecamp.org/certification/music47ell/scientific-computing-with-python-v7',

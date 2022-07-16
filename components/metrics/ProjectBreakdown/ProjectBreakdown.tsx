@@ -34,7 +34,7 @@ const ProjectBreakdown = (): JSX.Element => {
         <div className="md:flex md:justify-between md:items-center">
           <p className="text-sm uppercase">SITE LINES BY LANGUAGE</p>
         </div>
-        <div className="p-4 space-y-2 w-full rounded bg-primary">
+        <div className="p-4 space-y-2 w-full bg-nfh-background-secondary rounded">
           {Object.keys(cards).map(function (item, index) {
             return (
               <PBStatsCard
@@ -47,18 +47,18 @@ const ProjectBreakdown = (): JSX.Element => {
             )
           })}
           <div className="flex justify-start items-center mb-2">
-            <div className="inline-block py-1 pr-2 text-xs font-semibold text-gray-600 uppercase">
+            <div className="inline-block py-1 pr-2 text-xs font-semibold text-nfh-text-primary uppercase">
               Others
             </div>
-            <div className="inline-block py-1 pr-2 text-xs font-semibold text-gray-600 uppercase">
+            <div className="inline-block py-1 pr-2 text-xs font-semibold text-nfh-text-primary uppercase">
               {remainingPct}% Other
             </div>
           </div>
-          <div className="flex overflow-hidden mb-4 h-4 text-xs text-gray-600 rounded">
+          <div className="flex overflow-hidden mb-4 h-4 text-xs text-nfh-text-primary rounded">
             <div
               style={{ width: `${remainingPct}%` }}
-              className="flex flex-col justify-center text-center text-white
-      whitespace-nowrap bg-gray-600 shadow-none"
+              className="flex flex-col justify-center text-center text-nfh-text-primary
+      whitespace-nowrap bg-nfh-background-primary shadow-none"
             ></div>
           </div>
         </div>

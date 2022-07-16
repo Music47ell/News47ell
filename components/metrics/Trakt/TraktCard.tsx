@@ -5,7 +5,7 @@ export default function TraktCard(): JSX.Element {
   const { showsWatched, showsMinutes, episodesWatched, moviesWatched, moviesMinutes, isLoading } =
     useTrakt()
   return (
-    <div className="p-4 w-full rounded border border-gray-200 dark:border-gray-500">
+    <div className="p-4 w-full rounded border border-nfh-accent-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (

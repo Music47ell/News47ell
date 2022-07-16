@@ -1,7 +1,6 @@
 import { useSettings } from '@/context/store'
 import useSound from 'use-sound'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useSFX = () => {
   const { soundEnabled } = useSettings()
 

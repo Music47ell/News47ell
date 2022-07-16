@@ -17,12 +17,12 @@ const AudioToggle = (): JSX.Element => {
         type="button"
         title={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
         aria-label={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
-        className="flex text-sm focus:outline-none"
+        className="h-8"
         id="volume-mode-switch"
         onClick={handleSounds}
       >
-        {soundEnabled === true ? <BiVolumeFull className="w-6 h-6" /> : null}
-        {soundEnabled === false ? <BiVolumeMute className="w-6 h-6" /> : null}
+        {soundEnabled === true ? <BiVolumeFull className="w-6 h-6 text-nfh-text-primary" /> : null}
+        {soundEnabled === false ? <BiVolumeMute className="w-6 h-6 text-nfh-text-primary" /> : null}
       </button>
     </>
   )

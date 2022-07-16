@@ -6,7 +6,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { default as Image } from '@/components/Image'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Stats() {
   const [selectedOption, setSelectedOption] = useState([])
   const [isRecommended, setIsRecommended] = useState(false)
@@ -112,7 +111,7 @@ export default function Stats() {
       <main className="container flex flex-col flex-1 px-3 mx-auto max-w-5xl">
         <Link
           href="/dashboard/music"
-          className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg bg-off-main"
+          className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
         >
           <BiLeftArrowAlt className="m-auto w-6 h-6" />
         </Link>
@@ -128,7 +127,7 @@ export default function Stats() {
             disabled={isRecommended}
             value={searchInput}
             id="search-input"
-            className="block pr-12 pl-7 w-full h-12 text-lg rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-primary"
+            className="block pr-12 pl-7 w-full h-12 text-lg placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-background-secondary rounded-md border-nfh-accent-primary focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
             placeholder="Search for any song, artist, or album"
           />
         </div>
@@ -175,7 +174,7 @@ export default function Stats() {
           selectedOption.map((song) => (
             <form key={song.uri}>
               <div className="py-12 mx-auto max-w-7xl">
-                <div className="justify-center mx-auto sm:w-full text-left align-bottom sm:align-middle rounded-lg transition-all transform bg-secondary">
+                <div className="justify-center mx-auto sm:w-full text-left align-bottom sm:align-middle bg-nfh-background-secondary rounded-lg transition-all transform">
                   <div className="grid flex-wrap grid-cols-1 lg:grid-cols-2 justify-center items-center mx-auto rounded-xl shadow-xl">
                     <div className="py-3 px-6 w-full">
                       <div>
@@ -188,7 +187,7 @@ export default function Stats() {
                           <div className="inline-flex items-center w-full">
                             <h3 className="text-lg lg:text-5xl font-bold leading-6">Note</h3>
                           </div>
-                          <div className="mt-4 text-base text-gray-500">
+                          <div className="mt-4 text-base">
                             <p>Why do you think this song is worth listening to? </p>
                           </div>
                         </div>
@@ -202,7 +201,7 @@ export default function Stats() {
                             id="email"
                             name="email"
                             type="email"
-                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none text-primary"
+                            className="block py-3 px-5 w-full text-base placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-accent-secondary rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
                             placeholder="Enter your email"
                             required
                             value={email}
@@ -221,7 +220,7 @@ export default function Stats() {
                             id="message"
                             name="message"
                             onChange={(e) => setNote(e.target.value)}
-                            className="block py-3 px-5 w-full text-base placeholder-gray-300 bg-gray-50 rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 transition duration-500 ease-in-out transform focus:outline-none text-primary"
+                            className="block py-3 px-5 w-full text-base placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-accent-secondary rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
                             placeholder="Enter your note"
                             required
                           />
@@ -232,14 +231,14 @@ export default function Stats() {
                             onClick={() => {
                               sendEmail(song)
                             }}
-                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-500 ease-in-out transform focus:outline-none"
+                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-nfh-text-primary bg-blue-600 hover:bg-blue-700 rounded-xl focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
                           >
                             Recommend
                           </button>
                           <button
                             type="button"
                             onClick={handleReset}
-                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-white bg-red-600 hover:bg-red-700 rounded-xl focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-500 ease-in-out transform focus:outline-none"
+                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-nfh-text-primary bg-red-600 hover:bg-red-700 rounded-xl focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
                           >
                             RESET
                           </button>

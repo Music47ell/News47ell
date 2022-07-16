@@ -8,7 +8,7 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
 
   return (
     <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
-      <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+      <ul className="divide-y divide-nfh-accent-primary">
         {posts.map((frontMatter) => {
           const { slug, linked, published_at, updated_at, title, description } = frontMatter
           return (
@@ -17,15 +17,15 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                 <div className="space-y-2">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dd className="text-base font-medium leading-6 text-nfh-text-primary">
                       <time
                         dateTime={updated_at ? updated_at : published_at}
-                        className="dt-edited text-muted"
+                        className="text-nfh-text-primary dt-edited"
                       >
                         {formatDate(updated_at ? updated_at : published_at)}
                       </time>
                     </dd>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"></dd>
+                    <dd className="text-base font-medium leading-6 text-nfh-text-primary"></dd>
                   </dl>
                   <div className="xl:col-span-3 space-y-5">
                     <div className="space-y-6">
@@ -33,7 +33,6 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                         <h2 className="text-2xl font-bold tracking-tight leading-8">
                           <Link
                             href={!linked ? `/blog/${slug}` : linked}
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             //@ts-ignore
                             onClick={playMouseClick}
                           >
@@ -41,14 +40,15 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                           </Link>
                         </h2>
                       </div>
-                      <div className="max-w-none p-summary text-muted">{description}</div>
+                      <div className="max-w-none text-nfh-text-primary p-summary">
+                        {description}
+                      </div>
                     </div>
                     <div className="text-base font-medium leading-6">
                       <Link
                         href={`/blog/${slug}`}
-                        className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                        className="text-nfh-text-secondary hover:text-nfh-text-primary"
                         aria-label={`Read "${title}"`}
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         //@ts-ignore
                         onClick={playMouseClick}
                       >

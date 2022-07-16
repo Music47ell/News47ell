@@ -38,15 +38,15 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
         authorDetails={author}
         {...frontMatter}
       />
-      <main className="relative px-6 mx-auto max-w-3xl lg:max-w-5xl">
+      <main className="relative px-6 my-8 mx-auto max-w-3xl">
         <div className="flex flex-col col-span-10 lg:col-span-7">
-          <div className="p-4 -mx-4 rounded md:border border-gray-600">
+          <div className="p-4 -mx-4 rounded md:border border-nfh-accent-primary">
             <article className="h-entry">
               <div className="space-y-1 text-center">
                 <dl className="space-y-10">
                   <div>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dd className="text-base font-medium leading-6">
                       <Link href={slug} className="u-url">
                         <time
                           dateTime={updated_at ? updated_at : published_at}
@@ -69,10 +69,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                   )}
                 </div>
               </div>
-              <div
-                className="divide-y divide-gray-200 dark:divide-gray-700"
-                style={{ gridTemplateRows: 'auto 1fr' }}
-              >
+              <div className="divide-y divide-nfh-accent-secondary">
                 <dl className="py-6">
                   <dt className="sr-only">Authors</dt>
                   <dd>
@@ -167,7 +164,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                         {prev && (
                           <div>
                             <h2 className="text-xs tracking-wide uppercase">Previous Article</h2>
-                            <div className="text-primary hover:text-secondary">
+                            <div>
                               <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                             </div>
                           </div>
@@ -175,7 +172,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                         {next && (
                           <div>
                             <h2 className="text-xs tracking-wide uppercase">Next Article</h2>
-                            <div className="text-primary hover:text-secondary">
+                            <div>
                               <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                             </div>
                           </div>
@@ -184,9 +181,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                     )}
                   </div>
                   <div className="pt-4 xl:pt-8">
-                    <Link href="/" className="text-primary hover:text-secondary">
-                      &larr; Return Home
-                    </Link>
+                    <Link href="/blog">&larr; Return to blog</Link>
                   </div>
                 </footer>
               </div>

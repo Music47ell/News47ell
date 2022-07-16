@@ -9,7 +9,6 @@ import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function AddPost({ user }): JSX.Element {
   const router = useRouter()
   const [loading, setLoading] = useState(false)

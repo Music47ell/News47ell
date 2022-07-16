@@ -12,14 +12,13 @@ export const getStaticProps: GetStaticProps<{ categories: Record<string, number>
   return { props: { categories } }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Tags({ categories }: InferGetStaticPropsType<typeof getStaticProps>) {
   const sortedCategories = Object.keys(categories).sort((a, b) => categories[b] - categories[a])
   return (
     <>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
       <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
-        <div className="flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center md:mt-24 md:space-x-6 divide-y md:divide-y-0 divide-gray-200 dark:divide-gray-700">
+        <div className="flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center my-8 md:space-x-6 divide-y md:divide-y-0 divide-gray-200 dark:divide-gray-700">
           <div className="pt-6 pb-8 md:space-y-5 space-x-2">
             <h1 className="md:px-6 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 md:border-r-2">
               Categories

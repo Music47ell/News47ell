@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req
 

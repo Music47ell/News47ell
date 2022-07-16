@@ -9,7 +9,6 @@ const hCard = (): JSX.Element => {
     if (photo) {
       window.addEventListener('deviceorientation', (e) => {
         const tiltLR = e.gamma
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         photo.style.transform = `rotate(${tiltLR * -1}deg)`
       })
@@ -17,7 +16,7 @@ const hCard = (): JSX.Element => {
   }
 
   return (
-    <div className="flex items-center p-2 mb-4 text-sm rounded-lg border border-primary text-muted h-card user-profile">
+    <div className="flex items-center p-2 mb-4 text-sm text-nfh-text-primary rounded-lg border border-nfh-accent-primary h-card user-profile">
       <Image
         className="u-photo"
         alt="Profile Photo"

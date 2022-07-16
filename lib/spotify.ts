@@ -11,7 +11,6 @@ const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getClientCredentialToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
@@ -25,7 +24,6 @@ export const getClientCredentialToken = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
@@ -42,7 +40,6 @@ export const getAccessToken = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken()
 
@@ -53,7 +50,6 @@ export const getNowPlaying = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getRecentTracks = async () => {
   const { access_token } = await getAccessToken()
 
@@ -64,7 +60,6 @@ export const getRecentTracks = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken()
 
@@ -75,7 +70,6 @@ export const getTopTracks = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getTracksUri = async () => {
   const response = await fetch(RECOMMEND_PLAYLIST_ENDPOINT, {
     headers: {

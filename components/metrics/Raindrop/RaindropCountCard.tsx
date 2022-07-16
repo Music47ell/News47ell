@@ -4,7 +4,7 @@ import { useRaindropStats } from '@/hooks/useRaindropStats'
 export default function RaindropCountCard(): JSX.Element {
   const { bookmarksCount, isLoading } = useRaindropStats()
   return (
-    <div className="p-4 w-full rounded border border-gray-200 dark:border-gray-500">
+    <div className="p-4 w-full rounded border border-nfh-accent-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (

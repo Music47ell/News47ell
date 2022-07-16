@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export const Turkiye = ({ className }): JSX.Element => {
   return (
     <svg

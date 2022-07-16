@@ -2,7 +2,6 @@
 import { getAuthorsSlugs, getContentFrontMatter, getAuthorBySlugFrom } from '@/lib/supabase'
 import AuthorLayout from '@/layouts/AuthorLayout'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const slugs = await getAuthorsSlugs()
   const paths = slugs.map((profile) => ({ params: { slug: JSON.stringify(profile.slug) } }))
@@ -12,7 +11,6 @@ export async function getStaticPaths() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStaticProps = async ({ params }) => {
   const slug: string = params?.slug as string
   const data = await getAuthorBySlugFrom(slug)
@@ -48,7 +46,6 @@ export const getStaticProps = async ({ params }) => {
   return { props: { author, posts }, revalidate: 10 }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Author({ author, posts }) {
   if (!author || !posts) return <div></div>
 

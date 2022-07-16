@@ -1,6 +1,5 @@
 import { BiLike } from 'react-icons/bi'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function LikeCount({ likeCount }) {
   return (
     <div className="flex items-center text-center rounded-lg">

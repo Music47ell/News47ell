@@ -1,7 +1,6 @@
 import { getRaindropCollection } from '@/lib/raindrop'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const page = 0
   const request = await getRaindropCollection(process.env.RAINDROP_COLLECTION, page)

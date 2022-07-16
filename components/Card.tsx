@@ -1,10 +1,9 @@
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Card = ({ title, description, imgSrc, href }): JSX.Element => (
   <div className="p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
-    <div className="overflow-hidden h-full rounded-md border-2 border-gray-200 dark:border-gray-700 border-opacity-60">
+    <div className="overflow-hidden h-full rounded-md border-2 border-nfh-accent-primary border-opacity-60">
       {href ? (
         <Link href={href} aria-label={`Link to ${title}`}>
           <Image

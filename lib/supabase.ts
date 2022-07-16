@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import matter from 'gray-matter'
 

@@ -15,7 +15,6 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Archive({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>

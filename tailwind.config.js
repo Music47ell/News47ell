@@ -1,15 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
-
-function withOpacity(variableName) {
-  return ({ opacityValue }) => {
-    if (opacityValue) {
-      return `rgba(var(${variableName}), ${opacityValue})`
-    }
-    return `rgb(var(${variableName}))`
-  }
-}
 
 module.exports = {
   experimental: {
@@ -18,27 +7,6 @@ module.exports = {
   content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx', './lib/**/*.ts'],
   theme: {
     extend: {
-      backgroundColor: {
-        main: withOpacity('--color-main'),
-        'off-main': withOpacity('--color-off-main'),
-        primary: withOpacity('--color-primary'),
-        secondary: withOpacity('--color-secondary'),
-        muted: withOpacity('--color-text-muted'),
-      },
-      textColor: {
-        main: withOpacity('--color-text-main'),
-        muted: withOpacity('--color-text-muted'),
-        'muted-hover': withOpacity('--color-text-muted-hover'),
-        primary: withOpacity('--color-primary'),
-        secondary: withOpacity('--color-secondary'),
-      },
-      borderColor: {
-        main: withOpacity('--color-text-main'),
-        muted: withOpacity('--color-text-muted'),
-        'muted-hover': withOpacity('--color-text-muted-hover'),
-        primary: withOpacity('--color-primary'),
-        secondary: withOpacity('--color-secondary'),
-      },
       spacing: {
         '9/16': '56.25%',
       },
@@ -52,8 +20,52 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.cyan,
-        gray: colors.neutral,
+        'nfh-background-primary': 'var(--background-primary)',
+        'nfh-background-secondary': 'var(--background-secondary)',
+        'nfh-text-primary': 'var(--text-primary)',
+        'nfh-text-secondary': 'var(--text-secondary)',
+        'nfh-accent-primary': 'var(--accent-primary)',
+        'nfh-accent-secondary': 'var(--accent-secondary)',
+        dracula: {
+          100: '#f8f8f2',
+          200: '#8be9fd',
+          300: '#bd93f9',
+          400: '#6272a4',
+          500: '#44475a',
+          600: '#282a36',
+        },
+        hackerNews: {
+          100: '#ffffff',
+          200: '#000000',
+          300: '#f6f6ef',
+          400: '#828282',
+          500: '#ff8c40',
+          600: '#ff6600',
+        },
+        nord: {
+          100: '#eceff4',
+          200: '#e5e9f0',
+          300: '#88c0d0',
+          400: '#81a1c1',
+          500: '#3b4252',
+          600: '#2e3440',
+        },
+        ferrari: {
+          100: '#ffffff',
+          200: '#f6f6ef',
+          300: '#000000',
+          400: '#fff200',
+          500: '#008c45',
+          600: '#cd212a',
+        },
+        dos: {
+          100: '#0000ff',
+          200: '#ffff00',
+          300: '#ff0000',
+          400: '#ff00ff',
+          500: '#000000',
+          600: '#c0c0c0',
+        },
       },
       animation: {
         'loading-0': 'loading 1.4s ease-in-out infinite',
@@ -64,9 +76,6 @@ module.exports = {
         'fade-out': 'fadeOut 5s ease-in-out',
         'slide-in': 'slide-in 0.2s ease-out',
         'slide-out': 'slide-out 0.2s ease',
-      },
-      ringColor: {
-        primary: withOpacity('--color-primary'),
       },
       keyframes: (theme) => ({
         fadeIn: {
@@ -90,44 +99,44 @@ module.exports = {
         theme: {
           css: [
             {
-              color: 'var(--color-text-mainmain)',
+              color: theme('colors.nfh-text-primary'),
               '[class~="lead"]': {
-                color: 'var(color-text-muted)',
+                color: theme('colors.nfh-text-secondary'),
               },
               a: {
-                color: theme('textColor.primary'),
+                color: theme('colors.nfh-accent-primary'),
                 transition: 'color 150ms ease',
                 '&:hover': {
-                  color: theme('textColor.muted-hover'),
+                  color: theme('colors.nfh-accent-secondary'),
                 },
                 textDecoration: 'none',
-                code: { color: theme('colors.primary.400') },
+                code: { color: theme('colors.nfh-text-primary') },
               },
               h1: {
                 fontWeight: '700',
                 letterSpacing: theme('letterSpacing.tight'),
-                color: 'var(--color-text-mainmain)',
+                color: theme('colors.nfh-accent-primary'),
               },
               h2: {
                 fontWeight: '700',
                 letterSpacing: theme('letterSpacing.tight'),
-                color: 'var(--color-text-mainmain)',
+                color: theme('colors.nfh-accent-primary'),
               },
               h3: {
                 fontWeight: '600',
-                color: 'var(--color-text-mainmain)',
+                color: theme('colors.nfh-accent-primary'),
               },
               'h4,h5,h6': {
-                color: 'var(--color-text-mainmain)',
+                color: theme('colors.nfh-accent-primary'),
               },
-              code: {
-                color: 'var(--color-text-mainmain)',
-              },
+              //code: {
+              //  color: theme('colors.nfh-accent-primary'),
+              //},
               pre: {
                 marginTop: 0,
                 borderRadius: theme('borderRadius.none'),
-                color: 'var(--color-text-muted)',
-                backgroundColor: theme('backgroundColor.off-main'),
+                color: theme('colors.nfh-text-secondary'),
+                backgroundColor: theme('colors.nfh-background-secondary'),
               },
               'code::before': {
                 content: 'none',
@@ -136,31 +145,31 @@ module.exports = {
                 content: 'none',
               },
               details: {
-                backgroundColor: theme('backgroundColor.off-main'),
+                backgroundColor: theme('colors.nfh-background-secondary'),
                 paddingLeft: '4px',
                 paddingRight: '4px',
                 paddingTop: '2px',
                 paddingBottom: '2px',
                 borderRadius: '0.25rem',
               },
-              hr: { borderColor: 'var(--color-text-muted)' },
+              hr: { borderColor: theme('colors.nfh-text-secondary') },
               'ol > li::before': {
                 fontWeight: '600',
-                color: 'var(--color-text-muted)',
+                color: theme('colors.nfh-text-secondary'),
               },
               'ul > li::before': {
-                backgroundColor: theme('textColor.primary'),
+                backgroundColor: theme('colors.nfh-text-primary'),
               },
-              strong: { color: 'var(--color-text-main)' },
-              dd: { color: 'var(--color-text-main)' },
+              strong: { color: theme('colors.nfh-text-primary') },
+              dd: { color: theme('colors.nfh-text-primary') },
               thead: {
                 th: {
-                  color: theme('colors.gray.100'),
+                  color: theme('colors.nfh-text-primary'),
                 },
               },
               blockquote: {
-                color: 'var(--color-text-muted)',
-                borderLeftColor: theme('colors.gray.600'),
+                color: theme('colors.nfh-text-secondary'),
+                borderLeftColor: theme('colors.nfh-accent-primary'),
               },
             },
           ],

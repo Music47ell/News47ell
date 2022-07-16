@@ -10,8 +10,8 @@ export default function Footer(): JSX.Element {
   const icons = [SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel]
 
   return (
-    <footer>
-      <div className="flex flex-col items-center mt-8">
+    <footer className="py-4 bg-nfh-background-secondary">
+      <div className="flex flex-col items-center">
         <nav>
           <ul className="flex flex-wrap justify-center">
             {siteMetadata.upperFooterLinks.map((link) => (
@@ -47,7 +47,7 @@ export default function Footer(): JSX.Element {
           {` `}
           {siteMetadata.altTitle}. ALL RIGHTS RESERVED.
         </div>
-        <div className="text-xs text-center text-muted">
+        <div className="text-xs text-center">
           Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
         </div>
         <div className="grid grid-cols-1">
@@ -57,7 +57,7 @@ export default function Footer(): JSX.Element {
         <div className="mt-4">
           <HCard />
         </div>
-        <div className="mb-4 text-center">
+        <div className="text-center">
           <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</a>
           An IndieWeb Webring 🕸💍
           <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</a>
