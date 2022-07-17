@@ -7,6 +7,7 @@ import { BiLoader } from 'react-icons/bi'
 import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function EditQuote({ user }): JSX.Element {
   const router = useRouter()
@@ -37,7 +38,6 @@ export default function EditQuote({ user }): JSX.Element {
     }
 
     const error = await getUpdateQuoteById(id, link, source, quote, user.id)
-    router.push(`/admin`)
 
     if (error) {
       console.error(error)
@@ -62,7 +62,7 @@ export default function EditQuote({ user }): JSX.Element {
         title={`Edit a quote - ${siteMetadata.title}`}
         description={siteMetadata.description}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         {user ? (
           <>
             <h1 className="mt-6 text-3xl font-semibold tracking-wide">Edit a quote</h1>
@@ -111,7 +111,7 @@ export default function EditQuote({ user }): JSX.Element {
         ) : (
           <BiLoader className="w-12 h-12 animate-spin" />
         )}
-      </main>
+      </SectionContainer>
     </>
   )
 }

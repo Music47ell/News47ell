@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
-
 import { useRouter } from 'next/router'
-
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-
 import { BiLoader } from 'react-icons/bi'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 const Login = (): JSX.Element => {
   const router = useRouter()
@@ -33,7 +31,7 @@ const Login = (): JSX.Element => {
   }, [router, user])
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+    <SectionContainer>
       {!user ? (
         <div className="flex flex-col justify-center items-center">
           <div className="w-full max-w-lg">
@@ -47,7 +45,7 @@ const Login = (): JSX.Element => {
                   Email
                 </label>
                 <input
-                  className="py-2 px-4 rounded-md focus:ring-2 focus:outline-none text-muted"
+                  className="py-2 px-4 text-nfh-text-primary bg-nfh-background-secondary rounded-md focus:ring-2 focus:outline-none"
                   type="email"
                   id="email"
                   value={email}
@@ -58,7 +56,7 @@ const Login = (): JSX.Element => {
                   Password
                 </label>
                 <input
-                  className="py-2 px-4 rounded-md focus:ring-2 focus:outline-none text-muted"
+                  className="py-2 px-4 text-nfh-text-primary bg-nfh-background-secondary rounded-md focus:ring-2 focus:outline-none"
                   type="password"
                   id="password"
                   value={password}
@@ -66,7 +64,7 @@ const Login = (): JSX.Element => {
                 />
 
                 <button
-                  className="py-3 px-6 mt-10 text-lg font-semibold text-white bg-green-500 rounded-md focus:ring-2 focus:outline-none"
+                  className="py-3 px-6 mt-10 text-lg font-semibold text-nfh-text-primary bg-nfh-accent-primary hover:bg-nfh-accent-secondary rounded-md focus:ring-2 focus:outline-none"
                   type="submit"
                 >
                   Sign in with Email
@@ -78,7 +76,7 @@ const Login = (): JSX.Element => {
       ) : (
         <BiLoader className="w-12 h-12 animate-spin" />
       )}
-    </main>
+    </SectionContainer>
   )
 }
 

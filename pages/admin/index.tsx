@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { withPageAuth, getUser } from '@supabase/supabase-auth-helpers/nextjs'
-
 import { getAllContentFrontMatter, getLyrics, getQuotes, getDelete } from '@/lib/supabase'
-
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import { default as Link } from '@/components/Link'
-
 import { BiLoader, BiCheckCircle, BiInfoCircle } from 'react-icons/bi'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Admin({ user }): JSX.Element {
   const router = useRouter()
@@ -72,7 +70,7 @@ export default function Admin({ user }): JSX.Element {
   return (
     <>
       <PageSEO title={`Admin - ${siteMetadata.title}`} description={siteMetadata.description} />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         {user ? (
           <>
             <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Posts</h1>
@@ -170,7 +168,7 @@ export default function Admin({ user }): JSX.Element {
         ) : (
           <BiLoader className="w-12 h-12 animate-spin" />
         )}
-      </main>
+      </SectionContainer>
     </>
   )
 }

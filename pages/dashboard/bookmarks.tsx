@@ -6,6 +6,7 @@ import { BookmarkCard } from '@/components/metrics/Raindrop/'
 import { useBookmarks } from '@/hooks/useBookmarks'
 import { default as Link } from '@/components/Link'
 import { RaindropCountCard } from '@/components/metrics/Raindrop'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Bookmarks(): JSX.Element {
   const { bookmarks, tags, isLoading } = useBookmarks()
@@ -34,7 +35,7 @@ export default function Bookmarks(): JSX.Element {
         title={`Bookmarks Dashboard - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
           <div className="relative">
             <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Bookmarks</h1>
@@ -80,7 +81,7 @@ export default function Bookmarks(): JSX.Element {
             ))}
           </>
         )}
-      </main>
+      </SectionContainer>
     </>
   )
 }

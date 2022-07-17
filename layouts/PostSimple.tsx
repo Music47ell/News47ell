@@ -52,9 +52,7 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
               <div className="xl:col-span-3 xl:row-span-2 xl:pb-0 divide-y divide-gray-200 dark:divide-gray-700">
-                <div className="pt-10 pb-8 max-w-none prose prose-theme">
-                  <Markdown>{content}</Markdown>
-                </div>
+                <Markdown>{content}</Markdown>
               </div>
               <ReactionsButton slug={slug} />
               <Share title={title} slug={slug} />

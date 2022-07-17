@@ -129,20 +129,11 @@ module.exports = {
               'h4,h5,h6': {
                 color: theme('colors.nfh-accent-primary'),
               },
-              //code: {
-              //  color: theme('colors.nfh-accent-primary'),
-              //},
               pre: {
-                marginTop: 0,
+                margin: 0,
+                padding: 0,
+                overflowX: 'revert',
                 borderRadius: theme('borderRadius.none'),
-                color: theme('colors.nfh-text-secondary'),
-                backgroundColor: theme('colors.nfh-background-secondary'),
-              },
-              'code::before': {
-                content: 'none',
-              },
-              'code::after': {
-                content: 'none',
               },
               details: {
                 backgroundColor: theme('colors.nfh-background-secondary'),

@@ -5,6 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllCategories } from '@/lib/categories'
 import kebabCase from '@/utils/kebabCase'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export const getStaticProps: GetStaticProps<{ categories: Record<string, number> }> = async () => {
   const categories = await getAllCategories()
@@ -17,7 +18,7 @@ export default function Tags({ categories }: InferGetStaticPropsType<typeof getS
   return (
     <>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         <div className="flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center my-8 md:space-x-6 divide-y md:divide-y-0 divide-gray-200 dark:divide-gray-700">
           <div className="pt-6 pb-8 md:space-y-5 space-x-2">
             <h1 className="md:px-6 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 md:border-r-2">
@@ -41,7 +42,7 @@ export default function Tags({ categories }: InferGetStaticPropsType<typeof getS
             })}
           </div>
         </div>
-      </main>
+      </SectionContainer>
     </>
   )
 }

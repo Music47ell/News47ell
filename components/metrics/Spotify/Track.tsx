@@ -1,32 +1,44 @@
 import { default as Image } from '@/components/Image'
 import { Song } from 'lib/types'
+import { BiPlayCircle, BiPauseCircle } from 'react-icons/bi'
 
 export default function Track(track: Song): JSX.Element {
   return (
-    <div className="flex flex-row py-4 w-full border-b">
-      <p className="items-baseline text-sm font-bold">{track.ranking}</p>
-      <div className="pl-3">
+    <div className="flex items-center p-2 rounded-md border border-nfh-accent-primary">
+      <div className="hidden sm:grid flex-none place-content-center mr-6 w-5 text-sm text-gray-500">
+        {track.ranking}
+      </div>
+
+      <div className="relative flex-none w-32 h-32">
         <Image
-          src={track.albumImage}
-          width={100}
-          height={100}
-          alt={track.album}
+          draggable={false}
+          className="rounded"
+          width={128}
+          height={128}
           title={track.album}
+          alt={track.album}
+          src={track.albumImage}
         />
       </div>
-      <div className="flex flex-col pl-3">
-        <a
-          className="w-60 sm:w-96 md:w-full font-medium truncate"
-          href={track.songUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {track.title}
-        </a>
-        <p className="mb-4 w-60 sm:w-96 md:w-full truncate" color="gray.500">
-          {track.artist}
-        </p>
+
+      <div className="mr-2 ml-4">
+        <div className="text-base font-medium text-black">{track.title}</div>
+        <div className="-mt-1 text-sm text-gray-600">{track.artist}</div>
       </div>
+
+      {track.audioUrl ? (
+        <button
+          onClick={track.onToggle}
+          className="ml-auto text-gray-800 hover:scale-105"
+          aria-label={track.isPlaying ? 'Pause Button' : 'Play Button'}
+        >
+          {track.isPlaying ? (
+            <BiPauseCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+          ) : (
+            <BiPlayCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+          )}
+        </button>
+      ) : null}
     </div>
   )
 }

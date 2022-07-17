@@ -4,6 +4,7 @@ import { default as Link } from '@/components/Link'
 import toast from 'react-hot-toast'
 import { default as Image } from '@/components/Image'
 import { getGravatar } from '@/utils/getGravatar'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Account({ user }): JSX.Element {
   const [loading, setLoading] = useState(false)
@@ -74,7 +75,7 @@ export default function Account({ user }): JSX.Element {
   }, [user])
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+    <SectionContainer>
       <div className="md:col-span-2 mt-5 md:mt-0">
         <div className="overflow-hidden sm:rounded-md shadow">
           <div className="sm:p-6 py-5 px-4 bg-nfh-background-secondary">
@@ -229,7 +230,7 @@ export default function Account({ user }): JSX.Element {
           </div>
         </div>
       </div>
-    </main>
+    </SectionContainer>
   )
 }
 

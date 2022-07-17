@@ -2,12 +2,13 @@ import { default as Link } from '@/components/Link'
 import { useSFX } from '@/hooks/useSFX'
 import formatDate from '@/utils/formatDate'
 import { Layout } from 'lib/interfaces'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function ArchiveLayout({ posts }: Layout): JSX.Element {
   const { playMouseClick } = useSFX()
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+    <SectionContainer>
       <ul className="divide-y divide-nfh-accent-primary">
         {posts.map((frontMatter) => {
           const { slug, linked, published_at, updated_at, title, description } = frontMatter
@@ -62,6 +63,6 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
           )
         })}
       </ul>
-    </main>
+    </SectionContainer>
   )
 }

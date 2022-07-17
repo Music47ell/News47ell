@@ -2,6 +2,7 @@ import { BiEnvelope } from 'react-icons/bi'
 import { SiTwitter } from 'react-icons/si'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 import { Authors } from 'lib/interfaces'
 
@@ -11,7 +12,7 @@ export default function AuthorLayout({ author, posts }: Authors): JSX.Element {
   const { name, bio, email, twitter } = author
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+    <SectionContainer>
       <div className="xl:grid xl:grid-cols-3 xl:gap-x-8 items-start pb-8 space-y-2 xl:space-y-0">
         <div className="flex flex-col items-center pt-8 space-x-2">
           <Image
@@ -42,6 +43,6 @@ export default function AuthorLayout({ author, posts }: Authors): JSX.Element {
           ))}
         </div>
       </div>
-    </main>
+    </SectionContainer>
   )
 }

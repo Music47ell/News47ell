@@ -1,11 +1,9 @@
-import { ISectionContainer } from 'lib/interfaces'
-
-export default function SectionContainer({ children }: ISectionContainer): JSX.Element {
+const SectionContainer = ({ children }) => {
   return (
-    <main className="container grid relative grid-cols-10 gap-8 px-6 mx-auto max-w-3xl lg:max-w-5xl">
-      <div className="flex flex-col col-span-10 lg:col-span-7">
-        <div className="p-4 rounded md:border border-gray-600">{children}</div>
-      </div>
+    <main className="container flex flex-col flex-1 gap-y-5 px-3 my-8 mx-auto max-w-5xl">
+      {children}
     </main>
   )
 }
+
+export default SectionContainer

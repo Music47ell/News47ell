@@ -38,7 +38,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
         authorDetails={author}
         {...frontMatter}
       />
-      <main className="relative px-6 my-8 mx-auto max-w-3xl">
+      <main className="relative px-6 my-8 sm:mx-auto max-w-3xl">
         <div className="flex flex-col col-span-10 lg:col-span-7">
           <div className="p-4 -mx-4 rounded md:border border-nfh-accent-primary">
             <article className="h-entry">

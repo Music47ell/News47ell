@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { MoviesWatched, ShowsWatched } from '@/components/metrics/Trakt'
 import { TraktCard } from '@/components/metrics/Trakt'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Shows(): JSX.Element {
   return (
@@ -12,7 +13,7 @@ export default function Shows(): JSX.Element {
         title={`Music Dashboard - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
           <div className="relative">
             <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Shows</h1>
@@ -31,7 +32,7 @@ export default function Shows(): JSX.Element {
         <MoviesWatched />
         <p className="mb-4">List of recent 10 tv shows I've watched</p>
         <ShowsWatched />
-      </main>
+      </SectionContainer>
     </>
   )
 }
