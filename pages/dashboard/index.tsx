@@ -16,7 +16,7 @@ export default function Stats(): JSX.Element {
       />
       <SectionContainer>
         <div className="md:flex md:justify-between md:items-center">
-          <h3 className="text-2xl font-bold tracking-tight leading-8">Dashboard</h3>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-xs">updated every 60 seconds</p>
         </div>
 

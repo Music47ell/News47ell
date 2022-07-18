@@ -15,8 +15,9 @@ export default function Shows(): JSX.Element {
       />
       <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="relative">
-            <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Shows</h1>
+          <div className="md:flex md:justify-between md:items-center">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Movie & TV show stats</h1>
+            <p className="text-xs">Powered by Trakt & TMDB API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
@@ -28,9 +29,9 @@ export default function Shows(): JSX.Element {
           </div>
           <TraktCard />
         </div>
-        <p className="mb-4">List of recent 10 movies I've watched</p>
+        <p>List of recent 10 movies I've watched</p>
         <MoviesWatched />
-        <p className="mb-4">List of recent 10 tv shows I've watched</p>
+        <p>List of recent 10 tv shows I've watched</p>
         <ShowsWatched />
       </SectionContainer>
     </>

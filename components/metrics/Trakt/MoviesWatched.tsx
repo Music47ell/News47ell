@@ -11,7 +11,7 @@ export default function MoviesWatched(): JSX.Element {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-4 pb-8 text-sm">
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
       {data.movies.map((movie, index) => (
         <Release ranking={`Movie-number-${index + 1}`} key={movie.id} {...movie} />
       ))}

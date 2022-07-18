@@ -14,8 +14,9 @@ export default function Music(): JSX.Element {
       />
       <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="relative">
-            <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Music</h1>
+          <div className="md:flex md:justify-between md:items-center">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-8">Music</h1>
+            <p className="text-xs">Powered by Spotify API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
@@ -33,9 +34,9 @@ export default function Music(): JSX.Element {
             </Link>
           </div>
         </div>
-        <p className="mb-4">The 10 recent tracks I listened to.</p>
+        <h3 className="text-2xl font-bold tracking-tight leading-8">Most Recent Tracks</h3>
         <RecentTracks />
-        <p className="mb-4">My daily updated top headbanging tracks.</p>
+        <h3 className="text-2xl font-bold tracking-tight leading-8">Daily Top Tracks</h3>
         <TopTracks />
       </SectionContainer>
     </>

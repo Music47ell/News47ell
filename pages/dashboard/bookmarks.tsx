@@ -37,8 +37,9 @@ export default function Bookmarks(): JSX.Element {
       />
       <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="relative">
-            <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Bookmarks</h1>
+          <div className="md:flex md:justify-between md:items-center">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Bookmarks</h1>
+            <p className="text-xs">Powered by Raindrop API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
