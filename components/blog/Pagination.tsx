@@ -9,7 +9,7 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="pt-5 pb-5 space-y-2 md:space-y-5 border-t border-b border-gray-200 dark:border-gray-700">
+    <div className="pt-5 pb-5 space-y-2 md:space-y-5 border-t border-b border-nfh-accent-primary">
       <nav className="flex justify-between">
         {!prevPage && (
           <button
@@ -23,7 +23,6 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
         {prevPage && (
           <Link
             href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
             onClick={playPageTurn}
           >
@@ -43,7 +42,6 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
           </button>
         )}
         {nextPage && (
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           //@ts-ignore
           <Link href={`/blog/page/${currentPage + 1}`} onClick={playPageTurn}>
             <button rel="next">Next</button>

@@ -19,14 +19,14 @@ const LyricsOverlay: FC<Props> = ({ citation }: Props) => {
           {lyric.lyric.split('\n').map((text, index) => (
             <p
               key={index}
-              className="md:my-0 mt-4 mb-2 text-xl md:text-2xl font-medium leading-none text-gray-900 dark:text-gray-300"
+              className="md:my-0 mt-4 mb-2 text-xl md:text-2xl font-medium leading-none text-nfh-text-primary"
             >
               {text.trim()}
             </p>
           ))}
           <div className="pb-4">
-            <p className="text-base text-right text-gray-700 dark:text-gray-300">{lyric.band}</p>
-            <p className="text-base text-right text-gray-700 dark:text-gray-300">{lyric.song}</p>
+            <p className="text-base text-right text-nfh-text-primary">{lyric.band}</p>
+            <p className="text-base text-right text-nfh-text-primary">{lyric.song}</p>
           </div>
         </div>
       </div>

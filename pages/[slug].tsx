@@ -2,7 +2,6 @@
 import { getSlugsFrom, getContentBySlugFrom, getAuthorByUserId } from '@/lib/supabase'
 import PageLayout from '@/layouts/PageLayout'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const slugs = await getSlugsFrom('pages')
   const paths = slugs.map((slug) => ({ params: { slug: slug } }))
@@ -12,7 +11,6 @@ export async function getStaticPaths() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticProps({ params }) {
   const { slug } = params
   const data = await getContentBySlugFrom('pages', slug)
@@ -42,7 +40,6 @@ export async function getStaticProps({ params }) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Page({ frontMatter, content }) {
   if (!frontMatter || !content) return <div></div>
 

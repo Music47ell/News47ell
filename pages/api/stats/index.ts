@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getStats, getMetrics, getYesterdaysStats } from '@/lib/analytics'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { pageviews, uniques } = await getStats()
   const { pageviews: yesterdaysPageviews, uniques: yesterdaysUniques } = await getYesterdaysStats()

@@ -72,7 +72,6 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
@@ -87,7 +86,6 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
@@ -113,7 +111,6 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const BlogSEO = ({
   authorDetails,
   title,

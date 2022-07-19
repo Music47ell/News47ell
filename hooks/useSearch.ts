@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
 

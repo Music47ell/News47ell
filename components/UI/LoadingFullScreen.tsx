@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function LoadingFullScreen() {
   return (
     <div className="flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 justify-center items-center px-4 backdrop-filter backdrop-blur outline-none focus:outline-none">

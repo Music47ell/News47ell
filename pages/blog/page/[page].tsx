@@ -44,7 +44,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function PostPage({
   posts,
   pagination,

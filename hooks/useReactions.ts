@@ -10,7 +10,6 @@ import {
 } from '@/lib/types'
 import fetcher from '@/lib/fetcher'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useDashboardReactions() {
   const { data, error } = useSWR<Reactions>(`/api/reactions`, fetcher)
   const totalLikes = Number(data?.like_count)

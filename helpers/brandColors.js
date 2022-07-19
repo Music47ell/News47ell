@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin')
 
 const colors = {
@@ -29,7 +28,7 @@ const colors = {
   google: '#4285f4',
   hackernews: '#ff4000',
   html: '#e34f26',
-  javascript: 'F7DF1E',
+  javascript: '#F7DF1E',
   instagram: '#e1306c',
   linux: '#FCC624',
   linkedin: '#0077b5',
@@ -38,11 +37,11 @@ const colors = {
   netflix: '#e50914',
   netlify: '#01ac9e',
   openvpn: '#ff9100',
-  pinterest: 'e60023',
+  pinterest: '#e60023',
   pocket: '#ef4056',
   react: '#00d8ff',
   reddit: '#ff4500',
-  rss: 'f26522',
+  rss: '#f26522',
   serverless: '#fd544f',
   shopify: '#96bf48',
   skype: '#00aff0',

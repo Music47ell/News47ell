@@ -126,10 +126,13 @@ export type Response<T> = T | Error
 export type Song = {
   ranking: number
   songUrl: string
-  title: string
+  audioUrl: string
   artist: string
+  title: string
   album: string
   albumImage: string
+  isPlaying: boolean
+  onToggle: () => void
 }
 
 export type StatsCard = {
@@ -179,6 +182,7 @@ export type Tracks = {
 
 export type Track = {
   songUrl: string
+  audioUrl: string
   artist: string
   title: string
   album: string

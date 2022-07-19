@@ -2,7 +2,6 @@ import { BiLike, BiDislike } from 'react-icons/bi'
 import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
 import { LoadingDots } from '@/components/UI/LoadingDots'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ReactionsButton = ({ slug }) => {
   const { likes, userLikes, toggleUserLike, isLoadingLikes } = useSlugReactionsLike(slug)
   const { dislikes, userDislikes, toggleUserDislike, isLoadingDislikes } =
@@ -41,8 +40,8 @@ const ReactionsButton = ({ slug }) => {
           <div
             role="button"
             className={`${
-              userLikes === true ? 'bg-off-main' : 'bg-main'
-            } flex-1 py-4 flex flex-col items-center hover:bg-off-main`}
+              userLikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
+            } flex-1 py-4 flex flex-col items-center hover:bg-nfh-background-secondary`}
             onClick={handleLike}
           >
             <span className="text-4xl">
@@ -54,8 +53,8 @@ const ReactionsButton = ({ slug }) => {
           <div
             role="button"
             className={`${
-              userDislikes === true ? 'bg-off-main' : 'bg-main'
-            } flex-1 py-4 flex flex-col items-center hover:bg-off-main`}
+              userDislikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
+            } flex-1 py-4 flex flex-col items-center hover:bg-nfh-background-secondary`}
             onClick={handleDislike}
           >
             <span className="text-4xl">

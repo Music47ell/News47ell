@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Link from 'next/link'
 import pkg from 'github-slugger'
 const { slug } = pkg
@@ -22,8 +21,8 @@ const BlogToc = ({ blocks }: { blocks: any }) => {
     return (
       <aside className="hidden lg:inline-block md:sticky md:top-12 col-span-3 md:self-start space-y-8 w-full">
         <div className="p-4 rounded border border-gray-600">
-          <h1 className="font-bold leading-8 text-primary">Table of contents</h1>
-          <p className="leading-6 text-secondary">
+          <h1 className="font-bold leading-8 text-nfh-text-primary">Table of contents</h1>
+          <p className="leading-6 text-nfh-text-secondary">
             There is no table of contents. Here is a cookie. 🍪
           </p>
         </div>
@@ -43,7 +42,7 @@ const BlogToc = ({ blocks }: { blocks: any }) => {
   return (
     <aside className="hidden lg:inline-block md:sticky md:top-12 col-span-3 md:self-start space-y-8 w-full">
       <div className="p-4 rounded border border-gray-600">
-        <h1 className="font-bold leading-8 text-primary">Table of contents</h1>
+        <h1 className="font-bold leading-8 text-nfh-text-primary">Table of contents</h1>
         <ul className="list-disc list-inside">
           {nestedHeadings.map((h: headingType) => (
             <Link href={`#${slug(h.text)}`} key={h.id} passHref>

@@ -2,7 +2,6 @@
 import kebabCase from '@/utils/kebabCase'
 import { getCategories } from '@/lib/supabase'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getAllCategories() {
   const allCategories = (await getCategories()).map((post) => ({
     category: post.category,

@@ -4,7 +4,7 @@ import { useDashboardViews } from '@/hooks/useStats'
 export default function ViewsCard(): JSX.Element {
   const { views, isLoading } = useDashboardViews()
   return (
-    <div className="p-4 w-full rounded border border-gray-200 dark:border-gray-500">
+    <div className="flex relative flex-col p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
       {isLoading ? (
         <LoadingSpinner />
       ) : (

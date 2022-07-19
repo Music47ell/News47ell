@@ -54,7 +54,7 @@ const ProfileCard = (): JSX.Element => {
       >
         <div
           style={style}
-          className="flex flex-col shadow-lg transition-all duration-200 ease-out lg:shadow-cyan-100 lg:dark:shadow-cyan-700"
+          className="flex flex-col shadow-lg transition-all duration-200 ease-out lg:shadow-nfh-accent-primary"
         >
           <div className="flex">
             <Image
@@ -67,7 +67,7 @@ const ProfileCard = (): JSX.Element => {
             />
           </div>
           <ProfileInfo />
-          <span className="h-1.5 bg-gradient-to-r from-green-500 via-red-500 to-gray-900"></span>
+          <span className="h-1.5 bg-gradient-to-r from-nfh-accent-primary via-nfh-background-secondary to-nfh-accent-primary"></span>
         </div>
       </div>
     </>
@@ -75,7 +75,7 @@ const ProfileCard = (): JSX.Element => {
 }
 
 const ProfileInfo = () => (
-  <div className="block py-4 px-6 bg-off-main">
+  <div className="block py-4 px-6 bg-nfh-background-secondary">
     <h1 className="text-xl font-semibold">Ahmet ALMAZ</h1>
     <p className="py-2">Metalhead | Full Stack Developer</p>
     <div className="flex items-center mt-4">

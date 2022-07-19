@@ -2,7 +2,6 @@ import { getAccessToken } from '@/lib/spotify'
 
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(
   req: { body: string; query: { uri: string } },
   res: { statusCode: number; end: () => void }

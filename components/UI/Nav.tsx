@@ -19,7 +19,6 @@ import { getGravatar } from '@/utils/getGravatar'
 import { default as Image } from '@/components/Image'
 import { useClickOutside } from '@/hooks/useClickOutside'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Nav = ({ pickerOpen, setPickerOpen }) => {
   const [firstName, setFirstName] = useState<string | null>(null)
   const [navShow, setNavShow] = useState(false)
@@ -81,15 +80,16 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   }, [user])
 
   return (
-    <nav>
+    <nav className="bg-nfh-background-secondary">
       <div className="flex relative justify-between items-center h-16">
         <div className="flex absolute inset-y-0 left-0 items-center pl-4 sm:pl-8">
-          <button
-            className="inline-flex justify-center items-center focus:outline-none"
-            onClick={onToggleNav}
-          >
+          <button className="inline-flex justify-center items-center" onClick={onToggleNav}>
             <span className="sr-only">Open main menu</span>
-            {navShow ? <BiX className="block w-6 h-6" /> : <BiMenu className="block w-6 h-6" />}
+            {navShow ? (
+              <BiX className="block w-6 h-6 text-nfh-text-primary" />
+            ) : (
+              <BiMenu className="block w-6 h-6 text-nfh-text-primary" />
+            )}
           </button>
         </div>
         <div className="justify-center items-center m-auto">
@@ -101,8 +101,8 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
         <div className="flex absolute inset-y-0 right-0 items-center pr-4 sm:pr-8">
           <div className="relative ml-3">
             <span className="sr-only">Toggle Search</span>
-            <Link href="/blog/search" className="">
-              <BiSearchAlt2 className="w-6 h-6" />
+            <Link href="/blog/search">
+              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary" />
             </Link>
           </div>
           <div className="relative ml-3">
@@ -114,12 +114,12 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
             <button
               aria-label="toggle theme picker"
               onClick={() => setPickerOpen(!pickerOpen)}
-              className="h-8 transition-colors hover:text-muted-hover"
+              className="h-8"
             >
               {pickerOpen ? (
-                <BiArrowFromBottom className="w-6 h-6" />
+                <BiArrowFromBottom className="w-6 h-6 text-nfh-text-primary" />
               ) : (
-                <BiArrowFromTop className="w-6 h-6" />
+                <BiArrowFromTop className="w-6 h-6 text-nfh-text-primary" />
               )}
             </button>
           </div>
@@ -127,7 +127,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
             <div className="relative ml-3">
               <div>
                 <button
-                  className="flex text-sm bg-gray-800 rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
+                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
                   onClick={onToggleUserNav}
                 >
                   <span className="sr-only">Open user menu</span>
@@ -144,62 +144,60 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
                 ref={ref}
                 className={
                   userNavShow
-                    ? 'absolute right-0 py-1 mt-2 w-48 bg-white rounded-md ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right focus:outline-none z-10'
+                    ? 'absolute right-0 py-1 mt-2 w-48 bg-nfh-background-secondary rounded-md ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right focus:outline-none z-10'
                     : 'hidden '
                 }
               >
                 <div className="flex justify-between items-center py-2 px-4">
-                  <p className="text-sm font-medium text-gray-700">
-                    Welcome back {user ? firstName : 'Guest'}
-                  </p>
+                  <p className="text-sm font-medium">Welcome back {user ? firstName : 'Guest'}</p>
                 </div>
                 {user && (
                   <>
                     <li>
                       <Link href="/admin" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Admin Dashboard
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/admin/add/post" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Add Post
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/admin/add/page" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Add Page
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/admin/add/lyric" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Add Lyric
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/admin/add/quote" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Add Quote
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/account" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Account Settings
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/api/auth/logout" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">
+                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
                           Sign out
                         </span>
                       </Link>
@@ -212,7 +210,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
         </div>
       </div>
 
-      <div className={navShow ? 'block border-b border-t' : 'hidden'}>
+      <div className={navShow ? 'block border-b border-t border-nfh-accent-primary' : 'hidden'}>
         <nav className="grid sm:block sm:grid-cols-2 gap-2 my-4 text-left sm:text-center">
           {siteMetadata.headerNavLinks.map((item, idx) => {
             const Icon = icons[idx]
@@ -220,7 +218,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
               <Link
                 href={item.href}
                 key={item.href}
-                className="py-2 px-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+                className="py-2 px-3 text-sm font-medium text-nfh-text-primary hover:text-nfh-text-secondary hover:bg-nfh-accent-primary rounded-md"
                 onClick={onToggleNav}
               >
                 <Icon className="inline mr-1 w-6 h-6" />

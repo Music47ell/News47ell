@@ -8,7 +8,6 @@ import {
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const slugs = await getSlugsFrom('posts')
   const paths = slugs.map((slug) => ({ params: { slug: slug } }))
@@ -19,7 +18,6 @@ export async function getStaticPaths() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticProps({ params }) {
   const { slug } = params as { slug: string }
   const data = await getContentBySlugFrom('posts', slug)
@@ -71,7 +69,6 @@ export async function getStaticProps({ params }) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Post({ frontMatter, content, next, prev }) {
   const router = useRouter()
   if (router.isFallback) {

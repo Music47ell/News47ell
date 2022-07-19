@@ -2,7 +2,6 @@ const { UMAMI_TOKEN } = process.env
 
 const ANALYTICS_ENDPOINT = 'https://stats.news47ell.com/api'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getActive = async () => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)
@@ -18,7 +17,6 @@ export const getActive = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStats = async () => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)
@@ -39,7 +37,6 @@ export const getStats = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getYesterdaysStats = async () => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)
@@ -61,7 +58,6 @@ export const getYesterdaysStats = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getTopSlug = async () => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)
@@ -82,7 +78,6 @@ export const getTopSlug = async () => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getSlugStats = async (slug: string) => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)
@@ -105,7 +100,6 @@ export const getSlugStats = async (slug: string) => {
   return response.json()
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getMetrics = async (type: string) => {
   if (UMAMI_TOKEN === null) {
     throw new Error(`No Umami API key found!`)

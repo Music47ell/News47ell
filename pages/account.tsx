@@ -4,8 +4,8 @@ import { default as Link } from '@/components/Link'
 import toast from 'react-hot-toast'
 import { default as Image } from '@/components/Image'
 import { getGravatar } from '@/utils/getGravatar'
+import SectionContainer from '@/components/UI/SectionContainer'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Account({ user }): JSX.Element {
   const [loading, setLoading] = useState(false)
   const [username, setUsername] = useState<string | null>(null)
@@ -75,13 +75,16 @@ export default function Account({ user }): JSX.Element {
   }, [user])
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+    <SectionContainer>
       <div className="md:col-span-2 mt-5 md:mt-0">
         <div className="overflow-hidden sm:rounded-md shadow">
-          <div className="sm:p-6 py-5 px-4 bg-white">
+          <div className="sm:p-6 py-5 px-4 bg-nfh-background-secondary">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="first-name"
+                  className="block text-sm font-medium text-nfh-text-primary"
+                >
                   First name
                 </label>
                 <input
@@ -89,14 +92,17 @@ export default function Account({ user }): JSX.Element {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="block mt-1 w-full sm:text-sm rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm text-muted"
+                  className="block mt-1 w-full sm:text-sm text-nfh-accent-primary bg-nfh-background-primary rounded-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500 shadow-sm"
                   value={firstName || ''}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="last-name"
+                  className="block text-sm font-medium text-nfh-text-primary"
+                >
                   Last name
                 </label>
                 <input
@@ -104,14 +110,17 @@ export default function Account({ user }): JSX.Element {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="block mt-1 w-full sm:text-sm rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm text-muted"
+                  className="block mt-1 w-full sm:text-sm text-nfh-text-primary bg-nfh-background-primary rounded-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500 shadow-sm"
                   value={lastName || ''}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium text-nfh-text-primary"
+                >
                   Username
                 </label>
                 <input
@@ -119,14 +128,14 @@ export default function Account({ user }): JSX.Element {
                   name="username"
                   id="username"
                   autoComplete="username"
-                  className="block mt-1 w-full sm:text-sm rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm text-muted"
+                  className="block mt-1 w-full sm:text-sm text-nfh-text-primary bg-nfh-background-primary rounded-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500 shadow-sm"
                   value={username || ''}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="slug" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="slug" className="block text-sm font-medium text-nfh-text-primary">
                   Slug
                 </label>
                 <input
@@ -134,16 +143,16 @@ export default function Account({ user }): JSX.Element {
                   name="slug"
                   id="slug"
                   autoComplete="slug"
-                  className="block mt-1 w-full sm:text-sm rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 shadow-sm text-muted"
+                  className="block mt-1 w-full sm:text-sm text-nfh-text-primary bg-nfh-background-primary rounded-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500 shadow-sm"
                   value={slug || ''}
                   onChange={(e) => setSlug(e.target.value)}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-4">
-                <label className="block text-sm font-medium text-gray-700">Photo</label>
+                <label className="block text-sm font-medium text-nfh-text-primary">Photo</label>
                 <div className="flex items-center mt-1">
-                  <span className="inline-block overflow-hidden w-12 h-12 bg-gray-100 rounded-full">
+                  <span className="inline-block overflow-hidden w-12 h-12 rounded-full">
                     <Image
                       src={getGravatar(user?.email, 48)}
                       width={48}
@@ -157,19 +166,19 @@ export default function Account({ user }): JSX.Element {
               <div className="col-span-6 sm:col-span-4">
                 <label
                   htmlFor="company-website"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-nfh-text-primary"
                 >
                   Website
                 </label>
                 <div className="flex mt-1 rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 text-sm bg-gray-50 rounded-l-md border border-r-0 border-gray-300 text-muted">
+                  <span className="inline-flex items-center px-3 text-sm text-nfh-text-primary bg-nfh-background-secondary rounded-l-md border border-r-0 border-nfh-accent-primary">
                     https://
                   </span>
                   <input
                     type="text"
                     name="company-website"
                     id="company-website"
-                    className="block flex-1 w-full sm:text-sm rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-muted"
+                    className="block flex-1 w-full sm:text-sm text-nfh-text-primary bg-nfh-background-primary rounded-none rounded-r-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="www.example.com"
                     value={website || ''}
                     onChange={(e) => setWebsite(e.target.value)}
@@ -178,18 +187,21 @@ export default function Account({ user }): JSX.Element {
               </div>
 
               <div className="col-span-6 sm:col-span-4">
-                <label htmlFor="twitter-handle" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="twitter-handle"
+                  className="block text-sm font-medium text-nfh-text-primary"
+                >
                   Twitter
                 </label>
                 <div className="flex mt-1 rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-gray-50 rounded-l-md border border-r-0 border-gray-300">
+                  <span className="inline-flex items-center px-3 text-sm text-nfh-text-primary bg-nfh-background-secondary rounded-l-md border border-r-0 border-nfh-accent-primary">
                     @
                   </span>
                   <input
                     type="text"
                     name="twitter-username"
                     id="twitter-username"
-                    className="block flex-1 w-full sm:text-sm rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-muted"
+                    className="block flex-1 w-full sm:text-sm text-nfh-text-primary bg-nfh-background-primary rounded-none rounded-r-md border-nfh-accent-primary focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="@Twitter"
                     value={twitter || ''}
                     onChange={(e) => setTwitter(e.target.value)}
@@ -218,7 +230,7 @@ export default function Account({ user }): JSX.Element {
           </div>
         </div>
       </div>
-    </main>
+    </SectionContainer>
   )
 }
 

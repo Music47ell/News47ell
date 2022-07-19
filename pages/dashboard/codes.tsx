@@ -5,6 +5,7 @@ import { default as Link } from '@/components/Link'
 import { TopLanguages } from '@/components/metrics/CodeStats'
 import Divider from '@/components/UI/Divider'
 import { CodeStatsCard } from '@/components/metrics/CodeStats'
+import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Codes(): JSX.Element {
   return (
@@ -13,15 +14,16 @@ export default function Codes(): JSX.Element {
         title={`Music Dashboard - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="relative">
-            <h1 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">Codes</h1>
+          <div className="md:flex md:justify-between md:items-center">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Codes</h1>
+            <p className="text-xs">Powered by CodeStats API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
               href="/dashboard"
-              className="block py-3 px-3 text-xs font-bold leading-normal uppercase rounded shadow-lg bg-off-main"
+              className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
             >
               <BiLeftArrowAlt className="m-auto w-6 h-6" />
             </Link>
@@ -39,7 +41,7 @@ export default function Codes(): JSX.Element {
             <TopLanguages />
           </div>
         </div>
-      </main>
+      </SectionContainer>
     </>
   )
 }

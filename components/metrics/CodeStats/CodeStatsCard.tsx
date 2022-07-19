@@ -6,13 +6,13 @@ import { useCodeStats } from '@/hooks/useCodeStats'
 export default function CodeStatsCard(): JSX.Element {
   const { level, link, totalXP, previousXP, newXP, isLoading } = useCodeStats()
   return (
-    <div className="p-4 w-full rounded border border-gray-200 dark:border-gray-500">
+    <div className="flex relative flex-col p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <>
           <div className="flex items-center">
-            {`C::S Level ${level}`}
+            Level {level}
             {link && (
               <Link href={link} aria-label={`Link to ${link}`}>
                 <BiLinkExternal className="ml-1" />
@@ -27,7 +27,7 @@ export default function CodeStatsCard(): JSX.Element {
               </span>
               <span
                 data-tip={'Increased by'}
-                className="inline-flex items-baseline py-0.5 px-2.5 md:mt-2 lg:mt-0 ml-auto text-sm font-medium leading-5 text-green-400 rounded-full bg-off-main"
+                className="inline-flex items-baseline py-0.5 px-2.5 md:mt-2 lg:mt-0 ml-auto text-sm font-medium leading-5 text-green-400 bg-nfh-background-primary rounded-full"
               >
                 Increased by
                 <BiChevronUp className="flex-shrink-0 self-center mr-0.5" />

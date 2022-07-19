@@ -4,7 +4,6 @@ import { getSlugsFrom, getCategories, getTags } from '@/lib/supabase'
 import kebabCase from '@/utils/kebabCase'
 import siteMetadata from '@/data/siteMetadata'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(405).send({ error: 'method not allowed' })

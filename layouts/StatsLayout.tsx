@@ -8,7 +8,6 @@ import { LiveCard } from '@/components/metrics/Stats'
 import { AllReactions, IndividualReactions } from '@/components/metrics/Reactions'
 import { ProjectBreakdown } from '@/components/metrics/ProjectBreakdown'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function StatsLayout(): JSX.Element {
   const webVitals = useWebVitals()
   const { stats } = useStatisticsStats()

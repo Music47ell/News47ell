@@ -2,7 +2,6 @@ import prisma from '@/lib/prisma'
 import { createHash } from 'crypto'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const slug = req.query.slug as string

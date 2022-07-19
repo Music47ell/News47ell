@@ -10,14 +10,13 @@ type Props = {
   color: string
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const WebVitalsCard = ({ index, name, value, explainerURL, ratingText, color }: Props) => {
   return (
     <div
       key={name}
       className={`flex relative flex-col ${
         index < 2 ? 'md:col-span-3' : 'md:col-span-2'
-      } justify-center items-center h-32 rounded bg-off-main`}
+      } justify-center items-center h-32 rounded text-nfh-text-primary bg-nfh-background-secondary`}
     >
       <p>{name}</p>
       <p className="mb-2 text-2xl font-bold">{value} </p>

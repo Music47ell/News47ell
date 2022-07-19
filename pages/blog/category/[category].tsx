@@ -6,7 +6,6 @@ import { getContentFrontMatter } from '@/lib/supabase'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import kebabCase from '@/utils/kebabCase'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getStaticPaths() {
   const categories = await getAllCategories()
 
@@ -40,7 +39,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { posts, category } }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Category({
   posts,
   category,

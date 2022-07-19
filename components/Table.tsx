@@ -1,9 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Table = ({ title, value, ranking }): JSX.Element => (
   <dl>
     <div
       className={`${
-        ranking % 2 === 0 ? 'bg-main' : 'bg-off-main'
+        ranking % 2 === 0 ? 'bg-nfh-background-primary' : 'bg-nfh-background-secondary'
       } px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}
     >
       <dt className="text-sm font-medium leading-5">{title}</dt>

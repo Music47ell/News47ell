@@ -4,12 +4,11 @@ import TotalReactions from './TotalReactions'
 import { useDashboardReactions } from '@/hooks/useReactions'
 import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function AllReactions() {
   const { totalReactions, isLoading } = useDashboardReactions()
 
   return (
-    <div className="flex justify-between items-center p-4 w-full rounded bg-off-main text-off-main">
+    <div className="flex justify-between items-center p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -25,12 +24,11 @@ export function AllReactions() {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function IndividualReactions() {
   const { totalLikes, totalDislikes, isLoading } = useDashboardReactions()
 
   return (
-    <div className="flex justify-between items-center p-4 w-full rounded bg-off-main text-off-main">
+    <div className="flex justify-between items-center p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
       {isLoading ? (
         <LoadingSpinner />
       ) : (

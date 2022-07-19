@@ -7,7 +7,6 @@ const WATCHING_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.trakt}/watc
 const WATCHED_MOVIES_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.trakt}/history/movies?page=1&limit=10`
 const WATCHED_SHOWS_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.trakt}/history/shows?limit=500`
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStats = async () => {
   if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
     throw new Error(`No Trakt API key found!`)
@@ -19,7 +18,6 @@ export const getStats = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getNowWatching = async () => {
   if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
     throw new Error(`No Trakt API key found!`)
@@ -31,7 +29,6 @@ export const getNowWatching = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getWatchedMovies = async () => {
   if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
     throw new Error(`No Trakt API key found!`)
@@ -43,7 +40,6 @@ export const getWatchedMovies = async () => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getWatchedShows = async () => {
   if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
     throw new Error(`No Trakt API key found!`)

@@ -2,7 +2,6 @@
 import kebabCase from '@/utils/kebabCase'
 import { getTags } from '@/lib/supabase'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getAllTags() {
   const allTags = (await getTags()).map((post) => ({
     tag: post.tag,

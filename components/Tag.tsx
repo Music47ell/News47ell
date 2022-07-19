@@ -12,7 +12,7 @@ const Tag = ({ text }: Taxonomy): JSX.Element => {
   const tagColor = TagsColorDictionary[text]
   return (
     <Link
-      className={`${tagColor} mr-3 text-sm font-medium uppercase hover:text-primary-600 dark:hover:text-primary-400`}
+      className={`${tagColor} mr-3 text-sm font-medium uppercase`}
       href={`/blog/tag/${kebabCase(text)}`}
     >
       {text}

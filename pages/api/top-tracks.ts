@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getTopTracks } from '@/lib/spotify'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const response = await getTopTracks()
   const { items } = await response.json()
@@ -9,6 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const tracks = items.slice(0, 10).map((track) => ({
     artist: track.artists.map((_artist) => _artist.name).join(', '),
     songUrl: track.external_urls.spotify,
+    audioUrl: track.preview_url,
     title: track.name,
     album: track.album.name,
     albumImage: track.album.images[0].url,

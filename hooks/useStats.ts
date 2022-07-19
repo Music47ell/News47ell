@@ -12,7 +12,6 @@ type SlugStats = {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useActiveStats() {
   const { data, error } = useSWR<Active>('/api/stats/active', fetcher, {
     refreshInterval: 3000,
@@ -31,7 +30,6 @@ export function useActiveStats() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useDashboardViews() {
   const { data, error } = useSWR<Stats>('/api/stats', fetcher)
 
@@ -44,7 +42,6 @@ export function useDashboardViews() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useSlugStats(slug: string) {
   const { data, error } = useSWR<SlugStats>(`/api/stats/${slug}`, fetcher, {
     revalidateOnMount: false,
@@ -59,7 +56,6 @@ export function useSlugStats(slug: string) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useStatisticsStats() {
   const { data, error } = useSWR<Stats>('/api/stats', fetcher)
 

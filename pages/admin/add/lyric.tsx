@@ -7,8 +7,8 @@ import { BiLoader } from 'react-icons/bi'
 import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
+import SectionContainer from '@/components/UI/SectionContainer'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function AddLyric({ user }): JSX.Element {
   const router = useRouter()
 
@@ -51,7 +51,7 @@ export default function AddLyric({ user }): JSX.Element {
         title={`Add new lyric - ${siteMetadata.title}`}
         description={siteMetadata.description}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto space-y-2 md:space-y-5 max-w-5xl">
+      <SectionContainer>
         {user ? (
           <>
             <h1 className="mt-6 text-3xl font-semibold tracking-wide">Add new lyric</h1>
@@ -97,7 +97,7 @@ export default function AddLyric({ user }): JSX.Element {
         ) : (
           <BiLoader className="w-12 h-12 animate-spin" />
         )}
-      </main>
+      </SectionContainer>
     </>
   )
 }
