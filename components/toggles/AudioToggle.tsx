@@ -18,7 +18,7 @@ const AudioToggle = (): JSX.Element => {
         type="button"
         title={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
         aria-label={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
-        className="h-8"
+        className="h-8 hover:animate-wiggle"
         id="volume-mode-switch"
         onMouseEnter={handleOnEnter}
         onClick={handleOnClick}

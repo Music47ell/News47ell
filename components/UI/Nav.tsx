@@ -88,7 +88,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
       <div className="flex relative justify-between items-center h-16">
         <div className="flex absolute inset-y-0 left-0 items-center pl-4 sm:pl-8">
           <button
-            className="inline-flex justify-center items-center"
+            className="inline-flex justify-center items-center hover:animate-wiggle"
             onMouseEnter={handleOnEnter}
             onClick={onToggleNav}
           >
@@ -110,7 +110,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
           <div className="relative ml-3">
             <span className="sr-only">Toggle Search</span>
             <Link href="/blog/search" onMouseEnter={handleOnEnter}>
-              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary" />
+              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary hover:animate-wiggle" />
             </Link>
           </div>
           <div className="relative ml-3">
@@ -123,7 +123,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
               aria-label="toggle theme picker"
               onMouseEnter={handleOnEnter}
               onClick={() => setPickerOpen(!pickerOpen)}
-              className="h-8"
+              className="h-8 hover:animate-wiggle"
             >
               {pickerOpen ? (
                 <BiArrowFromBottom className="w-6 h-6 text-nfh-text-primary" />
@@ -136,7 +136,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
             <div className="relative ml-3">
               <div>
                 <button
-                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
+                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:animate-wiggle focus:outline-none"
                   onMouseEnter={handleOnEnter}
                   onClick={onToggleUserNav}
                 >
