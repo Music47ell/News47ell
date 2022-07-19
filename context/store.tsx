@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, createContext, useCallback } from 'react'
 
-export const store = createContext()
+export const store = createContext(null)
 
 export const SoundProvider = ({ children }) => {
   const [soundEnabled, setSoundEnabled] = useState()

@@ -4,9 +4,10 @@ import { useSFX } from '@/hooks/useSFX'
 
 const AudioToggle = (): JSX.Element => {
   const { soundEnabled, toggleSound } = useSettings()
-  const { playSoundOn, playSoundOff } = useSFX()
+  const { playSoundOn, playSoundOff, playPopEnter } = useSFX()
 
-  const handleSounds = () => {
+  const handleOnEnter = () => playPopEnter({ playbackRate: 1.5 })
+  const handleOnClick = () => {
     toggleSound()
     soundEnabled ? playSoundOff() : playSoundOn()
   }
@@ -19,7 +20,8 @@ const AudioToggle = (): JSX.Element => {
         aria-label={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
         className="h-8"
         id="volume-mode-switch"
-        onClick={handleSounds}
+        onMouseEnter={handleOnEnter}
+        onClick={handleOnClick}
       >
         {soundEnabled === true ? <BiVolumeFull className="w-6 h-6 text-nfh-text-primary" /> : null}
         {soundEnabled === false ? <BiVolumeMute className="w-6 h-6 text-nfh-text-primary" /> : null}

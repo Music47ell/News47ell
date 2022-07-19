@@ -19,6 +19,15 @@ const siteMetadata = {
   trakt: 'Music47ell',
   locale: 'en-US',
   postsPerPages: 10,
+  adminNavLinks: [
+    { title: 'Admin Dashboard', href: '/admin' },
+    { title: 'Add Post', href: '/admin/add/post' },
+    { title: 'Add Page', href: '/admin/add/page' },
+    { title: 'Add Lyric', href: '/admin/add/lyric' },
+    { title: 'Add Quote', href: '/admin/add/quote' },
+    { title: 'Account Settings', href: '/account' },
+    { title: 'Sign out', href: '/api/auth/logout' },
+  ],
   headerNavLinks: [
     { icon: 'BiPen', title: 'Blog', href: '/blog' },
     { icon: 'BiBarChartAlt2', title: 'Dashboard', href: '/dashboard' },

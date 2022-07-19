@@ -3,34 +3,38 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import ThemeSwatch from './ThemeSwatch'
-
-const themes = [
-  {
-    title: 'Light',
-  },
-  {
-    title: 'Dark',
-  },
-  {
-    title: 'Dracula',
-  },
-  {
-    title: 'Hackernews',
-  },
-  {
-    title: 'Nord',
-  },
-  {
-    title: 'Ferrari',
-  },
-  {
-    title: 'DOS',
-  },
-]
+import { useSFX } from '@/hooks/useSFX'
 
 export default function ThemePicker({ open }) {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { playThemeOn, playThemeOff, playPopEnter } = useSFX()
+
+  const handleOnEnter = () => playPopEnter({ playbackRate: 1.5 })
+
+  const themes = [
+    {
+      title: 'Light',
+    },
+    {
+      title: 'Dark',
+    },
+    {
+      title: 'Dracula',
+    },
+    {
+      title: 'Hackernews',
+    },
+    {
+      title: 'Nord',
+    },
+    {
+      title: 'Ferrari',
+    },
+    {
+      title: 'DOS',
+    },
+  ]
 
   const currentTheme = theme
 
@@ -60,7 +64,25 @@ export default function ThemePicker({ open }) {
             <button
               aria-label={`select ${theme.title} theme`}
               className="group rounded focus:ring-2 transition-transform duration-150 focus:outline-none"
-              onClick={() => setTheme(theme.title.toLowerCase())}
+              onMouseEnter={handleOnEnter}
+              onClick={() => {
+                setTheme(theme.title.toLowerCase())
+                switch (theme.title.toLowerCase()) {
+                  case 'light':
+                  case 'hackernews':
+                  case 'dos':
+                    playThemeOn()
+                    break
+                  case 'dark':
+                  case 'dracula':
+                  case 'nord':
+                  case 'ferrari':
+                    playThemeOff()
+                    break
+                  default:
+                    break
+                }
+              }}
             >
               <ThemeSwatch
                 active={currentTheme === theme.title.toLowerCase()}
