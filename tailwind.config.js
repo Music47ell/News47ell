@@ -76,6 +76,7 @@ module.exports = {
         'fade-out': 'fadeOut 5s ease-in-out',
         'slide-in': 'slide-in 0.2s ease-out',
         'slide-out': 'slide-out 0.2s ease',
+        wiggle: 'wiggle 1s linear',
       },
       keyframes: (theme) => ({
         fadeIn: {
@@ -93,6 +94,16 @@ module.exports = {
         'slide-out': {
           '0%': { opacity: 1, transform: 'translateY(0px)' },
           '100%': { opacity: 0, transform: 'translateY(16px)' },
+        },
+        wiggle: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10.0deg)' },
+          '60%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
         },
       }),
       typography: (theme) => ({

@@ -18,6 +18,7 @@ import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { getGravatar } from '@/utils/getGravatar'
 import { default as Image } from '@/components/Image'
 import { useClickOutside } from '@/hooks/useClickOutside'
+import { useSFX } from '@/hooks/useSFX'
 
 const Nav = ({ pickerOpen, setPickerOpen }) => {
   const [firstName, setFirstName] = useState<string | null>(null)
@@ -25,6 +26,9 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   const [userNavShow, setUserNavShow] = useState(false)
   const { user } = useUser()
   const ref = useClickOutside(() => setUserNavShow(false))
+  const { playPopEnter } = useSFX()
+
+  const handleOnEnter = () => playPopEnter({ playbackRate: 1.5 })
 
   const icons = [
     BiPen,
@@ -83,7 +87,11 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
     <nav className="bg-nfh-background-secondary">
       <div className="flex relative justify-between items-center h-16">
         <div className="flex absolute inset-y-0 left-0 items-center pl-4 sm:pl-8">
-          <button className="inline-flex justify-center items-center" onClick={onToggleNav}>
+          <button
+            className="inline-flex justify-center items-center hover:animate-wiggle"
+            onMouseEnter={handleOnEnter}
+            onClick={onToggleNav}
+          >
             <span className="sr-only">Open main menu</span>
             {navShow ? (
               <BiX className="block w-6 h-6 text-nfh-text-primary" />
@@ -101,8 +109,8 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
         <div className="flex absolute inset-y-0 right-0 items-center pr-4 sm:pr-8">
           <div className="relative ml-3">
             <span className="sr-only">Toggle Search</span>
-            <Link href="/blog/search">
-              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary" />
+            <Link href="/blog/search" onMouseEnter={handleOnEnter}>
+              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary hover:animate-wiggle" />
             </Link>
           </div>
           <div className="relative ml-3">
@@ -113,8 +121,9 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
             <span className="sr-only">Toggle Theme</span>
             <button
               aria-label="toggle theme picker"
+              onMouseEnter={handleOnEnter}
               onClick={() => setPickerOpen(!pickerOpen)}
-              className="h-8"
+              className="h-8 hover:animate-wiggle"
             >
               {pickerOpen ? (
                 <BiArrowFromBottom className="w-6 h-6 text-nfh-text-primary" />
@@ -127,7 +136,8 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
             <div className="relative ml-3">
               <div>
                 <button
-                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
+                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:animate-wiggle focus:outline-none"
+                  onMouseEnter={handleOnEnter}
                   onClick={onToggleUserNav}
                 >
                   <span className="sr-only">Open user menu</span>
@@ -151,59 +161,22 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
                 <div className="flex justify-between items-center py-2 px-4">
                   <p className="text-sm font-medium">Welcome back {user ? firstName : 'Guest'}</p>
                 </div>
-                {user && (
-                  <>
-                    <li>
-                      <Link href="/admin" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Admin Dashboard
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/admin/add/post" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Add Post
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/admin/add/page" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Add Page
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/admin/add/lyric" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Add Lyric
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/admin/add/quote" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Add Quote
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/account" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Account Settings
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/api/auth/logout" onClick={onClickUserNavLink}>
-                        <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
-                          Sign out
-                        </span>
-                      </Link>
-                    </li>
-                  </>
-                )}
+                {user &&
+                  siteMetadata.adminNavLinks.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link
+                          href={item.href}
+                          onMouseEnter={handleOnEnter}
+                          onClick={onClickUserNavLink}
+                        >
+                          <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
+                            {item.title}
+                          </span>
+                        </Link>
+                      </li>
+                    )
+                  })}
               </ul>
             </div>
           )}
@@ -219,6 +192,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
                 href={item.href}
                 key={item.href}
                 className="py-2 px-3 text-sm font-medium text-nfh-text-primary hover:text-nfh-text-secondary hover:bg-nfh-accent-primary rounded-md"
+                onMouseEnter={handleOnEnter}
                 onClick={onToggleNav}
               >
                 <Icon className="inline mr-1 w-6 h-6" />
