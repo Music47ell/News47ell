@@ -33,9 +33,9 @@ export default function Track(track: Song): JSX.Element {
           aria-label={track.isPlaying ? 'Pause Button' : 'Play Button'}
         >
           {track.isPlaying ? (
-            <BiPauseCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+            <BiPauseCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-text-secondary" />
           ) : (
-            <BiPlayCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+            <BiPlayCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-text-secondary" />
           )}
         </button>
       ) : null}

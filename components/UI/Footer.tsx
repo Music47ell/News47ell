@@ -10,7 +10,7 @@ export default function Footer(): JSX.Element {
   const icons = [SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel]
 
   return (
-    <footer className="py-4 bg-nfh-background-secondary">
+    <footer className="print:hidden py-4 bg-nfh-background-secondary">
       <div className="flex flex-col items-center">
         <nav>
           <ul className="flex flex-wrap justify-center">

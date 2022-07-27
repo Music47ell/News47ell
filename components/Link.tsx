@@ -8,7 +8,7 @@ const CustomLink = ({
 }: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>): JSX.Element => {
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
-  const style = 'u-url text-primary hover:text-muted-hover'
+  const style = 'u-url text-nfh-accent-primary hover:text-nfh-text-secondary'
 
   if (isInternalLink) {
     return (

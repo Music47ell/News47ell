@@ -49,6 +49,49 @@ export interface IPostSimple {
   prev?: { slug: string; title: string }
 }
 
+export interface IResumeLayout {
+  basics: {
+    name: string
+    image: string
+    email: string
+    url: string
+    summary: string
+    location: {
+      country: string
+      countryCode: string
+    }
+    profiles: {
+      index: number
+      network: string
+      username: string
+      url: string
+    }[]
+  }
+  education: {
+    index: number
+    institution: string
+    url: string
+    area: string
+  }[]
+  skills: {
+    index: number
+    name: string
+    keywords: string[]
+  }[]
+  languages: {
+    index: number
+    language: string
+    fluency: string
+  }[]
+  certificates: {
+    index: number
+    name: string
+    date: string
+    issuer: string
+    url: string
+  }[]
+}
+
 export interface IPre {
   children: ReactNode
 }

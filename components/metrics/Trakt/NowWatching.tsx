@@ -8,7 +8,7 @@ export default function NowWatching(): JSX.Element {
   const { data } = useSWR<NowWatchingRelease>('/api/now-watching', fetcher)
 
   return data?.isWatching ? (
-    <div className="flex items-start p-2 m-auto mt-4 mb-4 w-72 rounded-lg border border-primary text-muted">
+    <div className="flex items-start p-2 m-auto mt-4 mb-4 w-72 rounded-lg border border-nfh-accent-primary">
       <Image
         alt="Trakt"
         className="w-60 h-60 rounded-lg"

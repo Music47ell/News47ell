@@ -8,7 +8,7 @@ export default function NowPlaying(): JSX.Element {
   const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher)
 
   return data?.isPlaying ? (
-    <div className="flex items-start p-2 m-auto mt-4 mb-4 w-72 rounded-lg border border-primary text-muted">
+    <div className="flex items-start p-2 m-auto mt-4 mb-4 w-72 rounded-lg border border-nfh-accent-primary">
       <Image
         alt="Spotify"
         className="w-60 h-60 rounded-lg"

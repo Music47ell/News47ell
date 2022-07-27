@@ -84,7 +84,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   }, [user])
 
   return (
-    <nav className="bg-nfh-background-secondary">
+    <nav className="print:hidden bg-nfh-background-secondary">
       <div className="flex relative justify-between items-center h-16">
         <div className="flex absolute inset-y-0 left-0 items-center pl-4 sm:pl-8">
           <button

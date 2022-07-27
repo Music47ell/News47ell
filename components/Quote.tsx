@@ -10,7 +10,7 @@ function Quote(): JSX.Element {
   }
 
   return (
-    <p key={quote.id} className="py-4 text-center">
+    <p key={quote.id} className="print:hidden py-4 text-center">
       {quote.quote}
       {quote.link && (
         <Link href={quote.link}>
