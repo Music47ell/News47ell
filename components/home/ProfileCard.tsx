@@ -1,6 +1,6 @@
 import { default as Image } from '@/components/Image'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { BiBriefcase, BiMap, BiEnvelope, BiLinkExternal } from 'react-icons/bi'
+import { BriefcaseIcon, GlobeIcon, EnvelopeIcon, ExternalIcon } from '@/components/icons'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 
@@ -79,13 +79,13 @@ const ProfileInfo = () => (
     <h1 className="text-xl font-semibold">Ahmet ALMAZ</h1>
     <p className="py-2">Metalhead | Full Stack Developer</p>
     <div className="flex items-center mt-4">
-      <BiBriefcase className="w-6 h-6" />
+      <BriefcaseIcon className="w-6 h-6 fill-nfh-accent-secondary" />
 
       <p className="px-2 text-base">Self-employed - available for hire</p>
     </div>
 
     <div className="flex items-center mt-4">
-      <BiMap className="w-6 h-6" />
+      <GlobeIcon className="w-6 h-6 fill-nfh-accent-secondary" />
 
       <p className="px-2 text-base">
         Türkiye
@@ -94,13 +94,13 @@ const ProfileInfo = () => (
     </div>
 
     <div className="flex items-center mt-4">
-      <BiEnvelope className="w-6 h-6" />
+      <EnvelopeIcon className="w-6 h-6 fill-nfh-accent-secondary" />
       <Link className="px-2 text-base" href={`mailto:${siteMetadata.email}`}>
         {siteMetadata.email}
       </Link>
     </div>
     <div className="flex items-center mt-4">
-      <BiLinkExternal className="w-6 h-6" />
+      <ExternalIcon className="w-6 h-6 fill-nfh-accent-secondary" />
       <p className="px-2 text-base">
         <a target="_blank" href="https://github.com/music47ell" rel="noreferrer">
           gh/music47ell

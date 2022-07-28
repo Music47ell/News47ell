@@ -1,4 +1,4 @@
-import { SiSpotify } from 'react-icons/si'
+import { SpotifyIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import fetcher from '@/lib/fetcher'
 import { NowPlayingSong } from 'lib/types'
@@ -31,7 +31,7 @@ export default function NowPlaying(): JSX.Element {
         )}
         <p className=" w-48 truncate">{data?.artist ?? 'Spotify'}</p>
       </div>
-      <SiSpotify className="fill-spotify" />
+      <SpotifyIcon className="block w-6 h-6 fill-nfh-accent-primary" />
     </div>
   ) : null
 }

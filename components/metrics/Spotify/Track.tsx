@@ -1,6 +1,6 @@
 import { default as Image } from '@/components/Image'
 import { Song } from 'lib/types'
-import { BiPlayCircle, BiPauseCircle } from 'react-icons/bi'
+import { PlayIcon, PauseIcon } from '@/components/icons'
 
 export default function Track(track: Song): JSX.Element {
   return (
@@ -33,9 +33,9 @@ export default function Track(track: Song): JSX.Element {
           aria-label={track.isPlaying ? 'Pause Button' : 'Play Button'}
         >
           {track.isPlaying ? (
-            <BiPauseCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-text-secondary" />
+            <PauseIcon className="block w-6 h-6 text-3xl fill-nfh-accent-primary hover:fill-nfh-accent-secondary" />
           ) : (
-            <BiPlayCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-text-secondary" />
+            <PlayIcon className="block w-6 h-6 text-3xl fill-nfh-accent-primary hover:fill-nfh-accent-secondary" />
           )}
         </button>
       ) : null}

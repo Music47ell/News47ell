@@ -1,5 +1,5 @@
 import { default as Link } from '@/components/Link'
-import { BiCheckCircle, BiErrorCircle, BiXCircle, BiTime } from 'react-icons/bi'
+import { CheckIcon, ExclamationIcon, XCircleIcon, TimeIcon } from '@/components/icons'
 
 type Props = {
   index: number
@@ -25,13 +25,13 @@ const WebVitalsCard = ({ index, name, value, explainerURL, ratingText, color }: 
         className={`flex items-center px-2 space-x-1 text-gray-800 ${color} rounded-full`}
       >
         {ratingText === 'Good' ? (
-          <BiCheckCircle />
+          <CheckIcon className="block w-5 h-5" />
         ) : ratingText === 'Needs Improvement' ? (
-          <BiErrorCircle />
+          <ExclamationIcon className="block w-5 h-5" />
         ) : ratingText === 'Poor' ? (
-          <BiXCircle />
+          <XCircleIcon className="block w-5 h-5" />
         ) : (
-          <BiTime />
+          <TimeIcon className="block w-5 h-5" />
         )}
         <p>{ratingText}</p>
       </Link>

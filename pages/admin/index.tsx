@@ -5,7 +5,7 @@ import { getAllContentFrontMatter, getLyrics, getQuotes, getDelete } from '@/lib
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import { default as Link } from '@/components/Link'
-import { BiLoader, BiCheckCircle, BiInfoCircle } from 'react-icons/bi'
+import { LoaderIcon, CheckIcon, ExclamationIcon } from '@/components/icons'
 import SectionContainer from '@/components/UI/SectionContainer'
 
 export default function Admin({ user }): JSX.Element {
@@ -79,13 +79,13 @@ export default function Admin({ user }): JSX.Element {
                 <div className="flex flex-row">
                   <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
                     {post.published === true ? (
-                      <BiCheckCircle
+                      <CheckIcon
                         className={`${
                           post.published === true ? 'text-green-600' : 'text-yellow-600'
                         } inline-block mr-1 w-5 h-5`}
                       />
                     ) : (
-                      <BiInfoCircle
+                      <ExclamationIcon
                         className={`${
                           post.published === true ? 'text-green-600' : 'text-yellow-600'
                         } inline-block mr-1 w-5 h-5`}
@@ -111,13 +111,13 @@ export default function Admin({ user }): JSX.Element {
                 <div className="flex flex-row">
                   <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
                     {page.published === true ? (
-                      <BiCheckCircle
+                      <CheckIcon
                         className={`${
                           page.published === true ? 'text-green-600' : 'text-yellow-600'
                         } inline-block mr-1 w-5 h-5`}
                       />
                     ) : (
-                      <BiInfoCircle
+                      <ExclamationIcon
                         className={`${
                           page.published === true ? 'text-green-600' : 'text-yellow-600'
                         } inline-block mr-1 w-5 h-5`}
@@ -166,7 +166,7 @@ export default function Admin({ user }): JSX.Element {
             ))}
           </>
         ) : (
-          <BiLoader className="w-12 h-12 animate-spin" />
+          <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
         )}
       </SectionContainer>
     </>

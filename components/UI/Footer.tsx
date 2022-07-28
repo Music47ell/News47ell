@@ -1,5 +1,11 @@
-import { BiEnvelope } from 'react-icons/bi'
-import { SiTwitter, SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel } from 'react-icons/si'
+import {
+  EnvelopeIcon,
+  TwitterIcon,
+  SupabaseIcon,
+  NextDotJsIcon,
+  TailwindCSSIcon,
+  VercelIcon,
+} from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import HCard from '@/components/hCard'
 import { NowPlaying } from '@/components/metrics/Spotify'
@@ -7,7 +13,7 @@ import { NowWatching } from '@/components/metrics/Trakt'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
-  const icons = [SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel]
+  const icons = [SupabaseIcon, NextDotJsIcon, TailwindCSSIcon, VercelIcon]
 
   return (
     <footer className="print:hidden py-4 bg-nfh-background-secondary">
@@ -23,10 +29,10 @@ export default function Footer(): JSX.Element {
         </nav>
         <div className="flex my-3 space-x-4">
           <Link href={`mailto:${siteMetadata.email}`}>
-            <BiEnvelope className="w-6 h-6" />
+            <EnvelopeIcon className="block w-6 h-6 fill-nfh-accent-primary" />
           </Link>
           <Link href={`https://twitter.com/${siteMetadata.twitter}`}>
-            <SiTwitter className="w-6 h-6 text-twitter" />
+            <TwitterIcon className="block w-6 h-6" />
           </Link>
         </div>
         <span className="inline-flex items-center my-2 space-x-2 site-credit">
@@ -34,7 +40,7 @@ export default function Footer(): JSX.Element {
             const Icon = icons[idx]
             return (
               <Link href={link.href} key={link.href}>
-                <Icon />
+                <Icon className="block w-6 h-6" />
               </Link>
             )
           })}

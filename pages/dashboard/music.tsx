@@ -1,4 +1,4 @@
-import { BiListPlus, BiLeftArrowAlt } from 'react-icons/bi'
+import { ListPlusIcon, ArrowLeftIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
@@ -23,13 +23,13 @@ export default function Music(): JSX.Element {
               href="/dashboard"
               className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
             >
-              <BiLeftArrowAlt className="m-auto w-6 h-6" />
+              <ArrowLeftIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
             </Link>
             <Link
               href="/recommend/music"
               className="block py-3 px-3 text-xs font-bold leading-normal text-center uppercase bg-nfh-background-secondary rounded shadow-lg"
             >
-              <BiListPlus className="m-auto w-6 h-6" />
+              <ListPlusIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
               Recommend me some music
             </Link>
           </div>

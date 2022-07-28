@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { getContentFromById, getUpdateContentById } from '@/lib/supabase'
 import { Editor } from '@/components/Dynamic'
-import { BiLoader } from 'react-icons/bi'
+import { LoaderIcon } from '@/components/icons'
 import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
@@ -77,7 +77,7 @@ export default function EditPage({ user }): JSX.Element {
             </div>
           </>
         ) : (
-          <BiLoader className="w-12 h-12 animate-spin" />
+          <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
         )}
       </SectionContainer>
     </>

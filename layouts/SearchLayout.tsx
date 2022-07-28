@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { BiSearchAlt2 } from 'react-icons/bi'
+import { SearchIcon } from '@/components/icons'
 import { usePostsSearch } from '@/hooks/useSearch'
 import useDebounce from '@/hooks/useDebounce'
 import { default as Link } from '@/components/Link'
@@ -61,7 +61,7 @@ const SearchLayout: FC = () => {
             className="block py-2 px-4 w-full placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-background-secondary rounded-md border border-nfh-accent-primary"
           />
 
-          <BiSearchAlt2 className="absolute top-3 right-3 w-5 h-5" />
+          <SearchIcon className="absolute top-3 right-3 w-5 h-5 fill-nfh-accent-primary" />
         </div>
       </div>
       {data && (

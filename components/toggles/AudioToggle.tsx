@@ -1,4 +1,4 @@
-import { BiVolumeFull, BiVolumeMute } from 'react-icons/bi'
+import { VolumeFullIcon, VolumeMuteIcon } from '@/components/icons'
 import { useSettings } from '@/context/store'
 import { useSFX } from '@/hooks/useSFX'
 
@@ -23,8 +23,12 @@ const AudioToggle = (): JSX.Element => {
         onMouseEnter={handleOnEnter}
         onClick={handleOnClick}
       >
-        {soundEnabled === true ? <BiVolumeFull className="w-6 h-6 text-nfh-text-primary" /> : null}
-        {soundEnabled === false ? <BiVolumeMute className="w-6 h-6 text-nfh-text-primary" /> : null}
+        {soundEnabled === true ? (
+          <VolumeFullIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+        ) : null}
+        {soundEnabled === false ? (
+          <VolumeMuteIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+        ) : null}
       </button>
     </>
   )

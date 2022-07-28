@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
-import { BiLeftArrowAlt } from 'react-icons/bi'
+import { ArrowLeftIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
@@ -113,7 +113,7 @@ export default function Stats() {
           href="/dashboard/music"
           className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
         >
-          <BiLeftArrowAlt className="m-auto w-6 h-6" />
+          <ArrowLeftIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
         </Link>
         <div className="py-6 space-y-2 md:space-y-5">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 text-center">

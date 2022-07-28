@@ -1,4 +1,4 @@
-import { SiTrakt } from 'react-icons/si'
+import { TraktIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import fetcher from '@/lib/fetcher'
 import { NowWatchingRelease } from 'lib/types'
@@ -24,7 +24,7 @@ export default function NowWatching(): JSX.Element {
         )}
         <p className="w-48 truncate">{data?.title ?? 'Trakt'}</p>
       </div>
-      <SiTrakt className="fill-trakt" />
+      <TraktIcon className="block w-6 h-6 fill-nfh-accent-primary" />
     </div>
   ) : null
 }

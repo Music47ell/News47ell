@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SiTwitter } from 'react-icons/si'
+import { TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import PageTitle from '@/components/UI/PageTitle'
@@ -99,7 +99,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                           <dd>
                             {author.twitter && (
                               <Link href={`https://twitter.com/${author.twitter}`} className="">
-                                <SiTwitter className="text-twitter" />
+                                <TwitterIcon className="block w-6 h-6" />
                               </Link>
                             )}
                           </dd>

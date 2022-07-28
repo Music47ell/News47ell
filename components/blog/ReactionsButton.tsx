@@ -1,4 +1,4 @@
-import { BiLike, BiDislike } from 'react-icons/bi'
+import { LikeIcon, DislikeIcon } from '@/components/icons'
 import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
 import { LoadingDots } from '@/components/UI/LoadingDots'
 
@@ -45,7 +45,7 @@ const ReactionsButton = ({ slug }) => {
             onClick={handleLike}
           >
             <span className="text-4xl">
-              <BiLike />
+              <LikeIcon className="block w-6 h-6 fill-nfh-accent-primary" />
             </span>
             <span className="text-xl font-semibold">{likes}</span>
             <span className="text-sm">LIKE</span>
@@ -58,7 +58,7 @@ const ReactionsButton = ({ slug }) => {
             onClick={handleDislike}
           >
             <span className="text-4xl">
-              <BiDislike />
+              <DislikeIcon className="block w-6 h-6 fill-nfh-accent-primary" />
             </span>
             <span className="text-xl font-semibold">{dislikes}</span>
             <span className="text-sm">DISLIKE</span>

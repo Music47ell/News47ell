@@ -1,4 +1,4 @@
-import { BiTerminal, BiMusic, BiFilm, BiBookmark } from 'react-icons/bi'
+import { TerminalIcon, MusicIcon, FilmIcon, BookmarkIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import StatsLayout from '@/layouts/StatsLayout'
 import { PageSEO } from '@/components/SEO'
@@ -22,28 +22,28 @@ export default function Stats(): JSX.Element {
 
         <div className="grid grid-cols-4 gap-3">
           <Link
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-secondary rounded shadow-lg"
             href="/dashboard/codes"
           >
-            <BiTerminal className="m-auto w-6 h-6" />
+            <TerminalIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
           </Link>
           <Link
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-secondary rounded shadow-lg"
             href="/dashboard/music"
           >
-            <BiMusic className="m-auto w-6 h-6" />
+            <MusicIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
           </Link>
           <Link
             href="/dashboard/shows"
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-secondary rounded shadow-lg"
           >
-            <BiFilm className="m-auto w-6 h-6" />
+            <FilmIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
           </Link>
           <Link
             href="/dashboard/bookmarks"
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-secondary rounded shadow-lg"
           >
-            <BiBookmark className="m-auto w-6 h-6" />
+            <BookmarkIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
           </Link>
         </div>
         <StatsLayout />

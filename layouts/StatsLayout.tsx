@@ -1,4 +1,4 @@
-import { BiBarChartAlt, BiUser, BiGlobe, BiDesktop, BiMobileAlt } from 'react-icons/bi'
+import { ChartIcon, UsersIcon, GlobeIcon, DesktopIcon, MobileIcon } from '@/components/icons'
 import { StatsCard } from '@/components/metrics/Stats'
 import Current from '@/components/metrics/WebVitals/Current'
 import Chart from '@/components/metrics/WebVitals/Chart'
@@ -23,26 +23,26 @@ export default function StatsLayout(): JSX.Element {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-3">
         <StatsCard title="All Views" count={stats.AllStats} yesterday={stats.AllStatsYesterday}>
-          <BiBarChartAlt className="inline mr-1 w-10 h-10" />
+          <ChartIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard
           title="Unique Views"
           count={stats.uniqueVisitors}
           yesterday={stats.uniqueVisitorsYesterday}
         >
-          <BiUser className="inline mr-1 w-10 h-10" />
+          <UsersIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard title="Countries" count={stats.countries}>
-          <BiGlobe className="inline mr-1 w-10 h-10" />
+          <GlobeIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
         </StatsCard>
       </div>
       <h3 className="text-2xl font-bold tracking-tight leading-8">Device Type</h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3">
         <StatsCard title="Desktop Views" count={stats.isDesktop}>
-          <BiDesktop className="inline mr-1 w-10 h-10" />
+          <DesktopIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard title="Mobiles Views" count={stats.isMobile}>
-          <BiMobileAlt className="inline mr-1 w-10 h-10" />
+          <MobileIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
         </StatsCard>
       </div>
       <h3 className="text-2xl font-bold tracking-tight leading-8">Posts Reactions</h3>

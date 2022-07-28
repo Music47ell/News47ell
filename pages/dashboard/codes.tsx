@@ -1,4 +1,4 @@
-import { BiLeftArrowAlt } from 'react-icons/bi'
+import { ArrowLeftIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
@@ -25,7 +25,7 @@ export default function Codes(): JSX.Element {
               href="/dashboard"
               className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
             >
-              <BiLeftArrowAlt className="m-auto w-6 h-6" />
+              <ArrowLeftIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
             </Link>
           </div>
           <CodeStatsCard />

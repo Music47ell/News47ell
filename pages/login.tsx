@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-import { BiLoader } from 'react-icons/bi'
+import { LoaderIcon } from '@/components/icons'
 import SectionContainer from '@/components/UI/SectionContainer'
 
 const Login = (): JSX.Element => {
@@ -74,7 +74,7 @@ const Login = (): JSX.Element => {
           </div>
         </div>
       ) : (
-        <BiLoader className="w-12 h-12 animate-spin" />
+        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
       )}
     </SectionContainer>
   )

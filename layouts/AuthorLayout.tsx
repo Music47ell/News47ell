@@ -1,5 +1,4 @@
-import { BiEnvelope } from 'react-icons/bi'
-import { SiTwitter } from 'react-icons/si'
+import { EnvelopeIcon, TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import SectionContainer from '@/components/UI/SectionContainer'
@@ -25,11 +24,11 @@ export default function AuthorLayout({ author, posts }: Authors): JSX.Element {
           <h3 className="pt-4 pb-2 text-2xl font-bold tracking-tight leading-8">{name}</h3>
           <div className="flex pt-6 space-x-3">
             <Link href={`mailto:${email}`}>
-              <BiEnvelope className="w-6 h-6" />
+              <EnvelopeIcon className="w-6 h-6 fill-nfh-accent-primary" />
             </Link>
             {twitter && (
               <Link href={`https://twitter.com/${twitter}`} className="">
-                <SiTwitter className="w-6 h-6 text-twitter" />
+                <TwitterIcon className="w-6 h-6" />
               </Link>
             )}
           </div>

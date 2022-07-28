@@ -1,4 +1,4 @@
-import { BiLinkExternal } from 'react-icons/bi'
+import { ExternalIcon } from '@/components/icons'
 import { useQuote } from '@/hooks/useQuote'
 import { default as Link } from '@/components/Link'
 
@@ -14,7 +14,7 @@ function Quote(): JSX.Element {
       {quote.quote}
       {quote.link && (
         <Link href={quote.link}>
-          <BiLinkExternal className="inline-block ml-2 align-text-top" />
+          <ExternalIcon className="inline-block ml-2 w-6 h-6 align-middle fill-current" />
         </Link>
       )}
     </p>

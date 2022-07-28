@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-import { BiMenu, BiSearchAlt2, BiX, BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 import {
-  BiPen,
-  BiBarChartAlt2,
-  BiCollection,
-  BiTag,
-  BiArchive,
-  BiBriefcaseAlt2,
-  BiCurrentLocation,
-} from 'react-icons/bi'
+  XIcon,
+  MenuIcon,
+  SearchIcon,
+  PaintRollIcon,
+  NewsIcon,
+  DashboardIcon,
+  CategoryIcon,
+  TagIcon,
+  ArchiveIcon,
+  ToolIcon,
+  CalendarIcon,
+} from '@/components/icons'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import AudioToggle from '@/components/toggles/AudioToggle'
-import { Logo, News47ell } from '@/components/UI/Logos'
+import { Slash, News47ell } from '@/components/icons'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { getGravatar } from '@/utils/getGravatar'
 import { default as Image } from '@/components/Image'
@@ -31,13 +34,13 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   const handleOnEnter = () => playPopEnter({ playbackRate: 1.5 })
 
   const icons = [
-    BiPen,
-    BiBarChartAlt2,
-    BiCollection,
-    BiTag,
-    BiArchive,
-    BiBriefcaseAlt2,
-    BiCurrentLocation,
+    NewsIcon,
+    DashboardIcon,
+    CategoryIcon,
+    TagIcon,
+    ArchiveIcon,
+    ToolIcon,
+    CalendarIcon,
   ]
 
   const onToggleNav = () => {
@@ -94,23 +97,23 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
           >
             <span className="sr-only">Open main menu</span>
             {navShow ? (
-              <BiX className="block w-6 h-6 text-nfh-text-primary" />
+              <XIcon className="block w-6 h-6 fill-nfh-accent-primary" />
             ) : (
-              <BiMenu className="block w-6 h-6 text-nfh-text-primary" />
+              <MenuIcon className="block w-6 h-6 fill-nfh-accent-primary" />
             )}
           </button>
         </div>
         <div className="justify-center items-center m-auto">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <News47ell className="hidden lg:block m-auto w-auto h-10" />
-            <Logo className="block lg:hidden m-auto w-auto h-10" />
+            <Slash className="block lg:hidden m-auto w-auto h-10" />
           </Link>
         </div>
         <div className="flex absolute inset-y-0 right-0 items-center pr-4 sm:pr-8">
           <div className="relative ml-3">
             <span className="sr-only">Toggle Search</span>
             <Link href="/blog/search" onMouseEnter={handleOnEnter}>
-              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary hover:animate-wiggle" />
+              <SearchIcon className="block w-6 h-6 hover:animate-wiggle fill-nfh-accent-primary" />
             </Link>
           </div>
           <div className="relative ml-3">
@@ -125,11 +128,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
               onClick={() => setPickerOpen(!pickerOpen)}
               className="h-8 hover:animate-wiggle"
             >
-              {pickerOpen ? (
-                <BiArrowFromBottom className="w-6 h-6 text-nfh-text-primary" />
-              ) : (
-                <BiArrowFromTop className="w-6 h-6 text-nfh-text-primary" />
-              )}
+              <PaintRollIcon className="block w-6 h-6 fill-nfh-accent-primary" />
             </button>
           </div>
           {user && (
@@ -191,11 +190,11 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
               <Link
                 href={item.href}
                 key={item.href}
-                className="py-2 px-3 text-sm font-medium text-nfh-text-primary hover:text-nfh-text-secondary hover:bg-nfh-accent-primary rounded-md"
+                className="py-2 px-3 text-sm font-medium text-nfh-text-primary hover:text-nfh-text-secondary hover:bg-nfh-background-primary rounded-md"
                 onMouseEnter={handleOnEnter}
                 onClick={onToggleNav}
               >
-                <Icon className="inline mr-1 w-6 h-6" />
+                <Icon className="inline-block mr-1 w-6 h-6 align-middle fill-nfh-accent-primary" />
                 {item.title}
               </Link>
             )

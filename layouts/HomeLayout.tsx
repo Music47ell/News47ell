@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import { BiLoader } from 'react-icons/bi'
+import { LoaderIcon } from '@/components/icons'
 import fetcher from '@/lib/fetcher'
 import ProfileCard from '@/components/home/ProfileCard'
 import BlogPostCard from '@/components/home/BlogPostCard'
@@ -70,7 +70,7 @@ export default function HomeLayout(): JSX.Element {
         </div>
       </div>
       {!topViews ? (
-        <BiLoader className="w-12 h-12 animate-spin" />
+        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
       ) : (
         topViews &&
         topViews.length > 0 && (
@@ -90,7 +90,7 @@ export default function HomeLayout(): JSX.Element {
         )
       )}
       {!topReactions ? (
-        <BiLoader className="w-12 h-12 animate-spin" />
+        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
       ) : (
         topReactions &&
         topReactions.length > 0 && (

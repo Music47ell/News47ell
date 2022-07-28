@@ -1,7 +1,7 @@
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
-import { Turkiye } from '@/components/UI/Logos'
+import { Turkiye } from '@/components/icons'
 
 const hCard = (): JSX.Element => {
   if (typeof window === 'object') {
