@@ -35,7 +35,7 @@ export default function Footer(): JSX.Element {
             <TwitterIcon className="block w-6 h-6" />
           </Link>
         </div>
-        <span className="inline-flex items-center my-2 space-x-2 site-credit">
+        <div className="flex items-center my-2 space-x-2 site-credit">
           {siteMetadata.lowerFooterLinks.map((link, idx) => {
             const Icon = icons[idx]
             return (
@@ -44,7 +44,7 @@ export default function Footer(): JSX.Element {
               </Link>
             )
           })}
-        </span>
+        </div>
         <div
           className="block mb-2 space-x-2 text-xs text-center copyright"
           itemProp="copyrightYear"

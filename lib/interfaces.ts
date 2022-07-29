@@ -61,30 +61,30 @@ export interface IResumeLayout {
       countryCode: string
     }
     profiles: {
-      index: number
+      id: number
       network: string
       username: string
       url: string
     }[]
   }
   education: {
-    index: number
+    id: number
     institution: string
     url: string
     area: string
   }[]
   skills: {
-    index: number
+    id: number
     name: string
     keywords: string[]
   }[]
   languages: {
-    index: number
+    id: number
     language: string
     fluency: string
   }[]
   certificates: {
-    index: number
+    id: number
     name: string
     date: string
     issuer: string

@@ -43,46 +43,43 @@ export default function ResumeLayout({
             <Link className="text-sm" href={`mailto:${basics.email}`}>
               {basics.email}
             </Link>
-            <ul className="flex flex-wrap">
-              {basics.profiles.map(({ index, network, url }) => (
-                <li key={index} className="mr-1">
-                  <Link
-                    className="text-sm"
-                    href={url}
-                    onClick={() => playMouseClick()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {network}
-                  </Link>
-                </li>
+            <div className="flex space-x-4">
+              {basics.profiles.map(({ id, network, url }) => (
+                <Link
+                  key={id}
+                  className="text-sm"
+                  href={url}
+                  onClick={() => playMouseClick()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {network}
+                </Link>
               ))}
-            </ul>
+            </div>
             <p className="sm:col-span-2 mt-1 sm:mt-0 text-sm">{basics.summary}</p>
           </div>
           <div className="border-t border-nfh-accent-primary">
             <div>
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
                 <p className="text-sm font-semibold">Educations</p>
-                {education.map(({ index, institution, area }) => (
-                  <p key={index} className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
+                {education.map(({ id, institution, area }) => (
+                  <p key={id} className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
                     {institution} | {area}
                   </p>
                 ))}
               </div>
-              {skills.map(({ index, name, keywords }) => (
-                <div key={index} className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
+              {skills.map(({ id, name, keywords }) => (
+                <div key={id} className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
                   <p className="text-sm font-semibold">{name}</p>
-                  <p key={index} className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
-                    {keywords.join(', ')}
-                  </p>
+                  <p className="sm:col-span-2 mt-1 sm:mt-0 text-sm">{keywords.join(', ')}</p>
                 </div>
               ))}
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
                 <p className="text-sm font-semibold">Languages</p>
                 <ul className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
-                  {languages.map(({ index, language, fluency }) => (
-                    <li key={index} className="mt-1 sm:mt-0 text-sm">
+                  {languages.map(({ id, language, fluency }) => (
+                    <li key={id} className="mt-1 sm:mt-0 text-sm">
                       <p className="mt-1 sm:mt-0 text-sm">
                         {language} | {fluency}
                       </p>
@@ -93,8 +90,8 @@ export default function ResumeLayout({
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
                 <p className="text-sm font-semibold">Certificates</p>
                 <ul className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
-                  {certificates.map(({ index, name, date, issuer, url }) => (
-                    <li key={index} className="mt-1 sm:mt-0 text-sm">
+                  {certificates.map(({ id, name, issuer, url }) => (
+                    <li key={id} className="mt-1 sm:mt-0 text-sm">
                       <p className="mt-1 sm:mt-0 text-sm">
                         {name} |{' '}
                         <Link href={url} aria-label={`Link to ${name}`}>

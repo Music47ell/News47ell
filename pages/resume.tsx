@@ -42,9 +42,7 @@ export default function Resume({
       <main className="flex flex-col flex-1 px-3 mx-auto max-w-5xl">
         <header className="print:hidden">
           <div className="py-5 space-y-1 text-center">
-            <div>
-              <PageTitle>Resume</PageTitle>
-            </div>
+            <PageTitle>Resume</PageTitle>
           </div>
         </header>
         <ResumeLayout
