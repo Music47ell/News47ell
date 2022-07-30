@@ -18,8 +18,8 @@ export default function ResumeLayout({
      */
 
     const URL = process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/resume`
-      : 'http://localhost:3000/api/resume'
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/resume-to-pdf`
+      : 'http://localhost:3000/api/resume-to-pdf'
 
     const link = document.createElement('a')
 

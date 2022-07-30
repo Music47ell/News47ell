@@ -1,12 +1,15 @@
-import { NextApiHandler } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { getResume } from '@/lib/github'
 
-import { resumeToPdf } from '@/lib/puppeteer'
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const response = await getResume()
+  const json = await response.json()
 
-const handler: NextApiHandler = async (req, res) => {
-  const file = await resumeToPdf()
+  const content = await json.files['resume.json'].content
 
-  res.setHeader('Content-Type', 'application/pdf')
-  res.end(file)
+  const data = await JSON.parse(content)
+
+  res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
+
+  return res.status(200).json(data)
 }
-
-export default handler

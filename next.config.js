@@ -4,6 +4,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 const { withSuperjson } = require('next-superjson')
 
+// @ts-check
+
 /**
  * @type {import('next').NextConfig}
  **/

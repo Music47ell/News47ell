@@ -2,39 +2,13 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import PageTitle from '@/components/UI/PageTitle'
 import ResumeLayout from '@/layouts/ResumeLayout'
-import { getResume } from '@/lib/github'
+import { useResume } from '@/hooks/useResume'
+import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
 
-export async function getStaticProps() {
-  const response = await getResume()
-  const json = await response.json()
+export default function Resume(): JSX.Element {
+  const { resume, isLoading } = useResume()
 
-  const content = await json.files['resume.json'].content
-  const data = await JSON.parse(content)
-
-  if (!data) {
-    return { notFound: true }
-  }
-
-  return {
-    props: {
-      basics: data.basics,
-      education: data.education,
-      certificates: data.certificates,
-      skills: data.skills,
-      languages: data.languages,
-    },
-    revalidate: 10,
-  }
-}
-
-export default function Resume({
-  basics,
-  education,
-  certificates,
-  skills,
-  languages,
-}): JSX.Element {
-  if (!basics) return <div></div>
+  const { basics, education, skills, languages, certificates } = resume
 
   return (
     <>
@@ -45,13 +19,17 @@ export default function Resume({
             <PageTitle>Resume</PageTitle>
           </div>
         </header>
-        <ResumeLayout
-          basics={basics}
-          education={education}
-          skills={skills}
-          languages={languages}
-          certificates={certificates}
-        />
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <ResumeLayout
+            basics={basics}
+            education={education}
+            skills={skills}
+            languages={languages}
+            certificates={certificates}
+          />
+        )}
       </main>
     </>
   )
