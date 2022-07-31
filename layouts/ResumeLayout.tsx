@@ -32,14 +32,14 @@ export default function ResumeLayout({
 
   return (
     <SectionContainer>
-      <div className="mx-auto max-w-5xl text-nfh-text-primary bg-nfh-background-secondary border border-nfh-accent-primary">
+      <div className="mx-auto max-w-5xl border border-nfh-accent-primary bg-nfh-background-secondary text-nfh-text-primary">
         <div className="lg:text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-8"></h1>
+          <h1 className="text-3xl font-extrabold leading-8 tracking-tight sm:text-4xl"></h1>
         </div>
         <div className="overflow-hidden">
-          <div className="print:p-3 p-6 text-left">
+          <div className="p-6 text-left print:p-3">
             <h3 className="text-3xl font-extrabold leading-6">{basics.name}</h3>
-            <p className="mt-3 text-sm hover:text-türkiye cursor-none">{basics.location.country}</p>
+            <p className="mt-3 cursor-none text-sm hover:text-türkiye">{basics.location.country}</p>
             <Link className="text-sm" href={`mailto:${basics.email}`}>
               {basics.email}
             </Link>
@@ -57,42 +57,42 @@ export default function ResumeLayout({
                 </Link>
               ))}
             </div>
-            <p className="sm:col-span-2 mt-1 sm:mt-0 text-sm">{basics.summary}</p>
+            <p className="mt-1 text-sm sm:col-span-2 sm:mt-0">{basics.summary}</p>
           </div>
           <div className="border-t border-nfh-accent-primary">
             <div>
-              <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
+              <div className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <p className="text-sm font-semibold">Educations</p>
                 {education.map(({ id, institution, area }) => (
-                  <p key={id} className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
+                  <p key={id} className="mt-1 text-sm sm:col-span-2 sm:mt-0">
                     {institution} | {area}
                   </p>
                 ))}
               </div>
               {skills.map(({ id, name, keywords }) => (
-                <div key={id} className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
+                <div key={id} className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <p className="text-sm font-semibold">{name}</p>
-                  <p className="sm:col-span-2 mt-1 sm:mt-0 text-sm">{keywords.join(', ')}</p>
+                  <p className="mt-1 text-sm sm:col-span-2 sm:mt-0">{keywords.join(', ')}</p>
                 </div>
               ))}
-              <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
+              <div className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <p className="text-sm font-semibold">Languages</p>
-                <ul className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
+                <ul className="mt-1 text-sm sm:col-span-2 sm:mt-0">
                   {languages.map(({ id, language, fluency }) => (
-                    <li key={id} className="mt-1 sm:mt-0 text-sm">
-                      <p className="mt-1 sm:mt-0 text-sm">
+                    <li key={id} className="mt-1 text-sm sm:mt-0">
+                      <p className="mt-1 text-sm sm:mt-0">
                         {language} | {fluency}
                       </p>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 sm:px-6">
+              <div className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <p className="text-sm font-semibold">Certificates</p>
-                <ul className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
+                <ul className="mt-1 text-sm sm:col-span-2 sm:mt-0">
                   {certificates.map(({ id, name, issuer, url }) => (
-                    <li key={id} className="mt-1 sm:mt-0 text-sm">
-                      <p className="mt-1 sm:mt-0 text-sm">
+                    <li key={id} className="mt-1 text-sm sm:mt-0">
+                      <p className="mt-1 text-sm sm:mt-0">
                         {name} |{' '}
                         <Link href={url} aria-label={`Link to ${name}`}>
                           {issuer}
@@ -102,17 +102,17 @@ export default function ResumeLayout({
                   ))}
                 </ul>
               </div>
-              <div className="print:hidden sm:grid sm:grid-cols-3 sm:gap-4 print:p-3 p-6 print:py-0 sm:px-6">
-                <p className="print:hidden text-sm font-medium">Attachments</p>
-                <div className="sm:col-span-2 mt-1 sm:mt-0 text-sm">
-                  <div className="print:hidden rounded-md border border-nfh-accent-primary">
+              <div className="p-6 print:hidden print:p-3 print:py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <p className="text-sm font-medium print:hidden">Attachments</p>
+                <div className="mt-1 text-sm sm:col-span-2 sm:mt-0">
+                  <div className="rounded-md border border-nfh-accent-primary print:hidden">
                     <div
                       onClick={downloadResume}
-                      className="flex justify-between items-center py-3 pr-4 pl-3 text-sm"
+                      className="flex items-center justify-between py-3 pr-4 pl-3 text-sm"
                     >
-                      <div className="flex flex-1 items-center w-0">
+                      <div className="flex w-0 flex-1 items-center">
                         <svg
-                          className="flex-shrink-0 w-5 h-5"
+                          className="h-5 w-5 shrink-0"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -124,9 +124,9 @@ export default function ResumeLayout({
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="flex-1 ml-2 w-0 truncate">Download PDF version</span>
+                        <span className="ml-2 w-0 flex-1 truncate">Download PDF version</span>
                       </div>
-                      <div className="flex-shrink-0 ml-4">
+                      <div className="ml-4 shrink-0">
                         <button className="font-medium text-nfh-accent-primary hover:text-nfh-text-secondary">
                           Download
                         </button>
@@ -135,7 +135,7 @@ export default function ResumeLayout({
                   </div>
                 </div>
               </div>
-              <div className="print:block hidden py-5 text-center" itemProp="copyrightYear">
+              <div className="hidden py-5 text-center print:block" itemProp="copyrightYear">
                 COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
                 {` `}
                 <Link href={basics.url} aria-label="Link to news47ell.com">

@@ -45,25 +45,25 @@ export default function ThemePicker({ open }) {
 
   return (
     <div
-      className={`shadow-sm overflow-hidden absolute w-full bg-nfh-accent-secondary transition-all  ${
+      className={`absolute w-full overflow-hidden bg-nfh-accent-secondary shadow-sm transition-all  ${
         open
           ? 'translate-y-0 duration-[400ms] ease-out'
-          : '-translate-y-full duration-200 ease-in opacity-0'
+          : '-translate-y-full opacity-0 duration-200 ease-in'
       }`}
     >
       <ul
-        className={`text-center whitespace-nowrap overflow-x-auto p-4 transition-transform ${
+        className={`overflow-x-auto whitespace-nowrap p-4 text-center transition-transform ${
           open ? 'translate-y-0 duration-300 ease-out' : '-translate-y-10 duration-150 ease-in'
         }`}
       >
         {themes.map((theme) => (
           <li
-            className={`inline-block mx-4 ${theme.title} transition-transform duration-150`}
+            className={`mx-4 inline-block ${theme.title} transition-transform duration-150`}
             key={theme.title}
           >
             <button
               aria-label={`select ${theme.title} theme`}
-              className="group rounded focus:ring-2 transition-transform duration-150 focus:outline-none"
+              className="group rounded transition-transform duration-150 focus:outline-none focus:ring-2"
               onMouseEnter={handleOnEnter}
               onClick={() => {
                 setTheme(theme.title.toLowerCase())

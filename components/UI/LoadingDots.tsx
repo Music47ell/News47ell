@@ -3,9 +3,9 @@
 export const LoadingDots = (): JSX.Element => {
   return (
     <div className="flex space-x-1">
-      <div className="w-1.5 h-1.5 bg-nfh-background-secondary rounded-full animate-loading-0"></div>
-      <div className="w-1.5 h-1.5 bg-nfh-background-secondary rounded-full animate-loading-1"></div>
-      <div className="w-1.5 h-1.5 bg-nfh-background-secondary rounded-full animate-loading-2"></div>
+      <div className="h-1.5 w-1.5 animate-loading-0 rounded-full bg-nfh-background-secondary"></div>
+      <div className="h-1.5 w-1.5 animate-loading-1 rounded-full bg-nfh-background-secondary"></div>
+      <div className="h-1.5 w-1.5 animate-loading-2 rounded-full bg-nfh-background-secondary"></div>
     </div>
   )
 }

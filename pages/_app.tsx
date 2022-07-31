@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                 : 'translate-y-0 duration-200 ease-in'
             }`}
           >
-            <div className="flex flex-col min-h-screen">
+            <div className="flex min-h-screen flex-col">
               <Nav pickerOpen={pickerOpen} setPickerOpen={setPickerOpen} />
               <Quote />
               <Component {...pageProps} />

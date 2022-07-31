@@ -14,17 +14,17 @@ export default function Shows(): JSX.Element {
         description={siteMetadata.description}
       />
       <SectionContainer>
-        <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="md:flex md:justify-between md:items-center">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Movie & TV show stats</h1>
+        <div className="space-y-2 pt-6 md:space-y-5">
+          <div className="md:flex md:items-center md:justify-between">
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movie & TV show stats</h1>
             <p className="text-xs">Powered by Trakt & TMDB API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
               href="/dashboard"
-              className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
+              className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
             >
-              <ArrowLeftIcon className="block m-auto w-6 h-6 fill-nfh-accent-primary" />
+              <ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
             </Link>
           </div>
           <TraktCard />

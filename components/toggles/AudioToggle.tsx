@@ -24,10 +24,10 @@ const AudioToggle = (): JSX.Element => {
         onClick={handleOnClick}
       >
         {soundEnabled === true ? (
-          <VolumeFullIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+          <VolumeFullIcon className="block h-6 w-6 fill-nfh-accent-primary" />
         ) : null}
         {soundEnabled === false ? (
-          <VolumeMuteIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+          <VolumeMuteIcon className="block h-6 w-6 fill-nfh-accent-primary" />
         ) : null}
       </button>
     </>

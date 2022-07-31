@@ -75,20 +75,20 @@ export default function Admin({ user }): JSX.Element {
           <>
             <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Posts</h1>
             {posts.map((post, index) => (
-              <div key={index} className="pb-4 mt-8">
+              <div key={index} className="mt-8 pb-4">
                 <div className="flex flex-row">
                   <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
                     {post.published === true ? (
                       <CheckIcon
                         className={`${
                           post.published === true ? 'text-green-600' : 'text-yellow-600'
-                        } inline-block mr-1 w-5 h-5`}
+                        } mr-1 inline-block h-5 w-5`}
                       />
                     ) : (
                       <ExclamationIcon
                         className={`${
                           post.published === true ? 'text-green-600' : 'text-yellow-600'
-                        } inline-block mr-1 w-5 h-5`}
+                        } mr-1 inline-block h-5 w-5`}
                       />
                     )}
                     <h2 className="text-xl font-semibold">{post.title}</h2>
@@ -107,20 +107,20 @@ export default function Admin({ user }): JSX.Element {
             ))}
             <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Pages</h1>
             {pages.map((page, index) => (
-              <div key={index} className="pb-4 mt-8">
+              <div key={index} className="mt-8 pb-4">
                 <div className="flex flex-row">
                   <button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
                     {page.published === true ? (
                       <CheckIcon
                         className={`${
                           page.published === true ? 'text-green-600' : 'text-yellow-600'
-                        } inline-block mr-1 w-5 h-5`}
+                        } mr-1 inline-block h-5 w-5`}
                       />
                     ) : (
                       <ExclamationIcon
                         className={`${
                           page.published === true ? 'text-green-600' : 'text-yellow-600'
-                        } inline-block mr-1 w-5 h-5`}
+                        } mr-1 inline-block h-5 w-5`}
                       />
                     )}
                     <h2 className="text-xl font-semibold">{page.title}</h2>
@@ -139,7 +139,7 @@ export default function Admin({ user }): JSX.Element {
             ))}
             <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Lyrics</h1>
             {lyrics.map((lyric, index) => (
-              <div key={index} className="pb-4 mt-8">
+              <div key={index} className="mt-8 pb-4">
                 <h2 className="text-xl font-semibold">{lyric.song}</h2>
                 <Link href={`/admin/edit/lyric/${lyric.id}`} className="mr-4 text-sm text-blue-500">
                   Edit Lyric
@@ -151,7 +151,7 @@ export default function Admin({ user }): JSX.Element {
             ))}
             <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Quotes</h1>
             {quotes.map((quote, index) => (
-              <div key={index} className="pb-4 mt-8">
+              <div key={index} className="mt-8 pb-4">
                 <h2 className="text-xl font-semibold">{quote.quote}</h2>
                 <Link href={`/admin/edit/quote/${quote.id}`} className="mr-4 text-sm text-blue-500">
                   Edit Quote
@@ -166,7 +166,7 @@ export default function Admin({ user }): JSX.Element {
             ))}
           </>
         ) : (
-          <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
+          <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
         )}
       </SectionContainer>
     </>

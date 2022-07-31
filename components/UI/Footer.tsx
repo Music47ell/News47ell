@@ -16,7 +16,7 @@ export default function Footer(): JSX.Element {
   const icons = [SupabaseIcon, NextDotJsIcon, TailwindCSSIcon, VercelIcon]
 
   return (
-    <footer className="print:hidden py-4 bg-nfh-background-secondary">
+    <footer className="bg-nfh-background-secondary py-4 print:hidden">
       <div className="flex flex-col items-center">
         <nav>
           <ul className="flex flex-wrap justify-center">
@@ -27,33 +27,33 @@ export default function Footer(): JSX.Element {
             ))}
           </ul>
         </nav>
-        <div className="flex my-3 space-x-4">
+        <div className="my-3 flex space-x-4">
           <Link href={`mailto:${siteMetadata.email}`}>
-            <EnvelopeIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+            <EnvelopeIcon className="block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
           <Link href={`https://twitter.com/${siteMetadata.twitter}`}>
-            <TwitterIcon className="block w-6 h-6" />
+            <TwitterIcon className="block h-6 w-6" />
           </Link>
         </div>
-        <div className="flex items-center my-2 space-x-2 site-credit">
+        <div className="site-credit my-2 flex items-center space-x-2">
           {siteMetadata.lowerFooterLinks.map((link, idx) => {
             const Icon = icons[idx]
             return (
               <Link href={link.href} key={link.href}>
-                <Icon className="block w-6 h-6" />
+                <Icon className="block h-6 w-6" />
               </Link>
             )
           })}
         </div>
         <div
-          className="block mb-2 space-x-2 text-xs text-center copyright"
+          className="copyright mb-2 block space-x-2 text-center text-xs"
           itemProp="copyrightYear"
         >
           COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
           {` `}
           {siteMetadata.altTitle}. ALL RIGHTS RESERVED.
         </div>
-        <div className="text-xs text-center">
+        <div className="text-center text-xs">
           Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
         </div>
         <div className="grid grid-cols-1">

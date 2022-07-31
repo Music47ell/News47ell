@@ -18,12 +18,12 @@ export default function HomeLayout(): JSX.Element {
   )
 
   return (
-    <main className="container flex flex-col flex-1 px-3 my-8 mx-auto space-y-2 md:space-y-5 max-w-5xl">
-      <div className="xl:mt-16 divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 items-center py-6 my-4 space-y-2 md:space-y-5">
-          <div className="xl:col-span-2 sm:pr-8">
+    <main className="container my-8 mx-auto flex max-w-5xl flex-1 flex-col space-y-2 px-3 md:space-y-5">
+      <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:mt-16">
+        <div className="my-4 grid items-center space-y-2 py-6 md:grid-cols-2 md:space-y-5 xl:grid-cols-3">
+          <div className="sm:pr-8 xl:col-span-2">
             <p
-              className={`mb-8 text-4xl leading-[60px] font-extrabold tracking-tight bg-clip-text md:text-7xl md:leading-[86px]`}
+              className={`mb-8 bg-clip-text text-4xl font-extrabold leading-[60px] tracking-tight md:text-7xl md:leading-[86px]`}
             >
               Howdy, fellow!
             </p>
@@ -70,13 +70,13 @@ export default function HomeLayout(): JSX.Element {
         </div>
       </div>
       {!topViews ? (
-        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
+        <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
       ) : (
         topViews &&
         topViews.length > 0 && (
           <>
             <Divider>Most Viewed</Divider>
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col gap-6 md:flex-row">
               {topViews.map((views, index) => (
                 <BlogPostCard
                   key={index}
@@ -90,13 +90,13 @@ export default function HomeLayout(): JSX.Element {
         )
       )}
       {!topReactions ? (
-        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
+        <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
       ) : (
         topReactions &&
         topReactions.length > 0 && (
           <>
             <Divider>Most Liked</Divider>
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col gap-6 md:flex-row">
               {topReactions.map((reaction, index) => (
                 <BlogPostCard
                   key={index}

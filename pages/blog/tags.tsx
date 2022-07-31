@@ -19,21 +19,21 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
     <>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
       <SectionContainer>
-        <div className="flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center my-8 md:space-x-6 divide-y md:divide-y-0 divide-gray-200 dark:divide-gray-700">
-          <div className="pt-6 pb-8 md:space-y-5 space-x-2">
-            <h1 className="md:px-6 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 md:border-r-2">
+        <div className="my-8 flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+          <div className="space-x-2 pt-6 pb-8 md:space-y-5">
+            <h1 className="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14">
               Tags
             </h1>
           </div>
-          <div className="flex flex-wrap max-w-lg">
+          <div className="flex max-w-lg flex-wrap">
             {Object.keys(tags).length === 0 && 'No tags found.'}
             {sortedTags.map((t) => {
               return (
-                <div key={t} className="mt-2 mr-5 mb-2">
+                <div key={t} className="my-2 mr-5">
                   <Tag text={t} />
                   <Link
                     href={`/blog/tag/${kebabCase(t)}`}
-                    className="-ml-2 text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase"
+                    className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
                   >
                     {` (${tags[t]})`}
                   </Link>

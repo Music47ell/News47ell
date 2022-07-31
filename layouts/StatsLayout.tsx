@@ -14,45 +14,45 @@ export default function StatsLayout(): JSX.Element {
 
   return (
     <>
-      <div className="md:flex md:justify-between md:items-center">
-        <h3 className="text-2xl font-bold tracking-tight leading-8">Site Statistics</h3>
+      <div className="md:flex md:items-center md:justify-between">
+        <h3 className="text-2xl font-bold leading-8 tracking-tight">Site Statistics</h3>
         <p className="text-xs">Collected with Umami</p>
       </div>
       <div className="grid grid-cols-1 gap-3">
         <LiveCard />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 xl:grid-cols-3">
         <StatsCard title="All Views" count={stats.AllStats} yesterday={stats.AllStatsYesterday}>
-          <ChartIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
+          <ChartIcon className="mr-1 block h-10 w-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard
           title="Unique Views"
           count={stats.uniqueVisitors}
           yesterday={stats.uniqueVisitorsYesterday}
         >
-          <UsersIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
+          <UsersIcon className="mr-1 block h-10 w-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard title="Countries" count={stats.countries}>
-          <GlobeIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
+          <GlobeIcon className="mr-1 block h-10 w-10 fill-nfh-accent-primary" />
         </StatsCard>
       </div>
-      <h3 className="text-2xl font-bold tracking-tight leading-8">Device Type</h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3">
+      <h3 className="text-2xl font-bold leading-8 tracking-tight">Device Type</h3>
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-2">
         <StatsCard title="Desktop Views" count={stats.isDesktop}>
-          <DesktopIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
+          <DesktopIcon className="mr-1 block h-10 w-10 fill-nfh-accent-primary" />
         </StatsCard>
         <StatsCard title="Mobiles Views" count={stats.isMobile}>
-          <MobileIcon className="block mr-1 w-10 h-10 fill-nfh-accent-primary" />
+          <MobileIcon className="mr-1 block h-10 w-10 fill-nfh-accent-primary" />
         </StatsCard>
       </div>
-      <h3 className="text-2xl font-bold tracking-tight leading-8">Posts Reactions</h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3">
+      <h3 className="text-2xl font-bold leading-8 tracking-tight">Posts Reactions</h3>
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-2">
         <AllReactions />
         <IndividualReactions />
       </div>
-      <h3 className="text-2xl font-bold tracking-tight leading-8">Web Vitals</h3>
+      <h3 className="text-2xl font-bold leading-8 tracking-tight">Web Vitals</h3>
       <div className="space-y-1">
-        <div className="grid md:grid-cols-6 gap-4">
+        <div className="grid gap-4 md:grid-cols-6">
           {webVitals.map((metric, index) => {
             const { name, explainerURL, supported, rating, unit, value } = metric
             let color = 'bg-gray-400'

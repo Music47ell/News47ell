@@ -19,8 +19,8 @@ const BlogToc = ({ blocks }: { blocks: any }) => {
 
   if (headings.length === 0) {
     return (
-      <aside className="hidden lg:inline-block md:sticky md:top-12 col-span-3 md:self-start space-y-8 w-full">
-        <div className="p-4 rounded border border-gray-600">
+      <aside className="col-span-3 hidden w-full space-y-8 md:sticky md:top-12 md:self-start lg:inline-block">
+        <div className="rounded border border-gray-600 p-4">
           <h1 className="font-bold leading-8 text-nfh-text-primary">Table of contents</h1>
           <p className="leading-6 text-nfh-text-secondary">
             There is no table of contents. Here is a cookie. 🍪
@@ -40,16 +40,16 @@ const BlogToc = ({ blocks }: { blocks: any }) => {
   })
 
   return (
-    <aside className="hidden lg:inline-block md:sticky md:top-12 col-span-3 md:self-start space-y-8 w-full">
-      <div className="p-4 rounded border border-gray-600">
+    <aside className="col-span-3 hidden w-full space-y-8 md:sticky md:top-12 md:self-start lg:inline-block">
+      <div className="rounded border border-gray-600 p-4">
         <h1 className="font-bold leading-8 text-nfh-text-primary">Table of contents</h1>
-        <ul className="list-disc list-inside">
+        <ul className="list-inside list-disc">
           {nestedHeadings.map((h: headingType) => (
             <Link href={`#${slug(h.text)}`} key={h.id} passHref>
               <li>
                 <a href={`#${slug(h.text)}`}>{h.text}</a>
                 {h.children.length > 0 && (
-                  <ul className="ml-6 list-disc list-inside">
+                  <ul className="ml-6 list-inside list-disc">
                     {h.children.map(
                       (h: { id: string; type: 'heading_2' | 'heading_3'; text: string }) => (
                         <Link href={`#${slug(h.text)}`} key={h.id} passHref>

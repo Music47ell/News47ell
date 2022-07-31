@@ -87,14 +87,14 @@ export default function Chart(): JSX.Element {
 
   return (
     <>
-      <div className="md:flex md:justify-between md:items-center">
+      <div className="md:flex md:items-center md:justify-between">
         <p className="text-sm uppercase">Average Web Vitals</p>
       </div>
 
       {isLoading ? (
-        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 bg-nfh-background-secondary rounded opacity-75 animate-pulse"></div>
+        <div className="flex h-64 w-full animate-pulse flex-col items-center justify-center rounded bg-nfh-background-secondary py-4 px-1 opacity-75"></div>
       ) : (
-        <div className="flex flex-col justify-center items-center py-4 px-1 w-full h-64 bg-nfh-background-secondary rounded opacity-75">
+        <div className="flex h-64 w-full flex-col items-center justify-center rounded bg-nfh-background-secondary py-4 px-1 opacity-75">
           <CJS
             type="line"
             data={chartData}

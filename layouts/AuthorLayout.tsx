@@ -12,28 +12,28 @@ export default function AuthorLayout({ author, posts }: Authors): JSX.Element {
 
   return (
     <SectionContainer>
-      <div className="xl:grid xl:grid-cols-3 xl:gap-x-8 items-start pb-8 space-y-2 xl:space-y-0">
-        <div className="flex flex-col items-center pt-8 space-x-2">
+      <div className="items-start space-y-2 pb-8 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+        <div className="flex flex-col items-center space-x-2 pt-8">
           <Image
             src={getGravatar(email, 192)}
             alt="avatar"
             width="192px"
             height="192px"
-            className="w-48 h-48 rounded-full"
+            className="h-48 w-48 rounded-full"
           />
-          <h3 className="pt-4 pb-2 text-2xl font-bold tracking-tight leading-8">{name}</h3>
-          <div className="flex pt-6 space-x-3">
+          <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
+          <div className="flex space-x-3 pt-6">
             <Link href={`mailto:${email}`}>
-              <EnvelopeIcon className="w-6 h-6 fill-nfh-accent-primary" />
+              <EnvelopeIcon className="h-6 w-6 fill-nfh-accent-primary" />
             </Link>
             {twitter && (
               <Link href={`https://twitter.com/${twitter}`} className="">
-                <TwitterIcon className="w-6 h-6" />
+                <TwitterIcon className="h-6 w-6" />
               </Link>
             )}
           </div>
         </div>
-        <div className="xl:col-span-2 pt-8 pb-8 max-w-none prose prose-theme">
+        <div className="prose prose-theme max-w-none py-8 xl:col-span-2">
           {bio}
           {posts.map((post: { slug: string; title: string }, index) => (
             <Link key={index} href={`/blog/${post.slug}`}>

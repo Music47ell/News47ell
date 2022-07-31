@@ -5,18 +5,18 @@ export default function LiveCard(): JSX.Element {
   const { active, isLoading } = useActiveStats()
 
   return (
-    <div className="flex relative flex-col p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
+    <div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <>
           <div className="flex items-center">Visiting Right Now!</div>
-          <span className="flex absolute top-0 right-0 m-4 w-3 h-3">
-            <span className="inline-flex absolute w-full h-full bg-nfh-background-secondary rounded-full opacity-75 animate-ping"></span>
-            <span className="inline-flex relative w-3 h-3 bg-nfh-background-primary rounded-full"></span>
+          <span className="absolute top-0 right-0 m-4 flex h-3 w-3">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-nfh-background-secondary opacity-75"></span>
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-nfh-background-primary"></span>
           </span>
           <div>
-            <p className="flex justify-between items-baseline mt-2 text-3xl font-bold">
+            <p className="mt-2 flex items-baseline justify-between text-3xl font-bold">
               {active}
               {active <= 1 ? ' person' : ' persons'}
             </p>

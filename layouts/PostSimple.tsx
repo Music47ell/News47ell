@@ -18,11 +18,11 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
         authorDetails={author}
         {...frontMatter}
       />
-      <main className="container flex flex-col flex-1 px-3 mx-auto max-w-5xl">
-        <div className="p-4 -mx-4 rounded md:border border-gray-600">
+      <main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
+        <div className="-mx-4 rounded border-gray-600 p-4 md:border">
           <article className="h-entry">
             <header>
-              <div className="pb-10 space-y-1 text-center border-b border-gray-200 dark:border-gray-700">
+              <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
                 <dl>
                   <div>
                     <dt className="sr-only">Published on</dt>
@@ -48,16 +48,16 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
               </div>
             </header>
             <div
-              className="divide-y xl:divide-y-0 divide-gray-200 dark:divide-gray-700"
+              className="divide-y divide-gray-200 dark:divide-gray-700 xl:divide-y-0"
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
-              <div className="xl:col-span-3 xl:row-span-2 xl:pb-0 divide-y divide-gray-200 dark:divide-gray-700">
+              <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
                 <Markdown>{content}</Markdown>
               </div>
               <ReactionsButton slug={slug} />
               <Share title={title} slug={slug} />
               <footer>
-                <div className="flex flex-col sm:flex-row sm:justify-between text-sm sm:text-base font-medium">
+                <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                   {prev && (
                     <div className="pt-4 xl:pt-8">
                       <Link href={`/blog/${prev.slug}`}>&larr; {prev.title}</Link>

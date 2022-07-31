@@ -11,7 +11,7 @@ export default function ShowsWatched(): JSX.Element {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+    <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-5">
       {data.shows.map((show, index) => (
         <Release ranking={`Show-number-${index + 1}`} key={show.id} {...show} />
       ))}

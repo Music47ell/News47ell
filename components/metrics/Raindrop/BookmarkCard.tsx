@@ -13,11 +13,13 @@ export default function BookmarkCard(bookmark: RaindropCard): JSX.Element {
       <div className="w-full">
         <ul>
           <Link href={bookmark.link}>
-            <li className="text-base cursor-pointer hover:text-muted-hover">{title}</li>
-            <time className="text-xs cursor-pointer text-muted">
+            <li className="cursor-pointer text-base hover:text-nfh-text-secondary">{title}</li>
+            <time className="cursor-pointer text-xs text-nfh-text-secondary">
               {formatDate(bookmark.lastUpdate)}
             </time>
-            <p className="text-xs cursor-pointer text-muted">{bookmark.tags.join(', ')}</p>
+            <p className="cursor-pointer text-xs text-nfh-text-secondary">
+              {bookmark.tags.join(', ')}
+            </p>
           </Link>
         </ul>
       </div>

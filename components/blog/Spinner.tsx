@@ -8,12 +8,12 @@ export function Spinner({ displayed }) {
   return (
     <button
       type="button"
-      className={`items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:border-red-700 active:bg-red-700 transition ease-in-out duration-150 cursor-not-allowed mt-4 ${
+      className={`mt-4 cursor-not-allowed items-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-red-500 focus:border-red-700 active:bg-red-700 ${
         show ? 'inline-flex' : 'hidden'
       }`}
       disabled
     >
-      <svg className="mr-3 -ml-1 w-5 h-5 text-white animate-spin" viewBox="0 0 24 24">
+      <svg className="mr-3 -ml-1 h-5 w-5 animate-spin text-white" viewBox="0 0 24 24">
         <circle
           className="opacity-25"
           cx="12"

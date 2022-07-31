@@ -31,10 +31,10 @@ const ProjectBreakdown = (): JSX.Element => {
   return (
     <>
       <div className="space-y-1">
-        <div className="md:flex md:justify-between md:items-center">
+        <div className="md:flex md:items-center md:justify-between">
           <p className="text-sm uppercase">SITE LINES BY LANGUAGE</p>
         </div>
-        <div className="p-4 space-y-2 w-full bg-nfh-background-secondary rounded">
+        <div className="w-full space-y-2 rounded bg-nfh-background-secondary p-4">
           {Object.keys(cards).map(function (item, index) {
             return (
               <PBStatsCard
@@ -46,25 +46,25 @@ const ProjectBreakdown = (): JSX.Element => {
               />
             )
           })}
-          <div className="flex justify-start items-center mb-2">
-            <div className="inline-block py-1 pr-2 text-xs font-semibold text-nfh-text-primary uppercase">
+          <div className="mb-2 flex items-center justify-start">
+            <div className="inline-block py-1 pr-2 text-xs font-semibold uppercase text-nfh-text-primary">
               Others
             </div>
-            <div className="inline-block py-1 pr-2 text-xs font-semibold text-nfh-text-primary uppercase">
+            <div className="inline-block py-1 pr-2 text-xs font-semibold uppercase text-nfh-text-primary">
               {remainingPct}% Other
             </div>
           </div>
-          <div className="flex overflow-hidden mb-4 h-4 text-xs text-nfh-text-primary rounded">
+          <div className="mb-4 flex h-4 overflow-hidden rounded text-xs text-nfh-text-primary">
             <div
               style={{ width: `${remainingPct}%` }}
-              className="flex flex-col justify-center text-center text-nfh-text-primary
-      whitespace-nowrap bg-nfh-background-primary shadow-none"
+              className="flex flex-col justify-center whitespace-nowrap bg-nfh-background-primary
+      text-center text-nfh-text-primary shadow-none"
             ></div>
           </div>
         </div>
       </div>
       <div className="space-y-1">
-        <div className="md:flex md:justify-between md:items-center">
+        <div className="md:flex md:items-center md:justify-between">
           <p className="text-sm uppercase">Totals</p>
         </div>
         <PBTotalStatsCard blank={blank} comment={comment} code={code} files={nFiles} />

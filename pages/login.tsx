@@ -33,9 +33,9 @@ const Login = (): JSX.Element => {
   return (
     <SectionContainer>
       {!user ? (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col items-center justify-center">
           <div className="w-full max-w-lg">
-            <h1 className="text-3xl font-semibold text-center text-white">
+            <h1 className="text-center text-3xl font-semibold text-white">
               Sign in to your account
             </h1>
 
@@ -45,7 +45,7 @@ const Login = (): JSX.Element => {
                   Email
                 </label>
                 <input
-                  className="py-2 px-4 text-nfh-text-primary bg-nfh-background-secondary rounded-md focus:ring-2 focus:outline-none"
+                  className="rounded-md bg-nfh-background-secondary py-2 px-4 text-nfh-text-primary focus:outline-none focus:ring-2"
                   type="email"
                   id="email"
                   value={email}
@@ -56,7 +56,7 @@ const Login = (): JSX.Element => {
                   Password
                 </label>
                 <input
-                  className="py-2 px-4 text-nfh-text-primary bg-nfh-background-secondary rounded-md focus:ring-2 focus:outline-none"
+                  className="rounded-md bg-nfh-background-secondary py-2 px-4 text-nfh-text-primary focus:outline-none focus:ring-2"
                   type="password"
                   id="password"
                   value={password}
@@ -64,7 +64,7 @@ const Login = (): JSX.Element => {
                 />
 
                 <button
-                  className="py-3 px-6 mt-10 text-lg font-semibold text-nfh-text-primary bg-nfh-accent-primary hover:bg-nfh-accent-secondary rounded-md focus:ring-2 focus:outline-none"
+                  className="mt-10 rounded-md bg-nfh-accent-primary py-3 px-6 text-lg font-semibold text-nfh-text-primary hover:bg-nfh-accent-secondary focus:outline-none focus:ring-2"
                   type="submit"
                 >
                   Sign in with Email
@@ -74,7 +74,7 @@ const Login = (): JSX.Element => {
           </div>
         </div>
       ) : (
-        <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
+        <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
       )}
     </SectionContainer>
   )

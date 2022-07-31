@@ -9,12 +9,12 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
   const nextPage = currentPage + 1 <= totalPages
 
   return (
-    <div className="pt-5 pb-5 space-y-2 md:space-y-5 border-t border-b border-nfh-accent-primary">
+    <div className="space-y-2 border-y border-nfh-accent-primary py-5 md:space-y-5">
       <nav className="flex justify-between">
         {!prevPage && (
           <button
             rel="previous"
-            className="disabled:opacity-50 cursor-not-allowed"
+            className="cursor-not-allowed disabled:opacity-50"
             disabled={!prevPage}
           >
             Previous
@@ -35,7 +35,7 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
         {!nextPage && (
           <button
             rel="next"
-            className="disabled:opacity-50 cursor-not-allowed"
+            className="cursor-not-allowed disabled:opacity-50"
             disabled={!nextPage}
           >
             Next

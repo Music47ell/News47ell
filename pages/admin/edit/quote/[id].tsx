@@ -67,32 +67,32 @@ export default function EditQuote({ user }): JSX.Element {
           <>
             <h1 className="mt-6 text-3xl font-semibold tracking-wide">Edit a quote</h1>
 
-            <label htmlFor="quoteLink" className="inline-block mb-2">
+            <label htmlFor="quoteLink" className="mb-2 inline-block">
               Add Quote Link
             </label>
             <input
               type="text"
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Quote Link"
               value={link}
               onChange={(e) => setLink(e.target.value)}
             />
-            <label htmlFor="quoteSource" className="inline-block mb-2">
+            <label htmlFor="quoteSource" className="mb-2 inline-block">
               Add Quote Source
             </label>
             <input
               type="text"
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Quote Source"
               value={source}
               onChange={(e) => setSource(e.target.value)}
             />
 
-            <label htmlFor="quote" className="inline-block mb-2">
+            <label htmlFor="quote" className="mb-2 inline-block">
               Add Quote
             </label>
             <textarea
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Quote"
               value={quote}
               onChange={(e) => setQuote(e.target.value)}
@@ -102,14 +102,14 @@ export default function EditQuote({ user }): JSX.Element {
               <button
                 type="button"
                 onClick={updateCurrentQuote}
-                className="inline-flex justify-center py-2 px-4 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md border border-transparent focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-sm focus:outline-none"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Update Quote
               </button>
             </div>
           </>
         ) : (
-          <LoaderIcon className="w-12 h-12 animate-spin fill-nfh-accent-primary" />
+          <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
         )}
       </SectionContainer>
     </>

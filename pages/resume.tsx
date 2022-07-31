@@ -13,9 +13,9 @@ export default function Resume(): JSX.Element {
   return (
     <>
       <PageSEO title={`Resume - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <main className="flex flex-col flex-1 px-3 mx-auto max-w-5xl">
+      <main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
         <header className="print:hidden">
-          <div className="py-5 space-y-1 text-center">
+          <div className="space-y-1 py-5 text-center">
             <PageTitle>Resume</PageTitle>
           </div>
         </header>

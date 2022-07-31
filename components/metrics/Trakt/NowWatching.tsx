@@ -8,23 +8,23 @@ export default function NowWatching(): JSX.Element {
   const { data } = useSWR<NowWatchingRelease>('/api/now-watching', fetcher)
 
   return data?.isWatching ? (
-    <div className="flex items-start p-2 m-auto mt-4 mb-4 w-72 rounded-lg border border-nfh-accent-primary">
+    <div className="m-auto my-4 flex w-72 items-start rounded-lg border border-nfh-accent-primary p-2">
       <Image
         alt="Trakt"
-        className="w-60 h-60 rounded-lg"
+        className="h-60 w-60 rounded-lg"
         height={60}
         width={60}
         src={data?.poster || '/images/brand/logo.png'}
       />
-      <div className="flex flex-col justify-center items-start ml-3">
+      <div className="ml-3 flex flex-col items-start justify-center">
         {data?.episodeTitle ? (
-          <p className="w-48 font-medium truncate">{data.episodeTitle}</p>
+          <p className="w-48 truncate font-medium">{data.episodeTitle}</p>
         ) : (
-          <p className="w-48 font-medium truncate">Not Watching</p>
+          <p className="w-48 truncate font-medium">Not Watching</p>
         )}
         <p className="w-48 truncate">{data?.title ?? 'Trakt'}</p>
       </div>
-      <TraktIcon className="block w-6 h-6 fill-nfh-accent-primary" />
+      <TraktIcon className="block h-6 w-6 fill-nfh-accent-primary" />
     </div>
   ) : null
 }

@@ -21,17 +21,17 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                     <dd className="text-base font-medium leading-6 text-nfh-text-primary">
                       <time
                         dateTime={updated_at ? updated_at : published_at}
-                        className="text-nfh-text-primary dt-edited"
+                        className="dt-edited text-nfh-text-primary"
                       >
                         {formatDate(updated_at ? updated_at : published_at)}
                       </time>
                     </dd>
                     <dd className="text-base font-medium leading-6 text-nfh-text-primary"></dd>
                   </dl>
-                  <div className="xl:col-span-3 space-y-5">
+                  <div className="space-y-5 xl:col-span-3">
                     <div className="space-y-6">
                       <div>
-                        <h2 className="text-2xl font-bold tracking-tight leading-8">
+                        <h2 className="text-2xl font-bold leading-8 tracking-tight">
                           <Link
                             href={!linked ? `/blog/${slug}` : linked}
                             //@ts-ignore
@@ -41,7 +41,7 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
                           </Link>
                         </h2>
                       </div>
-                      <div className="max-w-none text-nfh-text-primary p-summary">
+                      <div className="p-summary max-w-none text-nfh-text-primary">
                         {description}
                       </div>
                     </div>

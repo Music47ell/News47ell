@@ -46,8 +46,8 @@ const SearchLayout: FC = () => {
   }
 
   return (
-    <main className="container flex flex-col flex-1 px-3 mx-auto max-w-5xl">
-      <h1 className="p-4 text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14">
+    <main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
+      <h1 className="p-4 text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
         Search the blog
       </h1>
       <div className="py-6">
@@ -58,25 +58,25 @@ const SearchLayout: FC = () => {
             type="text"
             placeholder="Press / to focus"
             onChange={handleChange}
-            className="block py-2 px-4 w-full placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-background-secondary rounded-md border border-nfh-accent-primary"
+            className="block w-full rounded-md border border-nfh-accent-primary bg-nfh-background-secondary py-2 px-4 text-nfh-text-secondary placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary"
           />
 
-          <SearchIcon className="absolute top-3 right-3 w-5 h-5 fill-nfh-accent-primary" />
+          <SearchIcon className="absolute top-3 right-3 h-5 w-5 fill-nfh-accent-primary" />
         </div>
       </div>
       {data && (
         <>
           {data?.length === 0 ? (
             <div className="text-center">
-              <div className="py-4 m-auto text-5xl">( °□°) ︵ ┻━┻</div>
+              <div className="m-auto py-4 text-5xl">( °□°) ︵ ┻━┻</div>
               <div className="pb-4">Nothing here...</div>
             </div>
           ) : (
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data?.map((result: any) => (
               <Link key={result.slug} href={`/blog/${result.slug}`}>
-                <div className="flex justify-between p-4 border-b border-nfh-accent-secondary hover:border-nfh-accent-primary cursor-pointer">
-                  <div className="overflow-hidden flex-1 truncate">
+                <div className="flex cursor-pointer justify-between border-b border-nfh-accent-secondary p-4 hover:border-nfh-accent-primary">
+                  <div className="flex-1 overflow-hidden truncate">
                     <div className="pb-1 font-medium">{result.title}</div>
                     <div className="font-mono text-xs">{formatDate(result.published_at)}</div>
                   </div>

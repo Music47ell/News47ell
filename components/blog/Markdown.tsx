@@ -40,7 +40,7 @@ export default function Markdown({ children }): JSX.Element {
         />
       ) : (
         <code
-          className={`${className} bg-nfh-background-secondary text-nfh-text-primary py-0.5 px-1 rounded`}
+          className={`${className} rounded bg-nfh-background-secondary py-0.5 px-1 text-nfh-text-primary`}
           {...props}
         >
           {children}
@@ -50,7 +50,7 @@ export default function Markdown({ children }): JSX.Element {
   }
 
   return (
-    <ReactMarkdown className="max-w-none prose prose-theme" components={customRenderers}>
+    <ReactMarkdown className="prose prose-theme max-w-none" components={customRenderers}>
       {children}
     </ReactMarkdown>
   )
