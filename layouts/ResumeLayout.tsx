@@ -139,7 +139,7 @@ export default function ResumeLayout({
                 COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
                 {` `}
                 <Link href={basics.url} aria-label="Link to news47ell.com">
-                  {siteMetadata.altTitle}
+                  {siteMetadata.title}
                 </Link>
                 . ALL RIGHTS RESERVED.
               </div>
