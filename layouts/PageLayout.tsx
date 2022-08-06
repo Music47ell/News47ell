@@ -10,22 +10,22 @@ export default function PageLayout({ frontMatter, content }: IPostLayout): JSX.E
   return (
     <>
       <PageSEO title={`${title} - ${siteMetadata.title}`} description={siteMetadata.description} />
-      <main className="flex flex-col flex-1 px-3 mx-auto max-w-5xl">
+      <main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
         <article className="pt-4">
           <div>
             <header>
-              <div className="py-5 space-y-1 text-center border-b border-gray-200 dark:border-gray-700">
+              <div className="space-y-1 border-b border-gray-200 py-5 text-center dark:border-gray-700">
                 <div>
                   <PageTitle>{title}</PageTitle>
                 </div>
               </div>
             </header>
             <div
-              className="pb-8 divide-y xl:divide-y-0 divide-gray-200"
+              className="divide-y divide-gray-200 pb-8 xl:divide-y-0"
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
-              <div className="xl:col-span-3 xl:row-span-2 xl:pb-0 divide-y divide-gray-200 dark:divide-gray-700">
-                <div className="pt-10 pb-8 max-w-none prose prose-theme">
+              <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+                <div className="prose prose-theme max-w-none pt-10 pb-8">
                   <Markdown>{content}</Markdown>
                 </div>
               </div>

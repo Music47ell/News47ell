@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BiLoader, BiLeftArrowAlt } from 'react-icons/bi'
+import { LoaderIcon, ArrowLeftIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { BookmarkCard } from '@/components/metrics/Raindrop/'
@@ -36,25 +36,25 @@ export default function Bookmarks(): JSX.Element {
         description={siteMetadata.description}
       />
       <SectionContainer>
-        <div className="pt-6 space-y-2 md:space-y-5">
-          <div className="md:flex md:justify-between md:items-center">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Bookmarks</h1>
+        <div className="space-y-2 pt-6 md:space-y-5">
+          <div className="md:flex md:items-center md:justify-between">
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Bookmarks</h1>
             <p className="text-xs">Powered by Raindrop API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
               href="/dashboard"
-              className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
+              className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
             >
-              <BiLeftArrowAlt className="m-auto w-6 h-6" />
+              <ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
             </Link>
           </div>
           <RaindropCountCard />
         </div>
         <p className="mb-4">Filter through all of my bookmarks</p>
         {isLoading ? (
-          <div className="flex justify-center items-center">
-            <BiLoader className="w-12 h-12 animate-spin" />
+          <div className="flex items-center justify-center">
+            <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
           </div>
         ) : (
           <>

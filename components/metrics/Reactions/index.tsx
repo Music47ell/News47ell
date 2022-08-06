@@ -8,7 +8,7 @@ export function AllReactions() {
   const { totalReactions, isLoading } = useDashboardReactions()
 
   return (
-    <div className="flex justify-between items-center p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
+    <div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -28,14 +28,14 @@ export function IndividualReactions() {
   const { totalLikes, totalDislikes, isLoading } = useDashboardReactions()
 
   return (
-    <div className="flex justify-between items-center p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
+    <div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <>
           <h6 className="flex items-center">Blog posts reactions</h6>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 justify-items-center mb-1">
+          <div className="mb-1 grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-2">
             <LikeCount likeCount={totalLikes} />
             <DislikeCount dislikeCount={totalDislikes} />
           </div>

@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 export default function LoadingFullScreen() {
   return (
-    <div className="flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 justify-center items-center px-4 backdrop-filter backdrop-blur outline-none focus:outline-none">
-      <div className="pb-4 w-24">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden px-4 outline-none backdrop-blur focus:outline-none">
+      <div className="w-24 pb-4">
         <Image
           src="/images/brand/slash_large.svg"
           alt="News47ell Logo"

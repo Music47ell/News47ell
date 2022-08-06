@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useUser } from '@supabase/supabase-auth-helpers/react'
-import { BiMenu, BiSearchAlt2, BiX, BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 import {
-  BiPen,
-  BiBarChartAlt2,
-  BiCollection,
-  BiTag,
-  BiArchive,
-  BiBriefcaseAlt2,
-  BiCurrentLocation,
-} from 'react-icons/bi'
+  XIcon,
+  MenuIcon,
+  SearchIcon,
+  PaintRollIcon,
+  NewsIcon,
+  DashboardIcon,
+  CategoryIcon,
+  TagIcon,
+  ArchiveIcon,
+  ToolIcon,
+  CalendarIcon,
+} from '@/components/icons'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import AudioToggle from '@/components/toggles/AudioToggle'
-import { Logo, News47ell } from '@/components/UI/Logos'
+import { Slash, News47ell } from '@/components/icons'
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
 import { getGravatar } from '@/utils/getGravatar'
 import { default as Image } from '@/components/Image'
@@ -31,13 +34,13 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   const handleOnEnter = () => playPopEnter({ playbackRate: 1.5 })
 
   const icons = [
-    BiPen,
-    BiBarChartAlt2,
-    BiCollection,
-    BiTag,
-    BiArchive,
-    BiBriefcaseAlt2,
-    BiCurrentLocation,
+    NewsIcon,
+    DashboardIcon,
+    CategoryIcon,
+    TagIcon,
+    ArchiveIcon,
+    ToolIcon,
+    CalendarIcon,
   ]
 
   const onToggleNav = () => {
@@ -84,33 +87,33 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
   }, [user])
 
   return (
-    <nav className="bg-nfh-background-secondary">
-      <div className="flex relative justify-between items-center h-16">
-        <div className="flex absolute inset-y-0 left-0 items-center pl-4 sm:pl-8">
+    <nav className="bg-nfh-background-secondary print:hidden">
+      <div className="relative flex h-16 items-center justify-between">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-4 sm:pl-8">
           <button
-            className="inline-flex justify-center items-center hover:animate-wiggle"
+            className="inline-flex items-center justify-center hover:animate-wiggle"
             onMouseEnter={handleOnEnter}
             onClick={onToggleNav}
           >
             <span className="sr-only">Open main menu</span>
             {navShow ? (
-              <BiX className="block w-6 h-6 text-nfh-text-primary" />
+              <XIcon className="block h-6 w-6 fill-nfh-accent-primary" />
             ) : (
-              <BiMenu className="block w-6 h-6 text-nfh-text-primary" />
+              <MenuIcon className="block h-6 w-6 fill-nfh-accent-primary" />
             )}
           </button>
         </div>
-        <div className="justify-center items-center m-auto">
+        <div className="m-auto items-center justify-center">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <News47ell className="hidden lg:block m-auto w-auto h-10" />
-            <Logo className="block lg:hidden m-auto w-auto h-10" />
+            <News47ell className="m-auto hidden h-10 w-auto lg:block" />
+            <Slash className="m-auto block h-10 w-auto lg:hidden" />
           </Link>
         </div>
-        <div className="flex absolute inset-y-0 right-0 items-center pr-4 sm:pr-8">
+        <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:pr-8">
           <div className="relative ml-3">
             <span className="sr-only">Toggle Search</span>
             <Link href="/blog/search" onMouseEnter={handleOnEnter}>
-              <BiSearchAlt2 className="w-6 h-6 text-nfh-text-primary hover:animate-wiggle" />
+              <SearchIcon className="block h-6 w-6 fill-nfh-accent-primary hover:animate-wiggle" />
             </Link>
           </div>
           <div className="relative ml-3">
@@ -125,18 +128,14 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
               onClick={() => setPickerOpen(!pickerOpen)}
               className="h-8 hover:animate-wiggle"
             >
-              {pickerOpen ? (
-                <BiArrowFromBottom className="w-6 h-6 text-nfh-text-primary" />
-              ) : (
-                <BiArrowFromTop className="w-6 h-6 text-nfh-text-primary" />
-              )}
+              <PaintRollIcon className="block h-6 w-6 fill-nfh-accent-primary" />
             </button>
           </div>
           {user && (
             <div className="relative ml-3">
               <div>
                 <button
-                  className="flex text-sm rounded-full focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:animate-wiggle focus:outline-none"
+                  className="flex rounded-full text-sm hover:animate-wiggle focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   onMouseEnter={handleOnEnter}
                   onClick={onToggleUserNav}
                 >
@@ -154,11 +153,11 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
                 ref={ref}
                 className={
                   userNavShow
-                    ? 'absolute right-0 py-1 mt-2 w-48 bg-nfh-background-secondary rounded-md ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right focus:outline-none z-10'
+                    ? 'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-nfh-background-secondary py-1 shadow-lg ring-1 ring-black/5 focus:outline-none'
                     : 'hidden '
                 }
               >
-                <div className="flex justify-between items-center py-2 px-4">
+                <div className="flex items-center justify-between py-2 px-4">
                   <p className="text-sm font-medium">Welcome back {user ? firstName : 'Guest'}</p>
                 </div>
                 {user &&
@@ -170,7 +169,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
                           onMouseEnter={handleOnEnter}
                           onClick={onClickUserNavLink}
                         >
-                          <span className="block py-2 px-4 text-sm hover:text-nfh-text-primary hover:bg-nfh-accent-primary">
+                          <span className="block py-2 px-4 text-sm hover:bg-nfh-accent-primary hover:text-nfh-text-primary">
                             {item.title}
                           </span>
                         </Link>
@@ -183,19 +182,19 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
         </div>
       </div>
 
-      <div className={navShow ? 'block border-b border-t border-nfh-accent-primary' : 'hidden'}>
-        <nav className="grid sm:block sm:grid-cols-2 gap-2 my-4 text-left sm:text-center">
+      <div className={navShow ? 'block border-y border-nfh-accent-primary' : 'hidden'}>
+        <nav className="my-4 grid gap-2 text-left sm:block sm:grid-cols-2 sm:text-center">
           {siteMetadata.headerNavLinks.map((item, idx) => {
             const Icon = icons[idx]
             return (
               <Link
                 href={item.href}
                 key={item.href}
-                className="py-2 px-3 text-sm font-medium text-nfh-text-primary hover:text-nfh-text-secondary hover:bg-nfh-accent-primary rounded-md"
+                className="rounded-md py-2 px-3 text-sm font-medium text-nfh-text-primary hover:bg-nfh-background-primary hover:text-nfh-text-secondary"
                 onMouseEnter={handleOnEnter}
                 onClick={onToggleNav}
               >
-                <Icon className="inline mr-1 w-6 h-6" />
+                <Icon className="mr-1 inline-block h-6 w-6 fill-nfh-accent-primary align-middle" />
                 {item.title}
               </Link>
             )

@@ -11,8 +11,8 @@ export default function Uses(): JSX.Element {
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
       <SectionContainer>
         <div className="divide-y divide-nfh-accent-primary">
-          <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14">
+          <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+            <h1 className="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
               Uses
             </h1>
             <p className="text-lg leading-7">Software and hardware I use and recommend</p>
@@ -25,7 +25,7 @@ export default function Uses(): JSX.Element {
               ))}
             </div>
             <h2 className="text-3xl font-bold tracking-tight">Software</h2>
-            <div className="flex flex-wrap -mx-4">
+            <div className="-mx-4 flex flex-wrap">
               {usesData.software.map((d) => (
                 <Card
                   key={d.title}

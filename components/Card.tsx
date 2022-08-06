@@ -3,7 +3,7 @@ import { default as Link } from '@/components/Link'
 
 const Card = ({ title, description, imgSrc, href }): JSX.Element => (
   <div className="p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
-    <div className="overflow-hidden h-full rounded-md border-2 border-nfh-accent-primary border-opacity-60">
+    <div className="border-nfh-accent-primary/60 h-full overflow-hidden rounded-md border-2">
       {href ? (
         <Link href={href} aria-label={`Link to ${title}`}>
           <Image
@@ -24,7 +24,7 @@ const Card = ({ title, description, imgSrc, href }): JSX.Element => (
         />
       )}
       <div className="p-6">
-        <h2 className=" mb-3 text-2xl font-bold tracking-tight leading-8">
+        <h2 className=" mb-3 text-2xl font-bold leading-8 tracking-tight">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}

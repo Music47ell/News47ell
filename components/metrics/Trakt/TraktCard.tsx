@@ -5,11 +5,11 @@ export default function TraktCard(): JSX.Element {
   const { showsWatched, showsMinutes, episodesWatched, moviesWatched, moviesMinutes, isLoading } =
     useTrakt()
   return (
-    <div className="flex relative flex-col p-4 w-full text-nfh-text-primary bg-nfh-background-secondary rounded">
+    <div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-1">
+        <div className="mb-1 grid grid-cols-1 gap-6 sm:grid-cols-4">
           <div>
             <p className="mb-1 text-4xl font-black">{moviesWatched}</p>
             <p className="text-sm">Movies</p>

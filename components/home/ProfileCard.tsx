@@ -1,6 +1,6 @@
 import { default as Image } from '@/components/Image'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { BiBriefcase, BiMap, BiEnvelope, BiLinkExternal } from 'react-icons/bi'
+import { BriefcaseIcon, GlobeIcon, EnvelopeIcon, ExternalIcon } from '@/components/icons'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 
@@ -48,7 +48,7 @@ const ProfileCard = (): JSX.Element => {
   return (
     <>
       <div
-        className="z-10 hover:z-50 mb-8 xl:mb-0 transition-all duration-200 ease-out scale-100 xl:hover:scale-110"
+        className="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 xl:mb-0 xl:hover:scale-110"
         style={{ perspective: '600px' }}
         ref={ref}
       >
@@ -75,17 +75,17 @@ const ProfileCard = (): JSX.Element => {
 }
 
 const ProfileInfo = () => (
-  <div className="block py-4 px-6 bg-nfh-background-secondary">
+  <div className="block bg-nfh-background-secondary py-4 px-6">
     <h1 className="text-xl font-semibold">Ahmet ALMAZ</h1>
     <p className="py-2">Metalhead | Full Stack Developer</p>
-    <div className="flex items-center mt-4">
-      <BiBriefcase className="w-6 h-6" />
+    <div className="mt-4 flex items-center">
+      <BriefcaseIcon className="h-6 w-6 fill-nfh-accent-secondary" />
 
       <p className="px-2 text-base">Self-employed - available for hire</p>
     </div>
 
-    <div className="flex items-center mt-4">
-      <BiMap className="w-6 h-6" />
+    <div className="mt-4 flex items-center">
+      <GlobeIcon className="h-6 w-6 fill-nfh-accent-secondary" />
 
       <p className="px-2 text-base">
         Türkiye
@@ -93,22 +93,17 @@ const ProfileInfo = () => (
       </p>
     </div>
 
-    <div className="flex items-center mt-4">
-      <BiEnvelope className="w-6 h-6" />
+    <div className="mt-4 flex items-center">
+      <EnvelopeIcon className="h-6 w-6 fill-nfh-accent-secondary" />
       <Link className="px-2 text-base" href={`mailto:${siteMetadata.email}`}>
         {siteMetadata.email}
       </Link>
     </div>
-    <div className="flex items-center mt-4">
-      <BiLinkExternal className="w-6 h-6" />
+    <div className="mt-4 flex items-center">
+      <ExternalIcon className="h-6 w-6 fill-nfh-accent-secondary" />
       <p className="px-2 text-base">
-        <a target="_blank" href="https://github.com/music47ell" rel="noreferrer">
-          gh/music47ell
-        </a>
-        ,{' '}
-        <a target="_blank" href="https://twitter.com/music47ell" rel="noreferrer">
-          tw/music47ell
-        </a>
+        <Link href="https://github.com/music47ell">gh/music47ell</Link>,{' '}
+        <Link href="https://twitter.com/music47ell">tw/music47ell</Link>
       </p>
     </div>
   </div>

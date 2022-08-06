@@ -6,12 +6,12 @@ export default function BlogPostCard({ title, slug, total }) {
   return (
     <Link
       href={slug}
-      className={`rounded-xl w-full md:w-1/3`}
+      className={`w-full rounded-xl md:w-1/3`}
       //@ts-ignore
       onClick={playMouseClick}
     >
-      <div className="flex flex-col justify-between p-4 h-full bg-nfh-background-secondary rounded-lg">
-        <div className="flex flex-col md:flex-row justify-between">
+      <div className="flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition-all hover:scale-[1.01]">
+        <div className="flex flex-col justify-between md:flex-row">
           <h4 className="w-full text-base font-medium tracking-tight text-nfh-text-primary">
             {title}
           </h4>

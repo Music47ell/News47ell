@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -20,6 +22,7 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        türkiye: '#E30A17',
         'nfh-background-primary': 'var(--background-primary)',
         'nfh-background-secondary': 'var(--background-secondary)',
         'nfh-text-primary': 'var(--text-primary)',

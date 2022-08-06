@@ -4,7 +4,7 @@ Developer:          Ahmet ALMAZ
 Site:               ahmet [at] news47ell.com
 Twitter:            @Music47ell
 Twitter:            @News47ell
-Location:           Turkey
+Location:           Türkiye
 
 /* SITE */
 Doctype:            HTML5

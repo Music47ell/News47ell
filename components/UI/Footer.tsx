@@ -1,5 +1,11 @@
-import { BiEnvelope } from 'react-icons/bi'
-import { SiTwitter, SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel } from 'react-icons/si'
+import {
+  EnvelopeIcon,
+  TwitterIcon,
+  SupabaseIcon,
+  NextDotJsIcon,
+  TailwindCSSIcon,
+  VercelIcon,
+} from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import HCard from '@/components/hCard'
 import { NowPlaying } from '@/components/metrics/Spotify'
@@ -7,10 +13,10 @@ import { NowWatching } from '@/components/metrics/Trakt'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
-  const icons = [SiSupabase, SiNextdotjs, SiTailwindcss, SiVercel]
+  const icons = [SupabaseIcon, NextDotJsIcon, TailwindCSSIcon, VercelIcon]
 
   return (
-    <footer className="py-4 bg-nfh-background-secondary">
+    <footer className="bg-nfh-background-secondary py-4 print:hidden">
       <div className="flex flex-col items-center">
         <nav>
           <ul className="flex flex-wrap justify-center">
@@ -21,33 +27,33 @@ export default function Footer(): JSX.Element {
             ))}
           </ul>
         </nav>
-        <div className="flex my-3 space-x-4">
+        <div className="my-3 flex space-x-4">
           <Link href={`mailto:${siteMetadata.email}`}>
-            <BiEnvelope className="w-6 h-6" />
+            <EnvelopeIcon className="block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
           <Link href={`https://twitter.com/${siteMetadata.twitter}`}>
-            <SiTwitter className="w-6 h-6 text-twitter" />
+            <TwitterIcon className="block h-6 w-6" />
           </Link>
         </div>
-        <span className="inline-flex items-center my-2 space-x-2 site-credit">
+        <div className="site-credit my-2 flex items-center space-x-2">
           {siteMetadata.lowerFooterLinks.map((link, idx) => {
             const Icon = icons[idx]
             return (
               <Link href={link.href} key={link.href}>
-                <Icon />
+                <Icon className="block h-6 w-6" />
               </Link>
             )
           })}
-        </span>
+        </div>
         <div
-          className="block mb-2 space-x-2 text-xs text-center copyright"
+          className="copyright mb-2 block space-x-2 text-center text-xs"
           itemProp="copyrightYear"
         >
           COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
           {` `}
           {siteMetadata.altTitle}. ALL RIGHTS RESERVED.
         </div>
-        <div className="text-xs text-center">
+        <div className="text-center text-xs">
           Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
         </div>
         <div className="grid grid-cols-1">
@@ -58,9 +64,9 @@ export default function Footer(): JSX.Element {
           <HCard />
         </div>
         <div className="text-center">
-          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</a>
+          <Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</Link>
           An IndieWeb Webring 🕸💍
-          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</a>
+          <Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
         </div>
       </div>
     </footer>

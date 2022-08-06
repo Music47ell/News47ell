@@ -1,25 +1,35 @@
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import PageTitle from '@/components/UI/PageTitle'
-import { ResumeEN } from '@/components/resume'
+import ResumeLayout from '@/layouts/ResumeLayout'
+import { useResume } from '@/hooks/useResume'
+import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
 
 export default function Resume(): JSX.Element {
+  const { resume, isLoading } = useResume()
+
+  const { basics, education, skills, languages, certificates } = resume
+
   return (
     <>
       <PageSEO title={`Resume - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <main className="flex flex-col flex-1 px-3 mx-auto max-w-5xl">
-        <header>
-          <div className="py-5 space-y-1 text-center border-b border-gray-200 dark:border-gray-700">
-            <div>
-              <PageTitle>Resume</PageTitle>
-            </div>
+      <main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
+        <header className="print:hidden">
+          <div className="space-y-1 py-5 text-center">
+            <PageTitle>Resume</PageTitle>
           </div>
         </header>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <ResumeEN />
-          </div>
-        </div>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <ResumeLayout
+            basics={basics}
+            education={education}
+            skills={skills}
+            languages={languages}
+            certificates={certificates}
+          />
+        )}
       </main>
     </>
   )

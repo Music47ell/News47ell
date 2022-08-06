@@ -1,6 +1,6 @@
 const SectionContainer = ({ children }) => {
   return (
-    <main className="container flex flex-col flex-1 gap-y-5 px-3 my-8 mx-auto max-w-5xl">
+    <main className="container my-8 mx-auto flex max-w-5xl flex-1 flex-col gap-y-5 px-3 print:my-8">
       {children}
     </main>
   )

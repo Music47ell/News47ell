@@ -1,19 +1,20 @@
+// @ts-check
+
 const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 const { withSuperjson } = require('next-superjson')
 
-// @ts-check
-
 /**
  * @type {import('next').NextConfig}
  **/
+
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    dirs: ['components', 'context', 'data', 'helpers', 'hooks', 'layouts', 'lib', 'pages', 'utils'],
   },
   images: {
     domains: [
@@ -33,6 +34,12 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
+    })
+
+    // https://github.com/vercel/next.js/issues/12557#issuecomment-994278512
+    config.module.rules.push({
+      test: [/(components||context|data|helpers|hooks|layouts|lib|pages|utils)\/index.ts/i],
+      sideEffects: false,
     })
 
     if (!dev && !isServer) {

@@ -1,4 +1,4 @@
-import { BiTerminal, BiMusic, BiFilm, BiBookmark } from 'react-icons/bi'
+import { TerminalIcon, MusicIcon, FilmIcon, BookmarkIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import StatsLayout from '@/layouts/StatsLayout'
 import { PageSEO } from '@/components/SEO'
@@ -15,35 +15,35 @@ export default function Stats(): JSX.Element {
         url={siteMetadata.siteUrl}
       />
       <SectionContainer>
-        <div className="md:flex md:justify-between md:items-center">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Dashboard</h1>
+        <div className="md:flex md:items-center md:justify-between">
+          <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Dashboard</h1>
           <p className="text-xs">updated every 60 seconds</p>
         </div>
 
         <div className="grid grid-cols-4 gap-3">
           <Link
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg hover:bg-nfh-accent-secondary"
             href="/dashboard/codes"
           >
-            <BiTerminal className="m-auto w-6 h-6" />
+            <TerminalIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
           <Link
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg hover:bg-nfh-accent-secondary"
             href="/dashboard/music"
           >
-            <BiMusic className="m-auto w-6 h-6" />
+            <MusicIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
           <Link
             href="/dashboard/shows"
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg hover:bg-nfh-accent-secondary"
           >
-            <BiFilm className="m-auto w-6 h-6" />
+            <FilmIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
           <Link
             href="/dashboard/bookmarks"
-            className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary hover:bg-nfh-accent-primary rounded shadow-lg"
+            className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg hover:bg-nfh-accent-secondary"
           >
-            <BiBookmark className="m-auto w-6 h-6" />
+            <BookmarkIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
           </Link>
         </div>
         <StatsLayout />

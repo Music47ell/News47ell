@@ -3,7 +3,7 @@ import { withPageAuth, getUser } from '@supabase/supabase-auth-helpers/nextjs'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import { getAddLyric } from '@/lib/supabase'
-import { BiLoader } from 'react-icons/bi'
+import { LoaderIcon } from '@/components/icons'
 import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
@@ -56,30 +56,30 @@ export default function AddLyric({ user }): JSX.Element {
           <>
             <h1 className="mt-6 text-3xl font-semibold tracking-wide">Add new lyric</h1>
 
-            <label htmlFor="songName" className="inline-block mb-2">
+            <label htmlFor="songName" className="mb-2 inline-block">
               Add Song Name
             </label>
             <input
               type="text"
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Song Name"
               onChange={(e) => setSong(e.target.value)}
             />
-            <label htmlFor="bandName" className="inline-block mb-2">
+            <label htmlFor="bandName" className="mb-2 inline-block">
               Add Band Name
             </label>
             <input
               type="text"
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Band Name"
               onChange={(e) => setBand(e.target.value)}
             />
 
-            <label htmlFor="lyric" className="inline-block mb-2">
+            <label htmlFor="lyric" className="mb-2 inline-block">
               Add Lyric
             </label>
             <textarea
-              className="block py-1.5 px-3 m-0 w-full text-base font-normal text-gray-700 focus:text-gray-700 bg-clip-padding bg-white focus:bg-white rounded border border-gray-300 focus:border-blue-600 border-solid transition ease-in-out focus:outline-none"
+              className="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding py-1.5 px-3 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
               placeholder="Lyric"
               onChange={(e) => setLyric(e.target.value)}
             ></textarea>
@@ -88,14 +88,14 @@ export default function AddLyric({ user }): JSX.Element {
               <button
                 type="button"
                 onClick={addNewLyric}
-                className="inline-flex justify-center py-2 px-4 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md border border-transparent focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-sm focus:outline-none"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add Lyric
               </button>
             </div>
           </>
         ) : (
-          <BiLoader className="w-12 h-12 animate-spin" />
+          <LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
         )}
       </SectionContainer>
     </>

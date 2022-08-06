@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SiTwitter } from 'react-icons/si'
+import { TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import PageTitle from '@/components/UI/PageTitle'
@@ -38,9 +38,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
         authorDetails={author}
         {...frontMatter}
       />
-      <main className="relative px-6 my-8 sm:mx-auto max-w-3xl">
-        <div className="flex flex-col col-span-10 lg:col-span-7">
-          <div className="p-4 -mx-4 rounded md:border border-nfh-accent-primary">
+      <main className="relative my-8 max-w-3xl px-6 sm:mx-auto">
+        <div className="col-span-10 flex flex-col lg:col-span-7">
+          <div className="-mx-4 rounded border-nfh-accent-primary p-4 md:border">
             <article className="h-entry">
               <div className="space-y-1 text-center">
                 <dl className="space-y-10">
@@ -78,7 +78,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                         itemScope
                         itemProp="author"
                         itemType="http://schema.org/Person"
-                        className="flex items-center space-x-2 p-name"
+                        className="p-name flex items-center space-x-2"
                         key={author.id}
                       >
                         <Image
@@ -86,9 +86,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                           width="38px"
                           height="38px"
                           alt="avatar"
-                          className="w-10 h-10 rounded-full"
+                          className="h-10 w-10 rounded-full"
                         />
-                        <dl className="text-sm font-medium leading-5 whitespace-nowrap">
+                        <dl className="whitespace-nowrap text-sm font-medium leading-5">
                           <dt className="sr-only">Name</dt>
                           <dd itemProp="name" rel="author" className="p-author h-card">
                             <Link href={`/blog/author/${author.slug}`} className="">
@@ -99,7 +99,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                           <dd>
                             {author.twitter && (
                               <Link href={`https://twitter.com/${author.twitter}`} className="">
-                                <SiTwitter className="text-twitter" />
+                                <TwitterIcon className="block h-6 w-6" />
                               </Link>
                             )}
                           </dd>
@@ -108,9 +108,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                       <dl>
                         <dt className="sr-only">Post stats</dt>
                         <dd>
-                          <ul className="flex xl:block justify-center xl:space-y-8 space-x-8 sm:space-x-12 xl:space-x-0">
-                            <li className="flex items-center space-x-2 p-name">
-                              <dl className="text-sm font-medium leading-5 whitespace-nowrap">
+                          <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
+                            <li className="p-name flex items-center space-x-2">
+                              <dl className="whitespace-nowrap text-sm font-medium leading-5">
                                 <dt className="sr-only">Word Count</dt>
                                 <dd className="p-author h-card">{wordCount} words</dd>
                                 <dt className="sr-only">Reading time</dt>
@@ -134,8 +134,8 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                     </ul>
                   </dd>
                 </dl>
-                <div className="xl:col-span-3 xl:row-span-2 py-6 xl:pb-0 divide-y">
-                  <div itemProp="articleBody" className="max-w-none text-base e-content">
+                <div className="divide-y py-6 xl:col-span-3 xl:row-span-2 xl:pb-0">
+                  <div itemProp="articleBody" className="e-content max-w-none text-base">
                     <Markdown>{content}</Markdown>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                   <div className="text-sm font-medium leading-5">
                     {tags && (
                       <div className="py-4">
-                        <h2 className="text-xs tracking-wide uppercase">Tags</h2>
+                        <h2 className="text-xs uppercase tracking-wide">Tags</h2>
                         <div className="flex flex-wrap">
                           {tags.map((tag) => (
                             <Tag key={tag} text={tag} />
@@ -154,7 +154,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                       </div>
                     )}
                     <div className="py-4">
-                      <h2 className="text-xs tracking-wide uppercase">Category</h2>
+                      <h2 className="text-xs uppercase tracking-wide">Category</h2>
                       <div className="flex flex-wrap">
                         <Category key={category} text={category} />
                       </div>
@@ -163,7 +163,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                       <div className="flex justify-between py-4">
                         {prev && (
                           <div>
-                            <h2 className="text-xs tracking-wide uppercase">Previous Article</h2>
+                            <h2 className="text-xs uppercase tracking-wide">Previous Article</h2>
                             <div>
                               <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                             </div>
@@ -171,7 +171,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                         )}
                         {next && (
                           <div>
-                            <h2 className="text-xs tracking-wide uppercase">Next Article</h2>
+                            <h2 className="text-xs uppercase tracking-wide">Next Article</h2>
                             <div>
                               <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                             </div>

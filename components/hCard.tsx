@@ -1,7 +1,7 @@
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
-import { Turkiye } from '@/components/UI/Logos'
+import { Turkiye } from '@/components/icons'
 
 const hCard = (): JSX.Element => {
   if (typeof window === 'object') {
@@ -16,7 +16,7 @@ const hCard = (): JSX.Element => {
   }
 
   return (
-    <div className="flex items-center p-2 mb-4 text-sm text-nfh-text-primary rounded-lg border border-nfh-accent-primary h-card user-profile">
+    <div className="h-card user-profile mb-4 flex items-center rounded-lg border border-nfh-accent-primary p-2 text-sm text-nfh-text-primary">
       <Image
         className="u-photo"
         alt="Profile Photo"
@@ -24,19 +24,19 @@ const hCard = (): JSX.Element => {
         width={60}
         src="/images/others/avatar.png"
       />
-      <div className="flex flex-col justify-center items-start mx-3">
+      <div className="mx-3 flex flex-col items-start justify-center">
         <Link
-          className="w-48 font-medium truncate p-name u-email"
+          className="p-name u-email w-48 truncate font-medium"
           href={`mailto:${siteMetadata.email}`}
           target="_blank"
           rel="me noopener noreferrer"
         >
           {siteMetadata.author}
         </Link>
-        <p className="w-48 font-medium truncate p-nickname">{siteMetadata.nickname}</p>
-        <p className="w-48 font-medium truncate">
+        <p className="p-nickname w-48 truncate font-medium">{siteMetadata.nickname}</p>
+        <p className="w-48 truncate font-medium">
           <Link
-            className="space-y-0 w-48 font-medium truncate p-note u-url"
+            className="p-note u-url w-48 space-y-0 truncate font-medium"
             href={siteMetadata.siteUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -44,9 +44,9 @@ const hCard = (): JSX.Element => {
             {siteMetadata.position}
           </Link>
         </p>
-        <p className="w-48 truncate p-country-name">{siteMetadata.location}</p>
+        <p className="p-country-name w-48 truncate">{siteMetadata.location}</p>
       </div>
-      <Turkiye className="m-auto w-10 h-10 p-country-flag" />
+      <Turkiye className="p-country-flag m-auto h-10 w-10" />
     </div>
   )
 }

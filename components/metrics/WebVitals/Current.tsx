@@ -1,5 +1,5 @@
 import { default as Link } from '@/components/Link'
-import { BiCheckCircle, BiErrorCircle, BiXCircle, BiTime } from 'react-icons/bi'
+import { CheckIcon, ExclamationIcon, XCircleIcon, TimeIcon } from '@/components/icons'
 
 type Props = {
   index: number
@@ -14,24 +14,24 @@ const WebVitalsCard = ({ index, name, value, explainerURL, ratingText, color }: 
   return (
     <div
       key={name}
-      className={`flex relative flex-col ${
+      className={`relative flex flex-col ${
         index < 2 ? 'md:col-span-3' : 'md:col-span-2'
-      } justify-center items-center h-32 rounded text-nfh-text-primary bg-nfh-background-secondary`}
+      } h-32 items-center justify-center rounded bg-nfh-background-secondary text-nfh-text-primary`}
     >
       <p>{name}</p>
       <p className="mb-2 text-2xl font-bold">{value} </p>
       <Link
         href={explainerURL}
-        className={`flex items-center px-2 space-x-1 text-gray-800 ${color} rounded-full`}
+        className={`flex items-center space-x-1 px-2 text-gray-800 ${color} rounded-full`}
       >
         {ratingText === 'Good' ? (
-          <BiCheckCircle />
+          <CheckIcon className="block h-5 w-5" />
         ) : ratingText === 'Needs Improvement' ? (
-          <BiErrorCircle />
+          <ExclamationIcon className="block h-5 w-5" />
         ) : ratingText === 'Poor' ? (
-          <BiXCircle />
+          <XCircleIcon className="block h-5 w-5" />
         ) : (
-          <BiTime />
+          <TimeIcon className="block h-5 w-5" />
         )}
         <p>{ratingText}</p>
       </Link>

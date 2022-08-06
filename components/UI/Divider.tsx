@@ -4,10 +4,10 @@ type Props = {
 
 export default function Divider({ children }: Props): JSX.Element {
   return (
-    <div className="flex relative items-center py-5">
-      <div className="flex-grow border-t border-nfh-accent-primary"></div>
-      {children && <span className="flex-shrink mx-4">{children}</span>}
-      <div className="flex-grow border-t border-nfh-accent-primary"></div>
+    <div className="relative flex items-center py-5">
+      <div className="grow border-t border-nfh-accent-primary"></div>
+      {children && <span className="mx-4 shrink">{children}</span>}
+      <div className="grow border-t border-nfh-accent-primary"></div>
     </div>
   )
 }

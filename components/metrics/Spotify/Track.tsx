@@ -1,15 +1,15 @@
 import { default as Image } from '@/components/Image'
 import { Song } from 'lib/types'
-import { BiPlayCircle, BiPauseCircle } from 'react-icons/bi'
+import { PlayIcon, PauseIcon } from '@/components/icons'
 
 export default function Track(track: Song): JSX.Element {
   return (
-    <div className="flex items-center p-2 rounded-md border border-nfh-accent-primary">
-      <div className="hidden sm:grid flex-none place-content-center mr-6 w-5 text-sm text-gray-500">
+    <div className="flex items-center rounded-md border border-nfh-accent-primary p-2">
+      <div className="mr-6 hidden w-5 flex-none place-content-center text-sm text-gray-500 sm:grid">
         {track.ranking}
       </div>
 
-      <div className="relative flex-none w-32 h-32">
+      <div className="relative h-32 w-32 flex-none">
         <Image
           draggable={false}
           className="rounded"
@@ -33,9 +33,9 @@ export default function Track(track: Song): JSX.Element {
           aria-label={track.isPlaying ? 'Pause Button' : 'Play Button'}
         >
           {track.isPlaying ? (
-            <BiPauseCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+            <PauseIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
           ) : (
-            <BiPlayCircle className="text-3xl text-nfh-accent-primary hover:text-nfh-accent-secondary" />
+            <PlayIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
           )}
         </button>
       ) : null}

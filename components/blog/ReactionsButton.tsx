@@ -1,4 +1,4 @@
-import { BiLike, BiDislike } from 'react-icons/bi'
+import { LikeIcon, DislikeIcon } from '@/components/icons'
 import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
 import { LoadingDots } from '@/components/UI/LoadingDots'
 
@@ -36,16 +36,16 @@ const ReactionsButton = ({ slug }) => {
           <LoadingDots />
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-6 justify-between items-center">
+        <div className="grid grid-cols-2 items-center justify-between gap-6">
           <div
             role="button"
             className={`${
               userLikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
-            } flex-1 py-4 flex flex-col items-center hover:bg-nfh-background-secondary`}
+            } flex flex-1 flex-col items-center py-4 hover:bg-nfh-background-secondary`}
             onClick={handleLike}
           >
             <span className="text-4xl">
-              <BiLike />
+              <LikeIcon className="block h-6 w-6 fill-nfh-accent-primary" />
             </span>
             <span className="text-xl font-semibold">{likes}</span>
             <span className="text-sm">LIKE</span>
@@ -54,11 +54,11 @@ const ReactionsButton = ({ slug }) => {
             role="button"
             className={`${
               userDislikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
-            } flex-1 py-4 flex flex-col items-center hover:bg-nfh-background-secondary`}
+            } flex flex-1 flex-col items-center py-4 hover:bg-nfh-background-secondary`}
             onClick={handleDislike}
           >
             <span className="text-4xl">
-              <BiDislike />
+              <DislikeIcon className="block h-6 w-6 fill-nfh-accent-primary" />
             </span>
             <span className="text-xl font-semibold">{dislikes}</span>
             <span className="text-sm">DISLIKE</span>

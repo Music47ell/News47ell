@@ -14,7 +14,7 @@ export default function ListLayout({
   const { playMouseClick } = useSFX()
 
   return (
-    <main className="container px-6 my-8 mx-auto max-w-3xl">
+    <main className="container my-8 mx-auto max-w-3xl px-6">
       <h1 className="mb-8 font-serif text-4xl">{title}</h1>
       {displayPosts.map((post) => (
         <Link
@@ -23,13 +23,13 @@ export default function ListLayout({
           //@ts-ignore
           onClick={playMouseClick}
         >
-          <article className="text-base h-entry">
-            <div className="block mb-6 text-nfh-text-primary bg-nfh-background-secondary rounded border border-nfh-accent-primary hover:shadow-lg hover:opacity-80 transition-all duration-150 cursor-pointer">
+          <article className="h-entry text-base">
+            <div className="mb-6 block cursor-pointer rounded border border-nfh-accent-primary bg-nfh-background-secondary text-nfh-text-primary transition-all duration-150 hover:opacity-80 hover:shadow-lg">
               <div className="relative p-4">
                 <span className="text-lg font-bold text-nfh-accent-primary">{post.title}</span>
               </div>
 
-              <div className="p-4 text-sm border-nfh-accent-secondary border-y">
+              <div className="border-y border-nfh-accent-secondary p-4 text-sm">
                 {post.description}
               </div>
 

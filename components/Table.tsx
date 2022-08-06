@@ -6,7 +6,7 @@ const Table = ({ title, value, ranking }): JSX.Element => (
       } px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}
     >
       <dt className="text-sm font-medium leading-5">{title}</dt>
-      <dd className="sm:col-span-2 mt-1 sm:mt-0 text-sm leading-5">{value}</dd>
+      <dd className="mt-1 text-sm leading-5 sm:col-span-2 sm:mt-0">{value}</dd>
     </div>
   </dl>
 )

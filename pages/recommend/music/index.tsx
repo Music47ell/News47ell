@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
-import { BiLeftArrowAlt } from 'react-icons/bi'
+import { ArrowLeftIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
@@ -108,15 +108,15 @@ export default function Stats() {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <main className="container flex flex-col flex-1 px-3 mx-auto max-w-5xl">
+      <main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
         <Link
           href="/dashboard/music"
-          className="block py-3 px-3 text-xs font-bold leading-normal uppercase bg-nfh-background-secondary rounded shadow-lg"
+          className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
         >
-          <BiLeftArrowAlt className="m-auto w-6 h-6" />
+          <ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
         </Link>
-        <div className="py-6 space-y-2 md:space-y-5">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 text-center">
+        <div className="space-y-2 py-6 md:space-y-5">
+          <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Recommend A Song
           </h1>
           <p>Find and add a song to my spotify playlist.</p>
@@ -127,7 +127,7 @@ export default function Stats() {
             disabled={isRecommended}
             value={searchInput}
             id="search-input"
-            className="block pr-12 pl-7 w-full h-12 text-lg placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-background-secondary rounded-md border-nfh-accent-primary focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
+            className="block h-12 w-full rounded-md border-nfh-accent-primary bg-nfh-background-secondary pr-12 pl-7 text-lg text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
             placeholder="Search for any song, artist, or album"
           />
         </div>
@@ -136,12 +136,12 @@ export default function Stats() {
           !isRecommended &&
           searchResults.map((t) => (
             <div
-              className="flex justify-between py-3 px-3 w-full h-24 border-t border-gray-500 border-solid"
+              className="flex h-24 w-full justify-between border-t border-solid border-gray-500 p-3"
               key={t.uri}
             >
-              <div className="flex overflow-hidden gap-2.5 items-center w-full">
+              <div className="flex w-full items-center gap-2.5 overflow-hidden">
                 <Image width="50" height="50" alt={t.album} src={t.image} />
-                <div className="flex flex-col justify-center space-y-2 h-full">
+                <div className="flex h-full flex-col justify-center space-y-2">
                   <div>
                     <Link href={t.url}>{t.title}</Link>
                   </div>
@@ -154,7 +154,7 @@ export default function Stats() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-2.5 justify-center items-center">
+              <div className="flex flex-col items-center justify-center gap-2.5">
                 <button
                   onClick={() => {
                     addSong(t.uri, t.title, note, email, setIsRecommended)
@@ -173,19 +173,19 @@ export default function Stats() {
         {!isRecommended &&
           selectedOption.map((song) => (
             <form key={song.uri}>
-              <div className="py-12 mx-auto max-w-7xl">
-                <div className="justify-center mx-auto sm:w-full text-left align-bottom sm:align-middle bg-nfh-background-secondary rounded-lg transition-all transform">
-                  <div className="grid flex-wrap grid-cols-1 lg:grid-cols-2 justify-center items-center mx-auto rounded-xl shadow-xl">
-                    <div className="py-3 px-6 w-full">
+              <div className="mx-auto max-w-7xl py-12">
+                <div className="mx-auto justify-center rounded-lg bg-nfh-background-secondary text-left align-bottom transition-all sm:w-full sm:align-middle">
+                  <div className="mx-auto grid grid-cols-1 flex-wrap items-center justify-center rounded-xl shadow-xl lg:grid-cols-2">
+                    <div className="w-full py-3 px-6">
                       <div>
                         {song.preview && (
                           <audio className="m-auto" controls>
                             <source src={song.preview} type="audio/mpeg" />
                           </audio>
                         )}
-                        <div className="mt-3 sm:mt-5 text-left">
-                          <div className="inline-flex items-center w-full">
-                            <h3 className="text-lg lg:text-5xl font-bold leading-6">Note</h3>
+                        <div className="mt-3 text-left sm:mt-5">
+                          <div className="inline-flex w-full items-center">
+                            <h3 className="text-lg font-bold leading-6 lg:text-5xl">Note</h3>
                           </div>
                           <div className="mt-4 text-base">
                             <p>Why do you think this song is worth listening to? </p>
@@ -201,7 +201,7 @@ export default function Stats() {
                             id="email"
                             name="email"
                             type="email"
-                            className="block py-3 px-5 w-full text-base placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-accent-secondary rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
+                            className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
                             placeholder="Enter your email"
                             required
                             value={email}
@@ -220,34 +220,34 @@ export default function Stats() {
                             id="message"
                             name="message"
                             onChange={(e) => setNote(e.target.value)}
-                            className="block py-3 px-5 w-full text-base placeholder:text-nfh-text-primary text-nfh-text-secondary placeholder:hover:text-nfh-accent-primary bg-nfh-accent-secondary rounded-lg border border-transparent focus:border-transparent focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
+                            className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
                             placeholder="Enter your note"
                             required
                           />
                         </div>
-                        <div className="flex flex-col mt-4 space-y-2">
+                        <div className="mt-4 flex flex-col space-y-2">
                           <button
                             type="submit"
                             onClick={() => {
                               sendEmail(song)
                             }}
-                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-nfh-text-primary bg-blue-600 hover:bg-blue-700 rounded-xl focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
+                            className="flex w-full items-center justify-center rounded-xl bg-blue-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
                           >
                             Recommend
                           </button>
                           <button
                             type="button"
                             onClick={handleReset}
-                            className="flex justify-center items-center py-4 px-10 w-full text-base font-medium text-center text-nfh-text-primary bg-red-600 hover:bg-red-700 rounded-xl focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary transition duration-500 ease-in-out transform focus:outline-none"
+                            className="flex w-full items-center justify-center rounded-xl bg-red-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
                           >
                             RESET
                           </button>
                         </div>
                       </div>
                     </div>
-                    <div className="flex order-first w-full">
+                    <div className="order-first flex w-full">
                       <Image
-                        className="object-cover h-full bg-cover"
+                        className="h-full bg-cover object-cover"
                         width={600}
                         height={600}
                         alt={`${song.title} album cover`}

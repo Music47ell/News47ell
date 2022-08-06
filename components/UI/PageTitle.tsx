@@ -4,7 +4,7 @@ export default function PageTitle({ children }: IPageTitle): JSX.Element {
   return (
     <h1
       itemProp="name headline"
-      className=" text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-9 sm:leading-10 md:leading-14 text-primary"
+      className=" text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
     >
       {children}
     </h1>
