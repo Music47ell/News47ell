@@ -3,12 +3,15 @@ import Link from 'next/link'
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
 
 const CustomLink = ({
+  className,
   href,
   ...rest
 }: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>): JSX.Element => {
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
-  const style = 'u-url text-nfh-accent-primary hover:text-nfh-text-secondary'
+  const style = `${
+    className ? className : ''
+  } u-url text-nfh-accent-primary hover:text-nfh-text-secondary`.replace(/^\s+/, '')
 
   if (isInternalLink) {
     return (

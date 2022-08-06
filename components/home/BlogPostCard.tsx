@@ -10,7 +10,7 @@ export default function BlogPostCard({ title, slug, total }) {
       //@ts-ignore
       onClick={playMouseClick}
     >
-      <div className="flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4">
+      <div className="flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition-all hover:scale-[1.01]">
         <div className="flex flex-col justify-between md:flex-row">
           <h4 className="w-full text-base font-medium tracking-tight text-nfh-text-primary">
             {title}

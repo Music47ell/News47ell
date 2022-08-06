@@ -97,11 +97,4 @@ kbd {
     --accent-primary: theme('colors.dos.300');
     --accent-secondary: theme('colors.dos.400');
   }
-
-  a {
-    @apply text-nfh-accent-primary;
-  }
-  a:hover {
-    @apply text-nfh-accent-secondary;
-  }
 }

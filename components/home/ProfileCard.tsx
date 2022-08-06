@@ -102,13 +102,8 @@ const ProfileInfo = () => (
     <div className="mt-4 flex items-center">
       <ExternalIcon className="h-6 w-6 fill-nfh-accent-secondary" />
       <p className="px-2 text-base">
-        <a target="_blank" href="https://github.com/music47ell" rel="noreferrer">
-          gh/music47ell
-        </a>
-        ,{' '}
-        <a target="_blank" href="https://twitter.com/music47ell" rel="noreferrer">
-          tw/music47ell
-        </a>
+        <Link href="https://github.com/music47ell">gh/music47ell</Link>,{' '}
+        <Link href="https://twitter.com/music47ell">tw/music47ell</Link>
       </p>
     </div>
   </div>

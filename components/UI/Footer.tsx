@@ -64,9 +64,9 @@ export default function Footer(): JSX.Element {
           <HCard />
         </div>
         <div className="text-center">
-          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</a>
+          <Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</Link>
           An IndieWeb Webring 🕸💍
-          <a href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</a>
+          <Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
         </div>
       </div>
     </footer>
