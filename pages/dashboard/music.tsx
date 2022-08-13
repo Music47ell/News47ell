@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
 import { default as Link } from '@/components/Link'
 import SectionContainer from '@/components/UI/SectionContainer'
+import { LastfmCard } from '@/components/metrics/Lastfm'
 
 export default function Music(): JSX.Element {
   return (
@@ -16,7 +17,7 @@ export default function Music(): JSX.Element {
         <div className="space-y-2 pt-6 md:space-y-5">
           <div className="md:flex md:items-center md:justify-between">
             <h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">Music</h1>
-            <p className="text-xs">Powered by Spotify API</p>
+            <p className="text-xs">Powered by Last.fm & Spotify API</p>
           </div>
           <div className="space-y-2 md:space-y-5">
             <Link
@@ -33,6 +34,7 @@ export default function Music(): JSX.Element {
               Recommend me some music
             </Link>
           </div>
+          <LastfmCard />
         </div>
         <h3 className="text-2xl font-bold leading-8 tracking-tight">Most Recent Tracks</h3>
         <RecentTracks />

@@ -1,15 +1,41 @@
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { TraktRelease } from 'lib/types'
+import { PlayIcon } from '@/components/icons'
 
 export default function Release(release: TraktRelease): JSX.Element {
   return (
-    <div className="m-auto">
-      <div className="relative inline-block">
-        <Link href={release.link} target="_blank" rel="noopener noreferrer">
-          <Image alt="Release Poster" height={750} width={500} src={release.poster} />
+    <div className="flex items-center rounded-md p-2 hover:bg-nfh-background-secondary">
+      <div className="relative w-32 flex-none">
+        <Image
+          draggable={false}
+          className="rounded"
+          width={300}
+          height={500}
+          title={release.title}
+          alt={release.title}
+          src={`https://image.tmdb.org/t/p/original${release.poster}`}
+        />
+      </div>
+
+      <div className="mr-2 ml-4">
+        <Link
+          href={`https://www.imdb.com/title/${release.link}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="text-base font-medium text-nfh-text-primary">{release.title}</div>
         </Link>
       </div>
+
+      {release.trailer ? (
+        <Link
+          href={`https://www.youtube.com/watch?v=${release.trailer}`}
+          className="ml-auto text-gray-800 hover:scale-105"
+        >
+          <PlayIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
+        </Link>
+      ) : null}
     </div>
   )
 }

@@ -1,13 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getStats } from '@/lib/trakt'
-import siteMetadata from '@/data/siteMetadata'
+import { getStats } from '@/lib/lastfm'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const response = await getStats()
-  const stats = await response.json()
 
-  stats.user = siteMetadata.trakt
-  stats.url = `https://trakt.tv/users/${siteMetadata.trakt}/`
+  const stats = await response.json()
 
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
 

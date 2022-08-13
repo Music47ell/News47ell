@@ -4,11 +4,7 @@ import { PlayIcon, PauseIcon } from '@/components/icons'
 
 export default function Track(track: Song): JSX.Element {
   return (
-    <div className="flex items-center rounded-md border border-nfh-accent-primary p-2">
-      <div className="mr-6 hidden w-5 flex-none place-content-center text-sm text-gray-500 sm:grid">
-        {track.ranking}
-      </div>
-
+    <div className="flex items-center rounded-md p-2 hover:bg-nfh-background-secondary">
       <div className="relative h-32 w-32 flex-none">
         <Image
           draggable={false}
@@ -22,8 +18,8 @@ export default function Track(track: Song): JSX.Element {
       </div>
 
       <div className="mr-2 ml-4">
-        <div className="text-base font-medium text-black">{track.title}</div>
-        <div className="-mt-1 text-sm text-gray-600">{track.artist}</div>
+        <div className="text-base font-medium text-nfh-text-primary">{track.title}</div>
+        <div className="-mt-1 text-sm text-nfh-text-secondary">{track.artist}</div>
       </div>
 
       {track.audioUrl ? (

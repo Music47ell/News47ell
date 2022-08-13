@@ -33,10 +33,10 @@ export default function TopLanguages(): JSX.Element {
     })
 
   return (
-    <>
+    <div className="grid gap-2 md:grid-cols-2">
       {sortedLanguages.map((language, index) => (
         <Language ranking={index + 1} key={language.name} {...language} />
       ))}
-    </>
+    </div>
   )
 }

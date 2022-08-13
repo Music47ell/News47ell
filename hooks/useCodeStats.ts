@@ -1,4 +1,3 @@
-import siteMetadata from '@/data/siteMetadata'
 import fetcher from '@/lib/fetcher'
 import { CodeStats, CodeStatsCard } from 'lib/types'
 import useSWR from 'swr'
@@ -10,7 +9,8 @@ export function useCodeStats(): CodeStatsCard {
   const newXP = data?.new_xp || 0
   const previousXP = totalXP - newXP || 0
   const level = Math.floor(0.025 * Math.sqrt(totalXP)) || 0
-  const link = `https://codestats.net/users/${siteMetadata.codestats}`
+  const link = data?.url
+  const user = data?.user
 
   return {
     totalXP,
@@ -18,6 +18,7 @@ export function useCodeStats(): CodeStatsCard {
     previousXP,
     level,
     link,
+    user,
     isLoading: !error && !data,
     isError: error,
   }

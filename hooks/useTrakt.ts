@@ -10,6 +10,8 @@ export function useTrakt(): TraktCard {
   const moviesMinutes = data?.movies.minutes || 0
   const showsMinutes = data?.episodes.minutes || 0
   const episodesWatched = data?.episodes.watched || 0
+  const user = data?.user
+  const url = data?.url
 
   return {
     moviesWatched,
@@ -17,6 +19,8 @@ export function useTrakt(): TraktCard {
     moviesMinutes,
     showsMinutes,
     episodesWatched,
+    user,
+    url,
     isLoading: !error && !data,
     isError: error,
   }

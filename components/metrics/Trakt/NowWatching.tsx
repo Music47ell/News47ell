@@ -14,7 +14,7 @@ export default function NowWatching(): JSX.Element {
         className="h-60 w-60 rounded-lg"
         height={60}
         width={60}
-        src={data?.poster || '/images/brand/logo.png'}
+        src={`https://image.tmdb.org/t/p/original/${data?.poster}` || '/images/brand/logo.png'}
       />
       <div className="ml-3 flex flex-col items-start justify-center">
         {data?.episodeTitle ? (

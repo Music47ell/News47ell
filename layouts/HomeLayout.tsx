@@ -18,9 +18,9 @@ export default function HomeLayout(): JSX.Element {
   )
 
   return (
-    <main className="container my-8 mx-auto flex max-w-5xl flex-1 flex-col space-y-2 px-3 md:space-y-5">
+    <main className="container mx-auto mb-8 flex max-w-5xl flex-1 flex-col space-y-2 px-3 md:space-y-5">
       <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:mt-16">
-        <div className="my-4 grid items-center space-y-2 py-6 md:grid-cols-2 md:space-y-5 xl:grid-cols-3">
+        <div className="my-4 grid items-center space-y-2  md:grid-cols-2 md:space-y-5 xl:grid-cols-3">
           <div className="sm:pr-8 xl:col-span-2">
             <p
               className={`mb-8 bg-clip-text text-4xl font-extrabold leading-[60px] tracking-tight md:text-7xl md:leading-[86px]`}
