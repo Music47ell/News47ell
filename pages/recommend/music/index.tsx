@@ -107,7 +107,10 @@ export default function Stats() {
 
   return (
     <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <PageSEO
+        title={`Recommend a song - ${siteMetadata.author}`}
+        description={siteMetadata.description}
+      />
       <main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
         <Link
           href="/dashboard/music"

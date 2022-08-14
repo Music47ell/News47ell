@@ -28,9 +28,9 @@ export default function Music(): JSX.Element {
             </Link>
             <Link
               href="/recommend/music"
-              className="block rounded bg-nfh-background-secondary p-3 text-center text-xs font-bold uppercase leading-normal shadow-lg"
+              className="inline-flex w-full items-center justify-center rounded bg-spotify py-2 px-4 font-medium leading-5 !text-white hover:bg-spotify/50"
             >
-              <ListPlusIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
+              <ListPlusIcon className="mr-1 inline-block h-5 w-5" />
               Recommend me some music
             </Link>
           </div>

@@ -4,7 +4,7 @@ import { PlayIcon, PauseIcon } from '@/components/icons'
 
 export default function Track(track: Song): JSX.Element {
   return (
-    <div className="flex items-center rounded-md p-2 hover:bg-nfh-background-secondary">
+    <div className="flex items-center rounded-md bg-nfh-background-secondary p-2">
       <div className="relative h-32 w-32 flex-none">
         <Image
           draggable={false}
