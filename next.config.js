@@ -36,12 +36,6 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     })
 
-    // https://github.com/vercel/next.js/issues/12557#issuecomment-994278512
-    config.module.rules.push({
-      test: [/(components||context|data|helpers|hooks|layouts|lib|pages|utils)\/index.ts/i],
-      sideEffects: false,
-    })
-
     if (!dev && !isServer) {
       // Replace React with Preact only in client production build
       Object.assign(config.resolve.alias, {
