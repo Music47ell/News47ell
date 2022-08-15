@@ -1,8 +1,8 @@
-import siteMetadata from '@/data/siteMetadata'
-// TS Types
-import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+
+import siteMetadata from '@/data/siteMetadata'
+import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 
 import generateSocialImage from '@/lib/generateSocialImage'
 
