@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { withPageAuth, getUser } from '@supabase/supabase-auth-helpers/nextjs'
+import { withPageAuth, getUser } from '@supabase/auth-helpers-nextjs'
 import { getAllContentFrontMatter, getLyrics, getQuotes, getDelete } from '@/lib/supabase'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'

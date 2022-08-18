@@ -2,8 +2,8 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { useState } from 'react'
 
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
-import { UserProvider } from '@supabase/supabase-auth-helpers/react'
+import { supabaseClient } from '@supabase/auth-helpers-nextjs'
+import { UserProvider } from '@supabase/auth-helpers-react'
 import { ThemeProvider } from 'next-themes'
 
 import '@/assets/css/tailwind.css'
