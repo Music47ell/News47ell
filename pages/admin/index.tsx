@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { withPageAuth, getUser } from '@supabase/supabase-auth-helpers/nextjs'
+import { withPageAuth, getUser } from '@supabase/auth-helpers-nextjs'
 import { getAllContentFrontMatter, getLyrics, getQuotes, getDelete } from '@/lib/supabase'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
@@ -81,13 +81,13 @@ export default function Admin({ user }): JSX.Element {
                     {post.published === true ? (
                       <CheckIcon
                         className={`${
-                          post.published === true ? 'text-green-600' : 'text-yellow-600'
+                          post.published === true ? 'fill-green-600' : 'fill-yellow-600'
                         } mr-1 inline-block h-5 w-5`}
                       />
                     ) : (
                       <ExclamationIcon
                         className={`${
-                          post.published === true ? 'text-green-600' : 'text-yellow-600'
+                          post.published === true ? 'fill-green-600' : 'fill-yellow-600'
                         } mr-1 inline-block h-5 w-5`}
                       />
                     )}
@@ -113,13 +113,13 @@ export default function Admin({ user }): JSX.Element {
                     {page.published === true ? (
                       <CheckIcon
                         className={`${
-                          page.published === true ? 'text-green-600' : 'text-yellow-600'
+                          page.published === true ? 'fill-green-600' : 'fill-yellow-600'
                         } mr-1 inline-block h-5 w-5`}
                       />
                     ) : (
                       <ExclamationIcon
                         className={`${
-                          page.published === true ? 'text-green-600' : 'text-yellow-600'
+                          page.published === true ? 'fill-green-600' : 'fill-yellow-600'
                         } mr-1 inline-block h-5 w-5`}
                       />
                     )}

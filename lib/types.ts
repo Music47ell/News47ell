@@ -12,6 +12,8 @@ export type AuthorFrontMatter = {
 export type CodeStats = {
   total_xp: number
   new_xp: number
+  user: string
+  url: string
 }
 
 export interface CodeStatsCard {
@@ -20,6 +22,7 @@ export interface CodeStatsCard {
   previousXP: number
   newXP: number
   level: number
+  user: string
   isLoading: boolean
   isError: string | undefined
 }
@@ -117,8 +120,10 @@ export type NowWatchingRelease = {
 export type TraktRelease = {
   ranking: number
   id: number
+  title: string
   link: string
   poster: string
+  trailer: string
 }
 
 export type Response<T> = T | Error
@@ -157,6 +162,8 @@ export interface TraktCard {
   moviesMinutes: number
   showsMinutes: number
   episodesWatched: number
+  user: string
+  url: string
   isLoading: boolean
   isError: string
 }
@@ -249,13 +256,17 @@ export type Trakt = {
   episodes: TraktItem
   network: Network
   ratings: Rating
+  user: string
+  url: string
 }
 
 export type TraktItem = {
   id: number
+  title: string
   ranking: number
   link: string
   poster: string
+  trailer: string
   plays?: number
   watched?: number
   minutes?: number
@@ -381,4 +392,15 @@ export type PostsSearchResult = {
   title: string
   updatedAt: string
   slug: string
+}
+
+export type Lastfm = {
+  user: {
+    playcount: number
+    registered: {
+      '#text': number
+    }
+    url: string
+    name: string
+  }
 }

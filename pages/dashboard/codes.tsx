@@ -3,7 +3,6 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { TopLanguages } from '@/components/metrics/CodeStats'
-import Divider from '@/components/UI/Divider'
 import { CodeStatsCard } from '@/components/metrics/CodeStats'
 import SectionContainer from '@/components/UI/SectionContainer'
 
@@ -30,16 +29,11 @@ export default function Codes(): JSX.Element {
           </div>
           <CodeStatsCard />
         </div>
+        <h3 className="text-2xl font-bold leading-8 tracking-tight">
+          Top Programming Languages I use
+        </h3>
         <div className="flex flex-col space-y-4">
-          <Divider />
-          <div className="space-y-1">
-            <div className="md:flex md:items-center md:justify-between">
-              <p className="text-sm uppercase">
-                My top Programming Languages that I use updated in real time
-              </p>
-            </div>
-            <TopLanguages />
-          </div>
+          <TopLanguages />
         </div>
       </SectionContainer>
     </>

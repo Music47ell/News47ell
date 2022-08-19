@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useUser } from '@supabase/supabase-auth-helpers/react'
+import { useUser } from '@supabase/auth-helpers-react'
 import {
   XIcon,
   MenuIcon,
@@ -17,7 +17,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import AudioToggle from '@/components/toggles/AudioToggle'
 import { Slash, News47ell } from '@/components/icons'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { getGravatar } from '@/utils/getGravatar'
 import { default as Image } from '@/components/Image'
 import { useClickOutside } from '@/hooks/useClickOutside'

@@ -4,15 +4,13 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import PageTitle from '@/components/UI/PageTitle'
 import { BlogSEO } from '@/components/SEO'
-import Share from '@/components/blog/Share'
+import { Donate, Share, ReactionsButton, Markdown } from '@/components/blog'
 import Tag from '@/components/Tag'
 import Category from '@/components/Category'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/utils/formatDate'
 import { IPostLayout } from 'lib/interfaces'
 import { useSlugStats } from '@/hooks/useStats'
-import ReactionsButton from '@/components/blog/ReactionsButton'
-import Markdown from '@/components/blog/Markdown'
 import { getGravatar } from '@/utils/getGravatar'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
@@ -143,6 +141,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
                 <Share title={title} slug={slug} />
                 <footer>
                   <div className="text-sm font-medium leading-5">
+                    <Donate />
                     {tags && (
                       <div className="py-4">
                         <h2 className="text-xs uppercase tracking-wide">Tags</h2>

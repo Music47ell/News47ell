@@ -17,6 +17,7 @@ const siteMetadata = {
   twitter: 'Music47ell',
   codestats: 'Music47ell',
   trakt: 'Music47ell',
+  lastfm: 'Music47ell',
   locale: 'en-US',
   postsPerPages: 10,
   adminNavLinks: [

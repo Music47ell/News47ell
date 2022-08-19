@@ -10,13 +10,13 @@ export default function Shows(): JSX.Element {
   return (
     <>
       <PageSEO
-        title={`Music Dashboard - ${siteMetadata.author}`}
+        title={`Movies and TV Shows Dashboard - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
       <SectionContainer>
         <div className="space-y-2 pt-6 md:space-y-5">
           <div className="md:flex md:items-center md:justify-between">
-            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movie & TV show stats</h1>
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movies & TV Shows</h1>
             <p className="text-xs">Powered by Trakt & TMDB API</p>
           </div>
           <div className="space-y-2 md:space-y-5">

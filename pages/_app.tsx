@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import Head from 'next/head'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
+import Head from 'next/head'
+import { useState } from 'react'
+
+import { supabaseClient } from '@supabase/auth-helpers-nextjs'
+import { UserProvider } from '@supabase/auth-helpers-react'
 import { ThemeProvider } from 'next-themes'
+
 import '@/assets/css/tailwind.css'
 import Analytics from '@/components/analytics'
-import { SoundProvider } from '@/context/store'
 import Quote from '@/components/Quote'
-import Nav from '@/components/UI/Nav'
 import Footer from '@/components/UI/Footer'
 import Header from '@/components/UI/Header'
-import { UserProvider } from '@supabase/supabase-auth-helpers/react'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import Nav from '@/components/UI/Nav'
+import { SoundProvider } from '@/context/store'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const [pickerOpen, setPickerOpen] = useState(false)
@@ -20,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <ThemeProvider>
         <SoundProvider>
           <Head>
-            <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
           </Head>
           <Analytics />
           <Header pickerOpen={pickerOpen} />

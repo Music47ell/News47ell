@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { withPageAuth, getUser, supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { withPageAuth, getUser, supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { default as Link } from '@/components/Link'
 import toast from 'react-hot-toast'
 import { default as Image } from '@/components/Image'

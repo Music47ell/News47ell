@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getWatchedShows } from '@/lib/trakt'
-import { getTMDB } from '@/lib/tmdb'
+import { getTMDBShows } from '@/lib/tmdb'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const response = await getWatchedShows()
@@ -8,23 +8,42 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const stats = await response.json()
 
   const ids = stats
-    .map((show) => show.show.ids.imdb)
-    .filter((show, index, self) => self.indexOf(show) === index)
+    .map((show: { show: { ids: { tmdb: number; imdb: string } } }) => {
+      return {
+        tmdb: show.show.ids.tmdb,
+        imdb: show.show.ids.imdb,
+      }
+    }, [])
+    .filter(
+      (show: { tmdb: number }, index: number, self: any[]) =>
+        self.findIndex((s: { tmdb: number }) => s.tmdb === show.tmdb) === index
+    )
     .slice(0, 10)
 
   const shows = await Promise.all(
-    ids.map(async (id) => {
-      const tmdb = await getTMDB(id)
+    ids.map(async (id: { tmdb: number; imdb: string }) => {
+      const tmdb = await getTMDBShows(id.tmdb)
       const tmdbJson = await tmdb.json()
-      const posterPath = tmdbJson.tv_results[0].poster_path
-      const poster = `https://image.tmdb.org/t/p/original${posterPath}`
-      const link = `https://www.imdb.com/title/${id}`
+      const poster = tmdbJson.poster_path
+      const link = id.imdb
+      const officialTrailers =
+        tmdbJson.videos.results.filter(
+          (video: { name: string; type: string; official: boolean }) =>
+            video.official === true ||
+            video.name === 'Official Trailer' ||
+            video.name === 'Trailer' ||
+            video.type === 'Opening Credits'
+        ) && tmdbJson.videos.results.filter((video: { site: string }) => video.site === 'YouTube')
+
+      const trailer =
+        officialTrailers && officialTrailers.length > 0 ? officialTrailers[0].key : null
       return {
-        key: id,
-        id,
-        title: tmdbJson.tv_results[0].name,
+        key: id.tmdb,
+        imdb: id.imdb,
+        title: tmdbJson.name,
         poster,
         link,
+        trailer,
       }
     })
   )

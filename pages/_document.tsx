@@ -4,7 +4,7 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head />
         <body className="bg-nfh-background-primary text-nfh-text-primary antialiased transition-colors duration-300">
           <Main />
           <NextScript />

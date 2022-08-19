@@ -68,7 +68,7 @@ export default function RecentTracks(): JSX.Element {
   }
 
   return (
-    <>
+    <div className="grid gap-2 md:grid-cols-2">
       {data.tracks.map((track, index) => (
         <Track
           ranking={index + 1}
@@ -78,6 +78,6 @@ export default function RecentTracks(): JSX.Element {
           {...track}
         />
       ))}
-    </>
+    </div>
   )
 }

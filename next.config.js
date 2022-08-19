@@ -1,14 +1,12 @@
-// @ts-check
+/**
+ * @type {import('next').NextConfig}
+ **/
 
 const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 const { withSuperjson } = require('next-superjson')
-
-/**
- * @type {import('next').NextConfig}
- **/
 
 const nextConfig = {
   reactStrictMode: true,
@@ -30,27 +28,11 @@ const nextConfig = {
     legacyBrowsers: false,
     browsersListForSwc: true,
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
-
-    // https://github.com/vercel/next.js/issues/12557#issuecomment-994278512
-    config.module.rules.push({
-      test: [/(components||context|data|helpers|hooks|layouts|lib|pages|utils)\/index.ts/i],
-      sideEffects: false,
-    })
-
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
 
     return config
   },
