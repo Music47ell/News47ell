@@ -2,10 +2,12 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { TraktRelease } from 'lib/types'
 import { PlayIcon } from '@/components/icons'
+import { BorderEffect } from '@/components/UI'
 
 export default function Release(release: TraktRelease): JSX.Element {
   return (
-    <div className="flex items-center rounded-md bg-nfh-background-secondary p-2">
+    <div className="group flex items-center rounded-md bg-nfh-background-secondary p-2 transition duration-500 hover:scale-100">
+      <BorderEffect />
       <div className="relative w-32 flex-none">
         <Image
           draggable={false}

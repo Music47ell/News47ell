@@ -4,7 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { TopLanguages } from '@/components/metrics/CodeStats'
 import { CodeStatsCard } from '@/components/metrics/CodeStats'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Codes(): JSX.Element {
   return (

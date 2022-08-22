@@ -1,4 +1,4 @@
-export const LoadingSpinner = (): JSX.Element => {
+export default function LoadingSpinner(): JSX.Element {
   return (
     <div className="flex justify-center">
       <svg

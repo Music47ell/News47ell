@@ -1,5 +1,6 @@
 import { default as Link } from '@/components/Link'
 import { useSFX } from '@/hooks/useSFX'
+import { BorderEffect } from '@/components/UI'
 
 export default function BlogPostCard({ title, slug, total }) {
   const { playMouseClick } = useSFX()
@@ -10,7 +11,8 @@ export default function BlogPostCard({ title, slug, total }) {
       //@ts-ignore
       onClick={playMouseClick}
     >
-      <div className="flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition-all hover:scale-[1.01]">
+      <div className="group flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition duration-500 hover:scale-100">
+        <BorderEffect />
         <div className="flex flex-col justify-between md:flex-row">
           <h4 className="w-full text-base font-medium tracking-tight text-nfh-text-primary">
             {title}

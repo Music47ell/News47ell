@@ -4,7 +4,7 @@ import StatsLayout from '@/layouts/StatsLayout'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import React from 'react'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Stats(): JSX.Element {
   return (

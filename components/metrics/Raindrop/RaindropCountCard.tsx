@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useRaindropStats } from '@/hooks/useRaindropStats'
 
 export default function RaindropCountCard(): JSX.Element {

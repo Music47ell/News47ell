@@ -4,7 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { MoviesWatched, ShowsWatched } from '@/components/metrics/Trakt'
 import { TraktCard } from '@/components/metrics/Trakt'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Shows(): JSX.Element {
   return (

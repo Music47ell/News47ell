@@ -9,9 +9,7 @@ import { ThemeProvider } from 'next-themes'
 import '@/assets/css/tailwind.css'
 import Analytics from '@/components/analytics'
 import Quote from '@/components/Quote'
-import Footer from '@/components/UI/Footer'
-import Header from '@/components/UI/Header'
-import Nav from '@/components/UI/Nav'
+import { Header, Nav, Footer } from '@/components/UI'
 import { SoundProvider } from '@/context/store'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {

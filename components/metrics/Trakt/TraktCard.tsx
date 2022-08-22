@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useTrakt } from '@/hooks/useTrakt'
 import { default as Link } from '@/components/Link'
 

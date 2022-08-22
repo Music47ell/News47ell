@@ -1,6 +1,6 @@
 import { default as Link } from '@/components/Link'
 import { useSFX } from '@/hooks/useSFX'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { IResumeLayout } from 'lib/interfaces'
 import { PDFIcon } from '@/components/icons'

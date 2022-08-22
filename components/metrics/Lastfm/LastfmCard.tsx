@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useLastfm } from '@/hooks/useLastfm'
 import { default as Link } from '@/components/Link'
 

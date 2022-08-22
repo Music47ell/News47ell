@@ -6,7 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import { default as Link } from '@/components/Link'
 import { LoaderIcon, CheckIcon, ExclamationIcon } from '@/components/icons'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Admin({ user }): JSX.Element {
   const router = useRouter()

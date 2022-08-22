@@ -8,7 +8,7 @@ import { LoaderIcon } from '@/components/icons'
 import 'easymde/dist/easymde.min.css'
 import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function EditPage({ user }): JSX.Element {
   const router = useRouter()

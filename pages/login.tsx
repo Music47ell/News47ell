@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { useUser } from '@supabase/auth-helpers-react'
 import { LoaderIcon } from '@/components/icons'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 const Login = (): JSX.Element => {
   const router = useRouter()

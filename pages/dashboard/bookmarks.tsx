@@ -6,7 +6,7 @@ import { BookmarkCard } from '@/components/metrics/Raindrop/'
 import { useBookmarks } from '@/hooks/useBookmarks'
 import { default as Link } from '@/components/Link'
 import { RaindropCountCard } from '@/components/metrics/Raindrop'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Bookmarks(): JSX.Element {
   const { bookmarks, tags, isLoading } = useBookmarks()

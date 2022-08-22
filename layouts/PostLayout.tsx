@@ -2,7 +2,7 @@
 import { TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
-import PageTitle from '@/components/UI/PageTitle'
+import { PageTitle } from '@/components/UI'
 import { BlogSEO } from '@/components/SEO'
 import { Donate, Share, ReactionsButton, Markdown } from '@/components/blog'
 import Tag from '@/components/Tag'

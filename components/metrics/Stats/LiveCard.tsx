@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useActiveStats } from '@/hooks/useStats'
 
 export default function LiveCard(): JSX.Element {
