@@ -199,7 +199,7 @@ export const getUpdateContentById = async (
 
 export const getSearchResults = async (from: string, query: string) => {
   const { data: posts } = await supabaseClient
-    .from('posts')
+    .from(from)
     .select('content')
     .textSearch('content', `${query}`)
 

@@ -11,7 +11,7 @@ const SearchLayout: FC = () => {
 
   const { data } = usePostsSearch<PostsSearchResult[]>(query)
   const handleChange = useDebounce((e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
+    setQuery(e.target.value.replace(/\s/g, '+'))
   }, 1000)
 
   if (typeof window === 'object') {
@@ -46,7 +46,7 @@ const SearchLayout: FC = () => {
   }
 
   return (
-    <main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
+    <main className="container mx-auto my-8 flex max-w-5xl flex-1 flex-col px-3">
       <h1 className="p-4 text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
         Search the blog
       </h1>
