@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const data = await JSON.parse(content)
 
-  res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
+  res.setHeader('Cache-Control', 'public, s-maxage=1200, stale-while-revalidate=600')
 
   return res.status(200).json(data)
 }
