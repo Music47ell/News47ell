@@ -3,7 +3,7 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
 import { default as Link } from '@/components/Link'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 import { LastfmCard } from '@/components/metrics/Lastfm'
 
 export default function Music(): JSX.Element {

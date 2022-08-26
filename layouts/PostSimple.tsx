@@ -1,5 +1,5 @@
 import { default as Link } from '@/components/Link'
-import PageTitle from '@/components/UI/PageTitle'
+import { PageTitle } from '@/components/UI'
 import { BlogSEO } from '@/components/SEO'
 import Share from '@/components/blog/Share'
 import siteMetadata from '@/data/siteMetadata'

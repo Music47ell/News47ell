@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useDashboardViews } from '@/hooks/useStats'
 
 export default function ViewsCard(): JSX.Element {

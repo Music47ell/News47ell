@@ -4,7 +4,7 @@ import { default as Link } from '@/components/Link'
 import toast from 'react-hot-toast'
 import { default as Image } from '@/components/Image'
 import { getGravatar } from '@/utils/getGravatar'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI/'
 
 export default function Account({ user }): JSX.Element {
   const [loading, setLoading] = useState(false)

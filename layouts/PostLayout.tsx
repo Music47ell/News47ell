@@ -2,7 +2,7 @@
 import { TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
-import PageTitle from '@/components/UI/PageTitle'
+import { PageTitle } from '@/components/UI'
 import { BlogSEO } from '@/components/SEO'
 import { Donate, Share, ReactionsButton, Markdown } from '@/components/blog'
 import Tag from '@/components/Tag'
@@ -12,6 +12,7 @@ import formatDate from '@/utils/formatDate'
 import { IPostLayout } from 'lib/interfaces'
 import { useSlugStats } from '@/hooks/useStats'
 import { getGravatar } from '@/utils/getGravatar'
+import FeaturedArt from '@/components/blog/FeaturedArt'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
   const {
@@ -39,23 +40,22 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
       <main className="relative my-8 max-w-3xl px-6 sm:mx-auto">
         <div className="col-span-10 flex flex-col lg:col-span-7">
           <div className="-mx-4 rounded border-nfh-accent-primary p-4 md:border">
-            <article className="h-entry">
-              <div className="space-y-1 text-center">
+            <article className="h-entry space-y-1">
+              <FeaturedArt text={title} />
+              <div className="text-center">
                 <dl className="space-y-10">
-                  <div>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6">
-                      <Link href={slug} className="u-url">
-                        <time
-                          dateTime={updated_at ? updated_at : published_at}
-                          itemProp="datePublished"
-                          className="dt-edited"
-                        >
-                          {formatDate(updated_at ? updated_at : published_at)}
-                        </time>
-                      </Link>
-                    </dd>
-                  </div>
+                  <dt className="sr-only">Published on</dt>
+                  <dd className="text-base font-medium leading-6">
+                    <Link href={slug} className="u-url">
+                      <time
+                        dateTime={updated_at ? updated_at : published_at}
+                        itemProp="datePublished"
+                        className="dt-edited"
+                      >
+                        {formatDate(updated_at ? updated_at : published_at)}
+                      </time>
+                    </Link>
+                  </dd>
                 </dl>
                 <div>
                   {linked ? (

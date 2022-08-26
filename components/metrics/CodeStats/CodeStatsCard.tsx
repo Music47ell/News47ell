@@ -1,5 +1,5 @@
 import { default as Link } from '@/components/Link'
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 import { useCodeStats } from '@/hooks/useCodeStats'
 
 export default function CodeStatsCard(): JSX.Element {

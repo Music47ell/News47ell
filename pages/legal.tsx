@@ -1,7 +1,7 @@
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export default function Legal(): JSX.Element {
   return (

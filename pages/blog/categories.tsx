@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllCategories } from '@/lib/categories'
 import kebabCase from '@/utils/kebabCase'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import SectionContainer from '@/components/UI/SectionContainer'
+import { SectionContainer } from '@/components/UI'
 
 export const getStaticProps: GetStaticProps<{ categories: Record<string, number> }> = async () => {
   const categories = await getAllCategories()

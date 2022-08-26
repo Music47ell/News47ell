@@ -1,4 +1,4 @@
-import PageTitle from '@/components/UI/PageTitle'
+import { PageTitle } from '@/components/UI'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { IPostLayout } from 'lib/interfaces'

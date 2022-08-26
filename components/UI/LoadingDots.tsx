@@ -1,6 +1,6 @@
 // Based on the fantastic https://vercel.com/design/loading-dots
 
-export const LoadingDots = (): JSX.Element => {
+export default function LoadingDots(): JSX.Element {
   return (
     <div className="flex space-x-1">
       <div className="h-1.5 w-1.5 animate-loading-0 rounded-full bg-nfh-background-secondary"></div>

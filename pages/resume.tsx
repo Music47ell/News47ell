@@ -1,9 +1,8 @@
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import PageTitle from '@/components/UI/PageTitle'
 import ResumeLayout from '@/layouts/ResumeLayout'
 import { useResume } from '@/hooks/useResume'
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { PageTitle, LoadingSpinner } from '@/components/UI'
 
 export default function Resume(): JSX.Element {
   const { resume, isLoading } = useResume()

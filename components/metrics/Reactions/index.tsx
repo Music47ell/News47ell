@@ -2,7 +2,7 @@ import LikeCount from './LikeCount'
 import DislikeCount from './DislikeCount'
 import TotalReactions from './TotalReactions'
 import { useDashboardReactions } from '@/hooks/useReactions'
-import { LoadingSpinner } from '@/components/UI/LoadingSpinner'
+import { LoadingSpinner } from '@/components/UI'
 
 export function AllReactions() {
   const { totalReactions, isLoading } = useDashboardReactions()

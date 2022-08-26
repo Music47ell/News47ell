@@ -3,7 +3,7 @@ import { LoaderIcon } from '@/components/icons'
 import fetcher from '@/lib/fetcher'
 import ProfileCard from '@/components/home/ProfileCard'
 import BlogPostCard from '@/components/home/BlogPostCard'
-import Divider from '@/components/UI/Divider'
+import { Divider } from '@/components/UI'
 import { default as Link } from '@/components/Link'
 
 export default function HomeLayout(): JSX.Element {
