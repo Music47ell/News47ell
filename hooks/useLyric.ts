@@ -3,13 +3,13 @@ import fetcher from '@/lib/fetcher'
 import { Lyrics } from '@/lib/types'
 
 export function useLyric() {
-  const { data, error } = useSWR<Lyrics>('/api/lyric', fetcher)
+	const { data, error } = useSWR<Lyrics>('/api/lyric', fetcher)
 
-  const lyric = data?.[Math.floor(Math.random() * data?.length)]
+	const lyric = data?.[Math.floor(Math.random() * data?.length)]
 
-  return {
-    lyric,
-    isLoading: !error && !data,
-    isError: error,
-  }
+	return {
+		lyric,
+		isLoading: !error && !data,
+		isError: error,
+	}
 }

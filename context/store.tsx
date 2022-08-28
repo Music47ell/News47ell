@@ -3,26 +3,26 @@ import { useState, useEffect, useContext, createContext, useCallback } from 'rea
 export const store = createContext(null)
 
 export const SoundProvider = ({ children }) => {
-  const [soundEnabled, setSoundEnabled] = useState()
+	const [soundEnabled, setSoundEnabled] = useState()
 
-  return <store.Provider value={{ soundEnabled, setSoundEnabled }}>{children}</store.Provider>
+	return <store.Provider value={{ soundEnabled, setSoundEnabled }}>{children}</store.Provider>
 }
 
 export const useSettings = () => {
-  const { soundEnabled, setSoundEnabled } = useContext(store)
+	const { soundEnabled, setSoundEnabled } = useContext(store)
 
-  useEffect(() => {
-    setSoundEnabled(window.localStorage.getItem('sound') === 'off' ? false : true)
-  }, [setSoundEnabled])
+	useEffect(() => {
+		setSoundEnabled(window.localStorage.getItem('sound') === 'off' ? false : true)
+	}, [setSoundEnabled])
 
-  const toggleSound = useCallback(() => {
-    const newSoundsEnabled = !soundEnabled
-    setSoundEnabled(newSoundsEnabled)
-    window.localStorage.setItem('sound', newSoundsEnabled ? 'on' : 'off')
-  }, [setSoundEnabled, soundEnabled])
+	const toggleSound = useCallback(() => {
+		const newSoundsEnabled = !soundEnabled
+		setSoundEnabled(newSoundsEnabled)
+		window.localStorage.setItem('sound', newSoundsEnabled ? 'on' : 'off')
+	}, [setSoundEnabled, soundEnabled])
 
-  return {
-    soundEnabled,
-    toggleSound,
-  }
+	return {
+		soundEnabled,
+		toggleSound,
+	}
 }

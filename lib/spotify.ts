@@ -12,70 +12,70 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
 
 export const getClientCredentialToken = async () => {
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    body: 'grant_type=client_credentials',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${basic}`,
-    },
-  })
+	const response = await fetch(TOKEN_ENDPOINT, {
+		method: 'POST',
+		body: 'grant_type=client_credentials',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+			Authorization: `Basic ${basic}`,
+		},
+	})
 
-  return response.json()
+	return response.json()
 }
 
 export const getAccessToken = async () => {
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token,
-    }),
-  })
+	const response = await fetch(TOKEN_ENDPOINT, {
+		method: 'POST',
+		headers: {
+			Authorization: `Basic ${basic}`,
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		body: new URLSearchParams({
+			grant_type: 'refresh_token',
+			refresh_token,
+		}),
+	})
 
-  return response.json()
+	return response.json()
 }
 
 export const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken()
+	const { access_token } = await getAccessToken()
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  })
+	return fetch(NOW_PLAYING_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	})
 }
 
 export const getRecentTracks = async () => {
-  const { access_token } = await getAccessToken()
+	const { access_token } = await getAccessToken()
 
-  return fetch(RECENT_TRACKS_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  })
+	return fetch(RECENT_TRACKS_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	})
 }
 
 export const getTopTracks = async () => {
-  const { access_token } = await getAccessToken()
+	const { access_token } = await getAccessToken()
 
-  return fetch(TOP_TRACKS_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  })
+	return fetch(TOP_TRACKS_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	})
 }
 
 export const getTracksUri = async () => {
-  const response = await fetch(RECOMMEND_PLAYLIST_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${refresh_token}`,
-    },
-  }).then((res) => res.json())
+	const response = await fetch(RECOMMEND_PLAYLIST_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${refresh_token}`,
+		},
+	}).then((res) => res.json())
 
-  return response
+	return response
 }
