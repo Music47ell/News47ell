@@ -4,21 +4,18 @@ import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
 import { GitHubIcon, PatreonIcon } from '@/components/icons'
 
-export default function Donate(): JSX.Element {
+export default function Sponsor(): JSX.Element {
 	return (
 		<>
-			<PageSEO title={`Donate - ${siteMetadata.author}`} description={siteMetadata.description} />
+			<PageSEO title={`Sponsor - ${siteMetadata.author}`} description={siteMetadata.description} />
 			<SectionContainer>
 				<div className="divide-y divide-gray-200 dark:divide-gray-700">
 					<div className="space-y-2 pt-6 pb-8 md:space-y-5">
 						<h1 className="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-							Donate
+							Support this Site
 						</h1>
 
-						<p>
-							Thank you for checking out the Donate page. Below you can find ways to support me on
-							GitHub Sponsors or through other means.
-						</p>
+						<p>Below you can find ways to support me on GitHub Sponsors or through other means.</p>
 					</div>
 					<div className="container py-6">
 						<section className="space-y-4">

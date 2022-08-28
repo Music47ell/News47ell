@@ -42,6 +42,7 @@ const siteMetadata = {
 		{ href: '/legal', title: 'Legal' },
 		{ href: '/feed', title: 'RSS' },
 		{ href: '/acknowledgements', title: 'Acknowledgements' },
+		{ href: '/sponsor', title: 'Support This Site' },
 	],
 	lowerFooterLinks: [
 		{ href: 'https://supabase.io/', title: 'Supabase', icon: 'supabase' },

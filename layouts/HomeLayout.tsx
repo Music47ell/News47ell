@@ -3,7 +3,7 @@ import { LoaderIcon } from '@/components/icons'
 import fetcher from '@/lib/fetcher'
 import ProfileCard from '@/components/home/ProfileCard'
 import BlogPostCard from '@/components/home/BlogPostCard'
-import { Divider } from '@/components/UI'
+import { Divider, LoadingSpinner } from '@/components/UI'
 import { default as Link } from '@/components/Link'
 
 export default function HomeLayout(): JSX.Element {
@@ -70,7 +70,7 @@ export default function HomeLayout(): JSX.Element {
 				</div>
 			</div>
 			{!topViews ? (
-				<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				<LoadingSpinner />
 			) : (
 				topViews &&
 				topViews.length > 0 && (
@@ -90,7 +90,7 @@ export default function HomeLayout(): JSX.Element {
 				)
 			)}
 			{!topReactions ? (
-				<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				<LoadingSpinner />
 			) : (
 				topReactions &&
 				topReactions.length > 0 && (
