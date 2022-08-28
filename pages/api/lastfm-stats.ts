@@ -2,11 +2,11 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { getStats } from '@/lib/lastfm'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const response = await getStats()
+	const response = await getStats()
 
-  const stats = await response.json()
+	const stats = await response.json()
 
-  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
+	res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
 
-  return res.status(200).json(stats)
+	return res.status(200).json(stats)
 }

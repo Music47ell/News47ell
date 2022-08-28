@@ -9,54 +9,54 @@ import { PrismaClient } from '@prisma/client'
 let prisma: PrismaClient
 
 if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient()
+	prisma = new PrismaClient()
 } else {
-  if (!global.prisma) {
-    global.prisma = new PrismaClient()
-  }
-  prisma = global.prisma
+	if (!global.prisma) {
+		global.prisma = new PrismaClient()
+	}
+	prisma = global.prisma
 }
 
 export default prisma
 
 export const getTotalReactions = async (): Promise<{
-  like_count: number
-  dislike_count: number
+	like_count: number
+	dislike_count: number
 }> => {
-  const like_count = await prisma.postMeta.findMany({
-    select: {
-      likes: true,
-    },
-  })
+	const like_count = await prisma.postMeta.findMany({
+		select: {
+			likes: true,
+		},
+	})
 
-  const dislike_count = await prisma.postMeta.findMany({
-    select: {
-      dislikes: true,
-    },
-  })
+	const dislike_count = await prisma.postMeta.findMany({
+		select: {
+			dislikes: true,
+		},
+	})
 
-  return {
-    like_count: like_count.reduce((acc, curr) => acc + curr.likes, 0),
-    dislike_count: dislike_count.reduce((acc, curr) => acc + curr.dislikes, 0),
-  }
+	return {
+		like_count: like_count.reduce((acc, curr) => acc + curr.likes, 0),
+		dislike_count: dislike_count.reduce((acc, curr) => acc + curr.dislikes, 0),
+	}
 }
 
 export const getTopReactions = async () => {
-  const mostLikedPosts = await prisma.postMeta.findMany({
-    select: {
-      likes: true,
-      slug: true,
-    },
-    take: 3,
-  })
+	const mostLikedPosts = await prisma.postMeta.findMany({
+		select: {
+			likes: true,
+			slug: true,
+		},
+		take: 3,
+	})
 
-  const topReactions = mostLikedPosts.map(({ slug, likes }) => ({
-    title: slug
-      .replace(/-/g, ' ')
-      .replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase()),
-    slug: `/blog/${slug}`,
-    total: likes,
-  }))
+	const topReactions = mostLikedPosts.map(({ slug, likes }) => ({
+		title: slug
+			.replace(/-/g, ' ')
+			.replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase()),
+		slug: `/blog/${slug}`,
+		total: likes,
+	}))
 
-  return topReactions
+	return topReactions
 }

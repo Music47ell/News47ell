@@ -6,52 +6,52 @@ import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { default as Link } from '@/components/Link'
 
 export default function Markdown({ children }): JSX.Element {
-  const customRenderers: Options['components'] = {
-    p: ({ node, children }: { node: any; children: any }) => {
-      if (node.children[0].tagName === 'img') {
-        const image: any = node.children[0]
-        const src = `https://res.cloudinary.com/music47ell/image/upload/news47ell${image.properties.src}`
+	const customRenderers: Options['components'] = {
+		p: ({ node, children }: { node: any; children: any }) => {
+			if (node.children[0].tagName === 'img') {
+				const image: any = node.children[0]
+				const src = `https://res.cloudinary.com/music47ell/image/upload/news47ell${image.properties.src}`
 
-        return (
-          <>
-            <div className="flex justify-center">
-              <img src={src} alt={image.properties.alt} width="600" height="300" />
-            </div>
-            <span className="flex justify-center">
-              <Link href={src}>View full res image</Link>
-            </span>
-          </>
-        )
-      }
+				return (
+					<>
+						<div className="flex justify-center">
+							<img src={src} alt={image.properties.alt} width="600" height="300" />
+						</div>
+						<span className="flex justify-center">
+							<Link href={src}>View full res image</Link>
+						</span>
+					</>
+				)
+			}
 
-      return <p>{children}</p>
-    },
-    code: ({ node, inline, className, children, ...props }) => {
-      const match = /language-(\w+)/.exec(className || '')
-      return !inline && match ? (
-        <SyntaxHighlighter
-          // eslint-disable-next-line react/no-children-prop
-          children={String(children).replace(/\n$/, '')}
-          style={dracula as any}
-          language={match[1]}
-          PreTag="div"
-          {...props}
-          showLineNumbers
-        />
-      ) : (
-        <code
-          className={`${className} rounded bg-nfh-background-secondary py-0.5 px-1 text-nfh-text-primary`}
-          {...props}
-        >
-          {children}
-        </code>
-      )
-    },
-  }
+			return <p>{children}</p>
+		},
+		code: ({ node, inline, className, children, ...props }) => {
+			const match = /language-(\w+)/.exec(className || '')
+			return !inline && match ? (
+				<SyntaxHighlighter
+					// eslint-disable-next-line react/no-children-prop
+					children={String(children).replace(/\n$/, '')}
+					style={dracula as any}
+					language={match[1]}
+					PreTag="div"
+					{...props}
+					showLineNumbers
+				/>
+			) : (
+				<code
+					className={`${className} rounded bg-nfh-background-secondary py-0.5 px-1 text-nfh-text-primary`}
+					{...props}
+				>
+					{children}
+				</code>
+			)
+		},
+	}
 
-  return (
-    <ReactMarkdown className="prose prose-theme max-w-none" components={customRenderers}>
-      {children}
-    </ReactMarkdown>
-  )
+	return (
+		<ReactMarkdown className="prose prose-theme max-w-none" components={customRenderers}>
+			{children}
+		</ReactMarkdown>
+	)
 }

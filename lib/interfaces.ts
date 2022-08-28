@@ -4,140 +4,135 @@ import { AuthorFrontMatter, PostFrontMatter, Toc } from 'lib/types'
 import { ComponentProps, ReactNode } from 'react'
 
 export interface Authors {
-  author: AuthorFrontMatter
-  posts: PostFrontMatter[]
+	author: AuthorFrontMatter
+	posts: PostFrontMatter[]
 }
 
 export interface Comment {
-  frontMatter: PostFrontMatter
+	frontMatter: PostFrontMatter
 }
 
 export interface Layout {
-  posts: PostFrontMatter[]
-  title: string
-  initialDisplayPosts?: PostFrontMatter[]
-  pagination?: ComponentProps<typeof Pagination>
+	posts: PostFrontMatter[]
+	title: string
+	initialDisplayPosts?: PostFrontMatter[]
+	pagination?: ComponentProps<typeof Pagination>
 }
 
 export interface IMDXComponents {
-  layout: string
-  mdxSource: string
-  [key: string]: unknown
+	layout: string
+	mdxSource: string
+	[key: string]: unknown
 }
 
 export interface IPageTitle {
-  children: ReactNode
+	children: ReactNode
 }
 
 export interface IPagination {
-  totalPages: number
-  currentPage: number
+	totalPages: number
+	currentPage: number
 }
 
 export interface IPostLayout {
-  frontMatter: PostFrontMatter
-  next?: { slug: string; title: string }
-  prev?: { slug: string; title: string }
-  content: string
+	frontMatter: PostFrontMatter
+	next?: { slug: string; title: string }
+	prev?: { slug: string; title: string }
+	content: string
 }
 
 export interface IPostSimple {
-  frontMatter: PostFrontMatter
-  //authorDetails: AuthorFrontMatter[]
-  content: string
-  next?: { slug: string; title: string }
-  prev?: { slug: string; title: string }
+	frontMatter: PostFrontMatter
+	//authorDetails: AuthorFrontMatter[]
+	content: string
+	next?: { slug: string; title: string }
+	prev?: { slug: string; title: string }
 }
 
 export interface IResumeLayout {
-  basics: {
-    name: string
-    image: string
-    email: string
-    url: string
-    summary: string
-    location: {
-      country: string
-      countryCode: string
-    }
-    profiles: {
-      id: number
-      network: string
-      username: string
-      url: string
-    }[]
-  }
-  education: {
-    id: number
-    institution: string
-    url: string
-    area: string
-  }[]
-  skills: {
-    id: number
-    name: string
-    keywords: string[]
-  }[]
-  languages: {
-    id: number
-    language: string
-    fluency: string
-  }[]
-  certificates: {
-    id: number
-    name: string
-    date: string
-    issuer: string
-    url: string
-  }[]
+	basics: {
+		name: string
+		image: string
+		email: string
+		url: string
+		summary: string
+		location: {
+			country: string
+			countryCode: string
+		}
+		profiles: {
+			id: number
+			network: string
+			username: string
+			url: string
+		}[]
+	}
+	education: {
+		id: number
+		institution: string
+		url: string
+		area: string
+	}[]
+	skills: {
+		id: number
+		name: string
+		keywords: string[]
+	}[]
+	languages: {
+		id: number
+		language: string
+		fluency: string
+	}[]
+	certificates: {
+		id: number
+		name: string
+		date: string
+		issuer: string
+		url: string
+	}[]
 }
 
 export interface IPre {
-  children: ReactNode
+	children: ReactNode
 }
 
 export interface ISectionContainer {
-  children: ReactNode
+	children: ReactNode
 }
 
 export interface CommonSEOProps {
-  title: string
-  description: string
-  ogType: string
-  ogImage:
-    | string
-    | {
-        '@type': string
-        url: string
-      }[]
-  twImage: string
+	title: string
+	description: string
+	ogType: string
+	ogImage: string | { '@type': string; url: string }[]
+	twImage: string
 }
 
 export interface PageSEOProps {
-  title: string
-  description: string
-  url?: string
+	title: string
+	description: string
+	url?: string
 }
 
 export interface BlogSeoProps extends PostFrontMatter {
-  authorDetails?: any
-  url: string
+	authorDetails?: any
+	url: string
 }
 
 export interface IShare {
-  title: string
-  slug: string
+	title: string
+	slug: string
 }
 
 export interface Taxonomy {
-  text: string
+	text: string
 }
 
 export interface TOCInlineProps {
-  toc: Toc
-  indentDepth?: number
-  fromHeading?: number
-  toHeading?: number
-  asDisclosure?: boolean
-  exclude?: string | string[]
+	toc: Toc
+	indentDepth?: number
+	fromHeading?: number
+	toHeading?: number
+	asDisclosure?: boolean
+	exclude?: string | string[]
 }
