@@ -1,4 +1,4 @@
-import { LoadingSpinner } from '@/components/UI'
+import { LoaderIcon } from '@/components/icons'
 import { useActiveStats } from '@/hooks/useStats'
 
 export default function LiveCard(): JSX.Element {
@@ -7,7 +7,9 @@ export default function LiveCard(): JSX.Element {
 	return (
 		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
-				<LoadingSpinner />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				<>
 					<div className="flex items-center">Visiting Right Now!</div>

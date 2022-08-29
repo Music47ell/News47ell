@@ -1,8 +1,8 @@
-import LikeCount from './LikeCount'
-import DislikeCount from './DislikeCount'
-import TotalReactions from './TotalReactions'
+import { LoaderIcon } from '@/components/icons'
 import { useDashboardReactions } from '@/hooks/useReactions'
-import { LoadingSpinner } from '@/components/UI'
+import DislikeCount from './DislikeCount'
+import LikeCount from './LikeCount'
+import TotalReactions from './TotalReactions'
 
 export function AllReactions() {
 	const { totalReactions, isLoading } = useDashboardReactions()
@@ -10,7 +10,9 @@ export function AllReactions() {
 	return (
 		<div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
-				<LoadingSpinner />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				<>
 					<h6 className="flex items-center">All Posts Reactions</h6>
@@ -30,7 +32,9 @@ export function IndividualReactions() {
 	return (
 		<div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
-				<LoadingSpinner />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				<>
 					<h6 className="flex items-center">Blog posts reactions</h6>

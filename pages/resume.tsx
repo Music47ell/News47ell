@@ -1,8 +1,9 @@
+import { LoaderIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
+import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
-import ResumeLayout from '@/layouts/ResumeLayout'
 import { useResume } from '@/hooks/useResume'
-import { PageTitle, LoadingSpinner } from '@/components/UI'
+import ResumeLayout from '@/layouts/ResumeLayout'
 
 export default function Resume(): JSX.Element {
 	const { resume, isLoading } = useResume()
@@ -19,7 +20,9 @@ export default function Resume(): JSX.Element {
 					</div>
 				</header>
 				{isLoading ? (
-					<LoadingSpinner />
+					<div className="flex justify-center">
+						<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+					</div>
 				) : (
 					<ResumeLayout
 						basics={basics}
