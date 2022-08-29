@@ -1,5 +1,5 @@
+import { LoaderIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { LoadingSpinner } from '@/components/UI'
 import { useCodeStats } from '@/hooks/useCodeStats'
 
 export default function CodeStatsCard(): JSX.Element {
@@ -7,7 +7,9 @@ export default function CodeStatsCard(): JSX.Element {
 	return (
 		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
-				<LoadingSpinner />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				<div className="grid gap-x-0 gap-y-4 md:grid-cols-2 md:gap-x-12">
 					<div className="flex items-center justify-between space-x-4">

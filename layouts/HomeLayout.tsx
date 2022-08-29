@@ -70,7 +70,9 @@ export default function HomeLayout(): JSX.Element {
 				</div>
 			</div>
 			{!topViews ? (
-				<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				topViews &&
 				topViews.length > 0 && (
@@ -90,7 +92,9 @@ export default function HomeLayout(): JSX.Element {
 				)
 			)}
 			{!topReactions ? (
-				<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				<div className="flex justify-center">
+					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				</div>
 			) : (
 				topReactions &&
 				topReactions.length > 0 && (
