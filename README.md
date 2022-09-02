@@ -38,7 +38,8 @@
 - Mobile-friendly view
 - Multiple themes
 - Sound effects
-- Uses [umami](https://umami.is/) for analytics
+- Uses [Supabase](https://supabase.com/) for postgres database and authentication
+- Uses [PlanetScale](https://planetscale.com/) and [Prisma](https://www.prisma.io/) for analytics
 - Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - Support for tags/categories - each unique tag/category will be its own page
 - Support for multiple authors

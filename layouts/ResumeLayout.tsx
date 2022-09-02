@@ -1,7 +1,6 @@
 import { default as Link } from '@/components/Link'
 import { useSFX } from '@/hooks/useSFX'
 import { SectionContainer } from '@/components/UI'
-import siteMetadata from '@/data/siteMetadata'
 import { IResumeLayout } from 'lib/interfaces'
 import { PDFIcon } from '@/components/icons'
 
@@ -41,9 +40,14 @@ export default function ResumeLayout({
 					<div className="p-6 text-left print:p-3">
 						<h3 className="text-3xl font-extrabold leading-6">{basics.name}</h3>
 						<p className="mt-3 cursor-none text-sm hover:text-türkiye">{basics.location.country}</p>
-						<Link className="text-sm" href={`mailto:${basics.email}`}>
-							{basics.email}
-						</Link>
+						<div className="flex space-x-4">
+							<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
+								{basics.email}
+							</Link>
+							<Link className="text-sm" href={basics.url} aria-label="Link to news47ell.com">
+								{basics.url}
+							</Link>
+						</div>
 						<div className="flex space-x-4">
 							{basics.profiles.map(({ id, network, url }) => (
 								<Link
@@ -123,14 +127,6 @@ export default function ResumeLayout({
 										</div>
 									</div>
 								</div>
-							</div>
-							<div className="hidden py-5 text-center print:block" itemProp="copyrightYear">
-								COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
-								{` `}
-								<Link href={basics.url} aria-label="Link to news47ell.com">
-									{siteMetadata.title}
-								</Link>
-								. ALL RIGHTS RESERVED.
 							</div>
 						</div>
 					</div>

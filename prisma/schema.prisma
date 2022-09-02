@@ -18,6 +18,7 @@ model PostMeta {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   slug      String   @unique
+  views     Int      @default(0)
   likes     Int      @default(0)
   dislikes  Int      @default(0)
 }

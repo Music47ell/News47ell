@@ -50,18 +50,6 @@ const siteMetadata = {
 		{ href: 'https://tailwindcss.com/', title: 'Tailwind CSS', icon: 'tailwindcss' },
 		{ href: 'https://vercel.com/', title: 'Vercel', icon: 'vercel' },
 	],
-	analytics: {
-		umamiWebsiteId: process.env.NEXT_PUBLIC_UMAMI_SITE_ID,
-		umamiScriptUrl: process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL,
-	},
-	ads: {
-		adSense: {
-			client: 'ca-pub-7147925438991191',
-			adPosition: {
-				header: '3800669782',
-			},
-		},
-	},
 }
 
 export default siteMetadata

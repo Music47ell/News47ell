@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma'
+import { prisma } from '@/lib/prisma'
 import { createHash } from 'crypto'
 import type { NextApiRequest, NextApiResponse } from 'next'
 

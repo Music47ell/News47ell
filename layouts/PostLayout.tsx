@@ -10,7 +10,7 @@ import Category from '@/components/Category'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/utils/formatDate'
 import { IPostLayout } from 'lib/interfaces'
-import { useSlugStats } from '@/hooks/useStats'
+import { useViewsBySlug } from '@/hooks/useViews'
 import { getGravatar } from '@/utils/getGravatar'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 
@@ -28,7 +28,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 		author,
 	} = frontMatter
 
-	const { value, isLoading } = useSlugStats(encodeURIComponent(`/blog/${slug}`))
+	const { views, isLoading } = useViewsBySlug(slug)
 
 	return (
 		<>
@@ -119,8 +119,8 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 																		'---'
 																	) : (
 																		<>
-																			{value}
-																			{value === 1 ? ' views' : ' views'}
+																			{views}
+																			{views === 1 ? ' views' : ' views'}
 																		</>
 																	)}
 																</dd>

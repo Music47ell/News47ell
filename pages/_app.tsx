@@ -7,7 +7,6 @@ import { UserProvider } from '@supabase/auth-helpers-react'
 import { ThemeProvider } from 'next-themes'
 
 import '@/assets/css/tailwind.css'
-import Analytics from '@/components/analytics'
 import Quote from '@/components/Quote'
 import { Header, Nav, Footer } from '@/components/UI'
 import { SoundProvider } from '@/context/store'
@@ -22,7 +21,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 					<Head>
 						<meta name="viewport" content="width=device-width, initial-scale=1" />
 					</Head>
-					<Analytics />
 					<Header pickerOpen={pickerOpen} />
 					<div
 						className={`transition-transform ${
