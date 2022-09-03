@@ -316,6 +316,15 @@ export type WatchedShows = {
 	shows: TraktItem[]
 }
 
+export type Views = {
+	views: number
+}
+
+export type UseViewCountResult = {
+	views?: number
+	isLoading: boolean
+}
+
 export type Reactions = {
 	like_count: number
 	dislike_count: number
@@ -343,48 +352,6 @@ export type UseDislikeCountResult = {
 	userDislikes: boolean | undefined
 	dislikes: number | undefined
 	isLoadingDislikes: boolean
-}
-
-export type StatsCardProps = {
-	title: string
-	count: number
-	yesterday?: number
-	children: ReactNode
-}
-
-export type Stats = {
-	allTime: {
-		pageviews: {
-			value: number
-		}
-		uniques: {
-			value: number
-		}
-	}
-	yesterday: {
-		yesterdaysPageviews: {
-			value: number
-		}
-		yesterdaysUniques: {
-			value: number
-		}
-	}
-	Country: {
-		x: string
-		y: number
-	}[]
-	Devices: {
-		x: string
-		y: number
-	}[]
-	OS: {
-		x: string
-		y: number
-	}[]
-	Browsers: {
-		x: string
-		y: number
-	}[]
 }
 
 export type PostsSearchResult = {

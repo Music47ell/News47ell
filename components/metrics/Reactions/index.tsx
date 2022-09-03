@@ -1,8 +1,6 @@
 import { LoaderIcon } from '@/components/icons'
 import { useDashboardReactions } from '@/hooks/useReactions'
-import DislikeCount from './DislikeCount'
-import LikeCount from './LikeCount'
-import TotalReactions from './TotalReactions'
+import ReactionCount from './ReactionCount'
 
 export function AllReactions() {
 	const { totalReactions, isLoading } = useDashboardReactions()
@@ -17,8 +15,8 @@ export function AllReactions() {
 				<>
 					<h6 className="flex items-center">All Posts Reactions</h6>
 
-					<div>
-						<TotalReactions reactionsCount={totalReactions} />
+					<div className="flex items-center rounded-lg text-center">
+						<h2 className="m-0 text-3xl font-bold">{totalReactions}</h2>
 					</div>
 				</>
 			)}
@@ -37,12 +35,8 @@ export function IndividualReactions() {
 				</div>
 			) : (
 				<>
-					<h6 className="flex items-center">Blog posts reactions</h6>
-
-					<div className="mb-1 grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-2">
-						<LikeCount likeCount={totalLikes} />
-						<DislikeCount dislikeCount={totalDislikes} />
-					</div>
+					<ReactionCount Count={totalLikes} Like={true} />
+					<ReactionCount Count={totalDislikes} Dislike={true} />
 				</>
 			)}
 		</div>

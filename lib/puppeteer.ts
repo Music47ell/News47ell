@@ -5,26 +5,36 @@ const RESUME_URL = process.env.NEXT_PUBLIC_VERCEL_URL
 	? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/resume`
 	: 'http://localhost:3000/resume'
 
-const chromeExecutables: Partial<Record<typeof process.platform, string>> = {
-	linux: '/usr/bin/chromium-browser',
-	win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-	darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-}
-
 async function getOptions() {
-	if (process.env.NODE_ENV === 'development') {
-		return {
+	const isDev = !process.env.AWS_REGION
+	let options
+
+	const chromeExecPaths = {
+		win32: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+		linux: '/usr/bin/google-chrome',
+		darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+	}
+
+	if (process.platform !== 'win32' && process.platform !== 'linux' && process.platform !== 'darwin')
+		throw new Error(`current platform (${process.platform}) not supported`)
+
+	const execPath = chromeExecPaths[process.platform]
+
+	if (isDev) {
+		options = {
 			args: [],
-			executablePath: chromeExecutables[process.platform] || chromeExecutables.linux,
+			executablePath: execPath,
 			headless: true,
+		}
+	} else {
+		options = {
+			args: chrome.args,
+			executablePath: await chrome.executablePath,
+			headless: chrome.headless,
 		}
 	}
 
-	return {
-		args: chrome.args,
-		executablePath: await chrome.executablePath,
-		headless: chrome.headless,
-	}
+	return options
 }
 
 export async function resumeToPdf() {

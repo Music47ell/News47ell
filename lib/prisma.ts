@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client'
 // Learn more:
 // https://pris.ly/d/help/next-js-best-practices
 
-let prisma: PrismaClient
+export let prisma: PrismaClient
 
 if (process.env.NODE_ENV === 'production') {
 	prisma = new PrismaClient()
@@ -17,7 +17,17 @@ if (process.env.NODE_ENV === 'production') {
 	prisma = global.prisma
 }
 
-export default prisma
+export const getTotalViews = async (): Promise<{ views: number }> => {
+	const data = await prisma.postMeta.aggregate({
+		_sum: {
+			views: true,
+		},
+	})
+
+	return {
+		views: data._sum.views,
+	}
+}
 
 export const getTotalReactions = async (): Promise<{
 	like_count: number
@@ -47,6 +57,9 @@ export const getTopReactions = async () => {
 			likes: true,
 			slug: true,
 		},
+		orderBy: {
+			likes: 'desc',
+		},
 		take: 3,
 	})
 
@@ -59,4 +72,27 @@ export const getTopReactions = async () => {
 	}))
 
 	return topReactions
+}
+
+export const getTopViews = async () => {
+	const mostViewedPosts = await prisma.postMeta.findMany({
+		select: {
+			views: true,
+			slug: true,
+		},
+		orderBy: {
+			views: 'desc',
+		},
+		take: 3,
+	})
+
+	const topViews = mostViewedPosts.map(({ slug, views }) => ({
+		title: slug
+			.replace(/-/g, ' ')
+			.replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase()),
+		slug: `/blog/${slug}`,
+		total: views,
+	}))
+
+	return topViews
 }

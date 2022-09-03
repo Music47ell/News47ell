@@ -8,7 +8,7 @@ import { default as Link } from '@/components/Link'
 
 export default function HomeLayout(): JSX.Element {
 	const { data: topViews } = useSWR<{ title: string; slug: string; total: number }[]>(
-		`/api/stats/top`,
+		`/api/views/top`,
 		fetcher
 	)
 
