@@ -9,7 +9,7 @@ export function AllReactions() {
 		<div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
 				<div className="flex justify-center">
-					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+					<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />
 				</div>
 			) : (
 				<>
@@ -31,7 +31,7 @@ export function IndividualReactions() {
 		<div className="flex w-full items-center justify-between rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
 			{isLoading ? (
 				<div className="flex justify-center">
-					<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+					<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />
 				</div>
 			) : (
 				<>

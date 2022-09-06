@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		})
 
 		// make the date a key
-		const final = result.reduce((acc, item) => {
+		const keys = result.reduce((acc, item) => {
 			item.forEach((i) => {
 				if (!acc[i.date]) {
 					acc[i.date] = []
@@ -75,8 +75,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return acc
 		}, {})
 
-		const dataToSend = Object.keys(final).map((key) => {
-			const item = final[key]
+		// sort the keys by date from oldest to newest
+		const sorted = Object.keys(keys)
+			.sort((a, b) => {
+				const dateA = new Date(a)
+				const dateB = new Date(b)
+
+				return dateA.getTime() - dateB.getTime()
+			})
+			.reduce((acc, key) => {
+				acc[key] = keys[key]
+				return acc
+			}, {})
+
+		const dataToSend = Object.keys(sorted).map((key) => {
+			const item = sorted[key]
 
 			const rawFCP = item.find((i) => i.name === 'FCP')?.value
 			const rawLCP = item.find((i) => i.name === 'LCP')?.value
