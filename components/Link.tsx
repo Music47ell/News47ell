@@ -11,7 +11,7 @@ const CustomLink = ({
 	const isAnchorLink = href && href.startsWith('#')
 	const style = `${
 		className ? className : ''
-	} u-url text-nfh-accent-primary hover:text-nfh-text-secondary`.replace(/^\s+/, '')
+	} text-nfh-accent-primary hover:text-nfh-text-secondary`.replace(/^\s+/, '')
 
 	if (isInternalLink) {
 		return (
