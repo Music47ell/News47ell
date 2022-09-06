@@ -7,6 +7,8 @@ export const createOGImage = ({ title, meta }: { title: string; meta: string }) 
 	[
 		// ACCOUNT PREFIX
 		`https://res.cloudinary.com/music47ell/image/upload`,
+		// Composed Image Transformations
+		`w_1600,h_836`,
 
 		// TITLE
 		// Open Sans google font in Dracula
