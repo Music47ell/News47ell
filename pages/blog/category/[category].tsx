@@ -49,7 +49,7 @@ export default function Category({
 		<>
 			<TaxonomySEO
 				title={`${category} - ${siteMetadata.title}`}
-				description={`${category} categories - ${siteMetadata.title}`}
+				description={`Posts categorized with ${category} - ${siteMetadata.title}`}
 			/>
 			<ListLayout posts={posts} title={title} />
 		</>

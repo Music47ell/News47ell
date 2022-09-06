@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 
-import generateSocialImage from '@/lib/generateSocialImage'
+import { createOGImage } from '@/lib/og-image'
 
 const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOProps) => {
 	const router = useRouter()
@@ -61,6 +61,9 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			) : (
 				<meta property="og:image" content={ogImage} key={ogImage} />
 			)}
+			<meta property="og:image:width" content="1600" />
+			<meta property="og:image:height" content="836" />
+			<meta property="og:image:alt" content={title} />
 
 			{/*Twitter Meta Tags*/}
 			<meta name="twitter:card" content="summary_large_image" />
@@ -73,22 +76,26 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
-	const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-	const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+	const ogImage = createOGImage({
+		title: title,
+		meta: description,
+	})
 	return (
 		<CommonSEO
 			title={title}
 			description={description}
 			ogType="website"
-			ogImage={ogImageUrl}
-			twImage={twImageUrl}
+			ogImage={ogImage}
+			twImage={ogImage}
 		/>
 	)
 }
 
 export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
-	const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-	const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+	const ogImage = createOGImage({
+		title: title,
+		meta: description,
+	})
 	const router = useRouter()
 	return (
 		<>
@@ -96,8 +103,8 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 				title={title}
 				description={description}
 				ogType="website"
-				ogImage={ogImageUrl}
-				twImage={twImageUrl}
+				ogImage={ogImage}
+				twImage={ogImage}
 			/>
 			<Head>
 				<link
@@ -122,15 +129,22 @@ export const BlogSEO = ({
 	const publishedAt = new Date(published_at).toString()
 	const updatedAt = new Date(updated_at).toString()
 
-	const ogImage = generateSocialImage({
-		cloudName: 'news47ell',
-		imagePublicID: `${authorDetails.twitter.toLowerCase()}.png`,
-		titleOverlayText: title,
+	const date = new Date(publishedAt).toLocaleDateString('en-US', {
+		month: 'short',
+		day: 'numeric',
+		year: 'numeric',
+	})
+
+	const author = authorDetails.first_name + ' ' + authorDetails.last_name
+
+	const ogImage = createOGImage({
+		title: title,
+		meta: `${author} - ${date}`,
 	})
 
 	const authorList = {
 		'@type': 'Person',
-		name: authorDetails.author,
+		name: author,
 	}
 
 	const structuredData = {
