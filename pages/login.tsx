@@ -74,7 +74,7 @@ const Login = (): JSX.Element => {
 					</div>
 				</div>
 			) : (
-				<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+				<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />
 			)}
 		</SectionContainer>
 	)

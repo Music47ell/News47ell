@@ -54,7 +54,7 @@ export default function Bookmarks(): JSX.Element {
 				<p className="mb-4">Filter through all of my bookmarks</p>
 				{isLoading ? (
 					<div className="flex items-center justify-center">
-						<LoaderIcon className="h-12 w-12 animate-spin fill-nfh-accent-primary" />
+						<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />
 					</div>
 				) : (
 					<>
