@@ -74,37 +74,40 @@ export default function Admin({ user }): JSX.Element {
 				{user ? (
 					<>
 						<h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Posts</h1>
-						{posts.map((post, index) => (
-							<div key={index} className="mt-8 pb-4">
-								<div className="flex flex-row">
-									<button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
-										{post.published === true ? (
-											<CheckIcon
-												className={`${
-													post.published === true ? 'fill-green-600' : 'fill-yellow-600'
-												} mr-1 inline-block h-5 w-5`}
-											/>
-										) : (
-											<ExclamationIcon
-												className={`${
-													post.published === true ? 'fill-green-600' : 'fill-yellow-600'
-												} mr-1 inline-block h-5 w-5`}
-											/>
-										)}
-										<h2 className="text-xl font-semibold">{post.title}</h2>
+						{posts
+							.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+							.sort((a, b) => Number(a.published === true) - Number(b.published === true))
+							.map((post, index) => (
+								<div key={index} className="mt-8 pb-4">
+									<div className="flex flex-row">
+										<button className="inline-flex items-center py-2 text-xl font-semibold leading-5 text-white hover:text-white">
+											{post.published === true ? (
+												<CheckIcon
+													className={`${
+														post.published === true ? 'fill-green-600' : 'fill-yellow-600'
+													} mr-1 inline-block h-5 w-5`}
+												/>
+											) : (
+												<ExclamationIcon
+													className={`${
+														post.published === true ? 'fill-green-600' : 'fill-yellow-600'
+													} mr-1 inline-block h-5 w-5`}
+												/>
+											)}
+											<h2 className="text-xl font-semibold">{post.title}</h2>
+										</button>
+									</div>
+									<Link href={`/admin/edit/post/${post.id}`} className="mr-4 text-sm text-blue-500">
+										Edit Post
+									</Link>
+									<Link href={`/blog/${post.slug}`} className="mr-4 text-sm text-blue-500">
+										View Post
+									</Link>
+									<button className="mr-4 text-sm text-red-500" onClick={() => deletePost(post.id)}>
+										Delete Post
 									</button>
 								</div>
-								<Link href={`/admin/edit/post/${post.id}`} className="mr-4 text-sm text-blue-500">
-									Edit Post
-								</Link>
-								<Link href={`/blog/${post.slug}`} className="mr-4 text-sm text-blue-500">
-									View Post
-								</Link>
-								<button className="mr-4 text-sm text-red-500" onClick={() => deletePost(post.id)}>
-									Delete Post
-								</button>
-							</div>
-						))}
+							))}
 						<h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Pages</h1>
 						{pages.map((page, index) => (
 							<div key={index} className="mt-8 pb-4">

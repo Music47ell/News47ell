@@ -44,7 +44,7 @@ export default function EditPost({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog updated successfully! Redirecting you to the admin page...', {
+		toast.success('Post updated successfully!', {
 			duration: 3000,
 		})
 	}

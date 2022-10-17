@@ -44,7 +44,7 @@ export default function EditPage({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog updated successfully! Redirecting you to the admin page...', {
+		toast.success('Page updated successfully!', {
 			duration: 3000,
 		})
 	}

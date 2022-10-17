@@ -34,7 +34,7 @@ export default function AddPage({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog published successfully! Redirecting you to the blog page...', {
+		toast.success('Page published successfully!', {
 			duration: 3000,
 		})
 	}

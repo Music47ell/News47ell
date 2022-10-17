@@ -11,7 +11,7 @@ export default function BlogPostCard({ title, slug, total }) {
 			//@ts-ignore
 			onClick={playMouseClick}
 		>
-			<div className="group flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition duration-500 hover:scale-100">
+			<div className="group flex h-full flex-col justify-between rounded-lg bg-nfh-background-secondary p-4 transition duration-500 hover:scale-100 hover:shadow-lg hover:shadow-nfh-accent-primary">
 				<BorderEffect />
 				<div className="flex flex-col justify-between md:flex-row">
 					<h4 className="w-full text-base font-medium tracking-tight text-nfh-text-primary">

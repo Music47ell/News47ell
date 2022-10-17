@@ -7,6 +7,7 @@ import { UserProvider } from '@supabase/auth-helpers-react'
 import { ThemeProvider } from 'next-themes'
 
 import '@/assets/css/tailwind.css'
+import '@/assets/css/prism.css'
 import Quote from '@/components/Quote'
 import { Header, Nav, Footer } from '@/components/UI'
 import { SoundProvider } from '@/context/store'

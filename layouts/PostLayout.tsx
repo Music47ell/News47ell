@@ -50,7 +50,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 											<time
 												dateTime={updated_at ? updated_at : published_at}
 												itemProp="datePublished"
-												className="dt-edited"
+												className="dt-published"
 											>
 												{formatDate(updated_at ? updated_at : published_at)}
 											</time>
@@ -83,7 +83,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													src={getGravatar(author.email, 38)}
 													width="38px"
 													height="38px"
-													alt="avatar"
+													alt="u-photo"
 													className="h-10 w-10 rounded-full"
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">

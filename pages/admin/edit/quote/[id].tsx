@@ -47,7 +47,7 @@ export default function EditQuote({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog updated successfully! Redirecting you to the admin page...', {
+		toast.success('Quote updated successfully!', {
 			duration: 3000,
 		})
 	}

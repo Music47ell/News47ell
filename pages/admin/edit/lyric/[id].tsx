@@ -47,7 +47,7 @@ export default function EditLyric({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog updated successfully! Redirecting you to the admin page...', {
+		toast.success('Lyric updated successfully!', {
 			duration: 3000,
 		})
 	}

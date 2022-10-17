@@ -36,7 +36,7 @@ export default function AddQuote({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog published successfully! Redirecting you to the blog page...', {
+		toast.success('Quote published successfully!', {
 			duration: 3000,
 		})
 	}
