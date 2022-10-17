@@ -73,6 +73,7 @@ module.exports = {
 				'copyright',
 				'year',
 				'site-credit',
+				'language-',
 			],
 		},
 	},

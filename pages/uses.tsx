@@ -8,7 +8,7 @@ import { SectionContainer } from '@/components/UI'
 export default function Uses(): JSX.Element {
 	return (
 		<>
-			<PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
+			<PageSEO title={`Uses - ${siteMetadata.author}`} description={siteMetadata.description} />
 			<SectionContainer>
 				<div className="divide-y divide-nfh-accent-primary">
 					<div className="space-y-2 pt-6 pb-8 md:space-y-5">

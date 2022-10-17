@@ -22,11 +22,6 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			<link rel="alternate" type="application/json" href="/feed.json" />
 
 			{/*Favicons Meta Tags*/}
-			<link
-				href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
-				rel="icon"
-				type="image/x-icon"
-			/>
 			<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
 			<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
 			<link

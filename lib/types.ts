@@ -168,12 +168,6 @@ export interface TraktCard {
 	isError: string
 }
 
-export type Toc = {
-	value: string
-	depth: number
-	url: string
-}[]
-
 export type NowPlayingSong = {
 	album: string
 	albumImageUrl: string
@@ -369,5 +363,20 @@ export type Lastfm = {
 		}
 		url: string
 		name: string
+	}
+}
+
+export type OGMeta = {
+	meta: {
+		site?: {
+			name: string
+			favicon?: string
+		}
+		title?: string
+		description?: string
+		image?: {
+			url: string
+		}
+		url?: string
 	}
 }

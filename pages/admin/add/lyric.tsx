@@ -36,7 +36,7 @@ export default function AddLyric({ user }): JSX.Element {
 		}
 
 		setLoading(false)
-		toast.success('Blog published successfully! Redirecting you to the blog page...', {
+		toast.success('Lyric published successfully!', {
 			duration: 3000,
 		})
 	}

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Pagination from '@/components/blog/Pagination'
-import { AuthorFrontMatter, PostFrontMatter, Toc } from 'lib/types'
+import { AuthorFrontMatter, PostFrontMatter } from 'lib/types'
 import { ComponentProps, ReactNode } from 'react'
 
 export interface Authors {
@@ -126,13 +126,4 @@ export interface IShare {
 
 export interface Taxonomy {
 	text: string
-}
-
-export interface TOCInlineProps {
-	toc: Toc
-	indentDepth?: number
-	fromHeading?: number
-	toHeading?: number
-	asDisclosure?: boolean
-	exclude?: string | string[]
 }

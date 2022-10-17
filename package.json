@@ -1,6 +1,6 @@
 {
 	"name": "news47ell",
-	"version": "0.2.1",
+	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -38,7 +38,11 @@
 		"react-hot-toast": "^2.3.0",
 		"react-markdown": "^8.0.3",
 		"react-simplemde-editor": "^5.0.2",
-		"react-syntax-highlighter": "^15.5.0",
+		"rehype-autolink-headings": "^6.1.1",
+		"rehype-prism-plus": "^1.5.0",
+		"rehype-slug": "^5.0.1",
+		"remark-gfm": "^3.0.1",
+		"remark-toc": "^8.0.1",
 		"sharp": "^0.31.0",
 		"superjson": "^1.9.1",
 		"swr": "1.3.0",
