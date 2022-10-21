@@ -2,6 +2,12 @@
 
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const rgbToTailwind = (rgb) =>
+	rgb
+		.replace(/[^\d,]/g, '')
+		.split(',')
+		.join(' ')
+
 module.exports = {
 	experimental: {
 		optimizeUniversalDefaults: true,
@@ -9,6 +15,9 @@ module.exports = {
 	content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx', './lib/**/*.ts'],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'arrow-up-pattern': "url('/images/others/arrow-up-pattern.svg')",
+			},
 			spacing: {
 				'9/16': '56.25%',
 			},
@@ -23,51 +32,67 @@ module.exports = {
 			},
 			colors: {
 				türkiye: '#E30A17',
-				'nfh-background-primary': 'var(--background-primary)',
-				'nfh-background-secondary': 'var(--background-secondary)',
-				'nfh-text-primary': 'var(--text-primary)',
-				'nfh-text-secondary': 'var(--text-secondary)',
-				'nfh-accent-primary': 'var(--accent-primary)',
-				'nfh-accent-secondary': 'var(--accent-secondary)',
+				'nfh-background-primary': 'rgb(var(--background-primary) / <alpha-value>)',
+				'nfh-background-secondary': 'rgb(var(--background-secondary) / <alpha-value>)',
+				'nfh-text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
+				'nfh-text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+				'nfh-accent-primary': 'rgb(var(--accent-primary) / <alpha-value>)',
+				'nfh-accent-secondary': 'rgb(var(--accent-secondary) / <alpha-value>)',
+				light: {
+					'background-primary': rgbToTailwind('rgb(243, 244, 246)'),
+					'background-secondary': rgbToTailwind('rgb(128, 128, 128)'),
+					'text-primary': rgbToTailwind('rgb(17, 24, 39)'),
+					'text-secondary': rgbToTailwind('rgb(31, 41, 55)'),
+					'accent-primary': rgbToTailwind('rgb(220, 38, 38)'),
+					'accent-secondary': rgbToTailwind('rgb(185, 28, 28)'),
+				},
+				dark: {
+					'background-primary': rgbToTailwind('rgb(28, 25, 23)'),
+					'background-secondary': rgbToTailwind('rgb(41, 37, 36)'),
+					'text-primary': rgbToTailwind('rgb(250, 250, 249)'),
+					'text-secondary': rgbToTailwind('rgb(245, 245, 244)'),
+					'accent-primary': rgbToTailwind('rgb(244, 63, 94)'),
+					'accent-secondary': rgbToTailwind('rgb(225, 29, 72)'),
+				},
 				dracula: {
-					100: '#f8f8f2',
-					200: '#8be9fd',
-					300: '#bd93f9',
-					400: '#6272a4',
-					500: '#44475a',
-					600: '#282a36',
+					'background-primary': rgbToTailwind('rgb(40, 42, 54)'),
+					'background-secondary': rgbToTailwind('rgb(68, 71, 90)'),
+					'text-primary': rgbToTailwind('rgb(248, 248, 242)'),
+					'text-secondary': rgbToTailwind('rgb(139, 233, 253)'),
+					'accent-primary': rgbToTailwind('rgb(189, 147, 249)'),
+					'accent-secondary': rgbToTailwind('rgb(98, 114, 164)'),
 				},
 				hackerNews: {
-					100: '#ffffff',
-					200: '#000000',
-					300: '#f6f6ef',
-					400: '#828282',
-					500: '#ff8c40',
-					600: '#ff6600',
+					'background-primary': rgbToTailwind('rgb(246, 246, 239)'),
+					'background-secondary': rgbToTailwind('rgb(255, 255, 255)'),
+					'text-primary': rgbToTailwind('rgb(0, 0, 0)'),
+					'text-secondary': rgbToTailwind('rgb(130, 130, 130)'),
+					'accent-primary': rgbToTailwind('rgb(255, 102, 0)'),
+					'accent-secondary': rgbToTailwind('rgb(255, 140, 64)'),
 				},
 				nord: {
-					100: '#eceff4',
-					200: '#e5e9f0',
-					300: '#88c0d0',
-					400: '#81a1c1',
-					500: '#3b4252',
-					600: '#2e3440',
+					'background-primary': rgbToTailwind('rgb(46, 52, 64)'),
+					'background-secondary': rgbToTailwind('rgb(59, 66, 82)'),
+					'text-primary': rgbToTailwind('rgb(229, 233, 240)'),
+					'text-secondary': rgbToTailwind('rgb(236, 239, 244)'),
+					'accent-primary': rgbToTailwind('rgb(136, 192, 208)'),
+					'accent-secondary': rgbToTailwind('rgb(129, 161, 193)'),
 				},
 				ferrari: {
-					100: '#ffffff',
-					200: '#f6f6ef',
-					300: '#000000',
-					400: '#fff200',
-					500: '#008c45',
-					600: '#cd212a',
+					'background-primary': rgbToTailwind('rgb(205, 33, 42)'),
+					'background-secondary': rgbToTailwind('rgb(0, 140, 69)'),
+					'text-primary': rgbToTailwind('rgb(246, 246, 239)'),
+					'text-secondary': rgbToTailwind('rgb(255, 255, 255)'),
+					'accent-primary': rgbToTailwind('rgb(0, 0, 0)'),
+					'accent-secondary': rgbToTailwind('rgb(255, 242, 0)'),
 				},
 				dos: {
-					100: '#0000ff',
-					200: '#ffff00',
-					300: '#ff0000',
-					400: '#ff00ff',
-					500: '#000000',
-					600: '#c0c0c0',
+					'background-secondary': rgbToTailwind('rgb(0, 0, 0)'),
+					'background-primary': rgbToTailwind('rgb(192, 192, 192)'),
+					'text-secondary': rgbToTailwind('rgb(0, 0, 255)'),
+					'text-primary': rgbToTailwind('rgb(255, 255, 0)'),
+					'accent-primary': rgbToTailwind('rgb(255, 0, 0)'),
+					'accent-secondary': rgbToTailwind('rgb(255, 0, 255)'),
 				},
 			},
 			animation: {

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 800">
+	<g fill-opacity="0.47">
+		<polygon fill="#6470b5" points="800 100 0 200 0 800 1600 800 1600 200" />
+		<polygon fill="#676dc5" points="800 200 0 400 0 800 1600 800 1600 400" />
+		<polygon fill="#716dd3" points="800 300 0 600 0 800 1600 800 1600 600" />
+		<polygon fill="#8274df" points="1600 800 800 400 0 800" />
+		<polygon fill="#957ce9" points="1280 800 800 500 320 800" />
+		<polygon fill="#a987f2" points="533.3 800 1066.7 800 800 600" />
+		<polygon fill="#BD93F9" points="684.1 800 914.3 800 800 700" />
+	</g>
+</svg>

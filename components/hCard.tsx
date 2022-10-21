@@ -2,8 +2,9 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { Turkiye } from '@/components/icons'
+import { useEffect, useState } from 'react'
 
-const hCard = (): JSX.Element => {
+export default function HCard(): JSX.Element {
 	if (typeof window === 'object') {
 		const photo = document.querySelector('.u-photo')
 		if (photo) {
@@ -17,13 +18,7 @@ const hCard = (): JSX.Element => {
 
 	return (
 		<div className="h-card user-profile mb-4 flex items-center rounded-lg border border-nfh-accent-primary p-2 text-sm text-nfh-text-primary">
-			<Image
-				className="u-photo"
-				alt="Profile Photo"
-				height={60}
-				width={60}
-				src="/images/others/avatar.png"
-			/>
+			<div id="u-photo" className="u-photo h-16 w-16 rounded-full bg-cover" />
 			<div className="mx-3 flex flex-col items-start justify-center">
 				<Link
 					className="p-name u-email w-48 truncate font-medium"
@@ -50,5 +45,3 @@ const hCard = (): JSX.Element => {
 		</div>
 	)
 }
-
-export default hCard
