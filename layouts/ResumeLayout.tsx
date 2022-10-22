@@ -64,7 +64,7 @@ export default function ResumeLayout({
 							/>
 						</div>
 					</div>
-					<div className="flex justify-evenly space-x-8 md:mt-0">
+					<div className="flex justify-between space-x-8 md:mt-0 md:justify-evenly">
 						<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
 							Email
 						</Link>
