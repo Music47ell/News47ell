@@ -14,7 +14,7 @@ function Quote(): JSX.Element {
 			{quote.quote}
 			{quote.link && (
 				<Link href={quote.link}>
-					<ExternalIcon className="ml-2 inline-block h-6 w-6 fill-current align-middle" />
+					<ExternalIcon className="ml-2 inline-block h-6 w-6 fill-current align-bottom" />
 				</Link>
 			)}
 		</p>

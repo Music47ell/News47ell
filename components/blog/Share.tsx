@@ -3,6 +3,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { IShare } from 'lib/interfaces'
 import { useEffect, useState } from 'react'
 import {
+	ShareIcon,
 	CopyIcon,
 	CheckIcon,
 	TwitterIcon,
@@ -64,7 +65,11 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 
 	return (
 		<div className="space-y-2 py-6 text-center text-sm">
-			{shareSucceed === true && <button onClick={() => share(url)}>SHARE ME!!!</button>}
+			{shareSucceed === true && (
+				<button onClick={() => share(url)}>
+					<ShareIcon className="block h-8 w-8 fill-nfh-accent-primary" />
+				</button>
+			)}
 			{shareSucceed === false && (
 				<>
 					<div className="flex flex-row items-center justify-center space-x-2">
