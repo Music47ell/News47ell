@@ -36,22 +36,14 @@ export default function ResumeLayout({
 	return (
 		<SectionContainer>
 			<div className="mt-20 border border-nfh-accent-primary text-nfh-text-primary">
-				<div className="grid grid-cols-1 p-5 md:grid-cols-3">
-					<div className="order-last mt-10 grid grid-cols-3 text-center md:order-first md:mt-0">
-						{basics.profiles.map(({ id, network, url }) => (
-							<div key={id}>
-								<Link
-									key={id}
-									className="text-sm"
-									href={url}
-									onClick={() => playMouseClick()}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{network}
-								</Link>
-							</div>
-						))}
+				<div className="grid grid-cols-1 p-5">
+					<div className="order-last mt-12 grid grid-cols-2 text-center md:order-first md:mt-0">
+						<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
+							{basics.email}
+						</Link>
+						<Link className="text-sm" href={basics.url} aria-label="Link to news47ell.com">
+							{basics.url}
+						</Link>
 					</div>
 					<div className="relative">
 						<div className="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-36 w-36 items-center justify-center rounded-full">
@@ -64,18 +56,26 @@ export default function ResumeLayout({
 							/>
 						</div>
 					</div>
-					<div className="flex justify-between space-x-8 md:mt-0 md:justify-evenly">
-						<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
-							Email
-						</Link>
-						<Link className="text-sm" href={basics.url} aria-label="Link to news47ell.com">
-							Website
-						</Link>
-					</div>
+				</div>
+				<div className="flex justify-evenly space-x-8 md:mt-12">
+					{basics.profiles.map(({ id, network, url }) => (
+						<div key={id}>
+							<Link
+								key={id}
+								className="text-sm"
+								href={url}
+								onClick={() => playMouseClick()}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{network}
+							</Link>
+						</div>
+					))}
 				</div>
 				<div className="text-center print:py-0 md:py-5">
 					<h1 className="text-3xl font-medium">{basics.name}</h1>
-					<p className="mt-3 cursor-none font-light text-türkiye">{basics.location.country}</p>
+					<p className="cursor-none font-light text-türkiye">{basics.location.country}</p>
 					<p className="text-sm">{basics.label}</p>
 					{education.map(({ id, institution, area }) => (
 						<p key={id} className="text-sm sm:col-span-2">
