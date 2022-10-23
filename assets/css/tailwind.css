@@ -3,98 +3,120 @@
 @tailwind utilities;
 
 .task-list-item::before {
-  @apply hidden;
+	@apply hidden;
 }
 
 .task-list-item {
-  @apply list-none;
+	@apply list-none;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+	html:focus-within {
+		scroll-behavior: auto;
+	}
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 ::selection {
-  background-color: #e30a17;
+	background-color: #e30a17;
 }
 
 kbd {
-  font-family: monospace;
-  background: var(--a2);
-  padding: calc(var(--unit) * 0.5);
-  border-radius: calc(var(--unit) * 0.5);
+	font-family: monospace;
+	background: var(--a2);
+	padding: calc(var(--unit) * 0.5);
+	border-radius: calc(var(--unit) * 0.5);
 }
 
 @layer base {
-  [data-theme='light'] {
-    --background-primary: theme('colors.gray.50');
-    --background-secondary: theme('colors.gray.100');
-    --text-primary: theme('colors.gray.900');
-    --text-secondary: theme('colors.gray.800');
-    --accent-primary: theme('colors.red.600');
-    --accent-secondary: theme('colors.red.700');
-  }
+	[data-theme='light'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='hackernews'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='ferrari'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='dos'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='dark'] #u-photo {
+		background-image: url('/images/others/me-alt.png');
+	}
+	[data-theme='dracula'] #u-photo {
+		background-image: url('/images/others/me-alt.png');
+	}
+	[data-theme='nord'] #u-photo {
+		background-image: url('/images/others/me-alt.png');
+	}
 
-  [data-theme='dark'] {
-    --background-primary: theme('colors.stone.900');
-    --background-secondary: theme('colors.stone.800');
-    --text-primary: theme('colors.stone.50');
-    --text-secondary: theme('colors.stone.100');
-    --accent-primary: theme('colors.rose.500');
-    --accent-secondary: theme('colors.rose.600');
-  }
+	[data-theme='light'] {
+		--background-primary: theme('colors.light.background-primary');
+		--background-secondary: theme('colors.light.background-secondary');
+		--text-primary: theme('colors.light.text-primary');
+		--text-secondary: theme('colors.light.text-secondary');
+		--accent-primary: theme('colors.light.accent-primary');
+		--accent-secondary: theme('colors.light.accent-secondary');
+	}
 
-  [data-theme='dracula'] {
-    --background-primary: theme('colors.dracula.600');
-    --background-secondary: theme('colors.dracula.500');
-    --text-primary: theme('colors.dracula.100');
-    --text-secondary: theme('colors.dracula.200');
-    --accent-primary: theme('colors.dracula.300');
-    --accent-secondary: theme('colors.dracula.400');
-  }
+	[data-theme='dark'] {
+		--background-primary: theme('colors.dark.background-primary');
+		--background-secondary: theme('colors.dark.background-secondary');
+		--text-primary: theme('colors.dark.text-primary');
+		--text-secondary: theme('colors.dark.text-secondary');
+		--accent-primary: theme('colors.dark.accent-primary');
+		--accent-secondary: theme('colors.dark.accent-secondary');
+	}
 
-  [data-theme='hackernews'] {
-    --background-primary: theme('colors.hackerNews.300');
-    --background-secondary: theme('colors.hackerNews.100');
-    --text-primary: theme('colors.hackerNews.200');
-    --text-secondary: theme('colors.hackerNews.400');
-    --accent-primary: theme('colors.hackerNews.600');
-    --accent-secondary: theme('colors.hackerNews.500');
-  }
-  [data-theme='nord'] {
-    --background-primary: theme('colors.nord.600');
-    --background-secondary: theme('colors.nord.500');
-    --text-primary: theme('colors.nord.200');
-    --text-secondary: theme('colors.nord.100');
-    --accent-primary: theme('colors.nord.300');
-    --accent-secondary: theme('colors.nord.400');
-  }
-  [data-theme='ferrari'] {
-    --background-primary: theme('colors.ferrari.600');
-    --background-secondary: theme('colors.ferrari.500');
-    --text-primary: theme('colors.ferrari.200');
-    --text-secondary: theme('colors.ferrari.100');
-    --accent-primary: theme('colors.ferrari.300');
-    --accent-secondary: theme('colors.ferrari.400');
-  }
-  [data-theme='dos'] {
-    --background-primary: theme('colors.dos.600');
-    --background-secondary: theme('colors.dos.500');
-    --text-primary: theme('colors.dos.200');
-    --text-secondary: theme('colors.dos.100');
-    --accent-primary: theme('colors.dos.300');
-    --accent-secondary: theme('colors.dos.400');
-  }
+	[data-theme='dracula'] {
+		--background-primary: theme('colors.dracula.background-primary');
+		--background-secondary: theme('colors.dracula.background-secondary');
+		--text-primary: theme('colors.dracula.text-primary');
+		--text-secondary: theme('colors.dracula.text-secondary');
+		--accent-primary: theme('colors.dracula.accent-primary');
+		--accent-secondary: theme('colors.dracula.accent-secondary');
+	}
+
+	[data-theme='hackernews'] {
+		--background-primary: theme('colors.hackerNews.background-primary');
+		--background-secondary: theme('colors.hackerNews.background-secondary');
+		--text-primary: theme('colors.hackerNews.text-primary');
+		--text-secondary: theme('colors.hackerNews.text-secondary');
+		--accent-primary: theme('colors.hackerNews.accent-primary');
+		--accent-secondary: theme('colors.hackerNews.accent-secondary');
+	}
+	[data-theme='nord'] {
+		--background-primary: theme('colors.nord.background-primary');
+		--background-secondary: theme('colors.nord.background-secondary');
+		--text-primary: theme('colors.nord.text-primary');
+		--text-secondary: theme('colors.nord.text-secondary');
+		--accent-primary: theme('colors.nord.accent-primary');
+		--accent-secondary: theme('colors.nord.accent-secondary');
+	}
+	[data-theme='ferrari'] {
+		--background-primary: theme('colors.ferrari.background-primary');
+		--background-secondary: theme('colors.ferrari.background-secondary');
+		--text-primary: theme('colors.ferrari.text-primary');
+		--text-secondary: theme('colors.ferrari.text-secondary');
+		--accent-primary: theme('colors.ferrari.accent-primary');
+		--accent-secondary: theme('colors.ferrari.accent-secondary');
+	}
+	[data-theme='dos'] {
+		--background-primary: theme('colors.dos.background-primary');
+		--background-secondary: theme('colors.dos.background-secondary');
+		--text-primary: theme('colors.dos.text-primary');
+		--text-secondary: theme('colors.dos.text-secondary');
+		--accent-primary: theme('colors.dos.accent-primary');
+		--accent-secondary: theme('colors.dos.accent-secondary');
+	}
 }

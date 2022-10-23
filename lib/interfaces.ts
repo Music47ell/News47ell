@@ -52,6 +52,7 @@ export interface IPostSimple {
 export interface IResumeLayout {
 	basics: {
 		name: string
+		label: string
 		image: string
 		email: string
 		url: string

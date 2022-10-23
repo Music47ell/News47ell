@@ -132,7 +132,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 										</ul>
 									</dd>
 								</dl>
-								<div className="divide-y py-6 xl:col-span-3 xl:row-span-2 xl:pb-0">
+								<div className="divide-y py-6">
 									<div itemProp="articleBody" className="e-content max-w-none text-base">
 										<Markdown>{content}</Markdown>
 									</div>
