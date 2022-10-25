@@ -47,16 +47,31 @@ const nextConfig = {
 	},
 
 	async rewrites() {
-		return [
-			{
-				source: '/feed',
-				destination: '/api/feed',
-			},
-			{
-				source: '/sitemap.xml',
-				destination: '/api/sitemap',
-			},
-		]
+		return {
+			beforeFiles: [
+				{
+					source: '/:path*',
+					destination: '/api/curl-card',
+					has: [
+						{
+							type: 'header',
+							key: 'user-agent',
+							value: 'curl/(.*)',
+						},
+					],
+				},
+			],
+			afterFiles: [
+				{
+					source: '/feed',
+					destination: '/api/feed',
+				},
+				{
+					source: '/sitemap.xml',
+					destination: '/api/sitemap',
+				},
+			],
+		}
 	},
 
 	async redirects() {

@@ -51,6 +51,25 @@ const siteMetadata = {
 		{ title: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: 'tailwindcss' },
 		{ title: 'Vercel', href: 'https://vercel.com/', icon: 'vercel' },
 	],
+	curlCardLinks: {
+		github: { title: 'GitHub', text: 'https://github.com/music47ell' },
+		twitter: {
+			title: 'Twitter',
+			text: 'https://twitter.com/music47ell',
+		},
+		linkedIn: {
+			title: 'LinkedIn',
+			text: 'https://www.linkedin.com/in/music47ell',
+		},
+		resume: {
+			title: 'Resume',
+			text: 'https://www.news47ell.com/resume',
+		},
+		links: {
+			title: 'All Links',
+			text: 'https://www.news47ell.com/links',
+		},
+	},
 	socialLinks: {
 		author: [
 			{
