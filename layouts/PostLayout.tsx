@@ -15,18 +15,8 @@ import { getGravatar } from '@/utils/getGravatar'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
-	const {
-		slug,
-		linked,
-		published_at,
-		updated_at,
-		title,
-		category,
-		tags,
-		wordCount,
-		readingTime,
-		author,
-	} = frontMatter
+	const { slug, linked, published_at, updated_at, title, category, tags, readingTime, author } =
+		frontMatter
 
 	const { views, isLoading } = useViewsBySlug(slug)
 
@@ -110,9 +100,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 														<li className="p-name flex items-center space-x-2">
 															<dl className="whitespace-nowrap text-sm font-medium leading-5">
 																<dt className="sr-only">Word Count</dt>
-																<dd className="p-author h-card">{wordCount} words</dd>
+																<dd className="p-author h-card">{readingTime.words} words</dd>
 																<dt className="sr-only">Reading time</dt>
-																<dd className="p-author h-card">{readingTime} minutes</dd>
+																<dd className="p-author h-card">{readingTime.time} minutes</dd>
 																<dt className="sr-only">Post Views</dt>
 																<dd className="p-author h-card">
 																	{isLoading ? (

@@ -27,7 +27,29 @@
 }
 
 ::selection {
-	background-color: #e30a17;
+	@apply bg-nfh-accent-secondary;
+}
+
+/* Scrollbar */
+
+/* Chrome */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-nfh-accent-primary;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-full bg-nfh-accent-primary transition-colors hover:bg-nfh-accent-primary;
+}
+
+/* Firefox */
+* {
+	scrollbar-width: 'thin';
+	scrollbar-color: theme('colors.nfh-accent-primary') theme('colors.transparent');
 }
 
 kbd {

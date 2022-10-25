@@ -2,13 +2,11 @@ import siteMetadata from '@/data/siteMetadata'
 
 const formatDate = (date: string) => {
 	const options: Intl.DateTimeFormatOptions = {
-		hour: '2-digit',
-		minute: '2-digit',
-		month: 'short',
-		day: 'numeric',
-		year: 'numeric',
+		dateStyle: 'medium',
+		timeStyle: 'short',
+		hour12: false,
 	}
-	const now = new Date(date).toLocaleTimeString(siteMetadata.locale, options)
+	const now = new Date(date).toLocaleString(siteMetadata.locale, options)
 
 	return now
 }

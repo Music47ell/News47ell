@@ -100,8 +100,10 @@ export type PostFrontMatter = {
 	layout?: string
 	slug: string
 	linked?: string
-	wordCount?: number
-	readingTime?: number
+	readingTime: {
+		words: number
+		time: number
+	}
 }
 
 export type Quote = {
