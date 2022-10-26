@@ -33,6 +33,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 			title: post.title,
 			slug: post.slug,
 			category: post.category,
+			readingTime: {
+				time: post.readingTime.time,
+				words: post.readingTime.words,
+			},
 		}))
 		.filter((post) => kebabCase(post.category) === category)
 

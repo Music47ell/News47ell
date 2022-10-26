@@ -34,6 +34,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 			slug: post.slug,
 			category: post.category,
 			tags: post.tags?.map((tag: any) => tag) || [],
+			readingTime: {
+				time: post.readingTime.time,
+				words: post.readingTime.words,
+			},
 		}))
 		.filter((post) => post.tags.map((t: string) => kebabCase(t)).includes(tag))
 
