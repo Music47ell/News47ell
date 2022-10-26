@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react'
 import { default as Link } from '@/components/Link'
 import { useOGMeta } from '@/hooks/useOGMeta'
@@ -26,27 +27,21 @@ const LinkCard = ({ url }: { url: string }) => {
 	return (
 		<>
 			{isLoading ? (
-				<div className="animate-pulse overflow-hidden rounded-lg bg-white shadow-lg"></div>
+				<div className="animate-pulse overflow-hidden bg-white shadow-lg"></div>
 			) : (
-				<Link href={siteUrl}>
-					<div className="group flex items-center justify-start overflow-hidden bg-nfh-background-secondary p-2 transition duration-500 hover:scale-100">
-						<BorderEffect />
-						<div className="relative h-32 w-64 shrink-0">
-							<div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
-								<img alt={title} className="w-full object-cover" src={image} />
-							</div>
-						</div>
-
-						<div className="not-prose pl-2">
-							<p className="text-sm text-nfh-text-primary">{title}</p>
-
-							<p className="mt-1 text-sm text-nfh-text-secondary">{description}</p>
-
-							<span className="not-prose flex items-center justify-start text-nfh-text-secondary">
-								<img className="mr-1 h-4 w-4 rounded-full" src={siteFavicon} alt={siteName} />
-								{siteName}
-							</span>
-						</div>
+				<Link
+					href={siteUrl}
+					className="group not-prose flex flex-col bg-nfh-background-secondary shadow-md transition duration-500 hover:scale-100 hover:bg-nfh-background-secondary/50 md:flex-row"
+				>
+					<BorderEffect />
+					<img className="w-full object-cover md:w-80" src={image} alt={title} />
+					<div className="flex flex-col justify-between p-4 leading-normal">
+						<h5 className="mb-2 text-sm font-bold tracking-tight text-nfh-text-primary">{title}</h5>
+						<p className="mb-3 text-sm font-normal text-nfh-text-secondary">{description}</p>
+						<span className="inline-flex text-sm font-medium">
+							<img className="mr-2 h-5 w-5 rounded-full" src={siteFavicon} alt={siteName} />
+							{siteName}
+						</span>
 					</div>
 				</Link>
 			)}
