@@ -1,5 +1,6 @@
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import matter from 'gray-matter'
+import readingTime from '@/utils/getReadingTime'
 
 export const getWebVitals = async () => {
 	const { data } = await supabaseClient.from('web-vitals').select()
@@ -17,6 +18,7 @@ export const getContentFrontMatter = async (from: string) => {
 		if (frontmatter.published === true) {
 			frontmatter.id = post.id
 			frontmatter.user_id = post.user_id
+			frontmatter.readingTime = readingTime(post.content)
 			allFrontMatter.push(frontmatter)
 		}
 	})
@@ -98,6 +100,7 @@ export const getContentBySlugFrom = async (from: string, slug: string) => {
 				category: frontmatter.category,
 				tags: frontmatter.tags,
 				layout: frontmatter.layout,
+				readingTime: readingTime(item.content),
 				content: md,
 			}
 		}

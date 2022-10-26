@@ -3,7 +3,7 @@ import { default as Image } from '@/components/Image'
 import { useSFX } from '@/hooks/useSFX'
 import { SectionContainer } from '@/components/UI'
 import { IResumeLayout } from 'lib/interfaces'
-import { PDFIcon, TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/icons'
+import { PDFIcon } from '@/components/icons'
 
 export default function ResumeLayout({
 	basics,
@@ -30,8 +30,6 @@ export default function ResumeLayout({
 		link.click()
 		document.body.removeChild(link)
 	}
-
-	const socialIcons = [TwitterIcon, GitHubIcon, LinkedInIcon]
 
 	return (
 		<SectionContainer>

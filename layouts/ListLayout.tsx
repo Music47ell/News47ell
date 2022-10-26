@@ -36,15 +36,20 @@ export default function ListLayout({
 							</div>
 
 							<div className="p-4 text-nfh-accent-primary">
-								<div className="flex flex-wrap items-center space-x-2 text-sm">
+								<div className="grid grid-cols-2 items-center justify-items-center gap-4 text-sm sm:grid-cols-4">
 									<time
 										dateTime={post.updated_at ? post.updated_at : post.published_at}
-										className="dt-edited"
+										className="dt-edited flex items-center space-x-2"
 									>
 										{formatDate(post.updated_at ? post.updated_at : post.published_at)}
 									</time>
-									<span>·</span>
-									<span>{post.category}</span>
+									<span className="flex items-center space-x-2">{post.category}</span>
+									<span className="flex items-center space-x-2">
+										{post.readingTime.time} minutes
+									</span>
+									<span className="flex items-center space-x-2">
+										{post.readingTime.words} words
+									</span>
 								</div>
 							</div>
 						</div>

@@ -29,8 +29,6 @@ export async function getStaticProps({ params }) {
 	const author = await getAuthorByUserId(data.user_id)
 
 	const content = data.content
-	const wordCount = content.split(' ').length
-	const readingTime = Math.ceil(wordCount / 200)
 
 	const frontMatter = {
 		title: data.title,
@@ -42,8 +40,10 @@ export async function getStaticProps({ params }) {
 		description: data.description,
 		layout: data.layout,
 		author,
-		wordCount,
-		readingTime,
+		readingTime: {
+			time: data.readingTime.time,
+			words: data.readingTime.words,
+		},
 	}
 
 	const db = await getContentFrontMatter('posts')
