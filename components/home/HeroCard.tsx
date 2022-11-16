@@ -15,7 +15,7 @@ function HeroCard() {
 	}
 	return (
 		<div>
-			<header className="my-16 mx-4 flex flex-col-reverse justify-between rounded-md py-10 md:flex-row md:items-center">
+			<header className="mx-4 flex flex-col-reverse justify-between rounded-md md:flex-row md:items-center">
 				<div className="md:w-8/12">
 					<div className="space-y-2">
 						<div className="text-xl font-semibold md:text-3xl">
@@ -29,8 +29,10 @@ function HeroCard() {
 						</p>
 					</div>
 				</div>
-				<div className="mb-4 md:mb-0">
-					<div id="u-photo" className="u-photo grid h-40 w-40 rounded-full bg-cover" />
+				<div className="my-16 flex items-center justify-center">
+					<div id="u-photo" className="u-photo grid h-40 w-40 rounded-full bg-cover">
+						<div className="relative inline-block h-40 w-40 rounded-full border border-solid border-transparent border-l-nfh-accent-primary align-top motion-safe:animate-loader" />
+					</div>
 				</div>
 			</header>
 			<Divider>/</Divider>

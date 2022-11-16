@@ -129,6 +129,7 @@ module.exports = {
 				'slide-in': 'slide-in 0.2s ease-out',
 				'slide-out': 'slide-out 0.2s ease',
 				wiggle: 'wiggle 1s linear',
+				loader: 'loader 1s linear infinite',
 			},
 			keyframes: (theme) => ({
 				fadeIn: {
@@ -156,6 +157,16 @@ module.exports = {
 					'50%': { transform: 'rotate(10.0deg)' },
 					'60%': { transform: 'rotate(0.0deg)' },
 					'100%': { transform: 'rotate(0.0deg)' },
+				},
+				loader: {
+					'0%': {
+						transform: 'rotate(0deg)',
+						boxShadow: '0 0 0 0 rgba(227, 10, 23)',
+					},
+					'100%': {
+						transform: 'rotate(360deg)',
+						boxShadow: '0 0 0 10px rgba(227, 10, 23, 0)',
+					},
 				},
 			}),
 			typography: (theme) => ({
