@@ -24,17 +24,16 @@ export default function ResumeLayout({
 				window.print()
 			}
 		} else {
-			/* code source: https://github.com/zhumeisongsong/react-url-image-downloader/blob/main/src/index.tsx
-			 */
-			const URL = process.env.NEXT_PUBLIC_VERCEL_URL
-				? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/resume-to-pdf`
-				: 'http://localhost:3000/api/resume-to-pdf'
-			const link = document.createElement('a')
-			link.href = URL
-			link.setAttribute('download', `Ahmet ALMAZ - Resume.pdf`)
-			document.body.appendChild(link)
-			link.click()
-			document.body.removeChild(link)
+			const printButton = document.getElementById('print-button')
+			if (printButton) {
+				while (printButton.firstChild) {
+					printButton.removeChild(printButton.firstChild)
+				}
+				const message = document.createElement('p')
+				message.innerText =
+					'Tap "⋮" and select the share button, then select "Save as PDF" to download my resume.'
+				printButton.appendChild(message)
+			}
 		}
 	}
 
@@ -123,6 +122,7 @@ export default function ResumeLayout({
 						<div className="mt-1 text-sm sm:col-span-2 sm:mt-0">
 							<div className="rounded-md border border-nfh-accent-primary print:hidden">
 								<div
+									id="print-button"
 									onClick={printResume}
 									className="flex items-center justify-between py-3 pr-4 pl-3 text-sm"
 								>
