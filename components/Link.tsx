@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
-import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
+import { Links } from '@/lib/types'
 
-const CustomLink = ({
-	className,
-	href,
-	...rest
-}: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>): JSX.Element => {
+const CustomLink = ({ className, href, ...rest }: Links) => {
 	const isInternalLink = href && href.startsWith('/')
 	const isAnchorLink = href && href.startsWith('#')
 	const style = `${
@@ -14,11 +10,7 @@ const CustomLink = ({
 	} text-nfh-accent-primary hover:text-nfh-text-secondary`.replace(/^\s+/, '')
 
 	if (isInternalLink) {
-		return (
-			<Link href={href}>
-				<a className={style} {...rest} />
-			</Link>
-		)
+		return <Link href={href} className={style} {...rest} />
 	}
 
 	if (isAnchorLink) {

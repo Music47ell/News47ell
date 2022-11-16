@@ -1,4 +1,5 @@
-const { GITHUB_GIST_ID, GITHUB_PAT } = process.env
+const GITHUB_GIST_ID = process.env.GITHUB_GIST_ID
+const GITHUB_PAT = process.env.GITHUB_PAT
 
 const GITHUB_GIST_ENDPOINT = `https://api.github.com/gists/${GITHUB_GIST_ID}`
 

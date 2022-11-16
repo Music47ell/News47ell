@@ -20,19 +20,28 @@ export default function ThemePicker({ open }) {
 			title: 'Dark',
 		},
 		{
-			title: 'Dracula',
-		},
-		{
 			title: 'Hackernews',
 		},
 		{
+			title: 'Latte',
+		},
+		{
+			title: 'RoséPineDawn',
+		},
+		{
+			title: 'Dracula',
+		},
+		{
+			title: 'Mocha',
+		},
+		{
+			title: 'RoséPine',
+		},
+		{
+			title: 'Wildberries',
+		},
+		{
 			title: 'Nord',
-		},
-		{
-			title: 'Ferrari',
-		},
-		{
-			title: 'DOS',
 		},
 	]
 
@@ -70,13 +79,16 @@ export default function ThemePicker({ open }) {
 								switch (theme.title.toLowerCase()) {
 									case 'light':
 									case 'hackernews':
-									case 'dos':
+									case 'latte':
+									case 'rosépinedawn':
 										playThemeOn()
 										break
 									case 'dark':
 									case 'dracula':
+									case 'mocha':
+									case 'roséPine':
+									case 'wildberries':
 									case 'nord':
-									case 'ferrari':
 										playThemeOff()
 										break
 									default:

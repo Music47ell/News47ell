@@ -2,8 +2,8 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 
 const Card = ({ title, description, imgSrc, href }): JSX.Element => (
-	<div className="p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
-		<div className="border-nfh-accent-primary/60 h-full overflow-hidden rounded-md border-2">
+	<div className="max-w-[544px] p-4 md:w-1/2">
+		<div className="h-full overflow-hidden rounded-md border-2 border-nfh-accent-primary/60">
 			{href ? (
 				<Link href={href} aria-label={`Link to ${title}`}>
 					<Image

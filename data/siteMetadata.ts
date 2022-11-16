@@ -29,6 +29,13 @@ const siteMetadata = {
 		{ title: 'Account Settings', href: '/account' },
 		{ title: 'Sign out', href: '/api/auth/logout' },
 	],
+	heroCardLinks: [
+		{ title: 'Check the dashboard', href: '/dashboard' },
+		{ title: 'My writings', href: '/blog' },
+		{ title: 'More about me, myself and I', href: '/colophon' },
+		{ title: "See what I'm doing now", href: '/now' },
+		{ title: 'My resume', href: '/resume' },
+	],
 	headerNavLinks: [
 		{ title: 'Blog', href: '/blog', icon: 'pencil' },
 		{ title: 'Dashboard', href: '/dashboard', icon: 'chartPie' },

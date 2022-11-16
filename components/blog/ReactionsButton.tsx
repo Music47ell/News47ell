@@ -38,7 +38,6 @@ const ReactionsButton = ({ slug }) => {
 			) : (
 				<div className="grid grid-cols-2 items-center justify-between gap-6">
 					<div
-						role="button"
 						className={`${
 							userLikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
 						} flex flex-1 flex-col items-center py-4 hover:bg-nfh-background-secondary`}
@@ -51,7 +50,6 @@ const ReactionsButton = ({ slug }) => {
 						<span className="text-sm">LIKE</span>
 					</div>
 					<div
-						role="button"
 						className={`${
 							userDislikes === true ? 'bg-nfh-background-secondary' : 'bg-nfh-background-primary'
 						} flex flex-1 flex-col items-center py-4 hover:bg-nfh-background-secondary`}

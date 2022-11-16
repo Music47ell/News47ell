@@ -382,3 +382,12 @@ export type OGMeta = {
 		url?: string
 	}
 }
+
+export type Links = {
+	href?: string
+	className?: string
+	children?: React.ReactNode
+	onClick?: () => void
+	onMouseEnter?: () => void
+	onMouseLeave?: () => void
+}

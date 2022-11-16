@@ -1,4 +1,5 @@
 import { SpotifyIcon } from '@/components/icons'
+import { default as Link } from '@/components/Link'
 import { default as Image } from '@/components/Image'
 import fetcher from '@/lib/fetcher'
 import { NowPlayingSong } from 'lib/types'
@@ -18,14 +19,9 @@ export default function NowPlaying(): JSX.Element {
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center">
 				{data?.songUrl ? (
-					<a
-						className="w-48 truncate font-medium"
-						href={data.songUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<Link className="w-48 truncate font-medium" href={data.songUrl}>
 						{data.title}
-					</a>
+					</Link>
 				) : (
 					<p className="w-48 truncate font-medium">Not Playing</p>
 				)}

@@ -71,8 +71,8 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 											>
 												<Image
 													src={getGravatar(author.email, 38)}
-													width="38px"
-													height="38px"
+													width={38}
+													height={38}
 													alt="u-photo"
 													className="h-10 w-10 rounded-full"
 												/>
@@ -154,7 +154,12 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													<div>
 														<h2 className="text-xs uppercase tracking-wide">Previous Article</h2>
 														<div>
-															<Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
+															<Link
+																href={`/blog/${prev.slug}`}
+																aria-label={`Previous post: ${prev.title}`}
+															>
+																{prev.title}
+															</Link>
 														</div>
 													</div>
 												)}
@@ -162,7 +167,12 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													<div>
 														<h2 className="text-xs uppercase tracking-wide">Next Article</h2>
 														<div>
-															<Link href={`/blog/${next.slug}`}>{next.title}</Link>
+															<Link
+																href={`/blog/${next.slug}`}
+																aria-label={`Next post: ${next.title}`}
+															>
+																{next.title}
+															</Link>
 														</div>
 													</div>
 												)}
@@ -170,7 +180,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 										)}
 									</div>
 									<div className="pt-4 xl:pt-8">
-										<Link href="/blog">&larr; Return to blog</Link>
+										<Link href="/blog" aria-label="Back to the blog">
+											&larr; Back to the blog
+										</Link>
 									</div>
 								</footer>
 							</div>

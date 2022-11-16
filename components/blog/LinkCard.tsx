@@ -31,7 +31,7 @@ const LinkCard = ({ url }: { url: string }) => {
 			) : (
 				<Link
 					href={siteUrl}
-					className="group not-prose flex flex-col bg-nfh-background-secondary shadow-md transition duration-500 hover:scale-100 hover:bg-nfh-background-secondary/50 md:flex-row"
+					className="not-prose group relative flex cursor-pointer flex-col items-center bg-nfh-background-secondary transition duration-500 md:flex-row"
 				>
 					<BorderEffect />
 					<img className="w-full object-cover md:w-80" src={image} alt={title} />

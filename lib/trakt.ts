@@ -1,6 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 
-const { TRAKT_CLIENT_ID } = process.env
+const TRAKT_CLIENT_ID = process.env.TRAKT_CLIENT_ID
 
 const STATS_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.trakt}/stats`
 const WATCHING_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.trakt}/watching`

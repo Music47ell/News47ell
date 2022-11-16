@@ -20,10 +20,7 @@ export default function PageLayout({ frontMatter, content }: IPostLayout): JSX.E
 								</div>
 							</div>
 						</header>
-						<div
-							className="divide-y divide-gray-200 pb-8 xl:divide-y-0"
-							style={{ gridTemplateRows: 'auto 1fr' }}
-						>
+						<div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:divide-y-0">
 							<div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
 								<div className="prose prose-theme max-w-none pt-10 pb-8">
 									<Markdown>{content}</Markdown>

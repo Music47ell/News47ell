@@ -2,199 +2,206 @@
  * @type {import('next').NextConfig}
  **/
 
-const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
 	enabled: process.env.ANALYZE === 'true',
 })
 const { withSuperjson } = require('next-superjson')
 
-const nextConfig = {
-	reactStrictMode: true,
-	pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-	eslint: {
-		dirs: ['components', 'context', 'data', 'helpers', 'hooks', 'layouts', 'lib', 'pages', 'utils'],
-	},
-	images: {
-		domains: [
-			'i.scdn.co', // Spotify Album Art
-			'pbs.twimg.com', // Twitter Profile Picture
-			'image.tmdb.org', // TMDB TVShow/Movie Posters
-			'www.gravatar.com', // Gravatar Image
-			'res.cloudinary.com', // Cloudinary Image
-			'static.pocketcasts.com', // Pocketcasts Podcasts Cover Art
-		],
-	},
-	experimental: {
-		legacyBrowsers: false,
-		browsersListForSwc: true,
-	},
-	webpack: (config) => {
-		config.module.rules.push({
-			test: /\.svg$/,
-			use: ['@svgr/webpack'],
-		})
-
-		return config
-	},
-
-	async headers() {
-		return [
-			{
-				source: '/(.*)',
-				headers: securityHeaders,
-			},
-		]
-	},
-
-	async rewrites() {
-		return {
-			beforeFiles: [
-				{
-					source: '/:path*',
-					destination: '/api/curl-card',
-					has: [
-						{
-							type: 'header',
-							key: 'user-agent',
-							value: 'curl/(.*)',
-						},
-					],
-				},
+module.exports = () => {
+	const plugins = [withBundleAnalyzer, withSuperjson()]
+	return plugins.reduce((acc, next) => next(acc), {
+		reactStrictMode: true,
+		pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+		eslint: {
+			dirs: [
+				'components',
+				'context',
+				'data',
+				'helpers',
+				'hooks',
+				'layouts',
+				'lib',
+				'pages',
+				'utils',
 			],
-			afterFiles: [
-				{
-					source: '/feed',
-					destination: '/api/feed',
-				},
-				{
-					source: '/sitemap.xml',
-					destination: '/api/sitemap',
-				},
+		},
+		images: {
+			domains: [
+				'i.scdn.co', // Spotify Album Art
+				'pbs.twimg.com', // Twitter Profile Picture
+				'image.tmdb.org', // TMDB TVShow/Movie Posters
+				'www.gravatar.com', // Gravatar Image
+				'res.cloudinary.com', // Cloudinary Image
+				'static.pocketcasts.com', // Pocketcasts Podcasts Cover Art
+				'avatars.githubusercontent.com', // Github Profile Picture
 			],
-		}
-	},
-
-	async redirects() {
-		const redirects = []
-
-		const categories = [
-			'articles',
-			'deals',
-			'giveaways',
-			'how-to',
-			'interviews',
-			'linked',
-			'news',
-			'polls',
-			'projects',
-			'reviews',
-			'roundups',
-		]
-
-		for (const category of categories) {
-			redirects.push({
-				source: `/${category}/:id`,
-				destination: `/blog/:id`,
-				permanent: true,
+		},
+		webpack: (config) => {
+			config.module.rules.push({
+				test: /\.svg$/,
+				use: ['@svgr/webpack'],
 			})
-		}
 
-		redirects.push({
-			source: '/page/1',
-			destination: '/',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/.env',
-			destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/wp-login.php',
-			destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/wp-admin',
-			destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/dropbox',
-			destination: 'https://db.tt/rpn4OoHp',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/nextdns',
-			destination: 'https://nextdns.io/?from=9an823hm',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/torguard',
-			destination: 'https://torguard.net/aff.php?aff=1952',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/windscribe',
-			destination: 'https://windscribe.com/?friend=31d4tfuk',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/unlocator',
-			destination: 'https://unlocator.com/account/aff/go/V49E6hpEZ01uLgZo',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/generatepress',
-			destination: 'https://generatepress.com/?ref=152',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/cloudinary',
-			destination: 'https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/e6soikva7dynlmmz9bry',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/kraken',
-			destination: 'https://kraken.io/?ref=396b2b007884',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/shortpixel',
-			destination: 'https://shortpixel.com/free-sign-up-referrer/referrer/69204',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/cloudimage',
-			destination: 'https://www.cloudimage.io/en/home?ref=ahmadalmaaz',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/bunnycdn',
-			destination: 'https://bunnycdn.com/?ref=g71bm7ti0k',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/camscanner',
-			destination: 'https://www.camscanner.com/r1?1657794000',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/gitkraken',
-			destination: 'https://www.gitkraken.com/invite/s3KuPCPQ',
-			statusCode: 301,
-		})
-		redirects.push({
-			source: '/recommends/airtable',
-			destination: 'https://airtable.com/invite/r/BRHMIdTo',
-			statusCode: 301,
-		})
+			return config
+		},
 
-		return redirects
-	},
+		async headers() {
+			return [
+				{
+					source: '/(.*)',
+					headers: securityHeaders,
+				},
+			]
+		},
+
+		async rewrites() {
+			return {
+				beforeFiles: [
+					{
+						source: '/:path*',
+						destination: '/api/curl-card',
+						has: [
+							{
+								type: 'header',
+								key: 'user-agent',
+								value: 'curl/(.*)',
+							},
+						],
+					},
+				],
+				afterFiles: [
+					{
+						source: '/feed',
+						destination: '/api/feed',
+					},
+					{
+						source: '/sitemap.xml',
+						destination: '/api/sitemap',
+					},
+				],
+			}
+		},
+
+		async redirects() {
+			const redirects = []
+
+			const categories = [
+				'articles',
+				'deals',
+				'giveaways',
+				'how-to',
+				'interviews',
+				'linked',
+				'news',
+				'polls',
+				'projects',
+				'reviews',
+				'roundups',
+			]
+
+			for (const category of categories) {
+				redirects.push({
+					source: `/${category}/:id`,
+					destination: `/blog/:id`,
+					permanent: true,
+				})
+			}
+
+			redirects.push({
+				source: '/page/1',
+				destination: '/',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/.env',
+				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/wp-login.php',
+				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/wp-admin',
+				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/dropbox',
+				destination: 'https://db.tt/rpn4OoHp',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/nextdns',
+				destination: 'https://nextdns.io/?from=9an823hm',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/torguard',
+				destination: 'https://torguard.net/aff.php?aff=1952',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/windscribe',
+				destination: 'https://windscribe.com/?friend=31d4tfuk',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/unlocator',
+				destination: 'https://unlocator.com/account/aff/go/V49E6hpEZ01uLgZo',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/generatepress',
+				destination: 'https://generatepress.com/?ref=152',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/cloudinary',
+				destination: 'https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/e6soikva7dynlmmz9bry',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/kraken',
+				destination: 'https://kraken.io/?ref=396b2b007884',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/shortpixel',
+				destination: 'https://shortpixel.com/free-sign-up-referrer/referrer/69204',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/cloudimage',
+				destination: 'https://www.cloudimage.io/en/home?ref=ahmadalmaaz',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/bunnycdn',
+				destination: 'https://bunnycdn.com/?ref=g71bm7ti0k',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/camscanner',
+				destination: 'https://www.camscanner.com/r1?1657794000',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/gitkraken',
+				destination: 'https://www.gitkraken.com/invite/s3KuPCPQ',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/recommends/airtable',
+				destination: 'https://airtable.com/invite/r/BRHMIdTo',
+				statusCode: 301,
+			})
+
+			return redirects
+		},
+	})
 }
-
-module.exports = withPlugins([[withBundleAnalyzer], [withSuperjson()]], nextConfig)
 
 // https://securityheaders.com
 // https://webbkoll.dataskydd.net/en/results?url=https%3A%2F%2Fnews47ell.com

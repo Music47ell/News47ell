@@ -23,8 +23,6 @@ export default function HCard(): JSX.Element {
 				<Link
 					className="p-name u-email w-48 truncate font-medium"
 					href={`mailto:${siteMetadata.email}`}
-					target="_blank"
-					rel="me noopener noreferrer"
 				>
 					{siteMetadata.author}
 				</Link>
@@ -33,8 +31,6 @@ export default function HCard(): JSX.Element {
 					<Link
 						className="p-note u-url w-48 space-y-0 truncate font-medium"
 						href={siteMetadata.siteUrl}
-						target="_blank"
-						rel="noopener noreferrer"
 					>
 						{siteMetadata.position}
 					</Link>

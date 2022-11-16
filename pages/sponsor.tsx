@@ -23,16 +23,16 @@ export default function Sponsor(): JSX.Element {
 							<div className="flex flex-wrap gap-x-4 gap-y-2">
 								<Link
 									href="https://github.com/sponsors/Music47ell"
-									className="focus:ring-nfh-accent-primary/50 inline-flex items-center rounded bg-github px-5 py-2.5 text-center text-sm font-medium !text-white transition-colors hover:bg-github/60 focus:outline-none focus:ring-4"
+									className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded bg-github px-4 py-2 !text-nfh-text-primary transition-colors hover:bg-github/50 sm:w-max lg:w-max"
 								>
-									<GitHubIcon className="mr-2 -ml-1 h-4 w-4 fill-white" />
+									<GitHubIcon className="mr-2 -ml-1 h-7 w-7 fill-white" />
 									GitHub Sponsor
 								</Link>
 								<Link
 									href="https://www.patreon.com/News47ell"
-									className="focus:ring-nfh-accent-primary/50 inline-flex items-center rounded bg-patreon px-5 py-2.5 text-center text-sm font-medium !text-white transition-colors hover:bg-patreon/60 focus:outline-none focus:ring-4"
+									className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded bg-patreon px-4 py-2 !text-nfh-text-primary transition-colors hover:bg-patreon/50 sm:w-max lg:w-max"
 								>
-									<PatreonIcon className="mr-2 -ml-1 h-4 w-4 fill-white" />
+									<PatreonIcon className="mr-2 -ml-1 h-7 w-7 fill-white" />
 									Become a Patron
 								</Link>
 							</div>
