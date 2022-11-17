@@ -24,11 +24,16 @@ const Pre = ({ node, inline, className, children, ...props }) => {
 	}
 
 	return (
-		<div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative">
+		<div
+			ref={textInput}
+			onMouseEnter={onEnter}
+			onMouseLeave={onExit}
+			className="not-prose relative"
+		>
 			{hovered && (
 				<button
 					aria-label="Copy code"
-					className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-700 p-1 dark:bg-gray-800 ${
+					className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-700 p-1 ${
 						copied
 							? 'border-green-400 focus:border-green-400 focus:outline-none'
 							: 'border-gray-300'
@@ -42,7 +47,7 @@ const Pre = ({ node, inline, className, children, ...props }) => {
 					)}
 				</button>
 			)}
-			<pre className="!overflow-auto rounded-lg border-2 border-nfh-accent-secondary !bg-transparent p-4">
+			<pre className="!overflow-auto rounded-lg border-2 border-nfh-accent-secondary bg-neutral-800 p-4">
 				<code className={`code-highlight language-${match[1]}`}>{children}</code>
 			</pre>
 		</div>
