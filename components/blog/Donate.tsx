@@ -19,14 +19,14 @@ export default function Donate(): JSX.Element {
 			<div className="flex">
 				<Link
 					href="https://github.com/sponsors/Music47ell"
-					className="group mr-2 inline-flex items-center rounded-lg bg-gray-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-600"
+					className="group mr-2 inline-flex items-center rounded-lg bg-gray-700 px-3 py-1.5 text-center text-xs font-medium !text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300"
 				>
 					<GitHubHeartIcon className="mr-2 h-4 w-4 group-hover:scale-110" />
 					Sponsor
 				</Link>
 				<Link
 					href="/donate"
-					className="mr-2 inline-flex items-center rounded-lg bg-gray-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-600"
+					className="mr-2 inline-flex items-center rounded-lg bg-gray-700 px-3 py-1.5 text-center text-xs font-medium !text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300"
 				>
 					Other ways to support
 				</Link>
