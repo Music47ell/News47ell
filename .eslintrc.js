@@ -6,7 +6,7 @@ module.exports = {
 		node: true,
 		es6: true,
 	},
-	plugins: ['tailwindcss'],
+	plugins: ['tailwindcss', 'simple-import-sort'],
 	extends: [
 		'next',
 		'eslint:recommended',
@@ -17,6 +17,8 @@ module.exports = {
 		'plugin:tailwindcss/recommended',
 	],
 	rules: {
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error',
 		'prettier/prettier': 'error',
 		indent: 'off',
 		'@typescript-eslint/indent': [

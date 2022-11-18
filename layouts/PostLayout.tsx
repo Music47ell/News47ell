@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { IPostLayout } from 'lib/interfaces'
+
+import { Donate, Markdown, ReactionsButton, ScrollTop, Share } from '@/components/blog'
+import FeaturedArt from '@/components/blog/FeaturedArt'
+import Category from '@/components/Category'
 import { TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
-import { PageTitle } from '@/components/UI'
 import { BlogSEO } from '@/components/SEO'
-import { Donate, Share, ReactionsButton, Markdown } from '@/components/blog'
 import Tag from '@/components/Tag'
-import Category from '@/components/Category'
+import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/utils/formatDate'
-import { IPostLayout } from 'lib/interfaces'
 import { useViewsBySlug } from '@/hooks/useViews'
+import formatDate from '@/utils/formatDate'
 import { getGravatar } from '@/utils/getGravatar'
-import FeaturedArt from '@/components/blog/FeaturedArt'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
 	const { slug, linked, published_at, updated_at, title, category, tags, readingTime, author } =
@@ -22,6 +23,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 
 	return (
 		<>
+			<ScrollTop />
 			<BlogSEO
 				url={`${siteMetadata.siteUrl}/blog/${slug}`}
 				authorDetails={author}
