@@ -30,9 +30,7 @@ function HeroCard() {
 					</div>
 				</div>
 				<div className="my-16 flex items-center justify-center">
-					<div id="u-photo" className="u-photo grid h-40 w-40 rounded-full bg-cover">
-						<div className="relative inline-block h-40 w-40 rounded-full border border-solid border-transparent border-l-nfh-accent-primary align-top motion-safe:hover:animate-loader" />
-					</div>
+					<div id="u-photo" className="u-photo grid h-40 w-40 rounded-full bg-cover" />
 				</div>
 			</header>
 			<Divider>/</Divider>

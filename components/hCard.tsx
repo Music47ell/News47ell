@@ -1,8 +1,6 @@
-import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { Turkiye } from '@/components/icons'
-import { useEffect, useState } from 'react'
 
 export default function HCard(): JSX.Element {
 	if (typeof window === 'object') {
