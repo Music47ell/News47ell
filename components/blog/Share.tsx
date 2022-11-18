@@ -73,19 +73,19 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 			{shareSucceed === false && (
 				<>
 					<div className="flex flex-row items-center justify-center space-x-2">
-						<Link href={twitterLink} target="_blank" rel="nofollow">
+						<Link href={twitterLink}>
 							<TwitterIcon className="block h-6 w-6" />
 						</Link>
-						<Link href={redditLink} target="_blank" rel="nofollow">
+						<Link href={redditLink}>
 							<RedditIcon className="block h-6 w-6" />
 						</Link>
-						<Link href={linkedinLink} target="_blank" rel="nofollow">
+						<Link href={linkedinLink}>
 							<LinkedInIcon className="block h-6 w-6" />
 						</Link>
-						<Link href={hackerNewsLink} target="_blank" rel="nofollow">
+						<Link href={hackerNewsLink}>
 							<HackerNewsIcon className="block h-6 w-6" />
 						</Link>
-						<Link href={pocketLink} target="_blank" rel="nofollow">
+						<Link href={pocketLink}>
 							<PocketIcon className="block h-6 w-6" />
 						</Link>
 					</div>

@@ -1,11 +1,9 @@
-const Code = ({ node, inline, className, children, ...props }) => {
-	const match = /language-(\w+)/.exec(className || '')
-
-	return !inline && match ? (
+const Code = ({ node, inline, children, ...props }) => {
+	return !inline ? (
 		<>{children}</>
 	) : (
 		<code
-			className={`${className} rounded bg-nfh-background-secondary py-0.5 px-1 text-nfh-text-primary`}
+			className="rounded bg-nfh-background-secondary py-0.5 px-1 text-nfh-text-primary"
 			{...props}
 		>
 			{children}

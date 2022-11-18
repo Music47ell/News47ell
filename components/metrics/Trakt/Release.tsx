@@ -6,7 +6,7 @@ import { BorderEffect } from '@/components/UI'
 
 export default function Release(release: TraktRelease): JSX.Element {
 	return (
-		<div className="group flex items-center rounded-md bg-nfh-background-secondary p-2 transition duration-500 hover:scale-100">
+		<div className="group relative flex cursor-pointer items-center bg-nfh-background-secondary p-2 transition duration-500">
 			<BorderEffect />
 			<div className="relative w-32 flex-none">
 				<Image
@@ -21,11 +21,7 @@ export default function Release(release: TraktRelease): JSX.Element {
 			</div>
 
 			<div className="mr-2 ml-4">
-				<Link
-					href={`https://www.imdb.com/title/${release.link}`}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<Link href={`https://www.imdb.com/title/${release.link}`}>
 					<div className="text-base font-medium text-nfh-text-primary">{release.title}</div>
 				</Link>
 			</div>

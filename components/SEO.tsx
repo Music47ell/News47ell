@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-
+import { useViewsBySlug } from '@/hooks/useViews'
+import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
 import siteMetadata from '@/data/siteMetadata'
 import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 
-import { createOGImage } from '@/lib/og-image'
+const ogUrl = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
 
 const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOProps) => {
 	const router = useRouter()
@@ -71,10 +72,8 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
-	const ogImage = createOGImage({
-		title: title,
-		meta: description,
-	})
+	const ogImage = `${ogUrl}/api/og/image?title=${title}`
+
 	return (
 		<CommonSEO
 			title={title}
@@ -87,10 +86,8 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 }
 
 export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
-	const ogImage = createOGImage({
-		title: title,
-		meta: description,
-	})
+	const ogImage = `${ogUrl}/api/og/image?title=${title}`
+
 	const router = useRouter()
 	return (
 		<>
@@ -116,10 +113,12 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 export const BlogSEO = ({
 	authorDetails,
 	title,
+	slug,
 	description,
 	published_at,
 	updated_at,
 	url,
+	readingTime,
 }: BlogSeoProps) => {
 	const publishedAt = new Date(published_at).toString()
 	const updatedAt = new Date(updated_at).toString()
@@ -132,10 +131,10 @@ export const BlogSEO = ({
 
 	const author = authorDetails.first_name + ' ' + authorDetails.last_name
 
-	const ogImage = createOGImage({
-		title: title,
-		meta: `${author} - ${date}`,
-	})
+	const { views } = useViewsBySlug(slug)
+	const { likes } = useSlugReactionsLike(slug)
+	const { dislikes } = useSlugReactionsDislike(slug)
+	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${author}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${readingTime.time}&words=${readingTime.words}&date=${date}`
 
 	const authorList = {
 		'@type': 'Person',

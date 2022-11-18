@@ -1,6 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 
-const { TMDB_API_TOKEN } = process.env
+const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN
 
 export const getTMDBMovies = async (id: number) => {
 	if (TMDB_API_TOKEN === null || TMDB_API_TOKEN === undefined) {

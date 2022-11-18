@@ -1,8 +1,6 @@
-import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { Turkiye } from '@/components/icons'
-import { useEffect, useState } from 'react'
 
 export default function HCard(): JSX.Element {
 	if (typeof window === 'object') {
@@ -23,8 +21,6 @@ export default function HCard(): JSX.Element {
 				<Link
 					className="p-name u-email w-48 truncate font-medium"
 					href={`mailto:${siteMetadata.email}`}
-					target="_blank"
-					rel="me noopener noreferrer"
 				>
 					{siteMetadata.author}
 				</Link>
@@ -33,8 +29,6 @@ export default function HCard(): JSX.Element {
 					<Link
 						className="p-note u-url w-48 space-y-0 truncate font-medium"
 						href={siteMetadata.siteUrl}
-						target="_blank"
-						rel="noopener noreferrer"
 					>
 						{siteMetadata.position}
 					</Link>

@@ -25,7 +25,7 @@ export default function ListLayout({
 					onClick={playMouseClick}
 				>
 					<article className="h-entry text-base">
-						<div className="group mb-6 block cursor-pointer rounded bg-nfh-background-secondary text-nfh-text-primary transition duration-500 hover:scale-105 hover:opacity-80 hover:shadow-lg">
+						<div className="group relative mb-6 block cursor-pointer items-center bg-nfh-background-secondary p-2 text-nfh-text-primary transition duration-500 hover:scale-105 hover:opacity-80 hover:shadow-lg">
 							<BorderEffect />
 							<div className="relative p-4">
 								<span className="text-lg font-bold text-nfh-accent-primary">{post.title}</span>

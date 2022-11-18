@@ -27,14 +27,6 @@ export default function Footer(): JSX.Element {
 						))}
 					</ul>
 				</nav>
-				<div className="my-3 flex space-x-4">
-					<Link href={`mailto:${siteMetadata.email}`}>
-						<EnvelopeIcon className="block h-6 w-6 fill-nfh-accent-primary" />
-					</Link>
-					<Link href={`https://twitter.com/${siteMetadata.twitter}`}>
-						<TwitterIcon className="block h-6 w-6" />
-					</Link>
-				</div>
 				<div className="site-credit my-2 flex items-center space-x-2">
 					{siteMetadata.lowerFooterLinks.map((link, idx) => {
 						const Icon = icons[idx]

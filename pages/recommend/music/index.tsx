@@ -143,7 +143,7 @@ export default function Stats() {
 							key={t.uri}
 						>
 							<div className="flex w-full items-center gap-2.5 overflow-hidden">
-								<Image width="50" height="50" alt={t.album} src={t.image} />
+								<Image width={50} height={50} alt={t.album} src={t.image} />
 								<div className="flex h-full flex-col justify-center space-y-2">
 									<div>
 										<Link href={t.url}>{t.title}</Link>
@@ -198,35 +198,35 @@ export default function Stats() {
 											<div className="mt-6 space-y-2">
 												<div>
 													<label htmlFor="email" className="sr-only">
-														Email
+														<span>Email</span>
+														<input
+															id="email"
+															name="email"
+															type="email"
+															className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+															placeholder="Enter your email"
+															required
+															value={email}
+															pattern=".+@.+\..+"
+															maxLength={320}
+															onChange={({ target }: ChangeEvent) =>
+																setEmail((target as HTMLInputElement).value)
+															}
+														/>
 													</label>
-													<input
-														id="email"
-														name="email"
-														type="email"
-														className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
-														placeholder="Enter your email"
-														required
-														value={email}
-														pattern=".+@.+\..+"
-														maxLength={320}
-														onChange={({ target }: ChangeEvent) =>
-															setEmail((target as HTMLInputElement).value)
-														}
-													/>
 												</div>
 												<div>
 													<label htmlFor="message" className="sr-only">
-														Message
+														<span>Message</span>
+														<textarea
+															id="message"
+															name="message"
+															onChange={(e) => setNote(e.target.value)}
+															className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+															placeholder="Enter your note"
+															required
+														/>
 													</label>
-													<textarea
-														id="message"
-														name="message"
-														onChange={(e) => setNote(e.target.value)}
-														className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
-														placeholder="Enter your note"
-														required
-													/>
 												</div>
 												<div className="mt-4 flex flex-col space-y-2">
 													<button
@@ -239,7 +239,6 @@ export default function Stats() {
 														Recommend
 													</button>
 													<button
-														type="button"
 														onClick={handleReset}
 														className="flex w-full items-center justify-center rounded-xl bg-red-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
 													>

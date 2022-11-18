@@ -47,10 +47,7 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
 								</div>
 							</div>
 						</header>
-						<div
-							className="divide-y divide-gray-200 dark:divide-gray-700 xl:divide-y-0"
-							style={{ gridTemplateRows: 'auto 1fr' }}
-						>
+						<div className="grid-rows-[auto_1fr] divide-y divide-gray-200 dark:divide-gray-700 xl:divide-y-0">
 							<div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
 								<Markdown>{content}</Markdown>
 							</div>
@@ -60,12 +57,16 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
 								<div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
 									{prev && (
 										<div className="pt-4 xl:pt-8">
-											<Link href={`/blog/${prev.slug}`}>&larr; {prev.title}</Link>
+											<Link href={`/blog/${prev.slug}`} aria-label={`Previous post: ${prev.title}`}>
+												&larr; {prev.title}
+											</Link>
 										</div>
 									)}
 									{next && (
 										<div className="pt-4 xl:pt-8">
-											<Link href={`/blog/${next.slug}`}>{next.title} &rarr;</Link>
+											<Link href={`/blog/${next.slug}`} aria-label={`Next post: ${next.title}`}>
+												{next.title} &rarr;
+											</Link>
 										</div>
 									)}
 								</div>

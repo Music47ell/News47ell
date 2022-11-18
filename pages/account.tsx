@@ -5,6 +5,8 @@ import toast from 'react-hot-toast'
 import { default as Image } from '@/components/Image'
 import { getGravatar } from '@/utils/getGravatar'
 import { SectionContainer } from '@/components/UI/'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Account({ user }): JSX.Element {
 	const [loading, setLoading] = useState(false)
@@ -75,162 +77,165 @@ export default function Account({ user }): JSX.Element {
 	}, [user])
 
 	return (
-		<SectionContainer>
-			<div className="mt-5 md:col-span-2 md:mt-0">
-				<div className="overflow-hidden shadow sm:rounded-md">
-					<div className="bg-nfh-background-secondary py-5 px-4 sm:p-6">
-						<div className="grid grid-cols-6 gap-6">
-							<div className="col-span-6 sm:col-span-3">
-								<label
-									htmlFor="first-name"
-									className="block text-sm font-medium text-nfh-text-primary"
-								>
-									First name
-								</label>
-								<input
-									type="text"
-									name="first-name"
-									id="first-name"
-									autoComplete="given-name"
-									className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-accent-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-									value={firstName || ''}
-									onChange={(e) => setFirstName(e.target.value)}
-								/>
-							</div>
-
-							<div className="col-span-6 sm:col-span-3">
-								<label
-									htmlFor="last-name"
-									className="block text-sm font-medium text-nfh-text-primary"
-								>
-									Last name
-								</label>
-								<input
-									type="text"
-									name="last-name"
-									id="last-name"
-									autoComplete="family-name"
-									className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-									value={lastName || ''}
-									onChange={(e) => setLastName(e.target.value)}
-								/>
-							</div>
-
-							<div className="col-span-6 sm:col-span-3">
-								<label
-									htmlFor="username"
-									className="block text-sm font-medium text-nfh-text-primary"
-								>
-									Username
-								</label>
-								<input
-									type="text"
-									name="username"
-									id="username"
-									autoComplete="username"
-									className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-									value={username || ''}
-									onChange={(e) => setUsername(e.target.value)}
-								/>
-							</div>
-
-							<div className="col-span-6 sm:col-span-3">
-								<label htmlFor="slug" className="block text-sm font-medium text-nfh-text-primary">
-									Slug
-								</label>
-								<input
-									type="text"
-									name="slug"
-									id="slug"
-									autoComplete="slug"
-									className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-									value={slug || ''}
-									onChange={(e) => setSlug(e.target.value)}
-								/>
-							</div>
-
-							<div className="col-span-6 sm:col-span-4">
-								<label className="block text-sm font-medium text-nfh-text-primary">Photo</label>
-								<div className="mt-1 flex items-center">
-									<span className="inline-block h-12 w-12 overflow-hidden rounded-full">
-										<Image
-											src={getGravatar(user?.email, 48)}
-											width={48}
-											height={48}
-											alt="Profile Photo"
+		<>
+			<PageSEO title={`Profile - ${siteMetadata.title}`} description={siteMetadata.description} />
+			<SectionContainer>
+				<div className="mt-5 md:col-span-2 md:mt-0">
+					<div className="overflow-hidden shadow sm:rounded-md">
+						<div className="bg-nfh-background-secondary py-5 px-4 sm:p-6">
+							<div className="grid grid-cols-6 gap-6">
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="first-name"
+										className="block text-sm font-medium text-nfh-text-primary"
+									>
+										<span>First Name</span>
+										<input
+											type="text"
+											name="first-name"
+											id="first-name"
+											autoComplete="given-name"
+											className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+											value={firstName || ''}
+											onChange={(e) => setFirstName(e.target.value)}
 										/>
-									</span>
+									</label>
 								</div>
-							</div>
 
-							<div className="col-span-6 sm:col-span-4">
-								<label
-									htmlFor="company-website"
-									className="block text-sm font-medium text-nfh-text-primary"
-								>
-									Website
-								</label>
-								<div className="mt-1 flex rounded-md shadow-sm">
-									<span className="inline-flex items-center rounded-l-md border border-r-0 border-nfh-accent-primary bg-nfh-background-secondary px-3 text-sm text-nfh-text-primary">
-										https://
-									</span>
-									<input
-										type="text"
-										name="company-website"
-										id="company-website"
-										className="block w-full flex-1 rounded-none rounded-r-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-										placeholder="www.example.com"
-										value={website || ''}
-										onChange={(e) => setWebsite(e.target.value)}
-									/>
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="last-name"
+										className="block text-sm font-medium text-nfh-text-primary"
+									>
+										<span>Last name</span>
+										<input
+											type="text"
+											name="last-name"
+											id="last-name"
+											autoComplete="family-name"
+											className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+											value={lastName || ''}
+											onChange={(e) => setLastName(e.target.value)}
+										/>
+									</label>
 								</div>
-							</div>
 
-							<div className="col-span-6 sm:col-span-4">
-								<label
-									htmlFor="twitter-handle"
-									className="block text-sm font-medium text-nfh-text-primary"
-								>
-									Twitter
-								</label>
-								<div className="mt-1 flex rounded-md shadow-sm">
-									<span className="inline-flex items-center rounded-l-md border border-r-0 border-nfh-accent-primary bg-nfh-background-secondary px-3 text-sm text-nfh-text-primary">
-										@
-									</span>
-									<input
-										type="text"
-										name="twitter-username"
-										id="twitter-username"
-										className="block w-full flex-1 rounded-none rounded-r-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-										placeholder="@Twitter"
-										value={twitter || ''}
-										onChange={(e) => setTwitter(e.target.value)}
-									/>
+								<div className="col-span-6 sm:col-span-3">
+									<label
+										htmlFor="username"
+										className="block text-sm font-medium text-nfh-text-primary"
+									>
+										<span>Username</span>
+										<input
+											type="text"
+											name="username"
+											id="username"
+											autoComplete="username"
+											className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+											value={username || ''}
+											onChange={(e) => setUsername(e.target.value)}
+										/>
+									</label>
+								</div>
+
+								<div className="col-span-6 sm:col-span-3">
+									<label htmlFor="slug" className="block text-sm font-medium text-nfh-text-primary">
+										<span>Slug</span>
+										<input
+											type="text"
+											name="slug"
+											id="slug"
+											autoComplete="slug"
+											className="mt-1 block w-full rounded-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+											value={slug || ''}
+											onChange={(e) => setSlug(e.target.value)}
+										/>
+									</label>
+								</div>
+
+								<div className="col-span-6 sm:col-span-4">
+									<label className="block text-sm font-medium text-nfh-text-primary">Photo</label>
+									<div className="mt-1 flex items-center">
+										<span className="inline-block h-12 w-12 overflow-hidden rounded-full">
+											<Image
+												src={getGravatar(user?.email, 48)}
+												width={48}
+												height={48}
+												alt="Profile Photo"
+											/>
+										</span>
+									</div>
+								</div>
+
+								<div className="col-span-6 sm:col-span-4">
+									<label
+										htmlFor="company-website"
+										className="block text-sm font-medium text-nfh-text-primary"
+									>
+										Website
+									</label>
+									<div className="mt-1 flex rounded-md shadow-sm">
+										<span className="inline-flex items-center rounded-l-md border border-r-0 border-nfh-accent-primary bg-nfh-background-secondary px-3 text-sm text-nfh-text-primary">
+											https://
+										</span>
+										<input
+											type="text"
+											name="company-website"
+											id="company-website"
+											className="block w-full flex-1 rounded-none rounded-r-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+											placeholder="www.example.com"
+											value={website || ''}
+											onChange={(e) => setWebsite(e.target.value)}
+										/>
+									</div>
+								</div>
+
+								<div className="col-span-6 sm:col-span-4">
+									<label
+										htmlFor="twitter-handle"
+										className="block text-sm font-medium text-nfh-text-primary"
+									>
+										<span>Twitter</span>
+										<div className="mt-1 flex rounded-md shadow-sm">
+											<span className="inline-flex items-center rounded-l-md border border-r-0 border-nfh-accent-primary bg-nfh-background-secondary px-3 text-sm text-nfh-text-primary">
+												@
+											</span>
+											<input
+												type="text"
+												name="twitter-username"
+												id="twitter-username"
+												className="block w-full flex-1 rounded-none rounded-r-md border-nfh-accent-primary bg-nfh-background-primary text-nfh-text-primary focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+												placeholder="@Twitter"
+												value={twitter || ''}
+												onChange={(e) => setTwitter(e.target.value)}
+											/>
+										</div>
+									</label>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div className="bg-gray-50 py-3 px-4 text-right sm:px-6">
-						<button
-							type="submit"
-							className="mr-2 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-							onClick={(e) => {
-								e.preventDefault()
-								updateProfile()
-							}}
-						>
-							Save
-						</button>
-						<Link
-							className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-							href="/api/auth/logout"
-						>
-							Sign out
-						</Link>
+						<div className="bg-gray-50 py-3 px-4 text-right sm:px-6">
+							<button
+								type="submit"
+								className="mr-2 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+								onClick={(e) => {
+									e.preventDefault()
+									updateProfile()
+								}}
+							>
+								Save
+							</button>
+							<Link
+								className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+								href="/api/auth/logout"
+							>
+								Sign out
+							</Link>
+						</div>
 					</div>
 				</div>
-			</div>
-		</SectionContainer>
+			</SectionContainer>
+		</>
 	)
 }
 

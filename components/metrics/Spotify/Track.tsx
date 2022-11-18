@@ -5,7 +5,7 @@ import { BorderEffect } from '@/components/UI'
 
 export default function Track(track: Song): JSX.Element {
 	return (
-		<div className="group flex items-center rounded-md bg-nfh-background-secondary p-2 transition duration-500 hover:scale-100">
+		<div className="group relative flex cursor-pointer items-center bg-nfh-background-secondary p-2 transition duration-500">
 			<BorderEffect />
 			<div className="relative h-32 w-32 flex-none">
 				<Image

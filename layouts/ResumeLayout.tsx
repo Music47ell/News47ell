@@ -14,21 +14,27 @@ export default function ResumeLayout({
 }: IResumeLayout): JSX.Element {
 	const { playMouseClick } = useSFX()
 
-	const downloadResume = async () => {
-		/* code source: https://github.com/zhumeisongsong/react-url-image-downloader/blob/main/src/index.tsx
-		 */
-
-		const URL = process.env.NEXT_PUBLIC_VERCEL_URL
-			? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/resume-to-pdf`
-			: 'http://localhost:3000/api/resume-to-pdf'
-
-		const link = document.createElement('a')
-
-		link.href = URL
-		link.setAttribute('download', `Ahmet ALMAZ - Resume.pdf`)
-		document.body.appendChild(link)
-		link.click()
-		document.body.removeChild(link)
+	const isFirefoxForAndroid = () => {
+		const ua = navigator.userAgent.toLowerCase()
+		return ua.indexOf('android') > -1 && ua.indexOf('firefox') > -1
+	}
+	const printResume = () => {
+		if (!isFirefoxForAndroid()) {
+			if (typeof window !== 'undefined') {
+				window.print()
+			}
+		} else {
+			const printButton = document.getElementById('print-button')
+			if (printButton) {
+				while (printButton.firstChild) {
+					printButton.removeChild(printButton.firstChild)
+				}
+				const message = document.createElement('p')
+				message.innerText =
+					'Tap "⋮" and select the share button, then select "Save as PDF" to download my resume.'
+				printButton.appendChild(message)
+			}
+		}
 	}
 
 	return (
@@ -58,14 +64,7 @@ export default function ResumeLayout({
 				<div className="flex justify-evenly space-x-8 md:mt-12">
 					{basics.profiles.map(({ id, network, url }) => (
 						<div key={id}>
-							<Link
-								key={id}
-								className="text-sm"
-								href={url}
-								onClick={() => playMouseClick()}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
+							<Link key={id} className="text-sm" href={url} onClick={() => playMouseClick()}>
 								{network}
 							</Link>
 						</div>
@@ -123,7 +122,8 @@ export default function ResumeLayout({
 						<div className="mt-1 text-sm sm:col-span-2 sm:mt-0">
 							<div className="rounded-md border border-nfh-accent-primary print:hidden">
 								<div
-									onClick={downloadResume}
+									id="print-button"
+									onClick={printResume}
 									className="flex items-center justify-between py-3 pr-4 pl-3 text-sm"
 								>
 									<div className="flex w-0 flex-1 items-center">

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@page {
+	size: auto;
+	margin: 0mm;
+}
+
 .task-list-item::before {
 	@apply hidden;
 }
@@ -61,25 +66,34 @@ kbd {
 
 @layer base {
 	[data-theme='light'] #u-photo {
-		background-image: url('/images/others/me.png');
+		background-image: url('/images/others/me-alt.png');
 	}
 	[data-theme='hackernews'] #u-photo {
-		background-image: url('/images/others/me.png');
+		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='ferrari'] #u-photo {
-		background-image: url('/images/others/me.png');
+	[data-theme='latte'] #u-photo {
+		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='dos'] #u-photo {
-		background-image: url('/images/others/me.png');
+	[data-theme='rosépinedawn'] #u-photo {
+		background-image: url('/images/others/me-alt.png');
 	}
 	[data-theme='dark'] #u-photo {
-		background-image: url('/images/others/me-alt.png');
+		background-image: url('/images/others/me.png');
 	}
 	[data-theme='dracula'] #u-photo {
-		background-image: url('/images/others/me-alt.png');
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='mocha'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='rosépine'] #u-photo {
+		background-image: url('/images/others/me.png');
+	}
+	[data-theme='wildberries'] #u-photo {
+		background-image: url('/images/others/me.png');
 	}
 	[data-theme='nord'] #u-photo {
-		background-image: url('/images/others/me-alt.png');
+		background-image: url('/images/others/me.png');
 	}
 
 	[data-theme='light'] {
@@ -100,6 +114,33 @@ kbd {
 		--accent-secondary: theme('colors.dark.accent-secondary');
 	}
 
+	[data-theme='hackernews'] {
+		--background-primary: theme('colors.hackerNews.background-primary');
+		--background-secondary: theme('colors.hackerNews.background-secondary');
+		--text-primary: theme('colors.hackerNews.text-primary');
+		--text-secondary: theme('colors.hackerNews.text-secondary');
+		--accent-primary: theme('colors.hackerNews.accent-primary');
+		--accent-secondary: theme('colors.hackerNews.accent-secondary');
+	}
+
+	[data-theme='latte'] {
+		--background-primary: theme('colors.latte.background-primary');
+		--background-secondary: theme('colors.latte.background-secondary');
+		--text-primary: theme('colors.latte.text-primary');
+		--text-secondary: theme('colors.latte.text-secondary');
+		--accent-primary: theme('colors.latte.accent-primary');
+		--accent-secondary: theme('colors.latte.accent-secondary');
+	}
+
+	[data-theme='rosépinedawn'] {
+		--background-primary: theme('colors.roséPineDawn.background-primary');
+		--background-secondary: theme('colors.roséPineDawn.background-secondary');
+		--text-primary: theme('colors.roséPineDawn.text-primary');
+		--text-secondary: theme('colors.roséPineDawn.text-secondary');
+		--accent-primary: theme('colors.roséPineDawn.accent-primary');
+		--accent-secondary: theme('colors.roséPineDawn.accent-secondary');
+	}
+
 	[data-theme='dracula'] {
 		--background-primary: theme('colors.dracula.background-primary');
 		--background-secondary: theme('colors.dracula.background-secondary');
@@ -109,14 +150,33 @@ kbd {
 		--accent-secondary: theme('colors.dracula.accent-secondary');
 	}
 
-	[data-theme='hackernews'] {
-		--background-primary: theme('colors.hackerNews.background-primary');
-		--background-secondary: theme('colors.hackerNews.background-secondary');
-		--text-primary: theme('colors.hackerNews.text-primary');
-		--text-secondary: theme('colors.hackerNews.text-secondary');
-		--accent-primary: theme('colors.hackerNews.accent-primary');
-		--accent-secondary: theme('colors.hackerNews.accent-secondary');
+	[data-theme='mocha'] {
+		--background-primary: theme('colors.mocha.background-primary');
+		--background-secondary: theme('colors.mocha.background-secondary');
+		--text-primary: theme('colors.mocha.text-primary');
+		--text-secondary: theme('colors.mocha.text-secondary');
+		--accent-primary: theme('colors.mocha.accent-primary');
+		--accent-secondary: theme('colors.mocha.accent-secondary');
 	}
+
+	[data-theme='rosépine'] {
+		--background-primary: theme('colors.roséPine.background-primary');
+		--background-secondary: theme('colors.roséPine.background-secondary');
+		--text-primary: theme('colors.roséPine.text-primary');
+		--text-secondary: theme('colors.roséPine.text-secondary');
+		--accent-primary: theme('colors.roséPine.accent-primary');
+		--accent-secondary: theme('colors.roséPine.accent-secondary');
+	}
+
+	[data-theme='wildberries'] {
+		--background-primary: theme('colors.wildberries.background-primary');
+		--background-secondary: theme('colors.wildberries.background-secondary');
+		--text-primary: theme('colors.wildberries.text-primary');
+		--text-secondary: theme('colors.wildberries.text-secondary');
+		--accent-primary: theme('colors.wildberries.accent-primary');
+		--accent-secondary: theme('colors.wildberries.accent-secondary');
+	}
+
 	[data-theme='nord'] {
 		--background-primary: theme('colors.nord.background-primary');
 		--background-secondary: theme('colors.nord.background-secondary');
@@ -124,21 +184,5 @@ kbd {
 		--text-secondary: theme('colors.nord.text-secondary');
 		--accent-primary: theme('colors.nord.accent-primary');
 		--accent-secondary: theme('colors.nord.accent-secondary');
-	}
-	[data-theme='ferrari'] {
-		--background-primary: theme('colors.ferrari.background-primary');
-		--background-secondary: theme('colors.ferrari.background-secondary');
-		--text-primary: theme('colors.ferrari.text-primary');
-		--text-secondary: theme('colors.ferrari.text-secondary');
-		--accent-primary: theme('colors.ferrari.accent-primary');
-		--accent-secondary: theme('colors.ferrari.accent-secondary');
-	}
-	[data-theme='dos'] {
-		--background-primary: theme('colors.dos.background-primary');
-		--background-secondary: theme('colors.dos.background-secondary');
-		--text-primary: theme('colors.dos.text-primary');
-		--text-secondary: theme('colors.dos.text-secondary');
-		--accent-primary: theme('colors.dos.accent-primary');
-		--accent-secondary: theme('colors.dos.accent-secondary');
 	}
 }

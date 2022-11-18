@@ -15,7 +15,6 @@ const AudioToggle = (): JSX.Element => {
 	return (
 		<>
 			<button
-				type="button"
 				title={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
 				aria-label={soundEnabled ? 'Turn off sounds' : 'Turn on sounds'}
 				className="h-8 hover:animate-wiggle"
