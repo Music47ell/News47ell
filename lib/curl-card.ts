@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/indent */
-import siteMetaData from '@/data/siteMetadata'
-import stringWidth from 'string-width'
 import kleur from 'kleur'
+import stringWidth from 'string-width'
+
+import siteMetaData from '@/data/siteMetadata'
 
 const LINKS: Array<{ text: string; title: string; color?: (title: string) => string }> = [
 	{

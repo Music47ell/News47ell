@@ -1,10 +1,11 @@
-import { TerminalIcon, MusicIcon, FilmIcon, BookmarkIcon } from '@/components/icons'
-import { default as Link } from '@/components/Link'
-import StatsLayout from '@/layouts/StatsLayout'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
 import React from 'react'
+
+import { BookmarkIcon, FilmIcon, MusicIcon, TerminalIcon } from '@/components/icons'
+import { default as Link } from '@/components/Link'
+import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
+import StatsLayout from '@/layouts/StatsLayout'
 
 export default function Stats(): JSX.Element {
 	return (

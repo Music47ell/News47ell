@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
+
 import { Links } from '@/lib/types'
 
 const CustomLink = ({ className, href, ...rest }: Links) => {

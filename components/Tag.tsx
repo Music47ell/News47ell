@@ -1,6 +1,7 @@
+import { Taxonomy } from 'lib/interfaces'
+
 import { default as Link } from '@/components/Link'
 import kebabCase from '@/utils/kebabCase'
-import { Taxonomy } from 'lib/interfaces'
 
 const TagsColorDictionary = {
 	netlify: 'text-netlify',

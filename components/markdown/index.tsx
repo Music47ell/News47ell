@@ -1,16 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactMarkdown, { Options } from 'react-markdown'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrism from 'rehype-prism-plus'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
-import rehypeSlug from 'rehype-slug'
-import rehypePrism from 'rehype-prism-plus'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+
 import A from './A'
-import P from './P'
-import Pre from './Pre'
 import Code from './Code'
 import Heading from './Heading'
+import P from './P'
+import Pre from './Pre'
 
 export default function Markdown({ children }): JSX.Element {
 	const customRenderers: Options['components'] = {

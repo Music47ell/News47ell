@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
-import { withPageAuth, getUser } from '@supabase/auth-helpers-nextjs'
-import toast from 'react-hot-toast'
+import 'easymde/dist/easymde.min.css'
+
+import { getUser, withPageAuth } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/router'
-import { getAddContent } from '@/lib/supabase'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+
 import { Editor } from '@/components/Dynamic'
 import { LoaderIcon } from '@/components/icons'
-import 'easymde/dist/easymde.min.css'
-import siteMetadata from '@/data/siteMetadata'
 import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
+import { getAddContent } from '@/lib/supabase'
 
 export default function AddPost({ user }): JSX.Element {
 	const router = useRouter()

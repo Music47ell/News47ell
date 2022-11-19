@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
 import type { ChangeEvent } from 'react'
+import { useEffect, useState } from 'react'
+
 import { ArrowLeftIcon } from '@/components/icons'
+import { default as Image } from '@/components/Image'
+import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import { default as Link } from '@/components/Link'
-import { default as Image } from '@/components/Image'
 
 export default function Stats() {
 	const [selectedOption, setSelectedOption] = useState([])

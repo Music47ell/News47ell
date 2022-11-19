@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getAuthorsSlugs, getContentFrontMatter, getAuthorBySlugFrom } from '@/lib/supabase'
 import AuthorLayout from '@/layouts/AuthorLayout'
+import { getAuthorBySlugFrom, getAuthorsSlugs, getContentFrontMatter } from '@/lib/supabase'
 
 export async function getStaticPaths() {
 	const slugs = await getAuthorsSlugs()

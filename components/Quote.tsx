@@ -1,6 +1,6 @@
 import { ExternalIcon } from '@/components/icons'
-import { useQuote } from '@/hooks/useQuote'
 import { default as Link } from '@/components/Link'
+import { useQuote } from '@/hooks/useQuote'
 
 function Quote(): JSX.Element {
 	const { quote } = useQuote()

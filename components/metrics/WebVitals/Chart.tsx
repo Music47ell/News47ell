@@ -1,18 +1,18 @@
-import fetcher from '@/lib/fetcher'
-import useSWR from 'swr'
-
-import { Chart as CJS } from 'react-chartjs-2'
 import {
-	Chart as ChartJS,
 	CategoryScale,
+	Chart as ChartJS,
+	Legend,
+	LinearScale,
 	LineController,
 	LineElement,
 	PointElement,
-	LinearScale,
 	Title,
 	Tooltip,
-	Legend,
 } from 'chart.js'
+import { Chart as CJS } from 'react-chartjs-2'
+import useSWR from 'swr'
+
+import fetcher from '@/lib/fetcher'
 
 ChartJS.register(
 	CategoryScale,

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Feed } from 'feed'
-import { getContentFrontMatter } from '@/lib/supabase'
+
 import siteMetadata from '@/data/siteMetadata'
+import { getContentFrontMatter } from '@/lib/supabase'
 
 const year = new Date().getFullYear()
 

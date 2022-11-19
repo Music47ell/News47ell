@@ -1,5 +1,6 @@
-import { useSettings } from '@/context/store'
 import useSound from 'use-sound'
+
+import { useSettings } from '@/context/store'
 
 export const useSFX = () => {
 	const { soundEnabled } = useSettings()

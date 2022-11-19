@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+
 import fetcher from '@/lib/fetcher'
 
 export function usePostsSearch<T>(q: string) {

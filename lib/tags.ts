@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import kebabCase from '@/utils/kebabCase'
 import { getTags } from '@/lib/supabase'
+import kebabCase from '@/utils/kebabCase'
 
 export async function getAllTags() {
 	const allTags = (await getTags()).map((post) => ({

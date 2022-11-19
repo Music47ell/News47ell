@@ -1,17 +1,18 @@
 import React from 'react'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import { default as Image } from '@/components/Image'
-import { default as Link } from '@/components/Link'
+
 import {
-	TwitterIcon,
+	EnvelopeIcon,
 	GitHubIcon,
 	LinkedInIcon,
-	EnvelopeIcon,
 	PDFIcon,
 	RSSIcon,
 	SitemapIcon,
+	TwitterIcon,
 } from '@/components/icons'
+import { default as Image } from '@/components/Image'
+import { default as Link } from '@/components/Link'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Links() {
 	const authorIcons = [TwitterIcon, GitHubIcon, LinkedInIcon, EnvelopeIcon, PDFIcon]

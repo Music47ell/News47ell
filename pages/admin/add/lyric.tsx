@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
-import { withPageAuth, getUser } from '@supabase/auth-helpers-nextjs'
-import toast from 'react-hot-toast'
-import { useRouter } from 'next/router'
-import { getAddLyric } from '@/lib/supabase'
-import { LoaderIcon } from '@/components/icons'
 import 'easymde/dist/easymde.min.css'
-import siteMetadata from '@/data/siteMetadata'
+
+import { getUser, withPageAuth } from '@supabase/auth-helpers-nextjs'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+
+import { LoaderIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
+import { getAddLyric } from '@/lib/supabase'
 
 export default function AddLyric({ user }): JSX.Element {
 	const router = useRouter()

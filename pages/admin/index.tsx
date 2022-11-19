@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { getUser, withPageAuth } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/router'
-import { withPageAuth, getUser } from '@supabase/auth-helpers-nextjs'
-import { getAllContentFrontMatter, getLyrics, getQuotes, getDelete } from '@/lib/supabase'
-import siteMetadata from '@/data/siteMetadata'
-import { PageSEO } from '@/components/SEO'
+import { useEffect, useState } from 'react'
+
+import { CheckIcon, ExclamationIcon, LoaderIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { LoaderIcon, CheckIcon, ExclamationIcon } from '@/components/icons'
+import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
+import { getAllContentFrontMatter, getDelete, getLyrics, getQuotes } from '@/lib/supabase'
 
 export default function Admin({ user }): JSX.Element {
 	const router = useRouter()

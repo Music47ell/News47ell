@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react'
+
 import { default as Link } from '@/components/Link'
-import { useOGMeta } from '@/hooks/useOGMeta'
 import { BorderEffect } from '@/components/UI'
+import { useOGMeta } from '@/hooks/useOGMeta'
 
 const LinkCard = ({ url }: { url: string }) => {
 	const { data, isLoading } = useOGMeta(url)

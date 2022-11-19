@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { getResume } from '@/lib/github'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

@@ -1,8 +1,8 @@
+import { UseViewCountResult, Views } from 'lib/types'
 import { useEffect } from 'react'
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
-import { UseViewCountResult, Views } from 'lib/types'
 
 export function useViews(): UseViewCountResult {
 	const { data, error } = useSWR<Views>(`/api/views`, fetcher)

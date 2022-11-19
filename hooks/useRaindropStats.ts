@@ -1,6 +1,7 @@
-import fetcher from '@/lib/fetcher'
 import { RaindropStats, RaindropStatsCard } from 'lib/types'
 import useSWR from 'swr'
+
+import fetcher from '@/lib/fetcher'
 
 export function useRaindropStats(): RaindropStatsCard {
 	const { data, error } = useSWR<RaindropStats>(`/api/raindrop-stats/`, fetcher)

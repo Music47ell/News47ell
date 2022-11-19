@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+
 import fetcher from '@/lib/fetcher'
 import { IResumeLayout } from '@/lib/interfaces'
 

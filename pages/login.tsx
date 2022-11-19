@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { useUser } from '@supabase/auth-helpers-react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+
 import { LoaderIcon } from '@/components/icons'
 import { SectionContainer } from '@/components/UI'
 

@@ -1,15 +1,15 @@
-import type { AppProps, NextWebVitalsMetric } from 'next/app'
-import Head from 'next/head'
-import { useState } from 'react'
+import '@/assets/css/tailwind.css'
+import '@/assets/css/prism.css'
 
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { UserProvider } from '@supabase/auth-helpers-react'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
+import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
+import { useState } from 'react'
 
-import '@/assets/css/tailwind.css'
-import '@/assets/css/prism.css'
 import Quote from '@/components/Quote'
-import { Header, Nav, Footer } from '@/components/UI'
+import { Footer, Header, Nav } from '@/components/UI'
 import { SoundProvider } from '@/context/store'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
@@ -25,9 +25,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 					<Header pickerOpen={pickerOpen} />
 					<div
 						className={`transition-transform ${
-							pickerOpen
-								? 'translate-y-[124px] duration-[400ms] ease-out'
-								: 'translate-y-0 duration-200 ease-in'
+							pickerOpen ? 'translate-y-[124px] duration-200 ease-out' : 'duration-200 ease-in'
 						}`}
 					>
 						<div className="flex min-h-screen flex-col">

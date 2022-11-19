@@ -1,6 +1,7 @@
-import React from 'react'
-import { MinusIcon, CommentIcon, CodeIcon, FolderIcon } from '@/components/icons'
 import { TotalStatsCard } from 'lib/types'
+import React from 'react'
+
+import { CodeIcon, CommentIcon, FolderIcon, MinusIcon } from '@/components/icons'
 
 const PBTotalStatsCard = ({ blank, comment, code, files }: TotalStatsCard): JSX.Element => (
 	<>

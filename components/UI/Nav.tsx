@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import { useUser } from '@supabase/auth-helpers-react'
+import React, { useEffect, useState } from 'react'
+
 import {
-	XIcon,
-	MenuIcon,
-	SearchIcon,
-	PaintRollIcon,
-	NewsIcon,
-	DashboardIcon,
-	CategoryIcon,
-	TagIcon,
 	ArchiveIcon,
-	ToolIcon,
 	CalendarIcon,
+	CategoryIcon,
+	DashboardIcon,
+	MenuIcon,
+	NewsIcon,
+	PaintRollIcon,
+	SearchIcon,
+	TagIcon,
+	ToolIcon,
+	XIcon,
 } from '@/components/icons'
-import siteMetadata from '@/data/siteMetadata'
+import { News47ell, Slash } from '@/components/icons'
+import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import AudioToggle from '@/components/toggles/AudioToggle'
-import { Slash, News47ell } from '@/components/icons'
-import { supabaseClient } from '@supabase/auth-helpers-nextjs'
-import { getGravatar } from '@/utils/getGravatar'
-import { default as Image } from '@/components/Image'
+import siteMetadata from '@/data/siteMetadata'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import { useSFX } from '@/hooks/useSFX'
+import { getGravatar } from '@/utils/getGravatar'
 
 const Nav = ({ pickerOpen, setPickerOpen }) => {
 	const [firstName, setFirstName] = useState<string | null>(null)

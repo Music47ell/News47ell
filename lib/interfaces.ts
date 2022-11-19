@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Pagination from '@/components/blog/Pagination'
 import { AuthorFrontMatter, PostFrontMatter } from 'lib/types'
 import { ComponentProps, ReactNode } from 'react'
+
+import Pagination from '@/components/blog/Pagination'
 
 export interface Authors {
 	author: AuthorFrontMatter

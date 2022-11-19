@@ -1,9 +1,9 @@
-import Current from '@/components/metrics/WebVitals/Current'
-import Chart from '@/components/metrics/WebVitals/Chart'
-import { Rating, useWebVitals } from '@/hooks/useWebVitals'
-import { AllReactions, IndividualReactions } from '@/components/metrics/Reactions'
 import { ProjectBreakdown } from '@/components/metrics/ProjectBreakdown'
+import { AllReactions, IndividualReactions } from '@/components/metrics/Reactions'
 import { ViewsCard } from '@/components/metrics/Views'
+import Chart from '@/components/metrics/WebVitals/Chart'
+import Current from '@/components/metrics/WebVitals/Current'
+import { Rating, useWebVitals } from '@/hooks/useWebVitals'
 
 export default function StatsLayout(): JSX.Element {
 	const webVitals = useWebVitals()

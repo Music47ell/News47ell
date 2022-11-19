@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getSlugsFrom, getContentBySlugFrom, getAuthorByUserId } from '@/lib/supabase'
 import PageLayout from '@/layouts/PageLayout'
+import { getAuthorByUserId, getContentBySlugFrom, getSlugsFrom } from '@/lib/supabase'
 
 export async function getStaticPaths() {
 	const slugs = await getSlugsFrom('pages')

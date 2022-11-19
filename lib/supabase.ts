@@ -1,5 +1,6 @@
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import matter from 'gray-matter'
+
 import readingTime from '@/utils/getReadingTime'
 
 export const getWebVitals = async () => {

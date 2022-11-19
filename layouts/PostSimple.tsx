@@ -1,12 +1,13 @@
-import { default as Link } from '@/components/Link'
-import { PageTitle } from '@/components/UI'
-import { BlogSEO } from '@/components/SEO'
+import { IPostSimple } from 'lib/interfaces'
+
+import ReactionsButton from '@/components/blog/ReactionsButton'
 import Share from '@/components/blog/Share'
+import { default as Link } from '@/components/Link'
+import Markdown from '@/components/markdown'
+import { BlogSEO } from '@/components/SEO'
+import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/utils/formatDate'
-import { IPostSimple } from 'lib/interfaces'
-import ReactionsButton from '@/components/blog/ReactionsButton'
-import Markdown from '@/components/markdown'
 
 export default function PostSimple({ frontMatter, next, prev, content }: IPostSimple): JSX.Element {
 	const { author, published_at, updated_at, title, slug, linked } = frontMatter

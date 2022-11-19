@@ -1,13 +1,6 @@
-import {
-	EnvelopeIcon,
-	TwitterIcon,
-	SupabaseIcon,
-	NextDotJsIcon,
-	TailwindCSSIcon,
-	VercelIcon,
-} from '@/components/icons'
-import { default as Link } from '@/components/Link'
 import HCard from '@/components/hCard'
+import { NextDotJsIcon, SupabaseIcon, TailwindCSSIcon, VercelIcon } from '@/components/icons'
+import { default as Link } from '@/components/Link'
 import { NowPlaying } from '@/components/metrics/Spotify'
 import { NowWatching } from '@/components/metrics/Trakt'
 import siteMetadata from '@/data/siteMetadata'

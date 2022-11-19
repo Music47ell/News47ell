@@ -1,5 +1,5 @@
+import { CheckIcon, ExclamationIcon, TimeIcon, XCircleIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { CheckIcon, ExclamationIcon, XCircleIcon, TimeIcon } from '@/components/icons'
 
 type Props = {
 	index: number

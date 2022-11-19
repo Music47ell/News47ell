@@ -1,6 +1,6 @@
 import { default as Link } from '@/components/Link'
-import { useSFX } from '@/hooks/useSFX'
 import { BorderEffect } from '@/components/UI'
+import { useSFX } from '@/hooks/useSFX'
 
 export default function BlogPostCard({ title, slug, total }) {
 	const { playMouseClick } = useSFX()

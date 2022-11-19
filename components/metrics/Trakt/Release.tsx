@@ -1,7 +1,8 @@
+import { TraktRelease } from 'lib/types'
+
+import { PlayIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
-import { TraktRelease } from 'lib/types'
-import { PlayIcon } from '@/components/icons'
 import { BorderEffect } from '@/components/UI'
 
 export default function Release(release: TraktRelease): JSX.Element {

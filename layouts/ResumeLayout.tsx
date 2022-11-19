@@ -1,9 +1,10 @@
-import { default as Link } from '@/components/Link'
-import { default as Image } from '@/components/Image'
-import { useSFX } from '@/hooks/useSFX'
-import { SectionContainer } from '@/components/UI'
 import { IResumeLayout } from 'lib/interfaces'
+
 import { PDFIcon } from '@/components/icons'
+import { default as Image } from '@/components/Image'
+import { default as Link } from '@/components/Link'
+import { SectionContainer } from '@/components/UI'
+import { useSFX } from '@/hooks/useSFX'
 
 export default function ResumeLayout({
 	basics,

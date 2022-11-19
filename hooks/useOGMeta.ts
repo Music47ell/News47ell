@@ -1,5 +1,6 @@
-import fetcher from '@/lib/fetcher'
 import useSWR from 'swr'
+
+import fetcher from '@/lib/fetcher'
 import { OGMeta } from '@/lib/types'
 
 export function useOGMeta(url: string) {

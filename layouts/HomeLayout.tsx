@@ -1,9 +1,10 @@
 import useSWR from 'swr'
-import { LoaderIcon } from '@/components/icons'
-import fetcher from '@/lib/fetcher'
-import HeroCard from '@/components/home/HeroCard'
+
 import BlogPostCard from '@/components/home/BlogPostCard'
+import HeroCard from '@/components/home/HeroCard'
+import { LoaderIcon } from '@/components/icons'
 import { Divider } from '@/components/UI'
+import fetcher from '@/lib/fetcher'
 
 export default function HomeLayout(): JSX.Element {
 	const { data: topViews } = useSWR<{ title: string; slug: string; total: number }[]>(

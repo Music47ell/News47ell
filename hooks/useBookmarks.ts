@@ -1,6 +1,7 @@
+import useSWR from 'swr'
+
 import fetcher from '@/lib/fetcher'
 import { Bookmark } from '@/lib/types'
-import useSWR from 'swr'
 
 export function useBookmarks(): Bookmark {
 	const { data, error } = useSWR<Bookmark>('/api/bookmarks', fetcher)
