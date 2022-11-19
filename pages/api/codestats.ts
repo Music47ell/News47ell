@@ -1,6 +1,7 @@
-import { getCodeStats } from '@/lib/codestats'
 import type { NextApiRequest, NextApiResponse } from 'next'
+
 import siteMetadata from '@/data/siteMetadata'
+import { getCodeStats } from '@/lib/codestats'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const response = await getCodeStats()

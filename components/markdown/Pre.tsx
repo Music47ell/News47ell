@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
-import { ClipboardIcon, ClipboardCheckIcon } from '@/components/icons'
+import { useRef, useState } from 'react'
+
+import { ClipboardCheckIcon, ClipboardIcon } from '@/components/icons'
 
 const Pre = ({ node, inline, className, children, ...props }) => {
 	const textInput = useRef(null)

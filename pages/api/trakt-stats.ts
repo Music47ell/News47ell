@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getStats } from '@/lib/trakt'
+
 import siteMetadata from '@/data/siteMetadata'
+import { getStats } from '@/lib/trakt'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const response = await getStats()

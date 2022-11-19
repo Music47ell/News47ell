@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getWatchedMovies } from '@/lib/trakt'
+
 import { getTMDBMovies } from '@/lib/tmdb'
+import { getWatchedMovies } from '@/lib/trakt'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const response = await getWatchedMovies()

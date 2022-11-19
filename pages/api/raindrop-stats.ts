@@ -1,5 +1,6 @@
-import { getRaindropCount } from '@/lib/raindrop'
 import type { NextApiRequest, NextApiResponse } from 'next'
+
+import { getRaindropCount } from '@/lib/raindrop'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const response = await getRaindropCount()

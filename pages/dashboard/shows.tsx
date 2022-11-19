@@ -1,10 +1,10 @@
 import { ArrowLeftIcon } from '@/components/icons'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
 import { default as Link } from '@/components/Link'
 import { MoviesWatched, ShowsWatched } from '@/components/metrics/Trakt'
 import { TraktCard } from '@/components/metrics/Trakt'
+import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Shows(): JSX.Element {
 	return (

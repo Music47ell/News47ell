@@ -1,14 +1,15 @@
 import { useCallback } from 'react'
 import useSWR from 'swr'
+
 import useDebounce from '@/hooks/useDebounce'
-import {
-	Reactions,
-	LikeReaction,
-	UseLikeCountResult,
-	DislikeReaction,
-	UseDislikeCountResult,
-} from '@/lib/types'
 import fetcher from '@/lib/fetcher'
+import {
+	DislikeReaction,
+	LikeReaction,
+	Reactions,
+	UseDislikeCountResult,
+	UseLikeCountResult,
+} from '@/lib/types'
 
 export function useDashboardReactions() {
 	const { data, error } = useSWR<Reactions>(`/api/reactions`, fetcher)

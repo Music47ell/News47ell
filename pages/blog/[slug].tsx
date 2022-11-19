@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
+
+import PostLayout from '@/layouts/PostLayout'
+import PostSimple from '@/layouts/PostSimple'
 import {
-	getSlugsFrom,
+	getAuthorByUserId,
 	getContentBySlugFrom,
 	getContentFrontMatter,
-	getAuthorByUserId,
+	getSlugsFrom,
 } from '@/lib/supabase'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
 
 export async function getStaticPaths() {
 	const slugs = await getSlugsFrom('posts')

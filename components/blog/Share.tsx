@@ -1,17 +1,18 @@
-import { default as Link } from '@/components/Link'
-import siteMetadata from '@/data/siteMetadata'
 import { IShare } from 'lib/interfaces'
 import { useEffect, useState } from 'react'
+
 import {
-	ShareIcon,
-	CopyIcon,
 	CheckIcon,
-	TwitterIcon,
-	RedditIcon,
-	LinkedInIcon,
+	CopyIcon,
 	HackerNewsIcon,
+	LinkedInIcon,
 	PocketIcon,
+	RedditIcon,
+	ShareIcon,
+	TwitterIcon,
 } from '@/components/icons'
+import { default as Link } from '@/components/Link'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Share({ title, slug }: IShare): JSX.Element {
 	const [isCopied, setIsCopied] = useState(false)

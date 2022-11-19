@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import { getContentFrontMatter } from '@/lib/supabase'
+
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
+import { getContentFrontMatter } from '@/lib/supabase'
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const db = await getContentFrontMatter('posts')

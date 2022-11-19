@@ -1,9 +1,11 @@
 // the design for this component was directly inspired by Max Bock's personal website. Check out his amazing work here: https://mxb.dev/
 
-import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import ThemeSwatch from './ThemeSwatch'
+import { useEffect, useState } from 'react'
+
 import { useSFX } from '@/hooks/useSFX'
+
+import ThemeSwatch from './ThemeSwatch'
 
 export default function ThemePicker({ open }) {
 	const [mounted, setMounted] = useState(false)

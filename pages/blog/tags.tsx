@@ -1,11 +1,12 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
+import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/utils/kebabCase'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { SectionContainer } from '@/components/UI'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
 	const tags = await getAllTags()

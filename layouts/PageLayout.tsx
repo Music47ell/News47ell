@@ -1,8 +1,9 @@
-import { PageTitle } from '@/components/UI'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
 import { IPostLayout } from 'lib/interfaces'
+
 import Markdown from '@/components/markdown'
+import { PageSEO } from '@/components/SEO'
+import { PageTitle } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function PageLayout({ frontMatter, content }: IPostLayout): JSX.Element {
 	const { title } = frontMatter

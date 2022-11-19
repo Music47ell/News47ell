@@ -1,8 +1,9 @@
 import { FC, useState } from 'react'
+
 import { SearchIcon } from '@/components/icons'
-import { usePostsSearch } from '@/hooks/useSearch'
-import useDebounce from '@/hooks/useDebounce'
 import { default as Link } from '@/components/Link'
+import useDebounce from '@/hooks/useDebounce'
+import { usePostsSearch } from '@/hooks/useSearch'
 import { PostsSearchResult } from '@/lib/types'
 import formatDate from '@/utils/formatDate'
 

@@ -1,7 +1,8 @@
-import { Release } from '@/components/metrics/Trakt'
-import fetcher from '@/lib/fetcher'
 import { WatchedMovies } from 'lib/types'
 import useSWR from 'swr'
+
+import { Release } from '@/components/metrics/Trakt'
+import fetcher from '@/lib/fetcher'
 
 export default function MoviesWatched(): JSX.Element {
 	const { data } = useSWR<WatchedMovies>('/api/movies-watched', fetcher)

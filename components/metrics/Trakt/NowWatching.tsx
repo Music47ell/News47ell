@@ -1,8 +1,9 @@
+import { NowWatchingRelease } from 'lib/types'
+import useSWR from 'swr'
+
 import { TraktIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import fetcher from '@/lib/fetcher'
-import { NowWatchingRelease } from 'lib/types'
-import useSWR from 'swr'
 
 export default function NowWatching(): JSX.Element {
 	const { data } = useSWR<NowWatchingRelease>('/api/now-watching', fetcher)

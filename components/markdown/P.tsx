@@ -1,5 +1,5 @@
-import { default as Link } from '@/components/Link'
 import { LinkCard } from '@/components/blog'
+import { default as Link } from '@/components/Link'
 
 const P = ({ node, children }) => {
 	if (node.children[0].tagName === 'img') {

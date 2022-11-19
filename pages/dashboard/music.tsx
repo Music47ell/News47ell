@@ -1,10 +1,10 @@
-import { ListPlusIcon, ArrowLeftIcon } from '@/components/icons'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
+import { ArrowLeftIcon, ListPlusIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { SectionContainer } from '@/components/UI'
 import { LastfmCard } from '@/components/metrics/Lastfm'
+import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
+import { PageSEO } from '@/components/SEO'
+import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Music(): JSX.Element {
 	return (

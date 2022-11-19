@@ -1,9 +1,9 @@
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
 import Table from '@/components/Table'
+import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import usesData from '@/data/usesData'
-import { SectionContainer } from '@/components/UI'
 
 export default function Uses(): JSX.Element {
 	return (

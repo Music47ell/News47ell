@@ -2,6 +2,7 @@
 import { ImageResponse } from '@vercel/og'
 import type { PageConfig } from 'next'
 import type { NextRequest } from 'next/server'
+
 import siteMetadata from '@/data/siteMetadata'
 
 export const config: PageConfig = {

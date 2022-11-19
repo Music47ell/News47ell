@@ -1,8 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { getContentFrontMatter } from '@/lib/supabase'
+
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
+import { getContentFrontMatter } from '@/lib/supabase'
 
 export const getStaticProps: GetStaticProps = async () => {
 	const db = await getContentFrontMatter('posts')

@@ -1,8 +1,9 @@
+import { Languages } from 'lib/types'
+import useSWR from 'swr'
+
 import { Language } from '@/components/metrics/CodeStats'
 import siteMetadata from '@/data/siteMetadata'
 import fetcher from '@/lib/fetcher'
-import { Languages } from 'lib/types'
-import useSWR from 'swr'
 
 const API_ENDPOINT = `https://codestats.net/api/users/`
 

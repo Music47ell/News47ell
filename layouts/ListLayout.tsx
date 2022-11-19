@@ -1,9 +1,10 @@
-import { default as Link } from '@/components/Link'
+import { Layout } from 'lib/interfaces'
+
 import Pagination from '@/components/blog/Pagination'
+import { default as Link } from '@/components/Link'
+import { BorderEffect } from '@/components/UI'
 import { useSFX } from '@/hooks/useSFX'
 import formatDate from '@/utils/formatDate'
-import { Layout } from 'lib/interfaces'
-import { BorderEffect } from '@/components/UI'
 
 export default function ListLayout({
 	title,

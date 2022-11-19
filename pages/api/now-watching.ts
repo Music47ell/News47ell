@@ -1,6 +1,7 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { getTMDBMovies, getTMDBShows } from '@/lib/tmdb'
 import { getNowWatching } from '@/lib/trakt'
-import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const response = await getNowWatching()

@@ -1,9 +1,10 @@
-import { SpotifyIcon } from '@/components/icons'
-import { default as Link } from '@/components/Link'
-import { default as Image } from '@/components/Image'
-import fetcher from '@/lib/fetcher'
 import { NowPlayingSong } from 'lib/types'
 import useSWR from 'swr'
+
+import { SpotifyIcon } from '@/components/icons'
+import { default as Image } from '@/components/Image'
+import { default as Link } from '@/components/Link'
+import fetcher from '@/lib/fetcher'
 
 export default function NowPlaying(): JSX.Element {
 	const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher)

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import { TaxonomySEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { getContentFrontMatter } from '@/lib/supabase'
 import { getAllTags } from '@/lib/tags'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import kebabCase from '@/utils/kebabCase'
 
 export async function getStaticPaths() {

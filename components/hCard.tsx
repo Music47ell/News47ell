@@ -1,6 +1,6 @@
+import { Turkiye } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
-import { Turkiye } from '@/components/icons'
 
 export default function HCard(): JSX.Element {
 	if (typeof window === 'object') {

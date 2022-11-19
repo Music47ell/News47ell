@@ -1,10 +1,9 @@
+import { Authors } from 'lib/interfaces'
+
 import { EnvelopeIcon, TwitterIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
-
-import { Authors } from 'lib/interfaces'
-
 import { getGravatar } from '@/utils/getGravatar'
 
 export default function AuthorLayout({ author, posts }: Authors): JSX.Element {

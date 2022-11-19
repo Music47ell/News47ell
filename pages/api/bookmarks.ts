@@ -1,5 +1,6 @@
-import { getRaindropCollection } from '@/lib/raindrop'
 import type { NextApiRequest, NextApiResponse } from 'next'
+
+import { getRaindropCollection } from '@/lib/raindrop'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const page = 0

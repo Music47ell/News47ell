@@ -1,6 +1,7 @@
+import { IPagination } from 'lib/interfaces'
+
 import { default as Link } from '@/components/Link'
 import { useSFX } from '@/hooks/useSFX'
-import { IPagination } from 'lib/interfaces'
 
 export default function Pagination({ totalPages, currentPage }: IPagination): JSX.Element {
 	const { playPageTurn } = useSFX()

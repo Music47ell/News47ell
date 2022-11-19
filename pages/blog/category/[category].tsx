@@ -1,9 +1,10 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import { TaxonomySEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { getAllCategories } from '@/lib/categories'
 import { getContentFrontMatter } from '@/lib/supabase'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import kebabCase from '@/utils/kebabCase'
 
 export async function getStaticPaths() {

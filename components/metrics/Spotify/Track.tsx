@@ -1,6 +1,7 @@
-import { default as Image } from '@/components/Image'
 import { Song } from 'lib/types'
-import { PlayIcon, PauseIcon } from '@/components/icons'
+
+import { PauseIcon, PlayIcon } from '@/components/icons'
+import { default as Image } from '@/components/Image'
 import { BorderEffect } from '@/components/UI'
 
 export default function Track(track: Song): JSX.Element {

@@ -1,9 +1,10 @@
+import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useViewsBySlug } from '@/hooks/useViews'
-import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
+
 import siteMetadata from '@/data/siteMetadata'
-import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
+import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
+import { useViewsBySlug } from '@/hooks/useViews'
 
 const ogUrl = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
 

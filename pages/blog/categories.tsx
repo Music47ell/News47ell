@@ -1,11 +1,12 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import Category from '@/components/Category'
 import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
+import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllCategories } from '@/lib/categories'
 import kebabCase from '@/utils/kebabCase'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { SectionContainer } from '@/components/UI'
 
 export const getStaticProps: GetStaticProps<{ categories: Record<string, number> }> = async () => {
 	const categories = await getAllCategories()

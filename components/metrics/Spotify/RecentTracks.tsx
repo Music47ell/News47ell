@@ -1,9 +1,10 @@
+import { Tracks } from 'lib/types'
+import Router from 'next/router'
 import { useEffect, useState } from 'react'
+import useSWR from 'swr'
+
 import { Track } from '@/components/metrics/Spotify'
 import fetcher from '@/lib/fetcher'
-import useSWR from 'swr'
-import Router from 'next/router'
-import { Tracks } from 'lib/types'
 
 export default function RecentTracks(): JSX.Element {
 	const { data } = useSWR<Tracks>('/api/recent-tracks', fetcher)

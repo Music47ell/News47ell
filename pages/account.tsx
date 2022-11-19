@@ -1,12 +1,13 @@
+import { getUser, supabaseClient, withPageAuth } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
-import { withPageAuth, getUser, supabaseClient } from '@supabase/auth-helpers-nextjs'
-import { default as Link } from '@/components/Link'
 import toast from 'react-hot-toast'
+
 import { default as Image } from '@/components/Image'
-import { getGravatar } from '@/utils/getGravatar'
-import { SectionContainer } from '@/components/UI/'
+import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
+import { SectionContainer } from '@/components/UI/'
 import siteMetadata from '@/data/siteMetadata'
+import { getGravatar } from '@/utils/getGravatar'
 
 export default function Account({ user }): JSX.Element {
 	const [loading, setLoading] = useState(false)

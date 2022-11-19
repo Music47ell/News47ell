@@ -1,3 +1,5 @@
+/* eslint-disable simple-import-sort/exports */
+
 export { default as Turkiye } from './flags/turkiye'
 
 export { default as Slash } from './brands/slash'

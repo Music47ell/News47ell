@@ -1,5 +1,5 @@
-import { default as Link } from '@/components/Link'
 import { GitHubHeartIcon } from '@/components/icons'
+import { default as Link } from '@/components/Link'
 
 export default function Donate(): JSX.Element {
 	return (

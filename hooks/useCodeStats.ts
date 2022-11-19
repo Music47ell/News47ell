@@ -1,6 +1,7 @@
-import fetcher from '@/lib/fetcher'
 import { CodeStats, CodeStatsCard } from 'lib/types'
 import useSWR from 'swr'
+
+import fetcher from '@/lib/fetcher'
 
 export function useCodeStats(): CodeStatsCard {
 	const { data, error } = useSWR<CodeStats>(`/api/codestats/`, fetcher)

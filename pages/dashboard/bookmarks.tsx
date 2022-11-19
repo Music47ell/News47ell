@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
-import { LoaderIcon, ArrowLeftIcon } from '@/components/icons'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import { BookmarkCard } from '@/components/metrics/Raindrop/'
-import { useBookmarks } from '@/hooks/useBookmarks'
+import { useEffect, useState } from 'react'
+
+import { ArrowLeftIcon, LoaderIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { RaindropCountCard } from '@/components/metrics/Raindrop'
+import { BookmarkCard } from '@/components/metrics/Raindrop/'
+import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
+import { useBookmarks } from '@/hooks/useBookmarks'
 
 export default function Bookmarks(): JSX.Element {
 	const { bookmarks, tags, isLoading } = useBookmarks()

@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import { generateRSS } from '@/lib/generate-feeds'
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {

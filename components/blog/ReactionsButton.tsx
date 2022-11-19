@@ -1,6 +1,6 @@
-import { LikeIcon, DislikeIcon } from '@/components/icons'
-import { useSlugReactionsLike, useSlugReactionsDislike } from '@/hooks/useReactions'
+import { DislikeIcon, LikeIcon } from '@/components/icons'
 import { LoadingDots } from '@/components/UI'
+import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
 
 const ReactionsButton = ({ slug }) => {
 	const { likes, userLikes, toggleUserLike, isLoadingLikes } = useSlugReactionsLike(slug)
