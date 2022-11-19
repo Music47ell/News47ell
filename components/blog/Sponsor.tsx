@@ -1,7 +1,7 @@
 import { GitHubHeartIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 
-export default function Donate(): JSX.Element {
+export default function Sponsor(): JSX.Element {
 	return (
 		<div className="bg-nfh-background-secondary p-4" role="alert">
 			<div className="flex items-center">
@@ -25,7 +25,7 @@ export default function Donate(): JSX.Element {
 					Sponsor
 				</Link>
 				<Link
-					href="/donate"
+					href="/sponsor"
 					className="mr-2 inline-flex items-center rounded-lg bg-gray-700 px-3 py-1.5 text-center text-xs font-medium !text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300"
 				>
 					Other ways to support

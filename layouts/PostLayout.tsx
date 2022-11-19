@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IPostLayout } from 'lib/interfaces'
 
-import { Donate, Markdown, ReactionsButton, ScrollTop, Share } from '@/components/blog'
+import { Markdown, ReactionsButton, ScrollTop, Share, Sponsor } from '@/components/blog'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 import Category from '@/components/Category'
 import { TwitterIcon } from '@/components/icons'
@@ -133,7 +133,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 								<Share title={title} slug={slug} />
 								<footer>
 									<div className="text-sm font-medium leading-5">
-										<Donate />
+										<Sponsor />
 										{tags && (
 											<div className="py-4">
 												<h2 className="text-xs uppercase tracking-wide">Tags</h2>
