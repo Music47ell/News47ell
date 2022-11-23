@@ -1,4 +1,4 @@
-import playSparkline from '@/utils/playSparkline'
+import playSparkline from '@/utils/play-sparkline'
 
 interface IProps {
 	text: string

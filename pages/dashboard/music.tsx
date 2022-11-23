@@ -13,7 +13,7 @@ export default function Music(): JSX.Element {
 				title={`Music Dashboard - ${siteMetadata.author}`}
 				description={siteMetadata.description}
 			/>
-			<SectionContainer>
+			<SectionContainer className="bg-skulls-pattern bg-fixed bg-center">
 				<div className="space-y-2 pt-6 md:space-y-5">
 					<div className="md:flex md:items-center md:justify-between">
 						<h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">Music</h1>

@@ -7,7 +7,7 @@ import Markdown from '@/components/markdown'
 import { BlogSEO } from '@/components/SEO'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/utils/formatDate'
+import formatDate from '@/utils/format-date'
 
 export default function PostSimple({ frontMatter, next, prev, content }: IPostSimple): JSX.Element {
 	const { author, published_at, updated_at, title, slug, linked } = frontMatter

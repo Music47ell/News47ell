@@ -3,7 +3,7 @@ import { Layout } from 'lib/interfaces'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
 import { useSFX } from '@/hooks/useSFX'
-import formatDate from '@/utils/formatDate'
+import formatDate from '@/utils/format-date'
 
 export default function ArchiveLayout({ posts }: Layout): JSX.Element {
 	const { playMouseClick } = useSFX()

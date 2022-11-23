@@ -12,8 +12,8 @@ import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { useViewsBySlug } from '@/hooks/useViews'
-import formatDate from '@/utils/formatDate'
-import { getGravatar } from '@/utils/getGravatar'
+import formatDate from '@/utils/format-date'
+import { getGravatar } from '@/utils/get-gravatar'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
 	const { slug, linked, published_at, updated_at, title, category, tags, readingTime, author } =

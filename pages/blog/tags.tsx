@@ -6,7 +6,7 @@ import Tag from '@/components/Tag'
 import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllTags } from '@/lib/tags'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
 	const tags = await getAllTags()

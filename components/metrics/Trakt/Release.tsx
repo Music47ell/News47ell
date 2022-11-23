@@ -1,15 +1,45 @@
 import { TraktRelease } from 'lib/types'
+import { useState } from 'react'
 
 import { PlayIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { BorderEffect } from '@/components/UI'
+import { useSafePalette } from '@/hooks/usePalette'
+import hexToRGB from '@/utils/hex-to-rgb'
 
 export default function Release(release: TraktRelease): JSX.Element {
+	const [isHover, setIsHover] = useState(false)
+
+	const handleMouseEnter = () => {
+		setIsHover(true)
+	}
+
+	const handleMouseLeave = () => {
+		setIsHover(false)
+	}
+
+	const { data: palette } = useSafePalette(`https://image.tmdb.org/t/p/original${release.poster}`)
+
+	const light = palette?.lightVibrant
+	const dark = palette?.darkVibrant
+	const vibrant = palette?.vibrant
+	const darkWithOpacity = hexToRGB(palette?.darkVibrant, 0.47)
+
 	return (
-		<div className="group relative flex cursor-pointer items-center bg-nfh-background-secondary p-2 transition duration-500">
-			<BorderEffect />
-			<div className="relative w-32 flex-none">
+		<div
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			style={{ background: isHover ? dark : darkWithOpacity, color: vibrant }}
+			className="group relative flex cursor-pointer items-center p-2 transition duration-500"
+		>
+			<BorderEffect bgColor={light} />
+			<div
+				style={{
+					background: light,
+				}}
+				className="relative w-32 flex-none"
+			>
 				<Image
 					draggable={false}
 					className="rounded"
@@ -23,14 +53,21 @@ export default function Release(release: TraktRelease): JSX.Element {
 
 			<div className="mr-2 ml-4">
 				<Link href={`https://www.imdb.com/title/${release.link}`}>
-					<div className="text-base font-medium text-nfh-text-primary">{release.title}</div>
+					<div
+						style={{
+							color: light,
+						}}
+						className="text-base font-medium"
+					>
+						{release.title}
+					</div>
 				</Link>
 			</div>
 
 			{release.trailer ? (
 				<Link
 					href={`https://www.youtube.com/watch?v=${release.trailer}`}
-					className="ml-auto text-gray-800 hover:scale-105"
+					className="ml-auto hover:scale-105"
 				>
 					<PlayIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
 				</Link>

@@ -5,7 +5,7 @@ import { default as Link } from '@/components/Link'
 import useDebounce from '@/hooks/useDebounce'
 import { usePostsSearch } from '@/hooks/useSearch'
 import { PostsSearchResult } from '@/lib/types'
-import formatDate from '@/utils/formatDate'
+import formatDate from '@/utils/format-date'
 
 const SearchLayout: FC = () => {
 	const [query, setQuery] = useState('')

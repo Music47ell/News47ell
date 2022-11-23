@@ -6,7 +6,7 @@ import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllCategories } from '@/lib/categories'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 export const getStaticProps: GetStaticProps<{ categories: Record<string, number> }> = async () => {
 	const categories = await getAllCategories()

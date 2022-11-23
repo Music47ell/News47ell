@@ -1,7 +1,7 @@
 import { RaindropCard } from 'lib/types'
 
 import { default as Link } from '@/components/Link'
-import formatDate from '@/utils/formatDate'
+import formatDate from '@/utils/format-date'
 
 export default function BookmarkCard(bookmark: RaindropCard): JSX.Element {
 	const title = bookmark.title

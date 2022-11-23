@@ -2,7 +2,8 @@ import { default as Link } from '@/components/Link'
 import { BorderEffect } from '@/components/UI'
 import { Divider } from '@/components/UI/'
 import siteMetadata from '@/data/siteMetadata'
-function HeroCard() {
+
+export default function HeroCard() {
 	if (typeof window === 'object') {
 		const photo = document.querySelector('.u-photo')
 		if (photo) {
@@ -51,4 +52,3 @@ function HeroCard() {
 		</div>
 	)
 }
-export default HeroCard

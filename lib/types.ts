@@ -391,3 +391,19 @@ export type Links = {
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
 }
+
+export type PaletteColors = {
+	vibrant?: string
+	muted?: string
+	darkVibrant?: string
+	darkMuted?: string
+	lightVibrant?: string
+	lightMuted?: string
+	[name: string]: string | undefined
+}
+
+export type PaletteState = {
+	loading: boolean
+	error?: Error
+	data: PaletteColors
+}

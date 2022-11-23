@@ -22,7 +22,7 @@ import AudioToggle from '@/components/toggles/AudioToggle'
 import siteMetadata from '@/data/siteMetadata'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import { useSFX } from '@/hooks/useSFX'
-import { getGravatar } from '@/utils/getGravatar'
+import { getGravatar } from '@/utils/get-gravatar'
 
 const Nav = ({ pickerOpen, setPickerOpen }) => {
 	const [firstName, setFirstName] = useState<string | null>(null)
