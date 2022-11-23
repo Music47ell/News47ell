@@ -13,7 +13,7 @@ export default function Shows(): JSX.Element {
 				title={`Movies and TV Shows Dashboard - ${siteMetadata.author}`}
 				description={siteMetadata.description}
 			/>
-			<SectionContainer className="bg-death-star-pattern bg-fixed bg-center">
+			<SectionContainer>
 				<div className="space-y-2 pt-6 md:space-y-5">
 					<div className="md:flex md:items-center md:justify-between">
 						<h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movies & TV Shows</h1>

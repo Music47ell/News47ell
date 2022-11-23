@@ -7,6 +7,8 @@ export function useLastfm() {
 	const { data, error } = useSWR<Lastfm>('/api/lastfm-stats', fetcher)
 
 	const playCount = data?.user?.playcount
+	const artistsCount = data?.user?.artist_count
+	const tracksCount = data?.user?.track_count
 	const registered = data?.user?.registered?.['#text']
 	const registeredDate = new Date().getFullYear() - new Date(registered * 1000).getFullYear()
 	const days = Math.round(
@@ -18,6 +20,8 @@ export function useLastfm() {
 
 	return {
 		playCount,
+		artistsCount,
+		tracksCount,
 		averagePlayCount,
 		registeredDate,
 		url,

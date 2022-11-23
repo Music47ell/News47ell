@@ -360,6 +360,8 @@ export type PostsSearchResult = {
 export type Lastfm = {
 	user: {
 		playcount: number
+		artist_count: number
+		track_count: number
 		registered: {
 			'#text': number
 		}

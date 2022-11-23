@@ -3,9 +3,18 @@ import { default as Link } from '@/components/Link'
 import { useLastfm } from '@/hooks/useLastfm'
 
 export default function LastfmCard(): JSX.Element {
-	const { playCount, averagePlayCount, registeredDate, url, name, isLoading } = useLastfm()
+	const {
+		playCount,
+		artistsCount,
+		tracksCount,
+		averagePlayCount,
+		registeredDate,
+		url,
+		name,
+		isLoading,
+	} = useLastfm()
 	return (
-		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
+		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary bg-skulls-pattern bg-fixed bg-center p-4 text-nfh-text-primary">
 			{isLoading ? (
 				<div className="flex justify-center">
 					<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />
@@ -43,6 +52,22 @@ export default function LastfmCard(): JSX.Element {
 
 						<div className="flex items-center space-x-2">
 							<div className="truncate">{averagePlayCount} per day</div>
+						</div>
+					</div>
+
+					<div className="flex items-center justify-between space-x-4">
+						<span className="shrink-0">Artists Count</span>
+
+						<div className="flex items-center space-x-2">
+							<div className="truncate">{artistsCount} Artists</div>
+						</div>
+					</div>
+
+					<div className="flex items-center justify-between space-x-4">
+						<span className="shrink-0">Tracks Count</span>
+
+						<div className="flex items-center space-x-2">
+							<div className="truncate">{tracksCount} Tracks</div>
 						</div>
 					</div>
 				</div>

@@ -24,7 +24,7 @@ export default function Links() {
 				description="All my links to socials and other networks you can find me on."
 			/>
 			{/* background by SVGBackgrounds.com */}
-			<main className="container my-8 mx-auto max-w-3xl bg-arrow-up-pattern bg-cover bg-fixed bg-center px-6">
+			<main className="container my-8 mx-auto max-w-3xl bg-arrow-up-pattern bg-cover bg-center px-6">
 				<h1 className="sr-only">Links</h1>
 				<div className="mt-4 flex flex-col items-center justify-center gap-3">
 					<div id="u-photo" className="h-40 w-40 rounded-full bg-cover bg-center" />
