@@ -60,6 +60,7 @@ module.exports = {
 				'dt-edited',
 				'p-summary',
 				'u-url',
+				'u-uid',
 				'p-name',
 				'p-author',
 				'h-card',

@@ -11,7 +11,7 @@ export default function NowWatching(): JSX.Element {
 	const { data } = useSWR<NowWatchingRelease>('/api/now-watching', fetcher)
 
 	const { data: palette } = useSafePalette(
-		`https://image.tmdb.org/t/p/original/${data?.poster}` || '/images/brand/logo.png'
+		data?.isWatching ? `https://image.tmdb.org/t/p/original/${data?.poster}` : null
 	)
 
 	const light = palette?.lightVibrant

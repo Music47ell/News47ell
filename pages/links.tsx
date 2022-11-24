@@ -27,7 +27,7 @@ export default function Links() {
 			<main className="container my-8 mx-auto max-w-3xl bg-arrow-up-pattern bg-cover bg-center px-6">
 				<h1 className="sr-only">Links</h1>
 				<div className="mt-4 flex flex-col items-center justify-center gap-3">
-					<div id="u-photo" className="h-40 w-40 rounded-full bg-cover bg-center" />
+					<div className="h-40 w-40 rounded-full bg-cover bg-center" />
 					<div className="flex w-full flex-col space-y-8 py-4">
 						{siteMetadata.socialLinks.author.map((l, idx) => {
 							const Icon = authorIcons[idx]

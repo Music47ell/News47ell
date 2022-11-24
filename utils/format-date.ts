@@ -1,15 +1,22 @@
 import siteMetadata from '@/data/siteMetadata'
 
-const formatDate = (date: string) => {
-	// convert date and time to be valid ISO-8601
-	const isoDate = new Date(date).toISOString()
-	// format date to be locale specific
-	const formattedDate = new Date(isoDate).toLocaleDateString(siteMetadata.locale, {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	})
-	return formattedDate
+const displayDate = (date: string) => {
+	// human-readable date and time for display purposes (e.g. blog posts)
+	const options: Intl.DateTimeFormatOptions = {
+		dateStyle: 'medium',
+		timeStyle: 'short',
+		hour12: true,
+	}
+	const now = new Date(date).toLocaleString(siteMetadata.locale, options)
+
+	return now
 }
 
-export default formatDate
+const hEntryDate = (date: string) => {
+	// ISO8601 machine-readable datetime for h-entry microformat (https://indieweb.org/h-entry)
+	const now = new Date(date).toISOString()
+
+	return now
+}
+
+export { displayDate, hEntryDate }

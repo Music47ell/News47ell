@@ -10,7 +10,7 @@ import hexToRGB from '@/utils/hex-to-rgb'
 
 export default function NowPlaying(): JSX.Element {
 	const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher)
-	const { data: palette } = useSafePalette(data?.albumImageUrl || '/images/brand/logo.png')
+	const { data: palette } = useSafePalette(data?.albumImageUrl || null)
 
 	const light = palette?.lightVibrant
 	const dark = palette?.darkVibrant

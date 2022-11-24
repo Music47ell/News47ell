@@ -12,7 +12,7 @@ import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { useViewsBySlug } from '@/hooks/useViews'
-import formatDate from '@/utils/format-date'
+import { displayDate, hEntryDate } from '@/utils/format-date'
 import { getGravatar } from '@/utils/get-gravatar'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
@@ -40,11 +40,11 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									<dd className="text-base font-medium leading-6">
 										<Link href={slug} className="u-url">
 											<time
-												dateTime={updated_at ? updated_at : published_at}
+												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												itemProp="datePublished"
 												className="dt-published"
 											>
-												{formatDate(updated_at ? updated_at : published_at)}
+												{displayDate(updated_at ? updated_at : published_at)}
 											</time>
 										</Link>
 									</dd>
@@ -75,8 +75,8 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													src={getGravatar(author.email, 38)}
 													width={38}
 													height={38}
-													alt="u-photo"
-													className="h-10 w-10 rounded-full"
+													alt={author.first_name + ' ' + author.last_name}
+													className="u-photo h-10 w-10 rounded-full"
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">
 													<dt className="sr-only">Name</dt>

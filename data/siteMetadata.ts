@@ -4,7 +4,10 @@ const siteMetadata = {
 	author: 'Ahmet ALMAZ',
 	nickname: 'Music47ell',
 	position: 'Founder and Editor-in-Chief',
-	location: 'Türkiye',
+	location: {
+		country: 'Türkiye',
+		emojiFlag: '🇹🇷',
+	},
 	headerTitle: 'News47ell',
 	description: 'Tech news, reviews and interesting links',
 	language: 'en-us',

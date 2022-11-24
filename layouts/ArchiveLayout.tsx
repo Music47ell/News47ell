@@ -3,7 +3,7 @@ import { Layout } from 'lib/interfaces'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
 import { useSFX } from '@/hooks/useSFX'
-import formatDate from '@/utils/format-date'
+import { displayDate, hEntryDate } from '@/utils/format-date'
 
 export default function ArchiveLayout({ posts }: Layout): JSX.Element {
 	const { playMouseClick } = useSFX()
@@ -21,10 +21,10 @@ export default function ArchiveLayout({ posts }: Layout): JSX.Element {
 										<dt className="sr-only">Published on</dt>
 										<dd className="text-base font-medium leading-6 text-nfh-text-primary">
 											<time
-												dateTime={updated_at ? updated_at : published_at}
+												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												className="dt-edited text-nfh-text-primary"
 											>
-												{formatDate(updated_at ? updated_at : published_at)}
+												{displayDate(updated_at ? updated_at : published_at)}
 											</time>
 										</dd>
 										<dd className="text-base font-medium leading-6 text-nfh-text-primary"></dd>
