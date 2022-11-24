@@ -26,7 +26,7 @@ export default function AuthorLayout({ author, posts }: Authors): JSX.Element {
 							<EnvelopeIcon className="h-6 w-6 fill-nfh-accent-primary" />
 						</Link>
 						{twitter && (
-							<Link href={`https://twitter.com/${twitter}`} className="">
+							<Link href={`https://twitter.com/${twitter}`}>
 								<TwitterIcon className="h-6 w-6" />
 							</Link>
 						)}

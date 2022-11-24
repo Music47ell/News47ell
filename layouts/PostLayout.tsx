@@ -80,15 +80,15 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">
 													<dt className="sr-only">Name</dt>
-													<dd itemProp="name" rel="author" className="p-author h-card">
-														<Link href={`/blog/author/${author.slug}`} className="">
+													<dd itemProp="name" rel="author">
+														<Link href={`/blog/author/${author.slug}`}>
 															{author.first_name} {author.last_name}
 														</Link>
 													</dd>
 													<dt className="sr-only">Twitter</dt>
 													<dd>
 														{author.twitter && (
-															<Link href={`https://twitter.com/${author.twitter}`} className="">
+															<Link href={`https://twitter.com/${author.twitter}`}>
 																<TwitterIcon className="block h-6 w-6" />
 															</Link>
 														)}

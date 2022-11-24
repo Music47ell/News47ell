@@ -43,10 +43,6 @@
 	height: 8px;
 }
 
-::-webkit-scrollbar-track {
-	@apply bg-nfh-accent-primary;
-}
-
 ::-webkit-scrollbar-thumb {
 	@apply rounded-full bg-nfh-accent-primary transition-colors hover:bg-nfh-accent-primary;
 }

@@ -1,14 +1,15 @@
 import siteMetadata from '@/data/siteMetadata'
 
 const formatDate = (date: string) => {
-	const options: Intl.DateTimeFormatOptions = {
-		dateStyle: 'medium',
-		timeStyle: 'short',
-		hour12: false,
-	}
-	const now = new Date(date).toLocaleString(siteMetadata.locale, options)
-
-	return now
+	// convert date and time to be valid ISO-8601
+	const isoDate = new Date(date).toISOString()
+	// format date to be locale specific
+	const formattedDate = new Date(isoDate).toLocaleDateString(siteMetadata.locale, {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	})
+	return formattedDate
 }
 
 export default formatDate

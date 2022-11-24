@@ -44,8 +44,6 @@ export default function Footer(): JSX.Element {
 				<div className="grid grid-cols-1">
 					<NowPlaying />
 					<NowWatching />
-				</div>
-				<div className="mt-4">
 					<HCard />
 				</div>
 				<div className="text-center">
