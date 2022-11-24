@@ -12,6 +12,7 @@ export default function HCard(): JSX.Element {
 				height={64}
 				width={64}
 				src="/images/others/me.png"
+				priority={true}
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
 				<Link className="p-name u-email w-48 font-medium" href={`mailto:${siteMetadata.email}`}>
