@@ -1,7 +1,7 @@
 import { RaindropCard } from 'lib/types'
 
 import { default as Link } from '@/components/Link'
-import formatDate from '@/utils/formatDate'
+import { displayDate } from '@/utils/format-date'
 
 export default function BookmarkCard(bookmark: RaindropCard): JSX.Element {
 	const title = bookmark.title
@@ -16,7 +16,7 @@ export default function BookmarkCard(bookmark: RaindropCard): JSX.Element {
 					<Link href={bookmark.link}>
 						<li className="cursor-pointer text-base hover:text-nfh-text-secondary">{title}</li>
 						<time className="cursor-pointer text-xs text-nfh-text-secondary">
-							{formatDate(bookmark.lastUpdate)}
+							{displayDate(bookmark.lastUpdate)}
 						</time>
 						<p className="cursor-pointer text-xs text-nfh-text-secondary">
 							{bookmark.tags.join(', ')}

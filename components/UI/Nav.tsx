@@ -22,7 +22,7 @@ import AudioToggle from '@/components/toggles/AudioToggle'
 import siteMetadata from '@/data/siteMetadata'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import { useSFX } from '@/hooks/useSFX'
-import { getGravatar } from '@/utils/getGravatar'
+import { getGravatar } from '@/utils/get-gravatar'
 
 const Nav = ({ pickerOpen, setPickerOpen }) => {
 	const [firstName, setFirstName] = useState<string | null>(null)
@@ -105,7 +105,11 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
 					</button>
 				</div>
 				<div className="m-auto items-center justify-center">
-					<Link href="/" aria-label={siteMetadata.headerTitle}>
+					<Link
+						href={siteMetadata.siteUrl}
+						className="u-url u-uid"
+						aria-label={siteMetadata.headerTitle}
+					>
 						<News47ell className="m-auto hidden h-10 w-auto lg:block" />
 						<Slash className="m-auto block h-10 w-auto lg:hidden" />
 					</Link>

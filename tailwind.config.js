@@ -16,7 +16,9 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'arrow-up-pattern': "url('/images/others/arrow-up-pattern.svg')",
+				'arrow-up-pattern': "url('/images/patterns/arrow-up.svg')",
+				'skulls-pattern': "url('/images/patterns/skulls.svg')",
+				'death-star-pattern': "url('/images/patterns/death-star.svg')",
 			},
 			spacing: {
 				'9/16': '56.25%',

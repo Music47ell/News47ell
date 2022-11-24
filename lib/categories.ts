@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getCategories } from '@/lib/supabase'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 export async function getAllCategories() {
 	const allCategories = (await getCategories()).map((post) => ({

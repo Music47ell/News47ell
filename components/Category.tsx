@@ -1,7 +1,7 @@
 import { Taxonomy } from 'lib/interfaces'
 
 import { default as Link } from '@/components/Link'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 const Category = ({ text }: Taxonomy): JSX.Element => {
 	return (

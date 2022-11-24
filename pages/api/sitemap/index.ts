@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import siteMetadata from '@/data/siteMetadata'
 import { getCategories, getSlugsFrom, getTags } from '@/lib/supabase'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method !== 'GET') {

@@ -4,7 +4,7 @@ import Pagination from '@/components/blog/Pagination'
 import { default as Link } from '@/components/Link'
 import { BorderEffect } from '@/components/UI'
 import { useSFX } from '@/hooks/useSFX'
-import formatDate from '@/utils/formatDate'
+import { displayDate, hEntryDate } from '@/utils/format-date'
 
 export default function ListLayout({
 	title,
@@ -39,10 +39,10 @@ export default function ListLayout({
 							<div className="p-4 text-nfh-accent-primary">
 								<div className="grid grid-cols-2 items-center justify-items-center gap-4 text-sm sm:grid-cols-4">
 									<time
-										dateTime={post.updated_at ? post.updated_at : post.published_at}
+										dateTime={hEntryDate(post.updated_at ? post.updated_at : post.published_at)}
 										className="dt-edited flex items-center space-x-2"
 									>
-										{formatDate(post.updated_at ? post.updated_at : post.published_at)}
+										{displayDate(post.updated_at ? post.updated_at : post.published_at)}
 									</time>
 									<span className="flex items-center space-x-2">{post.category}</span>
 									<span className="flex items-center space-x-2">

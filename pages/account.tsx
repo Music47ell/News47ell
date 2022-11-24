@@ -7,7 +7,7 @@ import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import { SectionContainer } from '@/components/UI/'
 import siteMetadata from '@/data/siteMetadata'
-import { getGravatar } from '@/utils/getGravatar'
+import { getGravatar } from '@/utils/get-gravatar'
 
 export default function Account({ user }): JSX.Element {
 	const [loading, setLoading] = useState(false)

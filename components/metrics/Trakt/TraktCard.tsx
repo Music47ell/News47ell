@@ -14,7 +14,7 @@ export default function TraktCard(): JSX.Element {
 		isLoading,
 	} = useTrakt()
 	return (
-		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary p-4 text-nfh-text-primary">
+		<div className="relative flex w-full flex-col rounded bg-nfh-background-secondary bg-death-star-pattern bg-fixed bg-center p-4 text-nfh-text-primary">
 			{isLoading ? (
 				<div className="flex justify-center">
 					<LoaderIcon className="h-10 w-10 animate-spin fill-nfh-accent-primary" />

@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { getAllCategories } from '@/lib/categories'
 import { getContentFrontMatter } from '@/lib/supabase'
-import kebabCase from '@/utils/kebabCase'
+import kebabCase from '@/utils/kebab-case'
 
 export async function getStaticPaths() {
 	const categories = await getAllCategories()

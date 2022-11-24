@@ -1,7 +1,7 @@
 import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import matter from 'gray-matter'
 
-import readingTime from '@/utils/getReadingTime'
+import readingTime from '@/utils/get-reading-time'
 
 export const getWebVitals = async () => {
 	const { data } = await supabaseClient.from('web-vitals').select()

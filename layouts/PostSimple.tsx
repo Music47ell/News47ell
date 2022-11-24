@@ -7,7 +7,7 @@ import Markdown from '@/components/markdown'
 import { BlogSEO } from '@/components/SEO'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/utils/formatDate'
+import { displayDate, hEntryDate } from '@/utils/format-date'
 
 export default function PostSimple({ frontMatter, next, prev, content }: IPostSimple): JSX.Element {
 	const { author, published_at, updated_at, title, slug, linked } = frontMatter
@@ -29,10 +29,10 @@ export default function PostSimple({ frontMatter, next, prev, content }: IPostSi
 										<dt className="sr-only">Published on</dt>
 										<dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
 											<time
-												dateTime={updated_at ? updated_at : published_at}
+												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												className="text-nfh-text-secondary"
 											>
-												{formatDate(updated_at ? updated_at : published_at)}
+												{displayDate(updated_at ? updated_at : published_at)}
 											</time>
 										</dd>
 									</div>

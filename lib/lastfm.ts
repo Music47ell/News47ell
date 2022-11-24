@@ -1,6 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 
-const { LASTFM_API_KEY } = process.env
+const LASTFM_API_KEY = process.env.LASTFM_API_KEY
 
 const STATS_ENDPOINT = `http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${siteMetadata.lastfm}&api_key=${LASTFM_API_KEY}&format=json`
 

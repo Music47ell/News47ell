@@ -360,6 +360,8 @@ export type PostsSearchResult = {
 export type Lastfm = {
 	user: {
 		playcount: number
+		artist_count: number
+		track_count: number
 		registered: {
 			'#text': number
 		}
@@ -390,4 +392,20 @@ export type Links = {
 	onClick?: () => void
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
+}
+
+export type PaletteColors = {
+	vibrant?: string
+	muted?: string
+	darkVibrant?: string
+	darkMuted?: string
+	lightVibrant?: string
+	lightMuted?: string
+	[name: string]: string | undefined
+}
+
+export type PaletteState = {
+	loading: boolean
+	error?: Error
+	data: PaletteColors
 }

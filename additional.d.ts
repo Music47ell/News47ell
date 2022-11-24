@@ -1,7 +1,15 @@
 import 'react'
 
 declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    rel?: string
-  }
+	interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+		rel?: string
+	}
+}
+
+declare global {
+	namespace NodeJS {
+		interface Global {
+			prisma: any
+		}
+	}
 }

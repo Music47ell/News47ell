@@ -12,8 +12,8 @@ import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import { useViewsBySlug } from '@/hooks/useViews'
-import formatDate from '@/utils/formatDate'
-import { getGravatar } from '@/utils/getGravatar'
+import { displayDate, hEntryDate } from '@/utils/format-date'
+import { getGravatar } from '@/utils/get-gravatar'
 
 export default function PostLayout({ frontMatter, next, prev, content }: IPostLayout): JSX.Element {
 	const { slug, linked, published_at, updated_at, title, category, tags, readingTime, author } =
@@ -40,11 +40,11 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									<dd className="text-base font-medium leading-6">
 										<Link href={slug} className="u-url">
 											<time
-												dateTime={updated_at ? updated_at : published_at}
+												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												itemProp="datePublished"
 												className="dt-published"
 											>
-												{formatDate(updated_at ? updated_at : published_at)}
+												{displayDate(updated_at ? updated_at : published_at)}
 											</time>
 										</Link>
 									</dd>
@@ -75,20 +75,20 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													src={getGravatar(author.email, 38)}
 													width={38}
 													height={38}
-													alt="u-photo"
+													alt={author.first_name + ' ' + author.last_name}
 													className="h-10 w-10 rounded-full"
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">
 													<dt className="sr-only">Name</dt>
-													<dd itemProp="name" rel="author" className="p-author h-card">
-														<Link href={`/blog/author/${author.slug}`} className="">
+													<dd itemProp="name" rel="author">
+														<Link href={`/blog/author/${author.slug}`}>
 															{author.first_name} {author.last_name}
 														</Link>
 													</dd>
 													<dt className="sr-only">Twitter</dt>
 													<dd>
 														{author.twitter && (
-															<Link href={`https://twitter.com/${author.twitter}`} className="">
+															<Link href={`https://twitter.com/${author.twitter}`}>
 																<TwitterIcon className="block h-6 w-6" />
 															</Link>
 														)}

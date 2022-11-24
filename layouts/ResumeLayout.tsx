@@ -42,7 +42,7 @@ export default function ResumeLayout({
 		<SectionContainer>
 			<div className="mt-20 border border-nfh-accent-primary text-nfh-text-primary">
 				<div className="grid grid-cols-1 p-5">
-					<div className="order-last mt-12 grid grid-cols-2 text-center md:order-first md:mt-0">
+					<div className="order-last mt-14 grid grid-cols-1 text-center md:order-first md:mt-0 md:grid-cols-2">
 						<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
 							{basics.email}
 						</Link>
