@@ -61,34 +61,34 @@ kbd {
 }
 
 @layer base {
-	[data-theme='light'] #u-photo {
+	[data-theme='light'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='hackernews'] #u-photo {
+	[data-theme='hackernews'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='latte'] #u-photo {
+	[data-theme='latte'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='rosépinedawn'] #u-photo {
+	[data-theme='rosépinedawn'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');
 	}
-	[data-theme='dark'] #u-photo {
+	[data-theme='dark'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
-	[data-theme='dracula'] #u-photo {
+	[data-theme='dracula'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
-	[data-theme='mocha'] #u-photo {
+	[data-theme='mocha'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
-	[data-theme='rosépine'] #u-photo {
+	[data-theme='rosépine'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
-	[data-theme='wildberries'] #u-photo {
+	[data-theme='wildberries'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
-	[data-theme='nord'] #u-photo {
+	[data-theme='nord'] #hero-photo {
 		background-image: url('/images/others/me.png');
 	}
 

@@ -76,8 +76,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													width={38}
 													height={38}
 													alt={author.first_name + ' ' + author.last_name}
-													className="u-photo h-10 w-10 rounded-full"
-													priority={true}
+													className="h-10 w-10 rounded-full"
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">
 													<dt className="sr-only">Name</dt>

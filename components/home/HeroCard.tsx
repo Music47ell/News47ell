@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function HeroCard() {
 	if (typeof window === 'object') {
-		const photo = document.querySelector('.u-photo')
+		const photo = document.querySelector('.hero-photo')
 		if (photo) {
 			window.addEventListener('deviceorientation', (e) => {
 				const tiltLR = e.gamma
@@ -31,7 +31,7 @@ export default function HeroCard() {
 					</div>
 				</div>
 				<div className="my-16 flex items-center justify-center">
-					<div id="u-photo" className="u-photo grid h-40 w-40 rounded-full bg-cover" />
+					<div id="hero-photo" className="grid h-40 w-40 rounded-full bg-cover" />
 				</div>
 			</header>
 			<Divider>/</Divider>
