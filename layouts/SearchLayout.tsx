@@ -5,7 +5,7 @@ import { default as Link } from '@/components/Link'
 import useDebounce from '@/hooks/useDebounce'
 import { usePostsSearch } from '@/hooks/useSearch'
 import { PostsSearchResult } from '@/lib/types'
-import formatDate from '@/utils/format-date'
+import { displayDate } from '@/utils/format-date'
 
 const SearchLayout: FC = () => {
 	const [query, setQuery] = useState('')
@@ -79,7 +79,7 @@ const SearchLayout: FC = () => {
 								<div className="flex cursor-pointer justify-between border-b border-nfh-accent-secondary p-4 hover:border-nfh-accent-primary">
 									<div className="flex-1 overflow-hidden truncate">
 										<div className="pb-1 font-medium">{result.title}</div>
-										<div className="font-mono text-xs">{formatDate(result.published_at)}</div>
+										<div className="font-mono text-xs">{displayDate(result.published_at)}</div>
 									</div>
 								</div>
 							</Link>
