@@ -60,6 +60,16 @@ kbd {
 	border-radius: calc(var(--unit) * 0.5);
 }
 
+.orbit-context:focus-within,
+.orbit-context:hover {
+	animation-play-state: paused;
+}
+
+.orbit-context:focus-within .orbit-element,
+.orbit-context:hover .orbit-element {
+	animation-play-state: paused;
+}
+
 @layer base {
 	[data-theme='light'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');

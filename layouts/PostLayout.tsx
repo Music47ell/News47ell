@@ -71,10 +71,8 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												className="p-name flex items-center space-x-2"
 												key={author.id}
 											>
-												<Image
+												<img
 													src={getGravatar(author.email, 38)}
-													width={38}
-													height={38}
 													alt={author.first_name + ' ' + author.last_name}
 													className="h-10 w-10 rounded-full"
 												/>

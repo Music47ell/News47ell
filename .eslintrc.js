@@ -77,6 +77,8 @@ module.exports = {
 				'year',
 				'site-credit',
 				'language-',
+				'orbit-context',
+				'orbit-element',
 			],
 		},
 	},

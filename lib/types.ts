@@ -386,6 +386,7 @@ export type OGMeta = {
 }
 
 export type Links = {
+	rel?: string
 	href?: string
 	className?: string
 	children?: React.ReactNode
