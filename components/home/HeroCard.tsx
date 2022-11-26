@@ -58,9 +58,9 @@ export default function HeroCard() {
 								</Link>
 							)
 						})}
-						<div className="block h-48 w-48 overflow-hidden rounded-full border-4 border-sky-500 bg-gradient-to-tr from-purple-500 to-sky-500">
+						<div className="block h-48 w-48 overflow-hidden rounded-full border-4 border-nfh-accent-primary hover:border-nfh-accent-secondary">
 							<Image
-								className="orbit-element u-photo h-full w-full animate-orbit-reverse rounded-md transition-all"
+								className="orbit-element h-full w-full animate-orbit-reverse rounded-md transition-all"
 								src="/images/others/me.png"
 								alt={siteMetadata.author}
 								height={700}

@@ -13,12 +13,12 @@ export default function HCard(): JSX.Element {
 				alt={siteMetadata.author}
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
-				<Link className="p-name u-email w-48 font-medium" href={`mailto:${siteMetadata.email}`}>
-					{siteMetadata.author}
+				<Link className="u-email w-48 font-medium" href={`mailto:${siteMetadata.email}`}>
+					<p className="p-name  text-sm font-medium">{siteMetadata.author}</p>
 				</Link>
-				<a className="u-url u-uid u-email w-48 font-medium" href={siteMetadata.siteUrl}>
+				<Link className="u-url u-uid w-48 font-medium" href={siteMetadata.siteUrl}>
 					<p className="p-nickname text-sm font-medium">{siteMetadata.nickname}</p>
-				</a>
+				</Link>
 				<p className="p-note text-sm font-medium">{siteMetadata.position}</p>
 				<p className="p-country-name text-sm font-medium">
 					{siteMetadata.location.country} <Turkiye className="p-country-flag inline h-6 w-6" />
