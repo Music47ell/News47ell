@@ -78,7 +78,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													width={40}
 													height={40}
 												/>
-												<Link href={`/blog/author/${author.slug}`}>
+												<Link href={`/blog/author/${author.slug}`} rel="author">
 													<span itemProp="name">{author.first_name + ' ' + author.last_name}</span>
 												</Link>
 											</li>
@@ -86,7 +86,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												<dt className="sr-only">Post stats</dt>
 												<dd>
 													<ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
-														<li className="p-name flex items-center space-x-2">
+														<li className="flex items-center space-x-2">
 															<dl className="whitespace-nowrap text-sm font-medium leading-5">
 																<dt className="sr-only">Word Count</dt>
 																<dd>{readingTime.words} words</dd>
