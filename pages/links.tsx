@@ -44,7 +44,7 @@ export default function Links() {
 						})}
 					</div>
 					<Image
-						alt={siteMetadata.author}
+						alt={siteMetadata.image}
 						height={150}
 						width={150}
 						src={siteMetadata.siteLogo}

@@ -61,7 +61,7 @@ export default function HeroCard() {
 						<div className="block h-48 w-48 overflow-hidden rounded-full border-4 border-nfh-accent-primary hover:border-nfh-accent-secondary">
 							<Image
 								className="orbit-element h-full w-full animate-orbit-reverse rounded-md transition-all"
-								src="/images/others/me.png"
+								src={siteMetadata.image}
 								alt={siteMetadata.author}
 								height={700}
 								width={700}

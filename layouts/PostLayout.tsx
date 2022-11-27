@@ -75,26 +75,13 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													src={getGravatar(author.email, 38)}
 													alt={author.first_name + ' ' + author.last_name}
 													title={author.first_name + ' ' + author.last_name}
-													className="photo u-photo h-10 w-10 rounded-full"
+													className="h-10 w-10 rounded-full"
 													width={40}
 													height={40}
 												/>
-												<dl className="whitespace-nowrap text-sm font-medium leading-5">
-													<dt className="sr-only">Name</dt>
-													<dd itemProp="name" rel="author">
-														<Link href={`/blog/author/${author.slug}`} rel="author">
-															{author.first_name} {author.last_name}
-														</Link>
-													</dd>
-													<dt className="sr-only">Twitter</dt>
-													<dd>
-														{author.twitter && (
-															<Link href={`https://twitter.com/${author.twitter}`}>
-																<TwitterIcon className="block h-6 w-6" />
-															</Link>
-														)}
-													</dd>
-												</dl>
+												<Link href={`/blog/author/${author.slug}`}>
+													<span itemProp="name">{author.first_name + ' ' + author.last_name}</span>
+												</Link>
 											</li>
 											<dl>
 												<dt className="sr-only">Post stats</dt>
