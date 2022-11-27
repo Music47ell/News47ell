@@ -78,9 +78,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 															height={40}
 														/>
 													</div>
-													<span className="p-name">
-														{author.first_name + ' ' + author.last_name}
-													</span>
+													<span>{author.first_name + ' ' + author.last_name}</span>
 												</Link>
 											</li>
 											<dl>
