@@ -64,20 +64,20 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									<dd>
 										<ul className="flex justify-center space-x-8">
 											<li className="flex items-center space-x-2" key={author.id}>
+												<div className="[&>img]:rounded-full">
+													<Image
+														src={getGravatar(author.email, 38)}
+														alt={author.first_name + ' ' + author.last_name}
+														className="photo u-photo"
+														width={40}
+														height={40}
+													/>
+												</div>
 												<Link
 													href={`/blog/author/${author.slug}`}
 													className="p-author h-card"
 													rel="author"
 												>
-													<div className="flex place-content-center [&>img]:rounded-full">
-														<Image
-															src={getGravatar(author.email, 38)}
-															alt={author.first_name + ' ' + author.last_name}
-															className="photo u-photo"
-															width={40}
-															height={40}
-														/>
-													</div>
 													<span>{author.first_name + ' ' + author.last_name}</span>
 												</Link>
 											</li>
