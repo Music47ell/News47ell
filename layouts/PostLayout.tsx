@@ -38,7 +38,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 								<dl className="space-y-10">
 									<dt className="sr-only">Published on</dt>
 									<dd className="text-base font-medium leading-6">
-										<Link href={slug}>
+										<Link href={slug} className="u-url">
 											<time
 												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												itemProp="datePublished"
@@ -74,7 +74,6 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												<Image
 													src={getGravatar(author.email, 38)}
 													alt={author.first_name + ' ' + author.last_name}
-													title={author.first_name + ' ' + author.last_name}
 													className="h-10 w-10 rounded-full"
 													width={40}
 													height={40}

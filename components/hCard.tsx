@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function HCard(): JSX.Element {
 	return (
-		<div className="h-card p-author user-profile relative my-4 mx-auto flex items-center rounded-md border border-nfh-accent-primary p-2 text-sm">
+		<div className="p-author h-card user-profile relative my-4 mx-auto flex items-center rounded-md border border-nfh-accent-primary p-2 text-sm">
 			<Link
 				href="/"
 				className="[&>img]:rounded-md"
@@ -16,6 +16,7 @@ export default function HCard(): JSX.Element {
 					className="photo u-photo"
 					src={siteMetadata.image}
 					alt={siteMetadata.author}
+					title={siteMetadata.author}
 					width={64}
 					height={64}
 				/>
