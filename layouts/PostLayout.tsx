@@ -74,12 +74,15 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												<Image
 													src={getGravatar(author.email, 38)}
 													alt={author.first_name + ' ' + author.last_name}
-													className="u-photo h-10 w-10 rounded-full"
+													title={author.first_name + ' ' + author.last_name}
+													className="photo u-photo h-10 w-10 rounded-full"
+													width={40}
+													height={40}
 												/>
 												<dl className="whitespace-nowrap text-sm font-medium leading-5">
 													<dt className="sr-only">Name</dt>
 													<dd itemProp="name" rel="author">
-														<Link href={`/blog/author/${author.slug}`}>
+														<Link href={`/blog/author/${author.slug}`} rel="author">
 															{author.first_name} {author.last_name}
 														</Link>
 													</dd>
@@ -100,11 +103,11 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 														<li className="p-name flex items-center space-x-2">
 															<dl className="whitespace-nowrap text-sm font-medium leading-5">
 																<dt className="sr-only">Word Count</dt>
-																<dd className="p-author h-card">{readingTime.words} words</dd>
+																<dd>{readingTime.words} words</dd>
 																<dt className="sr-only">Reading time</dt>
-																<dd className="p-author h-card">{readingTime.time} minutes</dd>
+																<dd>{readingTime.time} minutes</dd>
 																<dt className="sr-only">Post Views</dt>
-																<dd className="p-author h-card">
+																<dd>
 																	{isLoading ? (
 																		'---'
 																	) : (
@@ -123,7 +126,10 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									</dd>
 								</dl>
 								<div className="divide-y py-6">
-									<div itemProp="articleBody" className="e-content max-w-none text-base">
+									<div
+										itemProp="articleBody"
+										className="e-content entry-content max-w-none text-base"
+									>
 										<Markdown>{content}</Markdown>
 									</div>
 								</div>
