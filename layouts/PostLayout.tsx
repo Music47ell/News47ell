@@ -68,13 +68,13 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 												itemScope
 												itemProp="author"
 												itemType="http://schema.org/Person"
-												className="p-name flex items-center space-x-2"
+												className="flex items-center space-x-2 [&>img]:rounded-full"
 												key={author.id}
 											>
 												<Image
 													src={getGravatar(author.email, 38)}
 													alt={author.first_name + ' ' + author.last_name}
-													className="h-10 w-10 rounded-full"
+													className="photo u-photo"
 													width={40}
 													height={40}
 												/>
@@ -83,7 +83,9 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													className="p-author h-card"
 													rel="author"
 												>
-													<span itemProp="name">{author.first_name + ' ' + author.last_name}</span>
+													<span itemProp="name" className="p-name">
+														{author.first_name + ' ' + author.last_name}
+													</span>
 												</Link>
 											</li>
 											<dl>
