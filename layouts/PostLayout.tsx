@@ -41,7 +41,6 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 										<Link href={slug} className="u-url">
 											<time
 												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
-												itemProp="datePublished"
 												className="dt-published"
 											>
 												{displayDate(updated_at ? updated_at : published_at)}
@@ -64,26 +63,22 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									<dt className="sr-only">Authors</dt>
 									<dd>
 										<ul className="flex justify-center space-x-8">
-											<li
-												itemScope
-												itemProp="author"
-												itemType="http://schema.org/Person"
-												className="flex items-center space-x-2 [&>img]:rounded-full"
-												key={author.id}
-											>
-												<Image
-													src={getGravatar(author.email, 38)}
-													alt={author.first_name + ' ' + author.last_name}
-													className="photo u-photo"
-													width={40}
-													height={40}
-												/>
+											<li className="flex items-center space-x-2" key={author.id}>
 												<Link
 													href={`/blog/author/${author.slug}`}
 													className="p-author h-card"
 													rel="author"
 												>
-													<span itemProp="name" className="p-name">
+													<div className="flex place-content-center [&>img]:rounded-full">
+														<Image
+															src={getGravatar(author.email, 38)}
+															alt={author.first_name + ' ' + author.last_name}
+															className="photo u-photo"
+															width={40}
+															height={40}
+														/>
+													</div>
+													<span className="p-name">
 														{author.first_name + ' ' + author.last_name}
 													</span>
 												</Link>
@@ -118,10 +113,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									</dd>
 								</dl>
 								<div className="divide-y py-6">
-									<div
-										itemProp="articleBody"
-										className="e-content entry-content max-w-none text-base"
-									>
+									<div className="e-content entry-content max-w-none text-base">
 										<Markdown>{content}</Markdown>
 									</div>
 								</div>
