@@ -38,7 +38,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 								<dl className="space-y-10">
 									<dt className="sr-only">Published on</dt>
 									<dd className="text-base font-medium leading-6">
-										<Link href={slug} className="u-url">
+										<Link href={slug}>
 											<time
 												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
 												itemProp="datePublished"
