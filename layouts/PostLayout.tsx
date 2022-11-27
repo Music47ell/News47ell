@@ -78,7 +78,11 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 													width={40}
 													height={40}
 												/>
-												<Link href={`/blog/author/${author.slug}`} rel="author">
+												<Link
+													href={`/blog/author/${author.slug}`}
+													className="p-author h-card"
+													rel="author"
+												>
 													<span itemProp="name">{author.first_name + ' ' + author.last_name}</span>
 												</Link>
 											</li>
