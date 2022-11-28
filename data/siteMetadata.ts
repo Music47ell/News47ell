@@ -21,6 +21,7 @@ const siteMetadata = {
 	codestats: 'Music47ell',
 	trakt: 'Music47ell',
 	lastfm: 'Music47ell',
+	webmention: 'www.news47ell.com',
 	locale: 'en-US',
 	postsPerPages: 10,
 	adminNavLinks: [
