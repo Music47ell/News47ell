@@ -105,11 +105,7 @@ const Nav = ({ pickerOpen, setPickerOpen }) => {
 					</button>
 				</div>
 				<div className="m-auto items-center justify-center">
-					<Link
-						href={siteMetadata.siteUrl}
-						className="u-url u-uid"
-						aria-label={siteMetadata.headerTitle}
-					>
+					<Link href="/" aria-label={siteMetadata.headerTitle}>
 						<News47ell className="m-auto hidden h-10 w-auto lg:block" />
 						<Slash className="m-auto block h-10 w-auto lg:hidden" />
 					</Link>

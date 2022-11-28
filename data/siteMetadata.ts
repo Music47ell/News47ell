@@ -21,6 +21,7 @@ const siteMetadata = {
 	codestats: 'Music47ell',
 	trakt: 'Music47ell',
 	lastfm: 'Music47ell',
+	webmention: 'www.news47ell.com',
 	locale: 'en-US',
 	postsPerPages: 10,
 	adminNavLinks: [
@@ -31,6 +32,12 @@ const siteMetadata = {
 		{ title: 'Add Quote', href: '/admin/add/quote' },
 		{ title: 'Account Settings', href: '/account' },
 		{ title: 'Sign out', href: '/api/auth/logout' },
+	],
+	orbitLinks: [
+		{ title: 'Twitter', href: 'https://twitter.com/music47ell', icon: 'twitter' },
+		{ title: 'GitHub', href: 'https://github.com/music47ell', icon: 'github' },
+		{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/music47ell', icon: 'linkedin' },
+		{ title: 'Mastodon', href: 'https://mastodon.social/@music47ell', icon: 'mastodon' },
 	],
 	heroCardLinks: [
 		{ title: 'Check the dashboard', href: '/dashboard' },

@@ -131,6 +131,8 @@ module.exports = {
 				'slide-in': 'slide-in 0.2s ease-out',
 				'slide-out': 'slide-out 0.2s ease',
 				wiggle: 'wiggle 1s linear',
+				orbit: 'orbit 40s linear infinite',
+				'orbit-reverse': 'orbit-reverse 40s linear infinite',
 			},
 			keyframes: (theme) => ({
 				fadeIn: {
@@ -158,6 +160,14 @@ module.exports = {
 					'50%': { transform: 'rotate(10.0deg)' },
 					'60%': { transform: 'rotate(0.0deg)' },
 					'100%': { transform: 'rotate(0.0deg)' },
+				},
+				orbit: {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(1turn)' },
+				},
+				'orbit-reverse': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(-1turn)' },
 				},
 			}),
 			typography: (theme) => ({

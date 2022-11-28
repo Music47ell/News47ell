@@ -16,7 +16,7 @@ export default function ListLayout({
 	const { playMouseClick } = useSFX()
 
 	return (
-		<main className="container my-8 mx-auto max-w-3xl px-6">
+		<main className="h-feed container my-8 mx-auto max-w-3xl px-6">
 			<h1 className="mb-8 font-serif text-4xl">{title}</h1>
 			{displayPosts.map((post) => (
 				<Link
@@ -25,7 +25,7 @@ export default function ListLayout({
 					//@ts-ignore
 					onClick={playMouseClick}
 				>
-					<article className="h-entry text-base">
+					<article className="h-entry hentry text-base">
 						<div className="group relative mb-6 block cursor-pointer items-center bg-nfh-background-secondary p-2 text-nfh-text-primary transition duration-500 hover:scale-105 hover:opacity-80 hover:shadow-lg">
 							<BorderEffect />
 							<div className="relative p-4">
@@ -44,7 +44,7 @@ export default function ListLayout({
 									>
 										{displayDate(post.updated_at ? post.updated_at : post.published_at)}
 									</time>
-									<span className="flex items-center space-x-2">{post.category}</span>
+									<span className="p-category flex items-center space-x-2">{post.category}</span>
 									<span className="flex items-center space-x-2">
 										{post.readingTime.time} minutes
 									</span>

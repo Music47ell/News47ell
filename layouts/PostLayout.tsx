@@ -41,7 +41,6 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 										<Link href={slug} className="u-url">
 											<time
 												dateTime={hEntryDate(updated_at ? updated_at : published_at)}
-												itemProp="datePublished"
 												className="dt-published"
 											>
 												{displayDate(updated_at ? updated_at : published_at)}
@@ -64,49 +63,32 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									<dt className="sr-only">Authors</dt>
 									<dd>
 										<ul className="flex justify-center space-x-8">
-											<li
-												itemScope
-												itemProp="author"
-												itemType="http://schema.org/Person"
-												className="p-name flex items-center space-x-2"
-												key={author.id}
-											>
-												<Image
-													src={getGravatar(author.email, 38)}
-													width={38}
-													height={38}
-													alt={author.first_name + ' ' + author.last_name}
-													className="h-10 w-10 rounded-full"
-												/>
-												<dl className="whitespace-nowrap text-sm font-medium leading-5">
-													<dt className="sr-only">Name</dt>
-													<dd itemProp="name" rel="author">
-														<Link href={`/blog/author/${author.slug}`}>
-															{author.first_name} {author.last_name}
-														</Link>
-													</dd>
-													<dt className="sr-only">Twitter</dt>
-													<dd>
-														{author.twitter && (
-															<Link href={`https://twitter.com/${author.twitter}`}>
-																<TwitterIcon className="block h-6 w-6" />
-															</Link>
-														)}
-													</dd>
-												</dl>
+											<li className="flex items-center space-x-2" key={author.id}>
+												<div className="p-author h-card [&>img]:rounded-full">
+													<Image
+														src={getGravatar(author.email, 38)}
+														alt={author.first_name + ' ' + author.last_name}
+														className="photo u-photo"
+														width={40}
+														height={40}
+													/>
+												</div>
+												<Link href={`/blog/author/${author.slug}`} rel="author">
+													<span>{author.first_name + ' ' + author.last_name}</span>
+												</Link>
 											</li>
 											<dl>
 												<dt className="sr-only">Post stats</dt>
 												<dd>
 													<ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
-														<li className="p-name flex items-center space-x-2">
+														<li className="flex items-center space-x-2">
 															<dl className="whitespace-nowrap text-sm font-medium leading-5">
 																<dt className="sr-only">Word Count</dt>
-																<dd className="p-author h-card">{readingTime.words} words</dd>
+																<dd>{readingTime.words} words</dd>
 																<dt className="sr-only">Reading time</dt>
-																<dd className="p-author h-card">{readingTime.time} minutes</dd>
+																<dd>{readingTime.time} minutes</dd>
 																<dt className="sr-only">Post Views</dt>
-																<dd className="p-author h-card">
+																<dd>
 																	{isLoading ? (
 																		'---'
 																	) : (
@@ -125,7 +107,7 @@ export default function PostLayout({ frontMatter, next, prev, content }: IPostLa
 									</dd>
 								</dl>
 								<div className="divide-y py-6">
-									<div itemProp="articleBody" className="e-content max-w-none text-base">
+									<div className="e-content entry-content max-w-none text-base">
 										<Markdown>{content}</Markdown>
 									</div>
 								</div>

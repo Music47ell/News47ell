@@ -68,6 +68,10 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			<meta name="twitter:title" content={title} />
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={twImage} />
+
+			{/* Webmention Meta Tags */}
+			<link rel="webmention" href={`https://webmention.io/${siteMetadata.webmention}/webmention`} />
+			<link rel="pingback" href={`https://webmention.io/${siteMetadata.webmention}/xmlrpc`} />
 		</Head>
 	)
 }
