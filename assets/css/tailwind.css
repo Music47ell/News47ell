@@ -70,6 +70,15 @@ kbd {
 	animation-play-state: paused;
 }
 
+@keyframes loop {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
 @layer base {
 	[data-theme='light'] #hero-photo {
 		background-image: url('/images/others/me-alt.png');
