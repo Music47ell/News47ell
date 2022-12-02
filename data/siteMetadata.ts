@@ -26,22 +26,14 @@ const siteMetadata = {
 	postsPerPages: 10,
 	marqueeLists: {
 		topics: [
-			'HTML',
-			'CSS',
-			'JavaScript',
-			'React',
-			'Node.js',
-			'TypeScript',
-			'Next.js',
-			'Tailwind CSS',
-			'JAMstack',
-			'Web Development',
-			'Web Performance',
 			'SEO',
+			'JAMstack',
+			'Web APIs',
+			'Web Tools',
 			'Web Security',
 			'Web Standards',
-			'Web Tools',
-			'Web APIs',
+			'Web Development',
+			'Web Performance',
 		],
 	},
 	adminNavLinks: [
@@ -75,18 +67,12 @@ const siteMetadata = {
 		{ title: 'Uses', href: '/uses', icon: 'briefcase' },
 		{ title: 'Now', href: '/now', icon: 'calendar' },
 	],
-	upperFooterLinks: [
+	footerLinks: [
 		{ title: 'Links', href: '/links' },
 		{ title: 'Legal', href: '/legal' },
 		{ title: 'RSS', href: '/feed' },
 		{ title: 'Acknowledgements', href: '/acknowledgements' },
 		{ title: 'Support This Site', href: '/sponsor' },
-	],
-	lowerFooterLinks: [
-		{ title: 'Supabase', href: 'https://supabase.io/', icon: 'supabase' },
-		{ title: 'Next.js', href: 'https://nextjs.org/', icon: 'nextdotjs' },
-		{ title: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: 'tailwindcss' },
-		{ title: 'Vercel', href: 'https://vercel.com/', icon: 'vercel' },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

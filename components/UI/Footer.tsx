@@ -1,35 +1,22 @@
 import HCard from '@/components/hCard'
-import { NextDotJsIcon, SupabaseIcon, TailwindCSSIcon, VercelIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { NowPlaying } from '@/components/metrics/Spotify'
 import { NowWatching } from '@/components/metrics/Trakt'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
-	const icons = [SupabaseIcon, NextDotJsIcon, TailwindCSSIcon, VercelIcon]
-
 	return (
 		<footer className="bg-nfh-background-secondary py-4 print:hidden">
 			<div className="flex flex-col items-center">
 				<nav>
-					<ul className="flex flex-wrap justify-center">
-						{siteMetadata.upperFooterLinks.map((link) => (
+					<ul className="my-2 flex flex-wrap items-center justify-center">
+						{siteMetadata.footerLinks.map((link) => (
 							<li className="mx-3" key={link.href}>
 								<Link href={link.href}>{link.title}</Link>
 							</li>
 						))}
 					</ul>
 				</nav>
-				<div className="site-credit my-2 flex items-center space-x-2">
-					{siteMetadata.lowerFooterLinks.map((link, idx) => {
-						const Icon = icons[idx]
-						return (
-							<Link href={link.href} key={link.href}>
-								<Icon className="block h-6 w-6" />
-							</Link>
-						)
-					})}
-				</div>
 				<div
 					className="copyright mb-2 block space-x-2 text-center text-xs"
 					itemProp="copyrightYear"
