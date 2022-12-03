@@ -50,5 +50,12 @@ export default function NowWatching(): JSX.Element {
 				<TraktIcon className="block h-6 w-6 fill-nfh-accent-primary" />
 			</div>
 		</div>
-	) : null
+	) : (
+		<div className="flex w-full flex-row-reverse items-center">
+			<TraktIcon className="block h-6 w-6 fill-nfh-accent-primary" />
+			<div className="inline-flex w-full max-w-full flex-col truncate sm:flex-row">
+				<p className="font-medium">Not Watching</p>
+			</div>
+		</div>
+	)
 }

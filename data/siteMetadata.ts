@@ -24,6 +24,18 @@ const siteMetadata = {
 	webmention: 'www.news47ell.com',
 	locale: 'en-US',
 	postsPerPages: 10,
+	marqueeLists: {
+		topics: [
+			'SEO',
+			'JAMstack',
+			'Web APIs',
+			'Web Tools',
+			'Web Security',
+			'Web Standards',
+			'Web Development',
+			'Web Performance',
+		],
+	},
 	adminNavLinks: [
 		{ title: 'Admin Dashboard', href: '/admin' },
 		{ title: 'Add Post', href: '/admin/add/post' },
@@ -55,18 +67,11 @@ const siteMetadata = {
 		{ title: 'Uses', href: '/uses', icon: 'briefcase' },
 		{ title: 'Now', href: '/now', icon: 'calendar' },
 	],
-	upperFooterLinks: [
+	footerLinks: [
 		{ title: 'Links', href: '/links' },
-		{ title: 'Legal', href: '/legal' },
 		{ title: 'RSS', href: '/feed' },
 		{ title: 'Acknowledgements', href: '/acknowledgements' },
 		{ title: 'Support This Site', href: '/sponsor' },
-	],
-	lowerFooterLinks: [
-		{ title: 'Supabase', href: 'https://supabase.io/', icon: 'supabase' },
-		{ title: 'Next.js', href: 'https://nextjs.org/', icon: 'nextdotjs' },
-		{ title: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: 'tailwindcss' },
-		{ title: 'Vercel', href: 'https://vercel.com/', icon: 'vercel' },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

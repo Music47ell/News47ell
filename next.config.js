@@ -28,6 +28,7 @@ module.exports = () => {
 		images: {
 			domains: [
 				'i.scdn.co', // Spotify Album Art
+				'webmention.io', // Webmention.io Image
 				'pbs.twimg.com', // Twitter Profile Picture
 				'image.tmdb.org', // TMDB TVShow/Movie Posters
 				'www.gravatar.com', // Gravatar Image

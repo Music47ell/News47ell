@@ -83,7 +83,6 @@ module.exports = {
 				'p-country-flag',
 				'copyright',
 				'year',
-				'site-credit',
 				'language-',
 				'orbit-context',
 				'orbit-element',
