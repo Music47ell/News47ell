@@ -50,5 +50,12 @@ export default function NowPlaying(): JSX.Element {
 				<SpotifyIcon className="block h-6 w-6 fill-nfh-accent-primary" />
 			</div>
 		</div>
-	) : null
+	) : (
+		<div className="flex w-full flex-row-reverse items-center">
+			<SpotifyIcon className="block h-6 w-6 fill-nfh-accent-primary" />
+			<div className="inline-flex w-full max-w-full flex-col truncate sm:flex-row">
+				<p className="font-medium">Not Playing</p>
+			</div>
+		</div>
+	)
 }

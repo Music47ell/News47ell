@@ -17,26 +17,24 @@ export default function Footer(): JSX.Element {
 						))}
 					</ul>
 				</nav>
-				<div
-					className="copyright mb-2 block space-x-2 text-center text-xs"
-					itemProp="copyrightYear"
-				>
-					COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
-					{` `}
-					{siteMetadata.altTitle}. ALL RIGHTS RESERVED.
-				</div>
-				<div className="text-center text-xs">
-					Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
-				</div>
-				<div className="grid grid-cols-1">
+				<div className="grid grid-cols-1 space-y-2">
+					<div className="copyright text-center text-xs" itemProp="copyrightYear">
+						COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
+						{siteMetadata.altTitle}. ALL RIGHTS RESERVED.
+					</div>
+					<div className="text-center text-xs">
+						Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
+					</div>
 					<NowPlaying />
 					<NowWatching />
 					<HCard />
-				</div>
-				<div className="text-center">
-					<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</Link>
-					An IndieWeb Webring 🕸💍
-					<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
+					<div className="text-center">
+						<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">
+							←
+						</Link>
+						An IndieWeb Webring 🕸💍
+						<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -69,7 +69,6 @@ const siteMetadata = {
 	],
 	footerLinks: [
 		{ title: 'Links', href: '/links' },
-		{ title: 'Legal', href: '/legal' },
 		{ title: 'RSS', href: '/feed' },
 		{ title: 'Acknowledgements', href: '/acknowledgements' },
 		{ title: 'Support This Site', href: '/sponsor' },
