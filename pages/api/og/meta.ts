@@ -4,7 +4,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const targetURL = req.query.url as string
 
 	try {
-		// trim 'http' or 'https' and concat again
 		const target = await fetch(targetURL)
 
 		const html = await target.text()

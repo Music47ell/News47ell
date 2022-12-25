@@ -1,30 +1,31 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { PageSEO } from '@/components/SEO'
+import type { Blog } from '@/contentlayer/generated'
+import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import { getContentFrontMatter } from '@/lib/supabase'
+import { allCoreContent, sortedBlogPost } from '@/lib/contentlayer'
 
 export const getStaticProps: GetStaticProps = async () => {
-	const db = await getContentFrontMatter('posts')
+	const posts = sortedBlogPost(allBlogs) as Blog[]
 
-	const initialDisplayPosts = db.splice(0, siteMetadata.postsPerPages)
+	const initialDisplayPosts = posts.splice(0, siteMetadata.postsPerPages)
 	const pagination = {
 		currentPage: 1,
-		totalPages: Math.ceil(db.length / siteMetadata.postsPerPages) + 1,
+		totalPages: Math.ceil(posts.length / siteMetadata.postsPerPages) + 1,
 	}
 
 	return {
 		props: {
-			posts: db,
+			initialDisplayPosts: allCoreContent(initialDisplayPosts),
+			posts: allCoreContent(posts),
 			pagination,
-			initialDisplayPosts,
 		},
-		revalidate: 10,
 	}
 }
 
-export default function Blog({
+export default function BlogPage({
 	posts,
 	pagination,
 	initialDisplayPosts,

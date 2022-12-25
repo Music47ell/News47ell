@@ -1,12 +1,65 @@
+import type { Document, MDX } from 'contentlayer/core'
 import { ReactNode } from 'react'
 
-export type AuthorFrontMatter = {
-	id: string
-	name: string
-	bio: string
-	avatar: string
+export type siteMetadata = {
+	title: string
+	altTitle?: string
+	author: string
+	nickname?: string
+	position?: string
+	location?: { country: string; emojiFlag: string }
+	headerTitle?: string
+	description: string
+	language: string
+	siteUrl: string
+	siteRepo?: string
+	siteLogo?: string
+	image?: string
+	socialBanner?: string
 	email: string
-	twitter: string
+	twitter?: string
+	codestats?: string
+	trakt?: string
+	lastfm?: string
+	webmention?: string
+	locale?: string
+	postsPerPages?: number
+	marqueeLists?: { topics: string[] }
+	orbitLinks?: { title: string; href: string; icon: string }[]
+	heroCardLinks?: { title: string; href: string }[]
+	headerNavLinks?: { title: string; href: string; icon: string }[]
+	footerLinks?: { title: string; href: string }[]
+	curlCardLinks?: {
+		github: { title: string; text: string }
+		twitter: { title: string; text: string }
+		linkedIn: { title: string; text: string }
+		resume: { title: string; text: string }
+		links: { title: string; text: string }
+	}
+	socialLinks?: {
+		author: { title: string; href: string; icon: string }[]
+		blog: { title: string; href: string; icon: string }[]
+	}
+}
+
+export type MDXDocument = Document & { body: MDX }
+export type MDXDocumentDate = MDXDocument & {
+	published_at: string
+}
+export type MDXBlogs = MDXDocumentDate & {
+	tags?: string[]
+	draft?: boolean
+}
+
+export type MDXAuthor = MDXDocument & {
+	name: string
+}
+
+export type AuthorFrontMatter = {
+	id: number
+	name: string
+	avatar: string
+	url: string
 }
 
 export type CodeStats = {
@@ -82,8 +135,7 @@ export type PostFrontMatter = {
 	published_at: string
 	updated_at: string
 	tags?: string[]
-	category: string
-	published?: boolean
+	draft?: boolean
 	description?: string
 	cover?: string[]
 	author?: {
@@ -99,7 +151,7 @@ export type PostFrontMatter = {
 	}
 	layout?: string
 	slug: string
-	linked?: string
+	source?: string
 	readingTime: {
 		words: number
 		time: number
@@ -316,6 +368,15 @@ export type Views = {
 	views: number
 }
 
+export type useCommitData = {
+	firstCommitDate?: string
+	lastCommitDate?: string
+	firstCommitHash?: string
+	lastCommitHash?: string
+	isCommitDataLoading: boolean
+	isError: string
+}
+
 export type UseViewCountResult = {
 	views?: number
 	isLoading: boolean
@@ -434,3 +495,9 @@ export type WebMention = {
 	}
 	target: string
 }
+
+export type Toc = {
+	value: string
+	depth: number
+	url: string
+}[]

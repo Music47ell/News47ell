@@ -4,7 +4,8 @@ import { getWebVitals } from '@/lib/supabase'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
-		const data = await getWebVitals()
+		const response = await getWebVitals()
+		const data = await response.json()
 
 		// map each name to a new object
 		const mapped = data.map((item) => {

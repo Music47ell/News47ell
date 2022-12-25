@@ -2,7 +2,7 @@ import { LoaderIcon } from '@/components/icons'
 import { PageSEO } from '@/components/SEO'
 import { PageTitle } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
-import { useResume } from '@/hooks/useResume'
+import { useResume } from '@/hooks/useGitHub'
 import ResumeLayout from '@/layouts/ResumeLayout'
 
 export default function Resume(): JSX.Element {
@@ -12,7 +12,10 @@ export default function Resume(): JSX.Element {
 
 	return (
 		<>
-			<PageSEO title={`Resume - ${siteMetadata.author}`} description={siteMetadata.description} />
+			<PageSEO
+				title={`Resume - ${siteMetadata.author.name}`}
+				description={siteMetadata.description}
+			/>
 			<main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
 				<header className="print:hidden">
 					<div className="space-y-1 py-5 text-center">

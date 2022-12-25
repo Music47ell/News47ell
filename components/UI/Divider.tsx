@@ -3,11 +3,22 @@ type Props = {
 }
 
 export default function Divider({ children }: Props): JSX.Element {
+	const line = (
+		<div role="presentation" className="flex items-center opacity-50">
+			<div className="h-px flex-1 bg-current" />
+		</div>
+	)
+
 	return (
-		<div className="relative flex items-center py-5">
-			<div className="grow border-t border-nfh-accent-primary"></div>
-			{children && <span className="mx-4 shrink">{children}</span>}
-			<div className="grow border-t border-nfh-accent-primary"></div>
+		<div
+			className="grid gap-4 pb-6 text-center text-nfh-accent-primary"
+			role="presentation"
+			aria-hidden="true"
+			style={{ gridTemplateColumns: '1fr auto 1fr' }}
+		>
+			{line}
+			{children && children}
+			{line}
 		</div>
 	)
 }

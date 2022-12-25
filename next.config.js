@@ -5,10 +5,12 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
 	enabled: process.env.ANALYZE === 'true',
 })
+
 const { withSuperjson } = require('next-superjson')
+const { withContentlayer } = require('next-contentlayer')
 
 module.exports = () => {
-	const plugins = [withBundleAnalyzer, withSuperjson()]
+	const plugins = [withContentlayer, withBundleAnalyzer, withSuperjson()]
 	return plugins.reduce((acc, next) => next(acc), {
 		reactStrictMode: true,
 		pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],

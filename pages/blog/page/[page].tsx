@@ -1,15 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType } from 'next'
 
 import { PageSEO } from '@/components/SEO'
+import type { Blog } from '@/contentlayer/generated'
+import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import { getContentFrontMatter } from '@/lib/supabase'
+import { allCoreContent, sortedBlogPost } from '@/lib/contentlayer'
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const db = await getContentFrontMatter('posts')
-
-	const totalPages = Math.ceil(db.length / siteMetadata.postsPerPages)
+export const getStaticPaths = async () => {
+	const totalPosts = allBlogs
+	const totalPages = Math.ceil(totalPosts.length / siteMetadata.postsPerPages)
 	const paths = Array.from({ length: totalPages }, (_, i) => ({
 		params: { page: (i + 1).toString() },
 	}))
@@ -20,26 +20,25 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	}
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps = async (context) => {
 	const {
 		params: { page },
 	} = context
-	const db = await getContentFrontMatter('posts')
-
+	const posts = sortedBlogPost(allBlogs) as Blog[]
 	const pageNumber = parseInt(page as string)
-	const initialDisplayPosts = db.slice(
+	const initialDisplayPosts = posts.slice(
 		siteMetadata.postsPerPages * (pageNumber - 1),
 		siteMetadata.postsPerPages * pageNumber
 	)
 	const pagination = {
 		currentPage: pageNumber,
-		totalPages: Math.ceil(db.length / siteMetadata.postsPerPages),
+		totalPages: Math.ceil(posts.length / siteMetadata.postsPerPages),
 	}
 
 	return {
 		props: {
-			posts: db,
-			initialDisplayPosts,
+			initialDisplayPosts: allCoreContent(initialDisplayPosts),
+			posts: allCoreContent(posts),
 			pagination,
 		},
 	}
@@ -47,17 +46,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default function PostPage({
 	posts,
-	pagination,
 	initialDisplayPosts,
+	pagination,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<>
 			<PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 			<ListLayout
 				posts={posts}
-				pagination={pagination}
 				initialDisplayPosts={initialDisplayPosts}
-				title={`Page ${pagination.currentPage}`}
+				pagination={pagination}
+				title={`Page ${pagination.currentPage} of ${pagination.totalPages}`}
 			/>
 		</>
 	)

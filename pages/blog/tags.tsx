@@ -4,12 +4,13 @@ import { default as Link } from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import { SectionContainer } from '@/components/UI'
+import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllTags } from '@/lib/tags'
+import { allTags } from '@/lib/contentlayer'
 import kebabCase from '@/utils/kebab-case'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
-	const tags = await getAllTags()
+	const tags = await allTags(allBlogs)
 
 	return { props: { tags } }
 }
@@ -18,7 +19,7 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
 	const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
 	return (
 		<>
-			<PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
+			<PageSEO title={`Tags - ${siteMetadata.title}`} description="Things I blog about" />
 			<SectionContainer>
 				<div className="my-8 flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
 					<div className="space-x-2 pt-6 pb-8 md:space-y-5">

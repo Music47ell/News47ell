@@ -3,11 +3,11 @@ import siteMetadata from '@/data/siteMetadata'
 const displayDate = (date: string) => {
 	// human-readable date and time for display purposes (e.g. blog posts)
 	const options: Intl.DateTimeFormatOptions = {
-		dateStyle: 'medium',
-		timeStyle: 'short',
-		hour12: true,
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
 	}
-	const now = new Date(date).toLocaleString(siteMetadata.locale, options)
+	const now = new Date(date).toLocaleDateString(siteMetadata.locale, options)
 
 	return now
 }

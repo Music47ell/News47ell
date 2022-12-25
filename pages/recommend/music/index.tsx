@@ -109,7 +109,7 @@ export default function Stats() {
 	return (
 		<>
 			<PageSEO
-				title={`Recommend a song - ${siteMetadata.author}`}
+				title={`Recommend a song - ${siteMetadata.author.name}`}
 				description={siteMetadata.description}
 			/>
 			<main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">

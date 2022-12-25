@@ -5,7 +5,7 @@ import Chart from '@/components/metrics/WebVitals/Chart'
 import Current from '@/components/metrics/WebVitals/Current'
 import { Rating, useWebVitals } from '@/hooks/useWebVitals'
 
-export default function StatsLayout(): JSX.Element {
+export default function StatsLayout() {
 	const webVitals = useWebVitals()
 
 	return (

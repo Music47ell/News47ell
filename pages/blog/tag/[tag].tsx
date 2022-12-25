@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType } from 'next'
 
 import { TaxonomySEO } from '@/components/SEO'
+import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import { getContentFrontMatter } from '@/lib/supabase'
-import { getAllTags } from '@/lib/tags'
+import { allCoreContent, allTags } from '@/lib/contentlayer'
 import kebabCase from '@/utils/kebab-case'
 
 export async function getStaticPaths() {
-	const tags = await getAllTags()
+	const tags = await allTags(allBlogs)
 
 	return {
 		paths: Object.keys(tags).map((tag) => ({
@@ -21,28 +20,15 @@ export async function getStaticPaths() {
 	}
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps = async (context: { params: { tag: string } }) => {
 	const tag = context.params.tag as string
-	const db = await getContentFrontMatter('posts')
+	const filteredPosts = allCoreContent(
+		allBlogs.filter(
+			(post) => post.draft !== true && post.tags.map((t: string) => kebabCase(t)).includes(tag)
+		)
+	)
 
-	const posts = db
-		.map((post: any) => ({
-			id: post.id,
-			published_at: post.published_at,
-			updated_at: post.updated_at,
-			description: post.description,
-			title: post.title,
-			slug: post.slug,
-			category: post.category,
-			tags: post.tags?.map((tag: any) => tag) || [],
-			readingTime: {
-				time: post.readingTime.time,
-				words: post.readingTime.words,
-			},
-		}))
-		.filter((post) => post.tags.map((t: string) => kebabCase(t)).includes(tag))
-
-	return { props: { posts, tag } }
+	return { props: { posts: filteredPosts, tag } }
 }
 
 export default function Tag({ posts, tag }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -54,7 +40,7 @@ export default function Tag({ posts, tag }: InferGetStaticPropsType<typeof getSt
 				title={`${tag} - ${siteMetadata.title}`}
 				description={`Posts tagged with ${tag} - ${siteMetadata.title}`}
 			/>
-			<ListLayout posts={posts} title={title} />
+			<ListLayout posts={posts} title={`Posts tagged with ${title}`} />
 		</>
 	)
 }

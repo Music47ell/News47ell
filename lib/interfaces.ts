@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AuthorFrontMatter, PostFrontMatter } from 'lib/types'
 import { ComponentProps, ReactNode } from 'react'
 
 import Pagination from '@/components/blog/Pagination'
+import type { Blog, Page } from '@/contentlayer/generated'
+import { CoreContent } from '@/lib/contentlayer'
+import { AuthorFrontMatter, MDXDocument, PostFrontMatter, Toc } from '@/lib/types'
 
 export interface Authors {
 	author: AuthorFrontMatter
@@ -14,15 +16,14 @@ export interface Comment {
 }
 
 export interface Layout {
-	posts: PostFrontMatter[]
+	posts: CoreContent<Blog>[]
 	title: string
-	initialDisplayPosts?: PostFrontMatter[]
+	initialDisplayPosts?: CoreContent<Blog>[]
 	pagination?: ComponentProps<typeof Pagination>
 }
 
-export interface IMDXComponents {
-	layout: string
-	mdxSource: string
+export interface MDXLayout {
+	content: MDXDocument
 	[key: string]: unknown
 }
 
@@ -36,18 +37,33 @@ export interface IPagination {
 }
 
 export interface IPostLayout {
-	frontMatter: PostFrontMatter
+	content: CoreContent<Blog>
+	authorDetails: AuthorFrontMatter[]
+	//related: Post[]
 	next?: { slug: string; title: string }
 	prev?: { slug: string; title: string }
-	content: string
+	children: ReactNode
 }
 
-export interface IPostSimple {
-	frontMatter: PostFrontMatter
-	//authorDetails: AuthorFrontMatter[]
-	content: string
-	next?: { slug: string; title: string }
-	prev?: { slug: string; title: string }
+export interface IPageLayout {
+	content: CoreContent<Page>
+	children: ReactNode
+}
+
+export interface IPostDate {
+	published_at: string
+	updated_at: string
+	firstCommitHash: string
+	lastCommitHash: string
+	slug: string
+	isCommitDataLoading: boolean
+}
+
+export interface ICommitData {
+	firstCommitDate?: string
+	lastCommitDate?: string
+	firstCommitHash?: string
+	lastCommitHash?: string
 }
 
 export interface IResumeLayout {
@@ -106,8 +122,9 @@ export interface CommonSEOProps {
 	title: string
 	description: string
 	ogType: string
-	ogImage: string | { '@type': string; url: string }[]
+	ogImage: string
 	twImage: string
+	canonicalUrl?: string
 }
 
 export interface PageSEOProps {
@@ -116,9 +133,10 @@ export interface PageSEOProps {
 	url?: string
 }
 
-export interface BlogSeoProps extends PostFrontMatter {
-	authorDetails?: any
+export interface BlogSeoProps extends CoreContent<Blog> {
+	authorDetails: AuthorFrontMatter[]
 	url: string
+	canonicalUrl?: string
 }
 
 export interface IShare {
@@ -128,4 +146,21 @@ export interface IShare {
 
 export interface Taxonomy {
 	text: string
+}
+
+export interface TOCInlineProps {
+	toc: Toc
+	indentDepth?: number
+	fromHeading?: number
+	toHeading?: number
+	asDisclosure?: boolean
+	exclude?: string | string[]
+}
+
+export interface IAuthorsDetails {
+	ranking: number
+	id: number
+	name: string
+	avatar: string
+	url: string
 }

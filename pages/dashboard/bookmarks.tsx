@@ -33,7 +33,7 @@ export default function Bookmarks(): JSX.Element {
 	return (
 		<>
 			<PageSEO
-				title={`Bookmarks Dashboard - ${siteMetadata.author}`}
+				title={`Bookmarks Dashboard - ${siteMetadata.author.name}`}
 				description={siteMetadata.description}
 			/>
 			<SectionContainer>

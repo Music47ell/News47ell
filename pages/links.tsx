@@ -20,14 +20,21 @@ export default function Links() {
 	return (
 		<>
 			<PageSEO
-				title={`Links - ${siteMetadata.author}`}
+				title={`Links - ${siteMetadata.author.name}`}
 				description="All my links to socials and other networks you can find me on."
 			/>
 			{/* background by SVGBackgrounds.com */}
 			<main className="container my-8 mx-auto max-w-3xl bg-arrow-up-pattern bg-cover bg-center px-6">
 				<h1 className="sr-only">Links</h1>
 				<div className="mt-4 flex flex-col items-center justify-center gap-3">
-					<div className="h-40 w-40 rounded-full bg-cover bg-center" />
+					<Image
+						alt={siteMetadata.author.name}
+						height={160}
+						width={160}
+						src={siteMetadata.author.avatar}
+						priority
+						className="rounded-full"
+					/>
 					<div className="flex w-full flex-col space-y-8 py-4">
 						{siteMetadata.socialLinks.author.map((l, idx) => {
 							const Icon = authorIcons[idx]
@@ -44,7 +51,7 @@ export default function Links() {
 						})}
 					</div>
 					<Image
-						alt={siteMetadata.image}
+						alt={siteMetadata.title}
 						height={150}
 						width={150}
 						src={siteMetadata.siteLogo}

@@ -10,7 +10,7 @@ export default function Codes(): JSX.Element {
 	return (
 		<>
 			<PageSEO
-				title={`Music Dashboard - ${siteMetadata.author}`}
+				title={`Music Dashboard - ${siteMetadata.author.name}`}
 				description={siteMetadata.description}
 			/>
 			<SectionContainer>

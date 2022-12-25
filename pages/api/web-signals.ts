@@ -1,5 +1,6 @@
-import { supabaseClient } from '@supabase/auth-helpers-nextjs'
 import type { NextApiRequest, NextApiResponse } from 'next'
+
+import { sendWebVitals } from '@/lib/supabase'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { method } = req
@@ -7,9 +8,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	switch (method) {
 		case 'POST':
 			try {
-				const { data } = await supabaseClient
-					.from('web-vitals')
-					.insert(typeof req.body === 'string' ? JSON.parse(req.body) : req.body)
+				const data = await sendWebVitals(
+					typeof req.body === 'string' ? JSON.parse(req.body) : req.body
+				)
 
 				res.status(201).json({ success: true, data })
 			} catch (error) {

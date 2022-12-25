@@ -10,7 +10,7 @@ export default function Shows(): JSX.Element {
 	return (
 		<>
 			<PageSEO
-				title={`Movies and TV Shows Dashboard - ${siteMetadata.author}`}
+				title={`Movies and TV Shows Dashboard - ${siteMetadata.author.name}`}
 				description={siteMetadata.description}
 			/>
 			<SectionContainer>

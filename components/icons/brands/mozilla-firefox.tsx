@@ -4,12 +4,12 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 			<title>Mozilla Firefox</title>
 			<defs>
 				<radialGradient cx="55%" cy="25%" r="60%" id="b">
-					<stop stop-color="#0DF" stop-opacity=".4" offset="10%" />
-					<stop stop-color="#7542E5" stop-opacity=".25" offset="90%" />
+					<stop stopColor="#0DF" stopOpacity=".4" offset="10%" />
+					<stop stopColor="#7542E5" stopOpacity=".25" offset="90%" />
 				</radialGradient>
 				<radialGradient cx="49.238%" cy="52.7%" fx="49%" fy="52.7%" r="51%" id="c">
-					<stop stop-color="#7542E5" stop-opacity="0" offset="91%" />
-					<stop stop-color="#0DF" stop-opacity=".4" offset="100%" />
+					<stop stopColor="#7542E5" stopOpacity="0" offset="91%" />
+					<stop stopColor="#0DF" stopOpacity=".4" offset="100%" />
 				</radialGradient>
 				<radialGradient
 					cx="86%"
@@ -20,10 +20,10 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(.81263 0 0 1 .16 0)"
 					id="d"
 				>
-					<stop stop-color="#80EBFF" offset="0%" />
-					<stop stop-color="#0DF" offset="26%" />
-					<stop stop-color="#0090ED" offset="53%" />
-					<stop stop-color="#0060DF" offset="86%" />
+					<stop stopColor="#80EBFF" offset="0%" />
+					<stop stopColor="#0DF" offset="26%" />
+					<stop stopColor="#0090ED" offset="53%" />
+					<stop stopColor="#0060DF" offset="86%" />
 				</radialGradient>
 				<radialGradient
 					cx="47.729%"
@@ -34,10 +34,10 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(.81263 0 0 1 .09 0)"
 					id="e"
 				>
-					<stop stop-color="#321C64" stop-opacity=".8" offset="30%" />
-					<stop stop-color="#212F83" stop-opacity=".5" offset="37%" />
-					<stop stop-color="#0A47AC" stop-opacity=".14" offset="48%" />
-					<stop stop-color="#0250BB" stop-opacity="0" offset="53%" />
+					<stop stopColor="#321C64" stopOpacity=".8" offset="30%" />
+					<stop stopColor="#212F83" stopOpacity=".5" offset="37%" />
+					<stop stopColor="#0A47AC" stopOpacity=".14" offset="48%" />
+					<stop stopColor="#0250BB" stopOpacity="0" offset="53%" />
 				</radialGradient>
 				<radialGradient
 					cx="90%"
@@ -46,23 +46,23 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(.83857 0 0 1 .128 0)"
 					id="f"
 				>
-					<stop stop-color="#80EBFF" offset="0%" />
-					<stop stop-color="#00B3F4" offset="47%" />
-					<stop stop-color="#0060DF" offset="84%" />
-					<stop stop-color="#592ACB" offset="100%" />
+					<stop stopColor="#80EBFF" offset="0%" />
+					<stop stopColor="#00B3F4" offset="47%" />
+					<stop stopColor="#0060DF" offset="84%" />
+					<stop stopColor="#592ACB" offset="100%" />
 				</radialGradient>
 
 				<linearGradient x1="42%" y1="-10%" x2="61%" y2="114%" id="g">
-					<stop stop-color="#AAF2FF" offset="0%" />
-					<stop stop-color="#0DF" offset="29%" />
-					<stop stop-color="#0090ED" offset="61%" />
-					<stop stop-color="#0250BB" offset="89%" />
+					<stop stopColor="#AAF2FF" offset="0%" />
+					<stop stopColor="#0DF" offset="29%" />
+					<stop stopColor="#0090ED" offset="61%" />
+					<stop stopColor="#0250BB" offset="89%" />
 				</linearGradient>
 				<linearGradient x1="38%" y1="0%" x2="63%" y2="124%" id="h">
-					<stop stop-color="#AAF2FF" offset="0%" />
-					<stop stop-color="#0DF" offset="29%" />
-					<stop stop-color="#0090ED" offset="74%" />
-					<stop stop-color="#0250BB" offset="100%" />
+					<stop stopColor="#AAF2FF" offset="0%" />
+					<stop stopColor="#0DF" offset="29%" />
+					<stop stopColor="#0090ED" offset="74%" />
+					<stop stopColor="#0250BB" offset="100%" />
 				</linearGradient>
 
 				<radialGradient
@@ -74,8 +74,8 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(1 0 0 .99746 0 -.003)"
 					id="i"
 				>
-					<stop stop-color="#0DF" offset="0%" />
-					<stop stop-color="#0090ED" offset="82%" />
+					<stop stopColor="#0DF" offset="0%" />
+					<stop stopColor="#0090ED" offset="82%" />
 				</radialGradient>
 				<radialGradient
 					cx="155%"
@@ -86,8 +86,8 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(.8937 0 0 1 .165 0)"
 					id="j"
 				>
-					<stop stop-color="#80EBFF" offset="29%" />
-					<stop stop-color="#00B3F4" offset="100%" />
+					<stop stopColor="#80EBFF" offset="29%" />
+					<stop stopColor="#00B3F4" offset="100%" />
 				</radialGradient>
 				<radialGradient
 					cx="15%"
@@ -98,51 +98,51 @@ function MozillaFirefoxIcon({ className }: { className?: string }): JSX.Element 
 					gradientTransform="matrix(.9814 0 0 1 .003 0)"
 					id="k"
 				>
-					<stop stop-color="#AAF2FF" offset="18%" />
-					<stop stop-color="#0DF" offset="43%" />
-					<stop stop-color="#0060DF" offset="69%" />
+					<stop stopColor="#AAF2FF" offset="18%" />
+					<stop stopColor="#0DF" offset="43%" />
+					<stop stopColor="#0060DF" offset="69%" />
 				</radialGradient>
 
 				<linearGradient x1="86%" y1="15%" x2="20%" y2="84%" id="l">
-					<stop stop-color="#80EBFF" stop-opacity=".5" offset="24%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="70%" />
+					<stop stopColor="#80EBFF" stopOpacity=".5" offset="24%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="70%" />
 				</linearGradient>
 				<linearGradient x1="61%" y1="-10%" x2="20%" y2="149%" id="m">
-					<stop stop-color="#BFF3FF" stop-opacity=".9" offset="0%" />
-					<stop stop-color="#80EBFF" stop-opacity=".5" offset="100%" />
+					<stop stopColor="#BFF3FF" stopOpacity=".9" offset="0%" />
+					<stop stopColor="#80EBFF" stopOpacity=".5" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="51%" y1="-2%" x2="48%" y2="139%" id="a">
-					<stop stop-color="#BFF3FF" offset="0%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="100%" />
+					<stop stopColor="#BFF3FF" offset="0%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="52%" y1="-4%" x2="47%" y2="143%" id="n">
-					<stop stop-color="#BFF3FF" offset="0%" />
-					<stop stop-color="#AAF2FF" stop-opacity=".5" offset="100%" />
+					<stop stopColor="#BFF3FF" offset="0%" />
+					<stop stopColor="#AAF2FF" stopOpacity=".5" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="53%" y1="-2%" x2="47%" y2="142%" id="o">
-					<stop stop-color="#BFF3FF" offset="0%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="100%" />
+					<stop stopColor="#BFF3FF" offset="0%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="49%" y1="-2%" x2="57%" y2="123%" id="p">
-					<stop stop-color="#BFF3FF" stop-opacity=".8" offset="0%" />
-					<stop stop-color="#80EBFF" stop-opacity=".2" offset="100%" />
+					<stop stopColor="#BFF3FF" stopOpacity=".8" offset="0%" />
+					<stop stopColor="#80EBFF" stopOpacity=".2" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="117%" y1="-23%" x2="24%" y2="128%" id="q">
-					<stop stop-color="#BFF3FF" stop-opacity=".8" offset="0%" />
-					<stop stop-color="#80EBFF" stop-opacity=".2" offset="100%" />
+					<stop stopColor="#BFF3FF" stopOpacity=".8" offset="0%" />
+					<stop stopColor="#80EBFF" stopOpacity=".2" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="52%" y1="-1%" x2="47%" y2="137%" id="r">
-					<stop stop-color="#0DF" stop-opacity=".4" offset="0%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="100%" />
+					<stop stopColor="#0DF" stopOpacity=".4" offset="0%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="100%" />
 				</linearGradient>
 				<linearGradient x1="50%" y1="-12%" x2="50%" y2="99%" id="s">
-					<stop stop-color="#BFF3FF" offset="0%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="100%" />
+					<stop stopColor="#BFF3FF" offset="0%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="100%" />
 				</linearGradient>
 
 				<linearGradient x1="53%" y1="-3%" x2="47%" y2="142%" id="t">
-					<stop stop-color="#BFF3FF" stop-opacity=".8" offset="0%" />
-					<stop stop-color="#0DF" stop-opacity="0" offset="100%" />
+					<stop stopColor="#BFF3FF" stopOpacity=".8" offset="0%" />
+					<stop stopColor="#0DF" stopOpacity="0" offset="100%" />
 				</linearGradient>
 			</defs>
 			<path

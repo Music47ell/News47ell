@@ -60,6 +60,8 @@ kbd {
 	border-radius: calc(var(--unit) * 0.5);
 }
 
+/* Orbit Animation */
+
 .orbit-context:focus-within,
 .orbit-context:hover {
 	animation-play-state: paused;
@@ -76,6 +78,25 @@ kbd {
 	}
 	100% {
 		transform: translateX(-50%);
+	}
+}
+
+@layer components {
+	/* Tooltip */
+
+	.tooltip {
+		@apply relative;
+	}
+
+	.tooltip:before {
+		content: attr(aria-label);
+		@apply pointer-events-none translate-y-1 opacity-0 transition;
+		@apply absolute bottom-full left-1/2 mb-1 w-max -translate-x-1/2 rounded px-2 py-1;
+		@apply bg-nfh-background-secondary text-nfh-text-primary;
+	}
+
+	.tooltip:hover:before {
+		@apply pointer-events-auto translate-y-0 opacity-100;
 	}
 }
 

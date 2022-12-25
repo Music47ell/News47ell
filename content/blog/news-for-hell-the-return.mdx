@@ -1,0 +1,69 @@
+---
+title: 'News For Hell: The Return'
+description: 'The first return.'
+draft: false
+published_at: 2016-02-02T20:35:47+00:00
+tags: ['Articles', 'News47ell']
+---
+
+It's been 200 days since the last time I posted here. It feels like forever to me and I honestly missed writing. It's something that I never thought I would do.
+
+I've been busy this whole time doing something that I thought would make my life easier, but it turned out I was wrong. It didn't change anything. It actually in many ways, made it worse. So I decided to leave it for now to go back and work on the site.
+
+I couldn't just leave something that I've built over the past (almost) three years. I've learned a lot from having my own website and writing in it. Hopefully now I will continue to learn more, exciting new things.
+
+I might have taken a big long break, but during this break, I was doing research behind the curtain on how to improve my website and make it better day after day.
+
+So let's take a deeper look at what's new on the site:
+
+## First: Security
+
+One thing I wanted to do for a while now is secure the site even more. I might not have readers signing into my site, and I do not sell anything through the site, but with the [recent changes to Google algorithm][1] to push HTTPS onto more websites and give sites with SSL Certificate a higher ranking in the search result. I took this chance and added an SSL Certificate to my domain. That's why now you see the green padlock on the URL bar on top.
+
+The SSL Certificate is a Comodo DV (Domain Validation) Certificate that I purchased from [Namecheap][2] for the big price of [$2][3].
+
+### Why didn't I use the free [Let's Encrypt][4] Certificate or [StartSSL][5]?
+
+Let's Encrypt is great. I really wanted to give it a shot, but at the moment I don't have any time to tinker with my server in order to install it. Now my site is hosted with Cloudways-A Managed WordPress hosting, which means I don't have full control over it like I used to have with DigitalOcean. So, I need to wait until Cloudways Implement Let's Encrypt themselves as a new feature.
+
+As for StartSSL, every article I read about recommends it only for testing. I didn't want to take any chances of ruining this site or having a bad experience that will make me hate SSL.
+
+## Second: Speed
+
+If you noticed the increased speed of load time, then I made a good choice of implementing KeyCDN on the site.
+
+[KeyCDN][6] is a CDN solution with 15 points of presence all around (Including [Turkey][7]&nbsp;& [Mexico][8], Yay) the world that will ensure that my website load as fast as possible no matter where you are located.
+
+Previously, I used to have CloudFlare which later switched to Incapsula, which I liked a lot. Sadly, their free plan doesn't support SSL and their Pro plan is $59, which I don't want to even think about getting.
+
+So, with a bit of research I stumbled upon KeyCDN that cost $0.04 for the first 10 TB. It gives you a [Let's Encrypt][9] (which is what I'm using now) or Shared SSL for free and no extra charge for HTTP request. Awesome.
+
+Give them a shot, and get [$10 credit using this link.][6]
+
+## Third: Design
+
+Yes, what you are looking at is the same WordPress theme that I used to have.
+
+[Decode][10] by [Scott Smith][11] is one of the best-looking themes that I've ever used on the site. It was so difficult for me to change it. I thought that my previous choice was good, but I failed to see is that it wasn't for my site.
+
+So I rolled back to Decode and I believe that I made the right choice.
+
+It's super clean, with great focus on the content, which helps all the visitors on desktop or mobile to read my articles easily.
+
+## What does all of this mean?
+
+I honestly enjoyed writing this article, adding the SSL Certificate and configuring KeyCDN on my site. Of course, the best part was doing all the research and reading many, many articles about the different type of SSL Certificates, why CDN is good for my site and the most important thing how to improve the readability of my site for you, the reader.
+
+Let's hope for the best, for more content to come soon, for the site to get bigger, and more useful for a lot of people.
+
+[1]: http://searchengineland.com/google-starts-giving-ranking-boost-secure-httpsssl-sites-199446
+[2]: https://www.namecheap.com/?aff=94869
+[3]: https://www.namecheap.com/promos/exclusive-positive-ssl-offer.aspx
+[4]: https://letsencrypt.org/
+[5]: https://www.startssl.com/
+[6]: https://www.news47ell.com/recommends/keycdn/
+[7]: https://www.keycdn.com/blog/cdn-turkey-keycdn-in-the-middle-east/
+[8]: https://www.keycdn.com/blog/first-pop-in-mexico/
+[9]: https://letsencrypt.org
+[10]: https://wordpress.org/themes/decode/
+[11]: https://scotthsmith.com

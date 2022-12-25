@@ -1,14 +1,23 @@
 import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
+import { useCommitData } from '@/hooks/useGitHub'
 import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
 import { useViewsBySlug } from '@/hooks/useViews'
 
 const ogUrl = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOProps) => {
+const CommonSEO = ({
+	title,
+	description,
+	ogType,
+	ogImage,
+	twImage,
+	canonicalUrl,
+}: CommonSEOProps) => {
 	const router = useRouter()
 
 	return (
@@ -53,21 +62,23 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			<meta property="og:description" content={description} />
 			<meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
 			<meta property="og:site_name" content={siteMetadata.title} />
-			{Array.isArray(ogImage) ? (
-				ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
-			) : (
-				<meta property="og:image" content={ogImage} key={ogImage} />
-			)}
+			<meta property="og:image" content={ogImage} key={ogImage} />
 			<meta property="og:image:width" content="1600" />
 			<meta property="og:image:height" content="836" />
 			<meta property="og:image:alt" content={title} />
 
 			{/*Twitter Meta Tags*/}
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:site" content={siteMetadata.twitter} />
+			<meta name="twitter:site" content={siteMetadata.author.twitter} />
 			<meta name="twitter:title" content={title} />
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={twImage} />
+
+			{/* Canonical URL */}
+			<link
+				rel="canonical"
+				href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}
+			/>
 
 			{/* Webmention Meta Tags */}
 			<link rel="webmention" href={`https://webmention.io/${siteMetadata.webmention}/webmention`} />
@@ -119,14 +130,26 @@ export const BlogSEO = ({
 	authorDetails,
 	title,
 	slug,
+	filePath,
 	description,
 	published_at,
-	updated_at,
 	url,
-	readingTime,
+	stats,
+	canonicalUrl,
 }: BlogSeoProps) => {
-	const publishedAt = new Date(published_at).toString()
-	const updatedAt = new Date(updated_at).toString()
+	const [publishedAt, setPublishedAt] = useState('')
+	const [updatedAt, setUpdatedAt] = useState('')
+	const { firstCommitDate, lastCommitDate } = useCommitData(encodeURIComponent(filePath))
+
+	useEffect(() => {
+		if (firstCommitDate && lastCommitDate) {
+			setPublishedAt(firstCommitDate)
+			setUpdatedAt(lastCommitDate)
+		} else {
+			setPublishedAt(published_at)
+			setUpdatedAt(published_at)
+		}
+	}, [firstCommitDate, lastCommitDate, published_at])
 
 	const date = new Date(publishedAt).toLocaleDateString('en-US', {
 		month: 'short',
@@ -134,16 +157,24 @@ export const BlogSEO = ({
 		year: 'numeric',
 	})
 
-	const author = authorDetails.first_name + ' ' + authorDetails.last_name
-
 	const { views } = useViewsBySlug(slug)
 	const { likes } = useSlugReactionsLike(slug)
 	const { dislikes } = useSlugReactionsDislike(slug)
-	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${author}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${readingTime.time}&words=${readingTime.words}&date=${date}`
+	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${siteMetadata.author.name}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${stats.timeToRead}&words=${stats.wordsCount}&date=${date}`
 
-	const authorList = {
-		'@type': 'Person',
-		name: author,
+	let authorList
+	if (authorDetails) {
+		authorList = authorDetails.map((author) => {
+			return {
+				'@type': 'Person',
+				name: author.name,
+			}
+		})
+	} else {
+		authorList = {
+			'@type': 'Person',
+			name: siteMetadata.author.name,
+		}
 	}
 
 	const structuredData = {
@@ -177,10 +208,11 @@ export const BlogSEO = ({
 				ogType="article"
 				ogImage={ogImage}
 				twImage={ogImage}
+				canonicalUrl={canonicalUrl}
 			/>
 			<Head>
-				{published_at && <meta property="article:published_time" content={publishedAt} />}
-				{updated_at && <meta property="article:modified_time" content={updatedAt} />}
+				{publishedAt && <meta property="article:published_time" content={publishedAt} />}
+				{updatedAt && <meta property="article:modified_time" content={updatedAt} />}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{

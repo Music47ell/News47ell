@@ -17,8 +17,7 @@ const handler = async (req: NextRequest): Promise<ImageResponse> => {
 	const time = req.nextUrl.searchParams.get('time')
 	const words = req.nextUrl.searchParams.get('words')
 	const date = req.nextUrl.searchParams.get('date')
-	const author = req.nextUrl.searchParams.get('author') || siteMetadata.author
-	const domain = req.headers.get('host')
+	const author = req.nextUrl.searchParams.get('author') || siteMetadata.author.name
 	const ogImages = ['brick-wall.svg', 'circuit-board.svg']
 	const ogImage = ogImages[Math.floor(Math.random() * ogImages.length)]
 
@@ -34,7 +33,7 @@ const handler = async (req: NextRequest): Promise<ImageResponse> => {
 			>
 				<header tw="flex w-full items-center">
 					<img src={`${url}/images/brand/logo.png`} tw="rounded-full w-20 h-20 mr-6" alt="Logo" />
-					<span tw="text-xl text-gray-100 bg-neutral-700/80 p-5">{`${domain} by ${author}`}</span>
+					<span tw="text-xl text-gray-100 bg-neutral-700/80 p-5">{`${siteMetadata.title} by ${author}`}</span>
 				</header>
 				<div tw="flex flex-col justify-center items-center w-full">
 					<h1 tw="text-5xl text-gray-100 bg-neutral-700/80 p-5">{title}</h1>

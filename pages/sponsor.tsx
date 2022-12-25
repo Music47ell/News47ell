@@ -7,7 +7,10 @@ import siteMetadata from '@/data/siteMetadata'
 export default function Sponsor(): JSX.Element {
 	return (
 		<>
-			<PageSEO title={`Sponsor - ${siteMetadata.author}`} description={siteMetadata.description} />
+			<PageSEO
+				title={`Sponsor - ${siteMetadata.author.name}`}
+				description={siteMetadata.description}
+			/>
 			<SectionContainer>
 				<div className="divide-y divide-gray-200 dark:divide-gray-700">
 					<div className="space-y-2 pt-6 pb-8 md:space-y-5">

@@ -68,7 +68,6 @@ module.exports = {
 				'h-feed',
 				'e-content',
 				'entry-content',
-				'p-category',
 				'user-profile',
 				'u-email',
 				'u-photo',

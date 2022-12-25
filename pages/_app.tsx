@@ -1,8 +1,5 @@
 import '@/assets/css/tailwind.css'
-import '@/assets/css/prism.css'
 
-import { supabaseClient } from '@supabase/auth-helpers-nextjs'
-import { UserProvider } from '@supabase/auth-helpers-react'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
@@ -16,28 +13,26 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 	const [pickerOpen, setPickerOpen] = useState(false)
 
 	return (
-		<UserProvider supabaseClient={supabaseClient}>
-			<ThemeProvider>
-				<SoundProvider>
-					<Head>
-						<meta name="viewport" content="width=device-width, initial-scale=1" />
-					</Head>
-					<Header pickerOpen={pickerOpen} />
-					<div
-						className={`transition-transform ${
-							pickerOpen ? 'translate-y-[124px] duration-200 ease-out' : 'duration-200 ease-in'
-						}`}
-					>
-						<div className="flex min-h-screen flex-col">
-							<Nav pickerOpen={pickerOpen} setPickerOpen={setPickerOpen} />
-							<Quote />
-							<Component {...pageProps} />
-							<Footer />
-						</div>
+		<ThemeProvider>
+			<SoundProvider>
+				<Head>
+					<meta name="viewport" content="width=device-width, initial-scale=1" />
+				</Head>
+				<Header pickerOpen={pickerOpen} />
+				<div
+					className={`transition-transform ${
+						pickerOpen ? 'translate-y-[124px] duration-200 ease-out' : 'duration-200 ease-in'
+					}`}
+				>
+					<div className="flex min-h-screen flex-col">
+						<Nav pickerOpen={pickerOpen} setPickerOpen={setPickerOpen} />
+						<Quote />
+						<Component {...pageProps} />
+						<Footer />
 					</div>
-				</SoundProvider>
-			</ThemeProvider>
-		</UserProvider>
+				</div>
+			</SoundProvider>
+		</ThemeProvider>
 	)
 }
 

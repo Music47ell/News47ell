@@ -12,7 +12,7 @@ export default function ResumeLayout({
 	skills,
 	languages,
 	certificates,
-}: IResumeLayout): JSX.Element {
+}: IResumeLayout) {
 	const { playMouseClick } = useSFX()
 
 	const isFirefoxForAndroid = () => {
@@ -142,7 +142,6 @@ export default function ResumeLayout({
 					</div>
 				</div>
 			</div>
-			{/*</div>*/}
 		</SectionContainer>
 	)
 }

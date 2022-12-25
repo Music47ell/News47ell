@@ -73,7 +73,7 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 			)}
 			{shareSucceed === false && (
 				<>
-					<div className="flex flex-row items-center justify-center space-x-2">
+					<div className="flex flex-row items-center justify-center gap-4">
 						<Link href={twitterLink}>
 							<TwitterIcon className="block h-6 w-6" />
 						</Link>
@@ -90,7 +90,7 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 							<PocketIcon className="block h-6 w-6" />
 						</Link>
 					</div>
-					<div className="flex flex-row items-center justify-center space-x-2">
+					<div className="flex flex-row items-center justify-center gap-4">
 						<input
 							id="slug"
 							type="text"
@@ -100,7 +100,7 @@ export default function Share({ title, slug }: IShare): JSX.Element {
 						/>
 						<button
 							onClick={copyToClipboard}
-							className="flex flex-row items-center justify-center space-x-2"
+							className="flex flex-row items-center justify-center gap-4"
 						>
 							{isCopied ? (
 								<CheckIcon

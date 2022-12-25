@@ -22,7 +22,7 @@ export default function NowWatching(): JSX.Element {
 	return data?.isWatching ? (
 		<div
 			style={{ background: darkWithOpacity, color: vibrant, border: `1px solid ${dark}` }}
-			className="relative my-4 mx-auto flex items-center rounded-md p-2"
+			className="relative my-4 flex w-full items-center rounded-md p-2"
 		>
 			<Image
 				alt="Trakt"
