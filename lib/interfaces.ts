@@ -64,6 +64,8 @@ export interface ICommitData {
 	lastCommitDate?: string
 	firstCommitHash?: string
 	lastCommitHash?: string
+	isCommitDataLoading: boolean
+	isError: string
 }
 
 export interface IResumeLayout {

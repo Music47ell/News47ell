@@ -34,12 +34,51 @@ export default async function generateFeeds() {
 	</rss>
 `
 
+	const generateJsonItem = (siteMetadata, post) => `
+	{
+		"id": "${siteMetadata.siteUrl}/blog/${post.slug}",
+		"url": "${siteMetadata.siteUrl}/blog/${post.slug}",
+		"title": "${escape(post.title)}",
+		${post.description && `"description": "${escape(post.description)}",`}
+		"date_published": "${new Date(post.published_at).toUTCString()}",
+		"author": {
+			"name": "${siteMetadata.author}",
+			"url": "${siteMetadata.siteUrl}",
+			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
+		},
+		${post.tags && `"tags": ${JSON.stringify(post.tags)}`}
+	}
+`
+
+	const generateJson = (siteMetadata, posts, page = 'feed.xml') => `
+	{
+		"version": "https://jsonfeed.org/version/1.1",
+		"title": "${escape(siteMetadata.title)}",
+		"home_page_url": "${siteMetadata.siteUrl}/blog",
+		"feed_url": "${siteMetadata.siteUrl}/${page}",
+		"icon": "${siteMetadata.siteUrl}/android-chrome-512x512.png",
+		"favicon": "${siteMetadata.siteUrl}/favicon-32x32.png",
+		"description": "${escape(siteMetadata.description)}",
+		"author": {
+			"name": "${siteMetadata.author}",
+			"url": "${siteMetadata.siteUrl}",
+			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
+		},
+		"items": [
+			${posts.map((post) => generateJsonItem(siteMetadata, post)).join(',')}
+		]
+	}
+`
+
 	const publishPosts = allBlogs.filter((post) => post.draft !== true)
 	// RSS for blog post
 	if (publishPosts.length > 0) {
 		const rss = generateRss(siteMetadata, publishPosts)
 		writeFileSync('./public/feed.xml', rss)
 		console.log('RSS feed for posts generated...')
+		const json = generateJson(siteMetadata, publishPosts)
+		writeFileSync('./public/feed.json', json)
+		console.log('JSON feed for posts generated...')
 	}
 
 	// RSS for tags
@@ -51,7 +90,12 @@ export default async function generateFeeds() {
 			const rssPath = path.join('public', 'tags', tag)
 			mkdirSync(rssPath, { recursive: true })
 			writeFileSync(path.join(rssPath, 'feed.xml'), rss)
+			const json = generateJson(siteMetadata, filteredPosts, `tag/${tag}/feed.xml`)
+			const jsonPath = path.join('public', 'tags', tag)
+			mkdirSync(jsonPath, { recursive: true })
+			writeFileSync(path.join(jsonPath, 'feed.json'), json)
 		}
 		console.log('RSS feed for tags generated...')
+		console.log('JSON feed for tags generated...')
 	}
 }

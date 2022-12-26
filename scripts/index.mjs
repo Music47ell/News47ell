@@ -4,6 +4,7 @@ const siteMetadata = {
 	title: 'News47ell',
 	author: 'Ahmet ALMAZ',
 	email: 'ahmet@news47ell.com',
+	avatar: 'images/others/me.png',
 	siteUrl: 'https://www.news47ell.com',
 	description: 'Tech news, reviews and interesting links',
 	language: 'en-us',

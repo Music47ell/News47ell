@@ -256,7 +256,7 @@ export type Quotes = {
 	source: string
 	link: string
 	quote: string
-}[]
+}
 
 export type ProjectBreakdown = {
 	codeStats: []
@@ -375,6 +375,50 @@ export type useCommitData = {
 	lastCommitHash?: string
 	isCommitDataLoading: boolean
 	isError: string
+}
+
+export type useResume = {
+	basics: {
+		name: string
+		label: string
+		image: string
+		email: string
+		url: string
+		summary: string
+		location: {
+			country: string
+			countryCode: string
+		}
+		profiles: {
+			id: number
+			network: string
+			username: string
+			url: string
+		}[]
+	}
+	education: {
+		id: number
+		institution: string
+		url: string
+		area: string
+	}[]
+	skills: {
+		id: number
+		name: string
+		keywords: string[]
+	}[]
+	languages: {
+		id: number
+		language: string
+		fluency: string
+	}[]
+	certificates: {
+		id: number
+		name: string
+		date: string
+		issuer: string
+		url: string
+	}[]
 }
 
 export type UseViewCountResult = {

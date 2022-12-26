@@ -26,27 +26,3 @@ export const sendWebVitals = async (body: string) => {
 		body: body,
 	})
 }
-
-export const getLyrics = async () => {
-	if (SUPABASE_ENDPOINT === null || SUPABASE_API_KEY === undefined) {
-		throw new Error(`No Supabase API key found!`)
-	}
-	return fetch(`${SUPABASE_ENDPOINT}/rest/v1/lyrics`, {
-		headers: {
-			'Content-Type': 'application/json',
-			apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-		},
-	})
-}
-
-export const getQuotes = async () => {
-	if (SUPABASE_ENDPOINT === null || SUPABASE_API_KEY === undefined) {
-		throw new Error(`No Supabase API key found!`)
-	}
-	return fetch(`${SUPABASE_ENDPOINT}/rest/v1/quotes`, {
-		headers: {
-			'Content-Type': 'application/json',
-			apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-		},
-	})
-}

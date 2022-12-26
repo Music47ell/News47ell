@@ -26,7 +26,7 @@ const siteMetadata = {
 	lastfm: 'Music47ell',
 	webmention: 'www.news47ell.com',
 	locale: 'en-US',
-	postsPerPages: 5,
+	postsPerPages: 10,
 	marqueeLists: {
 		topics: [
 			'SEO',

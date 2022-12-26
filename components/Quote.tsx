@@ -1,12 +1,16 @@
 import { ExternalIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { useQuote } from '@/hooks/useQuote'
+import { useQuote } from '@/hooks/useGitHub'
 
 function Quote(): JSX.Element {
-	const { quote } = useQuote()
+	const { quote, isError, isLoading } = useQuote()
 
-	if (!quote) {
-		return null
+	if (isError) {
+		return <p className="py-4 text-center print:hidden">There was an error fetching a quote.</p>
+	}
+
+	if (isLoading) {
+		return <p className="animate-pulse py-4 text-center print:hidden">Loading a quote...</p>
 	}
 
 	return (

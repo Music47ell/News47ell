@@ -26,9 +26,9 @@ export default function NowWatching(): JSX.Element {
 		>
 			<Image
 				alt="Trakt"
-				className="h-60 w-60 rounded-md"
-				height={64}
-				width={64}
+				className="h-60 w-40 rounded-md"
+				height={240}
+				width={160}
 				src={`https://image.tmdb.org/t/p/original/${data?.poster}` || '/images/brand/logo.png'}
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
