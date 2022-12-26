@@ -6,11 +6,11 @@ published_at: 2019-07-03T20:01:01+03:00
 tags: ['Reviews', 'Fish Shell', 'Shell']
 ---
 
-There’s no escape from the fact that I love fish. I try to have fish as much as I can. Whether at home or at a restaurant. But today, I am talking about a different kind of fishes. Fishes `brew fish install` that are made up of lines of code and live inside your computer instead of water.
+There's no escape from the fact that I love fish. I try to have fish as much as I can. Whether at home or at a restaurant. But today, I am talking about a different kind of fishes. Fishes `brew fish install` that are made up of lines of code and live inside your computer instead of water.
 
-And no, I’m not talking about [ASCIIQuarium](https://robobunny.com/projects/asciiquarium/html/).
+And no, I'm not talking about [ASCIIQuarium](https://robobunny.com/projects/asciiquarium/html/).
 
-I’m talking about [Fish Shell](https://fishshell.com/). A shell so good, Apple should’ve made it the default shell instead of Zsh.
+I'm talking about [Fish Shell](https://fishshell.com/). A shell so good, Apple should've made it the default shell instead of Zsh.
 
 In this Fish Shell review, I will talk about all the features that Fish has to offer that makes it different from any other shell out there and a couple of additional Fish Shell related things.
 
@@ -18,13 +18,13 @@ In this Fish Shell review, I will talk about all the features that Fish has to o
 
 Fish is a **f**riendly **i**nteractive **sh**ell that comes out of the box with features that make all other shells jealous. Like autosuggestion, tab completion, syntax highlighting and much more.
 
-Basically, Fish is a set it and forget it kind of shells since you don’t have to tinker around with the settings after you install it.
+Basically, Fish is a set it and forget it kind of shells since you don't have to tinker around with the settings after you install it.
 
-Just like with my [Arch review](https://www.news47ell.com/how-to/install-arch-linux-guide/), Fish wasn’t my first option. Before I tried it, I-like many I’m assuming-installed Zsh and [Oh My Zsh](https://ohmyz.sh/) and I used it for a while in conjunction with [Powerlevel9k](https://github.com/bhilburn/powerlevel9k).
+Just like with my [Arch review](https://www.news47ell.com/how-to/install-arch-linux-guide/), Fish wasn't my first option. Before I tried it, I-like many I'm assuming-installed Zsh and [Oh My Zsh](https://ohmyz.sh/) and I used it for a while in conjunction with [Powerlevel9k](https://github.com/bhilburn/powerlevel9k).
 
 But, after trying the Fish, the only thing I could think about was: Why the hell do people use Zsh and Oh My Zsh when Fish exists?
 
-I’m not an expert in writing shell scripts, and I know that am not using Zsh or Fish Shell to the max. My comment here is based on the main and popular features that each shell has to offer, the ones that a typical shell user would use. Nothing advanced.
+I'm not an expert in writing shell scripts, and I know that am not using Zsh or Fish Shell to the max. My comment here is based on the main and popular features that each shell has to offer, the ones that a typical shell user would use. Nothing advanced.
 
 Based on this, Fish is way better than Oh My Zsh in my opinion and people really should give it a shot AFTER trying Zsh and Oh My Zsh so that they can see how Fish Shell is easier to use and quicker to get it up and running.
 
@@ -38,7 +38,7 @@ They are _mostly_ visual and meant to speed up your workflow and allow you to sa
 
 Just like an <abbr title="Integrated development environment">IDE</abbr>, Fish will highlight your command in red when they are invalid, and green when they are valid.
 
-Let’s say you type the command that runs Vim, but Vim is not available on your machine. Because it’s invalid, fish will change the color of the word vim to red.
+Let's say you type the command that runs Vim, but Vim is not available on your machine. Because it's invalid, fish will change the color of the word vim to red.
 
 ### Autosuggestions
 
@@ -52,9 +52,9 @@ Fish also can complete commands for you. Just start typing, and when Fish sugges
 
 ### Abbreviations
 
-Fish does support aliases but it’s recommended that you use the abbreviation feature. The way this feature work is as follows:
+Fish does support aliases but it's recommended that you use the abbreviation feature. The way this feature work is as follows:
 
-You type your abbreviation and if it exists, Fish automagically expand it to a full command that you’ve set before.
+You type your abbreviation and if it exists, Fish automagically expand it to a full command that you've set before.
 
 For example: I have an abbreviation called `brewu`. Every time I type it down in Fish, it automagically expands to this:
 
@@ -74,7 +74,7 @@ Now, inside the _abbreviation.fish_ file, I have this:
 abbr brewu "brew update; brew upgrade; brew cask upgrade"
 ```
 
-And that’s it. So why does this exist?
+And that's it. So why does this exist?
 
 This helps you see what command was executed when browsing your history. Unlike aliases which hide the actual command that was executed.
 
@@ -89,7 +89,7 @@ While Bash and Zsh you are required to install different packages to enable the 
 
 Which mean yet another repo downloaded locally that you have to keep an eye on, and update.
 
-But this doesn’t mean Fish doesn’t come with any configuration option. There’s a web-based shell configurator that you can access by executing the following command:
+But this doesn't mean Fish doesn't come with any configuration option. There's a web-based shell configurator that you can access by executing the following command:
 
 ```bash
 config_fish
@@ -107,7 +107,7 @@ From this web page, you can also delete your history and add new abbreviations i
 
 ### Prompt
 
-There’s no <abbr title="Prompt String/Statement One">PS1</abbr> with Fish. In order to build your own Fish prompt, all you have to do is create a function. For example:
+There's no <abbr title="Prompt String/Statement One">PS1</abbr> with Fish. In order to build your own Fish prompt, all you have to do is create a function. For example:
 
 ```bash
 function fish_prompt
@@ -129,7 +129,7 @@ It comes with many options like vi and vsc support, right-hand prompt and much m
 
 ### Package manager
 
-Fish doesn’t need a package manager because everything you need already comes built-in.
+Fish doesn't need a package manager because everything you need already comes built-in.
 
 But, for my case, I need one to install and maintain bobthefish prompt.
 
@@ -141,13 +141,13 @@ If you want to know the difference between them, make sure to read this [detaile
 
 If you decided to try Fish and you fell in love with it, then you should download the [Fish Logo plugin](https://github.com/laughedelic/fish_logo).
 
-It allows you to draw the Fish logo in ascii...and that’s it. That’s all it does.
+It allows you to draw the Fish logo in ascii...and that's it. That's all it does.
 
 ## Conclusion
 
 Fish Shell is a must for people who want a shell that works out of the box, no extra packages, no dependencies, and no bullshit.
 
-Fish Shell doesn’t even want you to worry about writing `cd` before a directory’s name. Just type the name of the directory you want to go into and hit <kbd>enter</kbd>. Same thing for going to a previous directory or root. Just write all the dots that you need without worrying.
+Fish Shell doesn't even want you to worry about writing `cd` before a directory's name. Just type the name of the directory you want to go into and hit <kbd>enter</kbd>. Same thing for going to a previous directory or root. Just write all the dots that you need without worrying.
 
 I really believe that people should give Oh My Zsh a shot before trying Fish Shell and do the following in Zsh:
 
@@ -159,4 +159,4 @@ Each and every one of these features is an extra package that you have to mainta
 
 So in my case, after I installed Zsh, Oh My Zsh and Powerlevel9k, I also had to install these additional packages to get the exact same experience that Fish Shell offers out of the box with no additional package, no configuration, and no bullshit.
 
-Fish Shell is truly remarkable...and now I’m craving a fish.
+Fish Shell is truly remarkable...and now I'm craving a fish.
