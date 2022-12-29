@@ -1,7 +1,6 @@
 ---
 title: Fish Shell Review
 description: This is a review of Fish Shell. Here you'll learn everything you need about Fish Shell and why it's awesome!
-draft: false
 published_at: 2019-07-03T20:01:01+03:00
 tags: ['Reviews', 'Fish Shell', 'Shell']
 ---
@@ -36,7 +35,7 @@ They are _mostly_ visual and meant to speed up your workflow and allow you to sa
 
 ### Syntax Highlighting
 
-Just like an <abbr title="Integrated development environment">IDE</abbr>, Fish will highlight your command in red when they are invalid, and green when they are valid.
+Just like an `IDE` (Integrated development environment), Fish will highlight your command in red when they are invalid, and green when they are valid.
 
 Let's say you type the command that runs Vim, but Vim is not available on your machine. Because it's invalid, fish will change the color of the word vim to red.
 
@@ -48,7 +47,7 @@ It can suggest a command you never executed, commands from the history which you
 
 ### Tab Completions
 
-Fish also can complete commands for you. Just start typing, and when Fish suggests a command, press <kbd>tab</kbd>
+Fish also can complete commands for you. Just start typing, and when Fish suggests a command, press `tab`.
 
 ### Abbreviations
 
@@ -70,7 +69,7 @@ source ~/.config/fish/abbreviation.fish
 
 Now, inside the _abbreviation.fish_ file, I have this:
 
-```bash title="_abbreviation.fish_"
+```bash title="abbreviation.fish"
 abbr brewu "brew update; brew upgrade; brew cask upgrade"
 ```
 
@@ -107,7 +106,7 @@ From this web page, you can also delete your history and add new abbreviations i
 
 ### Prompt
 
-There's no <abbr title="Prompt String/Statement One">PS1</abbr> with Fish. In order to build your own Fish prompt, all you have to do is create a function. For example:
+There's no `PS1` (Prompt String/Statement One) with Fish. In order to build your own Fish prompt, all you have to do is create a function. For example:
 
 ```bash
 function fish_prompt
@@ -147,7 +146,7 @@ It allows you to draw the Fish logo in ascii...and that's it. That's all it does
 
 Fish Shell is a must for people who want a shell that works out of the box, no extra packages, no dependencies, and no bullshit.
 
-Fish Shell doesn't even want you to worry about writing `cd` before a directory's name. Just type the name of the directory you want to go into and hit <kbd>enter</kbd>. Same thing for going to a previous directory or root. Just write all the dots that you need without worrying.
+Fish Shell doesn't even want you to worry about writing `cd` before a directory's name. Just type the name of the directory you want to go into and hit "ENTER". Same thing for going to a previous directory or root. Just write all the dots that you need without worrying.
 
 I really believe that people should give Oh My Zsh a shot before trying Fish Shell and do the following in Zsh:
 
