@@ -1,6 +1,5 @@
-import { Taxonomy } from 'lib/interfaces'
-
 import { default as Link } from '@/components/Link'
+import { Taxonomy } from '@/lib/interfaces'
 import kebabCase from '@/utils/kebab-case'
 
 const TagsColorDictionary = {

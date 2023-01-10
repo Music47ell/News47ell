@@ -35,6 +35,15 @@
 	@apply bg-nfh-accent-secondary;
 }
 
+:root {
+	--background-primary: theme('colors.dracula.background-primary');
+	--background-secondary: theme('colors.dracula.background-secondary');
+	--text-primary: theme('colors.dracula.text-primary');
+	--text-secondary: theme('colors.dracula.text-secondary');
+	--accent-primary: theme('colors.dracula.accent-primary');
+	--accent-secondary: theme('colors.dracula.accent-secondary');
+}
+
 /* Scrollbar */
 
 /* Chrome */
@@ -97,128 +106,5 @@ kbd {
 
 	.tooltip:hover:before {
 		@apply pointer-events-auto translate-y-0 opacity-100;
-	}
-}
-
-@layer base {
-	[data-theme='light'] #hero-photo {
-		background-image: url('/images/others/me-alt.png');
-	}
-	[data-theme='hackernews'] #hero-photo {
-		background-image: url('/images/others/me-alt.png');
-	}
-	[data-theme='latte'] #hero-photo {
-		background-image: url('/images/others/me-alt.png');
-	}
-	[data-theme='rosépinedawn'] #hero-photo {
-		background-image: url('/images/others/me-alt.png');
-	}
-	[data-theme='dark'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-	[data-theme='dracula'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-	[data-theme='mocha'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-	[data-theme='rosépine'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-	[data-theme='wildberries'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-	[data-theme='nord'] #hero-photo {
-		background-image: url('/images/others/me.png');
-	}
-
-	[data-theme='light'] {
-		--background-primary: theme('colors.light.background-primary');
-		--background-secondary: theme('colors.light.background-secondary');
-		--text-primary: theme('colors.light.text-primary');
-		--text-secondary: theme('colors.light.text-secondary');
-		--accent-primary: theme('colors.light.accent-primary');
-		--accent-secondary: theme('colors.light.accent-secondary');
-	}
-
-	[data-theme='dark'] {
-		--background-primary: theme('colors.dark.background-primary');
-		--background-secondary: theme('colors.dark.background-secondary');
-		--text-primary: theme('colors.dark.text-primary');
-		--text-secondary: theme('colors.dark.text-secondary');
-		--accent-primary: theme('colors.dark.accent-primary');
-		--accent-secondary: theme('colors.dark.accent-secondary');
-	}
-
-	[data-theme='hackernews'] {
-		--background-primary: theme('colors.hackerNews.background-primary');
-		--background-secondary: theme('colors.hackerNews.background-secondary');
-		--text-primary: theme('colors.hackerNews.text-primary');
-		--text-secondary: theme('colors.hackerNews.text-secondary');
-		--accent-primary: theme('colors.hackerNews.accent-primary');
-		--accent-secondary: theme('colors.hackerNews.accent-secondary');
-	}
-
-	[data-theme='latte'] {
-		--background-primary: theme('colors.latte.background-primary');
-		--background-secondary: theme('colors.latte.background-secondary');
-		--text-primary: theme('colors.latte.text-primary');
-		--text-secondary: theme('colors.latte.text-secondary');
-		--accent-primary: theme('colors.latte.accent-primary');
-		--accent-secondary: theme('colors.latte.accent-secondary');
-	}
-
-	[data-theme='rosépinedawn'] {
-		--background-primary: theme('colors.roséPineDawn.background-primary');
-		--background-secondary: theme('colors.roséPineDawn.background-secondary');
-		--text-primary: theme('colors.roséPineDawn.text-primary');
-		--text-secondary: theme('colors.roséPineDawn.text-secondary');
-		--accent-primary: theme('colors.roséPineDawn.accent-primary');
-		--accent-secondary: theme('colors.roséPineDawn.accent-secondary');
-	}
-
-	[data-theme='dracula'] {
-		--background-primary: theme('colors.dracula.background-primary');
-		--background-secondary: theme('colors.dracula.background-secondary');
-		--text-primary: theme('colors.dracula.text-primary');
-		--text-secondary: theme('colors.dracula.text-secondary');
-		--accent-primary: theme('colors.dracula.accent-primary');
-		--accent-secondary: theme('colors.dracula.accent-secondary');
-	}
-
-	[data-theme='mocha'] {
-		--background-primary: theme('colors.mocha.background-primary');
-		--background-secondary: theme('colors.mocha.background-secondary');
-		--text-primary: theme('colors.mocha.text-primary');
-		--text-secondary: theme('colors.mocha.text-secondary');
-		--accent-primary: theme('colors.mocha.accent-primary');
-		--accent-secondary: theme('colors.mocha.accent-secondary');
-	}
-
-	[data-theme='rosépine'] {
-		--background-primary: theme('colors.roséPine.background-primary');
-		--background-secondary: theme('colors.roséPine.background-secondary');
-		--text-primary: theme('colors.roséPine.text-primary');
-		--text-secondary: theme('colors.roséPine.text-secondary');
-		--accent-primary: theme('colors.roséPine.accent-primary');
-		--accent-secondary: theme('colors.roséPine.accent-secondary');
-	}
-
-	[data-theme='wildberries'] {
-		--background-primary: theme('colors.wildberries.background-primary');
-		--background-secondary: theme('colors.wildberries.background-secondary');
-		--text-primary: theme('colors.wildberries.text-primary');
-		--text-secondary: theme('colors.wildberries.text-secondary');
-		--accent-primary: theme('colors.wildberries.accent-primary');
-		--accent-secondary: theme('colors.wildberries.accent-secondary');
-	}
-
-	[data-theme='nord'] {
-		--background-primary: theme('colors.nord.background-primary');
-		--background-secondary: theme('colors.nord.background-secondary');
-		--text-primary: theme('colors.nord.text-primary');
-		--text-secondary: theme('colors.nord.text-secondary');
-		--accent-primary: theme('colors.nord.accent-primary');
-		--accent-secondary: theme('colors.nord.accent-secondary');
 	}
 }

@@ -1,37 +1,24 @@
-import { slug } from 'github-slugger'
+import { pick } from 'contentlayer/client'
 
-import { MDXBlogs, MDXDocument, MDXDocumentDate } from '@/lib/types'
+import type { Blog, Page } from '@/contentlayer/generated'
+import { allBlogs } from '@/contentlayer/generated'
+import { MDXDocument } from '@/lib/types'
 import { dateSortDesc } from '@/utils/sort-by-date'
 
-export function sortedBlogPost(allBlogs: MDXDocumentDate[]) {
-	return allBlogs.sort((a, b) => dateSortDesc(a.published_at, b.published_at))
+export const getContent = (content: Blog[] | Page[]) => {
+	return content.sort((a: { published_at: string }, b: { published_at: string }) =>
+		dateSortDesc(a.published_at, b.published_at)
+	)
 }
 
-type ConvertUndefined<T> = OrNull<{
-	[K in keyof T as undefined extends T[K] ? K : never]-?: T[K]
-}>
-type OrNull<T> = { [K in keyof T]: Exclude<T[K], undefined> | null }
-type PickRequired<T> = {
-	[K in keyof T as undefined extends T[K] ? never : K]: T[K]
-}
-type ConvertPick<T> = ConvertUndefined<T> & PickRequired<T>
+export const getBlogHomepage = () => {
+	const posts = allBlogs.map((post) =>
+		pick(post, ['_id', 'slug', 'title', 'description', 'published_at', 'readingTime', 'wordsCount'])
+	)
 
-/**
- * A typesafe omit helper function
- * @example pick(content, ['title', 'description'])
- *
- * @param {Obj} obj
- * @param {Keys[]} keys
- * @return {*}  {ConvertPick<{ [K in Keys]: Obj[K] }>}
- */
-export const pick = <Obj, Keys extends keyof Obj>(
-	obj: Obj,
-	keys: Keys[]
-): ConvertPick<{ [K in Keys]: Obj[K] }> => {
-	return keys.reduce((acc, key) => {
-		acc[key] = obj[key] ?? null
-		return acc
-	}, {} as any)
+	return posts.sort((a: { published_at: string }, b: { published_at: string }) =>
+		dateSortDesc(a.published_at, b.published_at)
+	)
 }
 
 /**
@@ -60,21 +47,18 @@ export function allCoreContent<T extends MDXDocument>(contents: T[]) {
 	return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
 }
 
-export async function allTags(allBlogs: MDXBlogs[]) {
+export function allTags() {
 	const tagCount: Record<string, number> = {}
+	const tags = allBlogs.map((post) => pick(post, ['tags']))
 
-	// Iterate through each post, putting all found tags into `tags`
-	allBlogs.forEach((file) => {
-		if (file.tags && file.draft !== true) {
-			file.tags.forEach((tag: string) => {
-				const formattedTag = slug(tag)
-				if (formattedTag in tagCount) {
-					tagCount[formattedTag] += 1
-				} else {
-					tagCount[formattedTag] = 1
-				}
-			})
-		}
+	tags.forEach((post) => {
+		post.tags.forEach((tag) => {
+			if (tagCount[tag]) {
+				tagCount[tag]++
+			} else {
+				tagCount[tag] = 1
+			}
+		})
 	})
 
 	return tagCount

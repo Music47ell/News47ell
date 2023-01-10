@@ -6,17 +6,8 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
 	return (
-		<footer className="bg-nfh-background-secondary py-4 print:hidden">
+		<footer className="border-t border-nfh-accent-primary bg-nfh-background-secondary py-4 print:hidden">
 			<div className="flex flex-col items-center">
-				<nav>
-					<ul className="my-2 flex flex-wrap items-center justify-center">
-						{siteMetadata.footerLinks.map((link) => (
-							<li className="mx-3" key={link.href}>
-								<Link href={link.href}>{link.title}</Link>
-							</li>
-						))}
-					</ul>
-				</nav>
 				<div className="grid grid-cols-1 space-y-2">
 					<div className="copyright text-center text-xs" itemProp="copyrightYear">
 						COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>

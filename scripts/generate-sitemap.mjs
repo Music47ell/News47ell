@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs'
 import { globby } from 'globby'
 import prettier from 'prettier'
 
-import { allBlogs, allPages } from '../.contentlayer/generated/index.mjs'
+import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { allTags } from './index.mjs'
 
 export default async function generateSitemap() {
@@ -12,7 +12,6 @@ export default async function generateSitemap() {
 	const contentPosts = allBlogs
 		.filter((x) => !x.draft && !x.canonicalUrl)
 		.map((x) => `/${x._raw.flattenedPath}`)
-	const contentPages = allPages.filter((x) => !x.draft).map((x) => `${x._raw.flattenedPath}`)
 	const contentTags = await allTags(allBlogs).then((tags) =>
 		Object.keys(tags).map((tag) => `/tags/${tag}`)
 	)
@@ -33,7 +32,6 @@ export default async function generateSitemap() {
 				<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages
 	.concat(contentPosts)
-	.concat(contentPages)
 	.concat(contentTags)
 	.map((page) => {
 		const path = page

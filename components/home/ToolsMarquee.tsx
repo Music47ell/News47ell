@@ -69,7 +69,7 @@ export default function ToolsMarquee() {
 	]
 	return (
 		<section>
-			<Divider>Tools I use</Divider>
+			<Divider>Tools I Use</Divider>
 			<div className="relative flex w-full shrink-0 flex-col justify-center gap-y-4 gap-x-0 overflow-hidden px-0">
 				<InfiniteLoopSlider duration={random(15000 - 5000, 15000 + 5000)} direction="reverse">
 					{shuffle(TOOLS).map((Tool, index) => (

@@ -4,16 +4,7 @@ import { ComponentProps, ReactNode } from 'react'
 import Pagination from '@/components/blog/Pagination'
 import type { Blog, Page } from '@/contentlayer/generated'
 import { CoreContent } from '@/lib/contentlayer'
-import { AuthorFrontMatter, MDXDocument, PostFrontMatter, Toc } from '@/lib/types'
-
-export interface Authors {
-	author: AuthorFrontMatter
-	posts: PostFrontMatter[]
-}
-
-export interface Comment {
-	frontMatter: PostFrontMatter
-}
+import { MDXDocument, Toc } from '@/lib/types'
 
 export interface Layout {
 	posts: CoreContent<Blog>[]
@@ -38,7 +29,6 @@ export interface IPagination {
 
 export interface IPostLayout {
 	content: CoreContent<Blog>
-	authorDetails: AuthorFrontMatter[]
 	//related: Post[]
 	next?: { slug: string; title: string }
 	prev?: { slug: string; title: string }
@@ -136,7 +126,6 @@ export interface PageSEOProps {
 }
 
 export interface BlogSeoProps extends CoreContent<Blog> {
-	authorDetails: AuthorFrontMatter[]
 	url: string
 	canonicalUrl?: string
 }
@@ -157,12 +146,4 @@ export interface TOCInlineProps {
 	toHeading?: number
 	asDisclosure?: boolean
 	exclude?: string | string[]
-}
-
-export interface IAuthorsDetails {
-	ranking: number
-	id: number
-	name: string
-	avatar: string
-	url: string
 }

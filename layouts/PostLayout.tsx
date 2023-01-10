@@ -1,24 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IPostLayout } from 'lib/interfaces'
 import { useEffect, useState } from 'react'
 
-import { ReactionsButton, ScrollTop, Share, Sponsor } from '@/components/blog'
-import { AuthorsDetails, PostDate, PostLinks } from '@/components/blog'
+import { ScrollTop, Share, Sponsor } from '@/components/blog'
+import { AuthorDetails, PostDate, PostLinks } from '@/components/blog'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 import { Slash } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import { Divider } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
-import siteMetadata from '@/data/siteMetadata'
 import { useCommitData } from '@/hooks/useGitHub'
 import { useViewsBySlug } from '@/hooks/useViews'
+import { IPostLayout } from '@/lib/interfaces'
 
-export default function PostLayout({ content, authorDetails, next, prev, children }: IPostLayout) {
+export default function PostLayout({ content, next, prev, children }: IPostLayout) {
 	const [publishedAt, setPublishedAt] = useState('')
 	const [updatedAt, setUpdatedAt] = useState('')
-	const { filePath, path, slug, source, title, tags, stats, published_at } = content
+	const { filePath, path, slug, source, title, tags, published_at, readingTime, wordsCount } =
+		content
 	const { firstCommitDate, lastCommitDate, firstCommitHash, lastCommitHash, isCommitDataLoading } =
 		useCommitData(encodeURIComponent(filePath))
 
@@ -37,11 +36,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 	return (
 		<>
 			<ScrollTop />
-			<BlogSEO
-				url={`${siteMetadata.siteUrl}/blog/${slug}`}
-				authorDetails={authorDetails}
-				{...content}
-			/>
 			<main className="relative my-8 max-w-3xl px-6 sm:mx-auto">
 				<div className="col-span-10 flex flex-col lg:col-span-7">
 					<div className="-mx-4 rounded border-nfh-accent-primary p-4 md:border">
@@ -70,7 +64,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 							<div className="grid grid-cols-3 items-center justify-items-center gap-4 text-sm tabular-nums">
 								<div className="flex items-center space-x-2">
 									<span className="sr-only">Reading time</span>
-									<span>{stats.timeToRead} minutes</span>
+									<span>{readingTime} minutes</span>
 								</div>
 								<div className="flex items-center space-x-2">
 									<span className="sr-only">Views</span>
@@ -87,7 +81,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 								</div>
 								<div className="flex items-center space-x-2">
 									<span className="sr-only">Words Count</span>
-									<span>{stats.wordsCount} words</span>
+									<span>{wordsCount} words</span>
 								</div>
 							</div>
 							<div className="divide-y divide-nfh-accent-secondary">
@@ -96,19 +90,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 										{children}
 									</div>
 								</div>
-								<div
-									className={
-										authorDetails.length === 1
-											? 'grid grid-cols-1 gap-4 py-4'
-											: 'grid gap-4 py-4 sm:grid-cols-2 lg:grid-cols-3'
-									}
-								>
-									{authorDetails.map((author, index) => (
-										<AuthorsDetails key={author.id} ranking={index + 1} {...author} />
-									))}
+								<div className="grid grid-cols-1 gap-4 py-4">
+									<AuthorDetails />
 								</div>
 								<PostLinks path={path} filePath={filePath} />
-								<ReactionsButton slug={slug} />
 								<Share title={title} slug={slug} />
 								<footer>
 									<div className="text-sm font-medium leading-5">
@@ -156,7 +141,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 									</div>
 									<div className="pt-4 xl:pt-8">
 										<Link href="/blog" aria-label="Back to the blog">
-											&larr; Back to the blog
+											cd ../blog
 										</Link>
 									</div>
 								</footer>

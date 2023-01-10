@@ -9,8 +9,7 @@
 		"build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node -r esbuild-register ./scripts/post-build.mjs",
 		"start": "next start",
 		"analyze": "cross-env ANALYZE=true next build",
-		"count": "cloc --exclude-ext=svg,css,json,xml --exclude-dir=node_modules,.next --vcs=git --json . > data/count_total.json",
-		"pre-commit": "npx --no-install lint-staged && npm run count && git add data/count_total.json",
+		"pre-commit": "npx --no-install lint-staged",
 		"prepare": "husky install",
 		"update": "ncu -i --format group",
 		"depcheck": "npx depcheck"
@@ -20,8 +19,6 @@
 		"@tailwindcss/typography": "^0.5.8",
 		"@vercel/og": "^0.0.21",
 		"autoprefixer": "^10.4.13",
-		"chart.js": "^3.9.1",
-		"cloc": "^2.10.0",
 		"contentlayer": "^0.2.9",
 		"github-slugger": "^2.0.0",
 		"image-size": "^1.0.2",
@@ -35,9 +32,8 @@
 		"node-vibrant": "^3.1.6",
 		"postcss": "^8.4.20",
 		"react": "18.2.0",
-		"react-chartjs-2": "^4.3.1",
 		"react-dom": "^18.2.0",
-		"react-hot-toast": "^2.4.0",
+		"react-wrap-balancer": "^0.2.4",
 		"rehype-preset-minify": "^6.0.0",
 		"rehype-slug": "^5.1.0",
 		"remark": "^14.0.2",
@@ -50,8 +46,7 @@
 		"tailwindcss": "^3.2.4",
 		"unist-util-visit": "^4.1.1",
 		"use-sound": "^4.0.1",
-		"vfile": "^5.3.6",
-		"web-vitals": "^2.1.4"
+		"vfile": "^5.3.6"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.3.0",

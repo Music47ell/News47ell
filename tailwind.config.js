@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 const rgbToTailwind = (rgb) =>
 	rgb
 		.replace(/[^\d,]/g, '')
@@ -12,25 +10,19 @@ module.exports = {
 	experimental: {
 		optimizeUniversalDefaults: true,
 	},
-	content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx', './lib/**/*.ts'],
+	content: [
+		'./app/**/*.{js,ts,jsx,tsx}',
+		'./pages/**/*.{js,ts,jsx,tsx}',
+		'./components/**/*.{js,ts,jsx,tsx}',
+		'./layouts/**/*.{js,ts,jsx,tsx}',
+		'./lib/**/*.ts',
+	],
 	theme: {
 		extend: {
 			backgroundImage: {
 				'arrow-up-pattern': "url('/images/patterns/arrow-up.svg')",
 				'skulls-pattern': "url('/images/patterns/skulls.svg')",
 				'death-star-pattern': "url('/images/patterns/death-star.svg')",
-			},
-			spacing: {
-				'9/16': '56.25%',
-			},
-			lineHeight: {
-				11: '2.75rem',
-				12: '3rem',
-				13: '3.25rem',
-				14: '3.5rem',
-			},
-			fontFamily: {
-				sans: ['Inter', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				türkiye: '#E30A17',
@@ -40,46 +32,6 @@ module.exports = {
 				'nfh-text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
 				'nfh-accent-primary': 'rgb(var(--accent-primary) / <alpha-value>)',
 				'nfh-accent-secondary': 'rgb(var(--accent-secondary) / <alpha-value>)',
-				light: {
-					'background-primary': rgbToTailwind('rgb(243, 244, 246)'),
-					'background-secondary': rgbToTailwind('rgb(128, 128, 128)'),
-					'text-primary': rgbToTailwind('rgb(17, 24, 39)'),
-					'text-secondary': rgbToTailwind('rgb(31, 41, 55)'),
-					'accent-primary': rgbToTailwind('rgb(220, 38, 38)'),
-					'accent-secondary': rgbToTailwind('rgb(185, 28, 28)'),
-				},
-				dark: {
-					'background-primary': rgbToTailwind('rgb(28, 25, 23)'),
-					'background-secondary': rgbToTailwind('rgb(41, 37, 36)'),
-					'text-primary': rgbToTailwind('rgb(250, 250, 249)'),
-					'text-secondary': rgbToTailwind('rgb(245, 245, 244)'),
-					'accent-primary': rgbToTailwind('rgb(244, 63, 94)'),
-					'accent-secondary': rgbToTailwind('rgb(225, 29, 72)'),
-				},
-				hackerNews: {
-					'background-primary': rgbToTailwind('rgb(246, 246, 239)'),
-					'background-secondary': rgbToTailwind('rgb(255, 255, 255)'),
-					'text-primary': rgbToTailwind('rgb(0, 0, 0)'),
-					'text-secondary': rgbToTailwind('rgb(130, 130, 130)'),
-					'accent-primary': rgbToTailwind('rgb(255, 102, 0)'),
-					'accent-secondary': rgbToTailwind('rgb(255, 140, 64)'),
-				},
-				latte: {
-					'background-primary': rgbToTailwind('rgb(239, 241, 245)'), // Base
-					'background-secondary': rgbToTailwind('rgb(230, 233, 239)'), // Mantle
-					'text-primary': rgbToTailwind('rgb(76, 79, 105)'), // Text
-					'text-secondary': rgbToTailwind('rgb(156, 160, 176)'), // Overlay0
-					'accent-primary': rgbToTailwind('rgb(136, 57, 239)'), // Mauve
-					'accent-secondary': rgbToTailwind('rgb(30, 102, 245)'), // Blue
-				},
-				roséPineDawn: {
-					'background-primary': rgbToTailwind('rgb(250, 244, 237)'), // Base
-					'background-secondary': rgbToTailwind('rgb(242, 233, 222)'), // Overlay
-					'text-primary': rgbToTailwind('rgb(87, 82, 121)'), // Text
-					'text-secondary': rgbToTailwind('rgb(215, 130, 126)'), // Rose
-					'accent-primary': rgbToTailwind('rgb(180, 99, 122)'), // Love
-					'accent-secondary': rgbToTailwind('rgb(40, 105, 131)'), // Pine
-				},
 				dracula: {
 					'background-primary': rgbToTailwind('rgb(40, 42, 54)'), // Background
 					'background-secondary': rgbToTailwind('rgb(68, 71, 90)'), // Current Line
@@ -87,38 +39,6 @@ module.exports = {
 					'text-secondary': rgbToTailwind('rgb(139, 233, 253)'), // Cyan
 					'accent-primary': rgbToTailwind('rgb(189, 147, 249)'), // Purple
 					'accent-secondary': rgbToTailwind('rgb(98, 114, 164)'), // Comment
-				},
-				mocha: {
-					'background-primary': rgbToTailwind('rgb(30, 30, 46)'), // Base
-					'background-secondary': rgbToTailwind('rgb(24, 24, 37)'), // Mantle
-					'text-primary': rgbToTailwind('rgb(205, 214, 244)'), // Text
-					'text-secondary': rgbToTailwind('rgb(108, 112, 134)'), // Overlay0
-					'accent-primary': rgbToTailwind('rgb(203, 166, 247)'), // Mauve
-					'accent-secondary': rgbToTailwind('rgb(137, 180, 250)'), // Blue
-				},
-				roséPine: {
-					'background-primary': rgbToTailwind('rgb(25, 23, 36)'), // Base
-					'background-secondary': rgbToTailwind('rgb(38, 35, 58)'), // Overlay
-					'text-primary': rgbToTailwind('rgb(224, 222, 244)'), // Text
-					'text-secondary': rgbToTailwind('rgb(235, 188, 186)'), // Rose
-					'accent-primary': rgbToTailwind('rgb(235, 111, 146)'), // Love
-					'accent-secondary': rgbToTailwind('rgb(49, 116, 143)'), // Pine
-				},
-				wildberries: {
-					'background-primary': rgbToTailwind('rgb(25, 00, 46)'), // Black Berry
-					'background-secondary': rgbToTailwind('rgb(144, 00, 72)'), // Cherry
-					'text-primary': rgbToTailwind('rgb(255, 14, 130)'), // Pink
-					'text-secondary': rgbToTailwind('rgb(0, 255, 183)'), // Green
-					'accent-primary': rgbToTailwind('rgb(250, 141, 62)'), // Orange
-					'accent-secondary': rgbToTailwind('rgb(57, 158, 230)'), // Blue
-				},
-				nord: {
-					'background-primary': rgbToTailwind('rgb(46, 52, 64)'),
-					'background-secondary': rgbToTailwind('rgb(59, 66, 82)'),
-					'text-primary': rgbToTailwind('rgb(229, 233, 240)'),
-					'text-secondary': rgbToTailwind('rgb(236, 239, 244)'),
-					'accent-primary': rgbToTailwind('rgb(136, 192, 208)'),
-					'accent-secondary': rgbToTailwind('rgb(129, 161, 193)'),
 				},
 			},
 			animation: {

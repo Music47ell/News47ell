@@ -43,23 +43,15 @@ export type siteMetadata = {
 }
 
 export type MDXDocument = Document & { body: MDX }
-export type MDXDocumentDate = MDXDocument & {
+
+export type MDXBlogs = {
 	published_at: string
-}
-export type MDXBlogs = MDXDocumentDate & {
 	tags?: string[]
 	draft?: boolean
 }
 
 export type MDXAuthor = MDXDocument & {
 	name: string
-}
-
-export type AuthorFrontMatter = {
-	id: number
-	name: string
-	avatar: string
-	url: string
 }
 
 export type CodeStats = {
@@ -127,35 +119,6 @@ export type RaindropStatsCard = {
 	lastUpdate: string
 	isLoading: boolean
 	isError: string
-}
-
-export type PostFrontMatter = {
-	id: string
-	title: string
-	published_at: string
-	updated_at: string
-	tags?: string[]
-	draft?: boolean
-	description?: string
-	cover?: string[]
-	author?: {
-		id: string
-		username: string
-		first_name: string
-		last_name: string
-		slug: string
-		email: string
-		avatar: string
-		avatar_url: string
-		twitter: string
-	}
-	layout?: string
-	slug: string
-	source?: string
-	readingTime: {
-		words: number
-		time: number
-	}
 }
 
 export type Quote = {

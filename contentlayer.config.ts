@@ -16,7 +16,14 @@ const computedFields: ComputedFields = {
 		type: 'string',
 		resolve: (doc) => doc._raw.sourceFilePath,
 	},
-	stats: { type: 'json', resolve: (doc) => extractReadingTime(doc.body.raw) },
+	readingTime: {
+		type: 'string',
+		resolve: async (doc) => (await extractReadingTime(doc.body.raw)).readingTime,
+	},
+	wordsCount: {
+		type: 'number',
+		resolve: async (doc) => (await extractReadingTime(doc.body.raw)).wordsCount,
+	},
 	toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
@@ -31,7 +38,7 @@ const Blog = defineDocumentType(() => ({
 		published_at: { type: 'string', required: true },
 		tags: { type: 'list', of: { type: 'string' }, required: false },
 		source: { type: 'string', required: false },
-		canonicalUrl: { type: 'string' },
+		canonicalUrl: { type: 'string', required: false },
 	},
 	computedFields,
 }))
@@ -42,7 +49,7 @@ const Page = defineDocumentType(() => ({
 	contentType: 'mdx',
 	fields: {
 		title: { type: 'string', required: true },
-		draft: { type: 'boolean', required: true },
+		draft: { type: 'boolean', required: false },
 		published_at: { type: 'string', required: true },
 	},
 	computedFields,
