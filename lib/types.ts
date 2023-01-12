@@ -89,38 +89,6 @@ export type TLanguage = {
 	xps: number
 }
 
-export type Bookmark = {
-	bookmarks: RaindropCard[]
-	tags: string[]
-	isLoading: boolean
-	isError: string | undefined
-}
-
-export type RaindropCard = {
-	link: string
-	title: string
-	cover: string
-	lastUpdate: string
-	tags: string[]
-}
-
-export type RaindropStats = {
-	items: Array<{
-		_id: string
-		count: number
-	}>
-	meta: {
-		changedBookmarksDate: string
-	}
-}
-
-export type RaindropStatsCard = {
-	bookmarksCount: number
-	lastUpdate: string
-	isLoading: boolean
-	isError: string
-}
-
 export type Quote = {
 	text: string
 	link?: string

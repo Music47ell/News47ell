@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeftIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import { SectionContainer } from '@/components/UI'
 
 export default function MusicRecommend() {
 	const [selectedOption, setSelectedOption] = useState([])
@@ -107,37 +108,36 @@ export default function MusicRecommend() {
 	}, [])
 
 	return (
-		<main className="container mx-auto flex max-w-5xl flex-1 flex-col px-3">
-			<Link
-				href="/dashboard/music"
-				className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
-			>
-				<ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
-			</Link>
-			<div className="space-y-2 py-6 md:space-y-5">
-				<h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl">
-					Recommend A Song
-				</h1>
-				<p>Find and add a song to my spotify playlist.</p>
-			</div>
-			<div className="flex flex-col pb-3">
-				<input
-					onChange={(e) => setSearchInput(e.target.value)}
-					disabled={isRecommended}
-					value={searchInput}
-					id="search-input"
-					className="block w-full rounded-md border border-nfh-accent-primary bg-nfh-background-secondary px-4 py-2 text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
-					placeholder="Search for any song, artist, or album"
-				/>
+		<SectionContainer>
+			<div className="space-y-2 pt-6 md:space-y-5">
+				<div className="md:flex md:items-center md:justify-between">
+					<h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">
+						Recommend A Song
+					</h1>
+					<p className="text-xs">Powered by Spotify API & Supabase</p>
+				</div>
+				<div className="space-y-2 md:space-y-5">
+					<Link
+						href="/dashboard/music"
+						className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
+					>
+						<ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
+					</Link>
+					<input
+						onChange={(e) => setSearchInput(e.target.value)}
+						disabled={isRecommended}
+						value={searchInput}
+						id="search-input"
+						className="block w-full rounded-md border border-nfh-accent-primary bg-nfh-background-secondary px-4 py-2 text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary"
+						placeholder="Search for any song, artist, or album"
+					/>
+				</div>
 			</div>
 
 			{!isNoteEnabled &&
 				!isRecommended &&
 				searchResults.map((t) => (
-					<div
-						className="flex h-24 w-full justify-between border-t border-solid border-gray-500 p-3"
-						key={t.uri}
-					>
+					<div className="flex w-full justify-between" key={t.uri}>
 						<div className="flex w-full items-center gap-2.5 overflow-hidden">
 							<Image width={50} height={50} alt={t.title} src={t.image} />
 							<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
@@ -175,7 +175,7 @@ export default function MusicRecommend() {
 						<div className="relative flex flex-col rounded-xl border p-4">
 							<div className="z-50 flex items-center px-10 pb-4">
 								<Image
-									className="mr-6 h-24 w-24 rounded-md border bg-cover object-cover"
+									className="mr-6 h-40 w-40 bg-cover object-cover"
 									width={600}
 									height={600}
 									alt={`${song.title} album cover`}
@@ -185,13 +185,13 @@ export default function MusicRecommend() {
 								<div className="flex flex-col">
 									<span
 										data-amplitude-song-info="name"
-										className="font-sans text-lg font-medium leading-7 text-slate-900"
+										className="font-sans text-lg font-medium leading-7 text-nfh-text-primary"
 									>
 										{song.title}
 									</span>
 									<span
 										data-amplitude-song-info="artist"
-										className="font-sans text-base font-medium leading-6 text-gray-500"
+										className="font-sans text-base font-medium leading-6 text-nfh-text-secondary"
 									>
 										{song.artists.map((a: { url: string; name: string }) => (
 											<Link key={a.url} href={a.name}>
@@ -228,7 +228,7 @@ export default function MusicRecommend() {
 											id="email"
 											name="email"
 											type="email"
-											className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+											className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary"
 											placeholder="Enter your email"
 											required
 											value={email}
@@ -247,7 +247,7 @@ export default function MusicRecommend() {
 											id="message"
 											name="message"
 											onChange={(e) => setNote(e.target.value)}
-											className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+											className="block w-full rounded-lg border border-transparent bg-nfh-accent-secondary py-3 px-5 text-base text-nfh-text-secondary transition duration-500 ease-in-out placeholder:text-nfh-text-primary placeholder:hover:text-nfh-accent-primary focus:border-transparent focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary"
 											placeholder="Enter your note"
 											required
 										/>
@@ -259,13 +259,13 @@ export default function MusicRecommend() {
 										onClick={() => {
 											sendEmail(song)
 										}}
-										className="flex w-full items-center justify-center rounded-xl bg-blue-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+										className="flex w-full items-center justify-center rounded-xl bg-blue-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary"
 									>
 										Recommend
 									</button>
 									<button
 										onClick={handleReset}
-										className="flex w-full items-center justify-center rounded-xl bg-red-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary focus:ring-offset-2 focus:ring-offset-nfh-accent-primary"
+										className="flex w-full items-center justify-center rounded-xl bg-red-600 py-4 px-10 text-center text-base font-medium text-nfh-text-primary transition duration-500 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-nfh-accent-primary"
 									>
 										RESET
 									</button>
@@ -281,6 +281,6 @@ export default function MusicRecommend() {
 					<button onClick={handleReset}>Clear</button>
 				</>
 			)}
-		</main>
+		</SectionContainer>
 	)
 }
