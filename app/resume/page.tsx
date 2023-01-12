@@ -1,6 +1,7 @@
 'use client'
 
 import { LoaderIcon } from '@/components/icons'
+import { SectionContainer } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
 import { useResume } from '@/hooks/useGitHub'
 import ResumeLayout from '@/layouts/ResumeLayout'
@@ -11,7 +12,7 @@ export default function Resume() {
 	const { basics, education, skills, languages, certificates } = resume
 
 	return (
-		<main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
+		<SectionContainer>
 			<div className="text-center print:hidden">
 				<PageTitle>Resume</PageTitle>
 			</div>
@@ -28,6 +29,6 @@ export default function Resume() {
 					certificates={certificates}
 				/>
 			)}
-		</main>
+		</SectionContainer>
 	)
 }
