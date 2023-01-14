@@ -6,11 +6,11 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
 	return (
-		<footer className="border-t border-nfh-accent-primary bg-nfh-background-secondary py-4 print:hidden">
+		<footer className="z-40 border-t border-nfh-accent-primary bg-nfh-background-secondary py-4 print:hidden">
 			<div className="flex flex-col items-center">
 				<div className="grid grid-cols-1 space-y-2">
 					<div className="copyright text-center text-xs" itemProp="copyrightYear">
-						COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>
+						COPYRIGHT © 2013 / <span className="year">{new Date().getFullYear()}</span>{' '}
 						{siteMetadata.altTitle}. ALL RIGHTS RESERVED.
 					</div>
 					<div className="text-center text-xs">

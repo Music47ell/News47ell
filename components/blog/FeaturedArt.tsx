@@ -18,10 +18,10 @@ export default function FeaturedArt({ text }: IProps) {
 	return (
 		<button
 			aria-label="Play"
-			className="m-auto flex w-full flex-col items-center overflow-hidden"
+			className="flex w-full flex-col items-center overflow-hidden"
 			onClick={onClickHandler}
 		>
-			<div className="col-start-1 row-start-1 flex overflow-hidden">
+			<div className="flex overflow-hidden">
 				{text.split('').map((char, i) => (
 					<div
 						key={i}

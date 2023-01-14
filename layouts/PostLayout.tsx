@@ -5,6 +5,7 @@ import { ScrollTop, Share, Sponsor } from '@/components/blog'
 import { AuthorDetails, PostDate, PostLinks } from '@/components/blog'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 import { Slash } from '@/components/icons'
+import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
 import { Divider } from '@/components/UI'
@@ -36,119 +37,115 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 	return (
 		<>
 			<ScrollTop />
-			<main className="relative my-8 max-w-3xl px-6 sm:mx-auto">
-				<div className="col-span-10 flex flex-col lg:col-span-7">
-					<div className="-mx-4 rounded border-nfh-accent-primary p-4 md:border">
-						<article className="h-entry space-y-12">
-							<FeaturedArt text={title} />
-							<PostDate
-								published_at={publishedAt}
-								updated_at={updatedAt}
-								firstCommitHash={firstCommitHash}
-								lastCommitHash={lastCommitHash}
-								slug={slug}
-								isCommitDataLoading={isCommitDataLoading}
-							/>
-							<div className="text-center">
-								{source ? (
-									<Link href={source}>
-										<PageTitle>{title}</PageTitle>
-									</Link>
-								) : (
+			<main className="col-span-10 flex flex-col lg:col-span-7">
+				<div className="fixed inset-0 bg-[url(/images/patterns/grid.svg)] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+				<article className="h-entry">
+					<div className="relative z-10 flex h-screen min-h-[600px] w-full flex-col items-center justify-center">
+						<FeaturedArt text={title} />
+						<PostDate
+							published_at={publishedAt}
+							updated_at={updatedAt}
+							firstCommitHash={firstCommitHash}
+							lastCommitHash={lastCommitHash}
+							slug={slug}
+							isCommitDataLoading={isCommitDataLoading}
+						/>
+						<div className="text-center">
+							{source ? (
+								<Link href={source}>
 									<PageTitle>{title}</PageTitle>
-								)}
+								</Link>
+							) : (
+								<PageTitle>{title}</PageTitle>
+							)}
+						</div>
+						<div className="absolute bottom-5 m-0 grid grid-cols-3 items-center justify-items-center gap-4 text-sm tabular-nums">
+							<div className="flex items-center">
+								<span className="sr-only">Reading time</span>
+								<span>{readingTime} minutes</span>
 							</div>
-							<Divider>
-								<Slash className="block h-10 w-auto" />
-							</Divider>
-							<div className="grid grid-cols-3 items-center justify-items-center gap-4 text-sm tabular-nums">
-								<div className="flex items-center space-x-2">
-									<span className="sr-only">Reading time</span>
-									<span>{readingTime} minutes</span>
-								</div>
-								<div className="flex items-center space-x-2">
-									<span className="sr-only">Views</span>
-									<span>
-										{isLoading ? (
-											'---'
-										) : (
-											<>
-												{views}
-												{views === 1 ? ' views' : ' views'}
-											</>
-										)}
-									</span>
-								</div>
-								<div className="flex items-center space-x-2">
-									<span className="sr-only">Words Count</span>
-									<span>{wordsCount} words</span>
-								</div>
+							<div className="flex items-center">
+								<span className="sr-only">Views</span>
+								<span>
+									{isLoading ? (
+										'---'
+									) : (
+										<>
+											{views}
+											{views === 1 ? ' views' : ' views'}
+										</>
+									)}
+								</span>
 							</div>
-							<div className="divide-y divide-nfh-accent-secondary">
-								<div className="divide-y py-6">
-									<div className="e-content entry-content prose prose-theme max-w-none text-base">
-										{children}
-									</div>
-								</div>
-								<div className="grid grid-cols-1 gap-4 py-4">
-									<AuthorDetails />
-								</div>
-								<PostLinks path={path} filePath={filePath} />
-								<Share title={title} slug={slug} />
-								<footer>
-									<div className="text-sm font-medium leading-5">
-										<Sponsor />
-										{tags && (
-											<div className="py-4">
-												<h2 className="text-xs uppercase tracking-wide">Tags</h2>
-												<div className="flex flex-wrap">
-													{tags.map((tag) => (
-														<Tag key={tag} text={tag} />
-													))}
-												</div>
-											</div>
-										)}
-										{(next || prev) && (
-											<div className="flex justify-between py-4">
-												{prev && (
-													<div>
-														<h2 className="text-xs uppercase tracking-wide">Previous Article</h2>
-														<div>
-															<Link
-																href={`/blog/${prev.slug}`}
-																aria-label={`Previous post: ${prev.title}`}
-															>
-																{prev.title}
-															</Link>
-														</div>
-													</div>
-												)}
-												{next && (
-													<div>
-														<h2 className="text-xs uppercase tracking-wide">Next Article</h2>
-														<div>
-															<Link
-																href={`/blog/${next.slug}`}
-																aria-label={`Next post: ${next.title}`}
-															>
-																{next.title}
-															</Link>
-														</div>
-													</div>
-												)}
-											</div>
-										)}
-									</div>
-									<div className="pt-4 xl:pt-8">
-										<Link href="/blog" aria-label="Back to the blog">
-											cd ../blog
-										</Link>
-									</div>
-								</footer>
+							<div className="flex items-center">
+								<span className="sr-only">Words Count</span>
+								<span>{wordsCount} words</span>
 							</div>
-						</article>
+						</div>
 					</div>
-				</div>
+					<div className="relative bg-nfh-background-primary">
+						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary py-8 px-6 sm:mx-auto">
+							<div className="e-content entry-content prose prose-theme max-w-none text-base">
+								{children}
+							</div>
+							<div className="grid grid-cols-1 gap-4 py-4">
+								<AuthorDetails />
+							</div>
+							<PostLinks path={path} filePath={filePath} />
+							<Share title={title} slug={slug} />
+							<footer>
+								<div className="text-sm font-medium leading-5">
+									<Sponsor />
+									{tags && (
+										<div className="py-4">
+											<h2 className="text-xs uppercase tracking-wide">Tags</h2>
+											<div className="flex flex-wrap">
+												{tags.map((tag) => (
+													<Tag key={tag} text={tag} />
+												))}
+											</div>
+										</div>
+									)}
+									{(next || prev) && (
+										<div className="flex justify-between py-4">
+											{prev && (
+												<div>
+													<h2 className="text-xs uppercase tracking-wide">Previous Article</h2>
+													<div>
+														<Link
+															href={`/blog/${prev.slug}`}
+															aria-label={`Previous post: ${prev.title}`}
+														>
+															{prev.title}
+														</Link>
+													</div>
+												</div>
+											)}
+											{next && (
+												<div>
+													<h2 className="text-xs uppercase tracking-wide">Next Article</h2>
+													<div>
+														<Link
+															href={`/blog/${next.slug}`}
+															aria-label={`Next post: ${next.title}`}
+														>
+															{next.title}
+														</Link>
+													</div>
+												</div>
+											)}
+										</div>
+									)}
+								</div>
+								<div className="pt-4 xl:pt-8">
+									<Link href="/blog" aria-label="Back to the blog">
+										cd ../blog
+									</Link>
+								</div>
+							</footer>
+						</div>
+					</div>
+				</article>
 			</main>
 		</>
 	)

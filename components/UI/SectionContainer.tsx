@@ -6,15 +6,15 @@ const SectionContainer = ({
 	children: React.ReactNode
 }) => {
 	return className ? (
-		<section
-			className={`container mx-auto my-8 flex max-w-5xl flex-1 flex-col gap-y-5 px-3 print:h-screen print:items-center print:justify-center ${className}`}
+		<main
+			className={`container my-28 mx-auto flex max-w-5xl flex-1 flex-col gap-y-5 px-3 print:h-screen print:items-center print:justify-center ${className}`}
 		>
 			{children}
-		</section>
+		</main>
 	) : (
-		<section className="container mx-auto my-8 flex max-w-5xl flex-1 flex-col gap-y-5 px-3 print:h-screen print:items-center print:justify-center">
+		<main className="container my-28 mx-auto flex max-w-5xl flex-1 flex-col gap-y-5 px-3 print:h-screen print:items-center print:justify-center">
 			{children}
-		</section>
+		</main>
 	)
 }
 

@@ -9,7 +9,7 @@ export default function PageLayout({ content, children }: IPageLayout) {
 	return (
 		<>
 			<PageSEO title={`${title} - ${siteMetadata.title}`} description={siteMetadata.description} />
-			<main className="mx-auto flex max-w-5xl flex-1 flex-col px-3">
+			<main className="relative mt-16 max-w-3xl divide-y divide-nfh-accent-secondary px-6 sm:mx-auto">
 				<article className="pt-4">
 					<div>
 						<header>
