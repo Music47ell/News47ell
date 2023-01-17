@@ -8,9 +8,9 @@ import Providers from './providers'
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" suppressHydrationWarning={true}>
-			<body className="bg-nfh-background-primary text-nfh-text-primary antialiased transition-colors duration-300">
-				<div className="absolute inset-0 flex h-screen flex-col justify-between">
+		<html lang="en">
+			<body className="bg-nfh-background-primary text-nfh-text-primary antialiased">
+				<div className="absolute inset-0 flex flex-col justify-between">
 					<Providers>
 						<Header />
 						{children}

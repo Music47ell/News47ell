@@ -7,6 +7,7 @@ import FeaturedArt from '@/components/blog/FeaturedArt'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
+import { SectionContainer } from '@/components/UI'
 import { useCommitData } from '@/hooks/useGitHub'
 import { useViewsBySlug } from '@/hooks/useViews'
 import { IPostLayout } from '@/lib/interfaces'
@@ -32,7 +33,7 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 	const { views, isLoading } = useViewsBySlug(slug)
 
 	return (
-		<>
+		<SectionContainer className="my-0 max-w-full px-0">
 			<ScrollTop />
 			<main className="col-span-10 flex flex-col lg:col-span-7">
 				<div className="fixed inset-0 bg-[url(/images/patterns/grid.svg)] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
@@ -81,13 +82,13 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 						</div>
 					</div>
 					<div className="relative bg-nfh-background-primary">
-						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary py-8 px-6 sm:mx-auto">
-							<div className="e-content entry-content prose prose-theme max-w-none text-base">
+						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary px-6 sm:mx-auto">
+							<div className="e-content entry-content prose prose-theme max-w-none py-8 text-base">
 								{children}
 							</div>
 							<PostLinks path={path} filePath={filePath} />
 							<Share title={title} slug={slug} />
-							<footer>
+							<footer className="py-8">
 								<div className="text-sm font-medium leading-5">
 									<Sponsor />
 									{tags && (
@@ -141,6 +142,6 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 					</div>
 				</article>
 			</main>
-		</>
+		</SectionContainer>
 	)
 }
