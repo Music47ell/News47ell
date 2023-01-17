@@ -27,8 +27,6 @@ export type siteMetadata = {
 	marqueeLists?: { topics: string[] }
 	orbitLinks?: { title: string; href: string; icon: string }[]
 	heroCardLinks?: { title: string; href: string }[]
-	headerNavLinks?: { title: string; href: string; icon: string }[]
-	footerLinks?: { title: string; href: string }[]
 	curlCardLinks?: {
 		github: { title: string; text: string }
 		twitter: { title: string; text: string }

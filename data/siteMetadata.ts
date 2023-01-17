@@ -52,20 +52,6 @@ const siteMetadata = {
 		{ title: "See what I'm doing now", href: '/now' },
 		{ title: 'My resume', href: '/resume' },
 	],
-	headerNavLinks: [
-		{ title: 'Blog', href: '/blog' },
-		{ title: 'Tags', href: '/blog/tags' },
-		{ title: 'Dashboard', href: '/dashboard' },
-		{ title: 'Colophon', href: '/colophon' },
-		{ title: 'Uses', href: '/uses' },
-		{ title: 'Now', href: '/now' },
-	],
-	footerLinks: [
-		{ title: 'Links', href: '/links' },
-		{ title: 'RSS', href: '/feed' },
-		{ title: 'Acknowledgements', href: '/acknowledgements' },
-		{ title: 'Support This Site', href: '/sponsor' },
-	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },
 		twitter: {

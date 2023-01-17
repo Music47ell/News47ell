@@ -22,6 +22,7 @@
 		"contentlayer": "^0.2.9",
 		"github-slugger": "^2.0.0",
 		"image-size": "^1.0.2",
+		"kbar": "^0.1.0-beta.39",
 		"kleur": "^4.1.5",
 		"mdast-util-to-string": "^3.1.0",
 		"mdx-bundler": "^9.0.1",

@@ -5,7 +5,7 @@ import { HeroCard, HeroCardLinks, TopReactions, TopViews } from '@/components/ho
 
 export default function HomeLayout() {
 	return (
-		<main className="container mx-auto mb-8 flex max-w-5xl flex-1 flex-col space-y-2 px-3 md:space-y-5">
+		<main className="container my-28 mx-auto mb-8 flex max-w-5xl flex-1 flex-col space-y-2 px-3 md:space-y-5">
 			<HeroCard />
 			<HeroCardLinks />
 			<DynamicToolsMarquee />

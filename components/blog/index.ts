@@ -1,4 +1,3 @@
-export { default as AuthorDetails } from './AuthorDetails'
 export { default as Pagination } from './Pagination'
 export { default as PostDate } from './PostDate'
 export { default as PostLinks } from './PostLinks'

@@ -2,13 +2,10 @@
 import { useEffect, useState } from 'react'
 
 import { ScrollTop, Share, Sponsor } from '@/components/blog'
-import { AuthorDetails, PostDate, PostLinks } from '@/components/blog'
+import { PostDate, PostLinks } from '@/components/blog'
 import FeaturedArt from '@/components/blog/FeaturedArt'
-import { Slash } from '@/components/icons'
-import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
-import { Divider } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
 import { useCommitData } from '@/hooks/useGitHub'
 import { useViewsBySlug } from '@/hooks/useViews'
@@ -87,9 +84,6 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary py-8 px-6 sm:mx-auto">
 							<div className="e-content entry-content prose prose-theme max-w-none text-base">
 								{children}
-							</div>
-							<div className="grid grid-cols-1 gap-4 py-4">
-								<AuthorDetails />
 							</div>
 							<PostLinks path={path} filePath={filePath} />
 							<Share title={title} slug={slug} />

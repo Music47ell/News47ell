@@ -11,7 +11,7 @@ export default function Divider({ children }: Props): JSX.Element {
 
 	return (
 		<div
-			className="grid gap-4 text-center text-nfh-accent-primary"
+			className="grid gap-4 pb-6 text-center text-nfh-accent-primary"
 			role="presentation"
 			aria-hidden="true"
 			style={{ gridTemplateColumns: '1fr auto 1fr' }}
