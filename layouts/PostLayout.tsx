@@ -21,14 +21,12 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 		useCommitData(encodeURIComponent(filePath))
 
 	useEffect(() => {
-		if (firstCommitDate && lastCommitDate) {
-			setPublishedAt(firstCommitDate)
-			setUpdatedAt(lastCommitDate)
-		} else {
-			setPublishedAt(published_at)
-			setUpdatedAt(published_at)
-		}
-	}, [firstCommitDate, lastCommitDate, published_at])
+		isCommitDataLoading
+			? setPublishedAt(published_at)
+			: firstCommitDate && lastCommitDate
+			? [setPublishedAt(firstCommitDate), setUpdatedAt(lastCommitDate)]
+			: [setPublishedAt(published_at), setUpdatedAt(published_at)]
+	}, [isCommitDataLoading, firstCommitDate, lastCommitDate, published_at])
 
 	const { views, isLoading } = useViewsBySlug(slug)
 
