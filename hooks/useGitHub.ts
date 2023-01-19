@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
-import { ICommitData, IResumeLayout } from '@/lib/interfaces'
+import { IResumeLayout } from '@/lib/interfaces'
 import { Lyrics, Quotes } from '@/lib/types'
 
 export function useResume() {
@@ -42,19 +42,6 @@ export function useQuote() {
 	return {
 		quote,
 		isLoading: !error && !quote,
-		isError: error,
-	}
-}
-
-export function useCommitData(slug: string) {
-	const { data, error } = useSWR<ICommitData>(`/api/github/commit-data/${slug}`, fetcher)
-
-	return {
-		firstCommitDate: data?.firstCommitDate,
-		lastCommitDate: data?.lastCommitDate,
-		firstCommitHash: data?.firstCommitHash || '000000',
-		lastCommitHash: data?.lastCommitHash || 'E30A17',
-		isCommitDataLoading: !error && !data,
 		isError: error,
 	}
 }

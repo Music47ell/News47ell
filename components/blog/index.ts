@@ -1,5 +1,4 @@
 export { default as Pagination } from './Pagination'
-export { default as PostDate } from './PostDate'
 export { default as PostLinks } from './PostLinks'
 export { default as ReactionsButton } from './ReactionsButton'
 export { default as ScrollTop } from './ScrollTop'

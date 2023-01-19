@@ -40,24 +40,6 @@ export interface IPageLayout {
 	children: ReactNode
 }
 
-export interface IPostDate {
-	published_at: string
-	updated_at: string
-	firstCommitHash: string
-	lastCommitHash: string
-	slug: string
-	isCommitDataLoading: boolean
-}
-
-export interface ICommitData {
-	firstCommitDate?: string
-	lastCommitDate?: string
-	firstCommitHash?: string
-	lastCommitHash?: string
-	isCommitDataLoading: boolean
-	isError: string
-}
-
 export interface IResumeLayout {
 	basics: {
 		name: string

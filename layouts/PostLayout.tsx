@@ -1,32 +1,27 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from 'react'
-
 import { ScrollTop, Share, Sponsor } from '@/components/blog'
-import { PostDate, PostLinks } from '@/components/blog'
+import { PostLinks } from '@/components/blog'
 import FeaturedArt from '@/components/blog/FeaturedArt'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
 import { SectionContainer } from '@/components/UI'
-import { useCommitData } from '@/hooks/useGitHub'
 import { useViewsBySlug } from '@/hooks/useViews'
 import { IPostLayout } from '@/lib/interfaces'
+import { displayDate, hEntryDate } from '@/utils/format-date'
 
 export default function PostLayout({ content, next, prev, children }: IPostLayout) {
-	const [publishedAt, setPublishedAt] = useState('')
-	const [updatedAt, setUpdatedAt] = useState('')
-	const { filePath, path, slug, source, title, tags, published_at, readingTime, wordsCount } =
-		content
-	const { firstCommitDate, lastCommitDate, firstCommitHash, lastCommitHash, isCommitDataLoading } =
-		useCommitData(encodeURIComponent(filePath))
-
-	useEffect(() => {
-		isCommitDataLoading
-			? setPublishedAt(published_at)
-			: firstCommitDate && lastCommitDate
-			? [setPublishedAt(firstCommitDate), setUpdatedAt(lastCommitDate)]
-			: [setPublishedAt(published_at), setUpdatedAt(published_at)]
-	}, [isCommitDataLoading, firstCommitDate, lastCommitDate, published_at])
+	const {
+		filePath,
+		path,
+		slug,
+		source,
+		title,
+		tags,
+		published_at,
+		updated_at,
+		readingTime,
+		wordsCount,
+	} = content
 
 	const { views, isLoading } = useViewsBySlug(slug)
 
@@ -38,14 +33,17 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 				<article className="h-entry">
 					<div className="relative z-10 flex h-screen min-h-[600px] w-full flex-col items-center justify-center">
 						<FeaturedArt text={title} />
-						<PostDate
-							published_at={publishedAt}
-							updated_at={updatedAt}
-							firstCommitHash={firstCommitHash}
-							lastCommitHash={lastCommitHash}
-							slug={slug}
-							isCommitDataLoading={isCommitDataLoading}
-						/>
+						<div className="mt-14 flex items-center justify-center gap-4">
+							<Link href={slug} className="u-url">
+								<time
+									dateTime={hEntryDate(updated_at)}
+									className="dt-published tooltip"
+									aria-label={`Published at: ${displayDate(published_at)}`}
+								>
+									{displayDate(updated_at)}
+								</time>
+							</Link>
+						</div>
 						<div className="text-center">
 							{source ? (
 								<Link href={source}>

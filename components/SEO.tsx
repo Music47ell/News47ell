@@ -129,29 +129,15 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 export const BlogSEO = ({
 	title,
 	slug,
-	filePath,
 	description,
 	published_at,
+	updated_at,
 	url,
 	readingTime,
 	wordsCount,
 	canonicalUrl,
 }: BlogSeoProps) => {
-	const [publishedAt, setPublishedAt] = useState('')
-	const [updatedAt, setUpdatedAt] = useState('')
-	const { firstCommitDate, lastCommitDate } = useCommitData(encodeURIComponent(filePath))
-
-	useEffect(() => {
-		if (firstCommitDate && lastCommitDate) {
-			setPublishedAt(firstCommitDate)
-			setUpdatedAt(lastCommitDate)
-		} else {
-			setPublishedAt(published_at)
-			setUpdatedAt(published_at)
-		}
-	}, [firstCommitDate, lastCommitDate, published_at])
-
-	const date = new Date(publishedAt).toLocaleDateString('en-US', {
+	const date = new Date(published_at).toLocaleDateString('en-US', {
 		month: 'short',
 		day: 'numeric',
 		year: 'numeric',
@@ -171,8 +157,8 @@ export const BlogSEO = ({
 		},
 		headline: title,
 		image: ogImage,
-		datePublished: publishedAt,
-		dateModified: updatedAt,
+		datePublished: published_at,
+		dateModified: updated_at,
 		author: {
 			'@type': 'Person',
 			name: siteMetadata.author.name,
@@ -198,8 +184,8 @@ export const BlogSEO = ({
 				twImage={ogImage}
 				canonicalUrl={canonicalUrl}
 			/>
-			{publishedAt && <meta property="article:published_time" content={publishedAt} />}
-			{updatedAt && <meta property="article:modified_time" content={updatedAt} />}
+			{published_at && <meta property="article:published_time" content={published_at} />}
+			{updated_at && <meta property="article:modified_time" content={updated_at} />}
 			<Script
 				id="structured-data-list"
 				type="application/ld+json"
