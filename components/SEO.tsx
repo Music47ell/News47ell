@@ -1,9 +1,7 @@
 import { usePathname } from 'next/navigation'
 import Script from 'next/script'
-import { useEffect, useState } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
-import { useCommitData } from '@/hooks/useGitHub'
 import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
 import { useViewsBySlug } from '@/hooks/useViews'
 import { BlogSeoProps, CommonSEOProps, PageSEOProps } from '@/lib/interfaces'

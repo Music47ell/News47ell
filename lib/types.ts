@@ -297,15 +297,6 @@ export type Views = {
 	views: number
 }
 
-export type useCommitData = {
-	firstCommitDate?: string
-	lastCommitDate?: string
-	firstCommitHash?: string
-	lastCommitHash?: string
-	isCommitDataLoading: boolean
-	isError: string
-}
-
 export type useResume = {
 	basics: {
 		name: string
