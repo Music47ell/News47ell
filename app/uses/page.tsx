@@ -1,6 +1,5 @@
 'use client'
 
-import Card from '@/components/Card'
 import Table from '@/components/Table'
 import { SectionContainer } from '@/components/UI'
 import usesData from '@/data/usesData'
@@ -22,17 +21,15 @@ export default function Uses() {
 							<Table ranking={i + 1} key={d.title} title={d.title} value={d.value} />
 						))}
 					</div>
-					<h2 className="text-3xl font-bold tracking-tight">Software</h2>
-					<div className="-mx-4 flex flex-wrap">
-						{usesData.software.map((d) => (
-							<Card
-								key={d.title}
-								title={d.title}
-								description={d.description}
-								imgSrc={d.imgSrc}
-								href={d.href}
-							/>
-						))}
+					<h2 className="text-3xl font-bold tracking-tight">Tools</h2>
+					<div className="my-4 flex justify-center">
+						<div className="grid w-full grid-cols-3 gap-5 md:grid-cols-7 lg:grid-cols-10">
+							{usesData.software.map((s) => (
+								<div key={s.title} className="text-center text-lg font-bold">
+									<s.icon className="flex h-20 w-20 items-center rounded-lg border border-nfh-accent-primary bg-nfh-background-secondary py-3 px-4" />
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

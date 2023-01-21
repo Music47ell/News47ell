@@ -1,8 +1,10 @@
 'use client'
 
+import Card from '@/components/Card'
 import { GitHubIcon, PatreonIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
+import affiliatesData from '@/data/affiliatesData'
 
 export default function Sponsor() {
 	return (
@@ -33,6 +35,18 @@ export default function Sponsor() {
 								<PatreonIcon className="mr-2 -ml-1 h-7 w-7 fill-white" />
 								Become a Patron
 							</Link>
+						</div>
+						<h2 className="text-3xl font-bold tracking-tight">Affiliate Links</h2>
+						<div className="-mx-4 flex flex-wrap">
+							{affiliatesData.software.map((d) => (
+								<Card
+									key={d.title}
+									title={d.title}
+									description={d.description}
+									imgSrc={d.imgSrc}
+									href={d.href}
+								/>
+							))}
 						</div>
 					</section>
 				</div>
