@@ -23,7 +23,7 @@ export default function Uses() {
 					</div>
 					<h2 className="text-3xl font-bold tracking-tight">Tools</h2>
 					<div className="my-4 flex justify-center">
-						<div className="grid w-full grid-cols-3 gap-5 md:grid-cols-7 lg:grid-cols-10">
+						<div className="grid w-full grid-cols-3 justify-items-center gap-5 md:grid-cols-7 lg:grid-cols-10">
 							{usesData.software.map((s) => (
 								<div key={s.title} className="text-center text-lg font-bold">
 									<s.icon className="flex h-20 w-20 items-center rounded-lg border border-nfh-accent-primary bg-nfh-background-secondary py-3 px-4" />
