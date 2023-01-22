@@ -14,9 +14,9 @@ export default function HCard(): JSX.Element {
 			>
 				<Image
 					className="photo u-photo"
-					src={siteMetadata.image}
-					alt={siteMetadata.author}
-					title={siteMetadata.author}
+					src={siteMetadata.author.avatar}
+					alt={siteMetadata.author.name}
+					title={siteMetadata.author.name}
 					width={64}
 					height={64}
 				/>
@@ -27,10 +27,10 @@ export default function HCard(): JSX.Element {
 					href={`mailto:${siteMetadata.email}`}
 					rel="me authn"
 				>
-					<p className="p-name text-sm font-medium">{siteMetadata.author}</p>
+					<p className="p-name text-sm font-medium">{siteMetadata.author.name}</p>
 				</Link>
 				<Link className="u-url u-uid w-48 font-medium" href={siteMetadata.siteUrl}>
-					<p className="p-nickname text-sm font-medium">{siteMetadata.nickname}</p>
+					<p className="p-nickname text-sm font-medium">{siteMetadata.author.username}</p>
 				</Link>
 				<p className="p-role role text-sm font-medium">{siteMetadata.position}</p>
 				<p className="p-country-name text-sm font-medium">{siteMetadata.location.country}</p>

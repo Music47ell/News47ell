@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { useLyric } from '@/hooks/useLyric'
+import { useLyric } from '@/hooks/useGitHub'
 
 type Props = {
 	citation: boolean

@@ -1,10 +1,9 @@
-import { IResumeLayout } from 'lib/interfaces'
-
 import { PDFIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
-import { useSFX } from '@/hooks/useSFX'
+import { PageTitle } from '@/components/UI'
+import { IResumeLayout } from '@/lib/interfaces'
 
 export default function ResumeLayout({
 	basics,
@@ -12,9 +11,7 @@ export default function ResumeLayout({
 	skills,
 	languages,
 	certificates,
-}: IResumeLayout): JSX.Element {
-	const { playMouseClick } = useSFX()
-
+}: IResumeLayout) {
 	const isFirefoxForAndroid = () => {
 		const ua = navigator.userAgent.toLowerCase()
 		return ua.indexOf('android') > -1 && ua.indexOf('firefox') > -1
@@ -25,21 +22,24 @@ export default function ResumeLayout({
 				window.print()
 			}
 		} else {
-			const printButton = document.getElementById('print-button')
-			if (printButton) {
-				while (printButton.firstChild) {
-					printButton.removeChild(printButton.firstChild)
+			if (navigator.share) {
+				try {
+					navigator.share({
+						title: 'Ahmet ALMAZ - Resume',
+						url: 'https://news47ell.com/resume',
+					})
+				} catch (err) {
+					console.error('Error: ' + err)
 				}
-				const message = document.createElement('p')
-				message.innerText =
-					'Tap "⋮" and select the share button, then select "Save as PDF" to download my resume.'
-				printButton.appendChild(message)
 			}
 		}
 	}
 
 	return (
 		<SectionContainer>
+			<div className="text-center print:hidden">
+				<PageTitle>Resume</PageTitle>
+			</div>
 			<div className="mt-20 border border-nfh-accent-primary text-nfh-text-primary">
 				<div className="grid grid-cols-1 p-5">
 					<div className="order-last mt-14 grid grid-cols-1 text-center md:order-first md:mt-0 md:grid-cols-2">
@@ -65,7 +65,7 @@ export default function ResumeLayout({
 				<div className="flex justify-evenly space-x-8 md:mt-12">
 					{basics.profiles.map(({ id, network, url }) => (
 						<div key={id}>
-							<Link key={id} className="text-sm" href={url} onClick={() => playMouseClick()}>
+							<Link key={id} className="text-sm" href={url}>
 								{network}
 							</Link>
 						</div>
@@ -123,7 +123,6 @@ export default function ResumeLayout({
 						<div className="mt-1 text-sm sm:col-span-2 sm:mt-0">
 							<div className="rounded-md border border-nfh-accent-primary print:hidden">
 								<div
-									id="print-button"
 									onClick={printResume}
 									className="flex items-center justify-between py-3 pr-4 pl-3 text-sm"
 								>
@@ -142,7 +141,6 @@ export default function ResumeLayout({
 					</div>
 				</div>
 			</div>
-			{/*</div>*/}
 		</SectionContainer>
 	)
 }

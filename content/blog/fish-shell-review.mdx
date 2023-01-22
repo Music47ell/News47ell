@@ -1,0 +1,162 @@
+---
+title: Fish Shell Review
+description: This is a review of Fish Shell. Here you'll learn everything you need about Fish Shell and why it's awesome!
+published_at: 2019-07-03T20:01:01+03:00
+updated_at: 2023-01-19T20:23:27+03:00
+tags: ['Reviews', 'Fish Shell', 'Shell']
+---
+
+There's no escape from the fact that I love fish. I try to have fish as much as I can. Whether at home or at a restaurant. But today, I am talking about a different kind of fishes. Fishes `brew fish install` that are made up of lines of code and live inside your computer instead of water.
+
+And no, I'm not talking about [ASCIIQuarium](https://robobunny.com/projects/asciiquarium/html/).
+
+I'm talking about [Fish Shell](https://fishshell.com/). A shell so good, Apple should've made it the default shell instead of Zsh.
+
+In this Fish Shell review, I will talk about all the features that Fish has to offer that makes it different from any other shell out there and a couple of additional Fish Shell related things.
+
+## Fish Shell Review
+
+Fish is a **f**riendly **i**nteractive **sh**ell that comes out of the box with features that make all other shells jealous. Like autosuggestion, tab completion, syntax highlighting and much more.
+
+Basically, Fish is a set it and forget it kind of shells since you don't have to tinker around with the settings after you install it.
+
+Just like with my [Arch review](https://www.news47ell.com/how-to/install-arch-linux-guide/), Fish wasn't my first option. Before I tried it, I-like many I'm assuming-installed Zsh and [Oh My Zsh](https://ohmyz.sh/) and I used it for a while in conjunction with [Powerlevel9k](https://github.com/bhilburn/powerlevel9k).
+
+But, after trying the Fish, the only thing I could think about was: Why the hell do people use Zsh and Oh My Zsh when Fish exists?
+
+I'm not an expert in writing shell scripts, and I know that am not using Zsh or Fish Shell to the max. My comment here is based on the main and popular features that each shell has to offer, the ones that a typical shell user would use. Nothing advanced.
+
+Based on this, Fish is way better than Oh My Zsh in my opinion and people really should give it a shot AFTER trying Zsh and Oh My Zsh so that they can see how Fish Shell is easier to use and quicker to get it up and running.
+
+So what are these features that I keep talking about?
+
+These features are made to improve and increase your productivity while using the terminal.
+
+They are _mostly_ visual and meant to speed up your workflow and allow you to save seconds, which will add up over time and you might end up saving days.
+
+### Syntax Highlighting
+
+Just like an `IDE` (Integrated development environment), Fish will highlight your command in red when they are invalid, and green when they are valid.
+
+Let's say you type the command that runs Vim, but Vim is not available on your machine. Because it's invalid, fish will change the color of the word vim to red.
+
+### Autosuggestions
+
+Fish is capable of suggesting commands as you type them.
+
+It can suggest a command you never executed, commands from the history which you previously executed, paths and options.
+
+### Tab Completions
+
+Fish also can complete commands for you. Just start typing, and when Fish suggests a command, press `tab`.
+
+### Abbreviations
+
+Fish does support aliases but it's recommended that you use the abbreviation feature. The way this feature work is as follows:
+
+You type your abbreviation and if it exists, Fish automagically expand it to a full command that you've set before.
+
+For example: I have an abbreviation called `brewu`. Every time I type it down in Fish, it automagically expands to this:
+
+```bash
+brew update; brew upgrade; brew cask upgrade
+```
+
+The way to set up an abbreviation is simple. All you have to do is create a file call _abbreviation.fish_ and inside the main _config.fish_ file, I have this line:
+
+```bash
+source ~/.config/fish/abbreviation.fish
+```
+
+Now, inside the _abbreviation.fish_ file, I have this:
+
+```bash title="abbreviation.fish"
+abbr brewu "brew update; brew upgrade; brew cask upgrade"
+```
+
+And that's it. So why does this exist?
+
+This helps you see what command was executed when browsing your history. Unlike aliases which hide the actual command that was executed.
+
+### Configurations
+
+Fish have their own [design philosophy](http://fishshell.com/docs/current/design.html)-which you should totally read-and in this page, they talk about configuration and this is what they say about it:
+
+> Every configuration option in a program is a place where the program is too stupid to figure out for itself what the user really wants, and should be considered a failure of both the program and the programmer who implemented it.
+
+This is why Fish comes out of the box rocking awesome features like tab completion, syntax highlighting and more.
+While Bash and Zsh you are required to install different packages to enable the same features.
+
+Which mean yet another repo downloaded locally that you have to keep an eye on, and update.
+
+But this doesn't mean Fish doesn't come with any configuration option. There's a web-based shell configurator that you can access by executing the following command:
+
+```bash
+config_fish
+```
+
+Again, automagically, a web page will open, and in it, you will have the option to theme your terminal and choose your prompt.
+
+You can also see a list of all the functions, variables, bindings and abbreviations.
+
+As well as a list of history of all the commands that you previously executed.
+
+There are a few pre-defined themes like Solarized Light/Dark and my favorite, Dracula. And pre-defined prompts. But, I use a different one from the few that comes with Fish.
+
+From this web page, you can also delete your history and add new abbreviations if you want.
+
+### Prompt
+
+There's no `PS1` (Prompt String/Statement One) with Fish. In order to build your own Fish prompt, all you have to do is create a function. For example:
+
+```bash
+function fish_prompt
+      set_color purple
+      date "+%m/%d/%y"
+      set_color FF0
+      echo (pwd) '>'
+      set_color normal
+end
+02/06/13
+/home/tutorial >
+```
+
+There are many prompts out there made by developers. Like [Spacefish prompt](https://github.com/matchai/spacefish), and [Pure Prompt](https://github.com/rafaelrinaldi/pure).
+
+But my favorite is [bobthefish prompt](https://github.com/oh-my-fish/theme-bobthefish) which is based heavily on the famous Zsh prompt theme [agnoster](https://github.com/agnoster/agnoster-zsh-theme) a powerline-fonts supported prompt with focus on git.
+
+It comes with many options like vi and vsc support, right-hand prompt and much more.
+
+### Package manager
+
+Fish doesn't need a package manager because everything you need already comes built-in.
+
+But, for my case, I need one to install and maintain bobthefish prompt.
+
+There are few Fish Shell package managers like [Fundle](https://github.com/danhper/fundle), [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish) and my favorite, [Fisher](https://github.com/jorgebucaran/fisher).
+
+If you want to know the difference between them, make sure to read this [detailed and technical comparison](https://github.com/jorgebucaran/fisher/issues/481) written by the developer behind Fisher, [Jorge Bucaran](https://twitter.com/JorgeBucaran).
+
+### One More Thing
+
+If you decided to try Fish and you fell in love with it, then you should download the [Fish Logo plugin](https://github.com/laughedelic/fish_logo).
+
+It allows you to draw the Fish logo in ascii...and that's it. That's all it does.
+
+## Conclusion
+
+Fish Shell is a must for people who want a shell that works out of the box, no extra packages, no dependencies, and no bullshit.
+
+Fish Shell doesn't even want you to worry about writing `cd` before a directory's name. Just type the name of the directory you want to go into and hit "ENTER". Same thing for going to a previous directory or root. Just write all the dots that you need without worrying.
+
+I really believe that people should give Oh My Zsh a shot before trying Fish Shell and do the following in Zsh:
+
+- Enable [Zsh Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- Enable [Zsh tab completion](https://github.com/zsh-users/zsh-completions)
+- Enable [Zsh autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
+
+Each and every one of these features is an extra package that you have to maintain and keep up to date.
+
+So in my case, after I installed Zsh, Oh My Zsh and Powerlevel9k, I also had to install these additional packages to get the exact same experience that Fish Shell offers out of the box with no additional package, no configuration, and no bullshit.
+
+Fish Shell is truly remarkable...and now I'm craving a fish.

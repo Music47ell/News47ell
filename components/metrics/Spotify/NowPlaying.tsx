@@ -20,7 +20,7 @@ export default function NowPlaying(): JSX.Element {
 	return data?.isPlaying ? (
 		<div
 			style={{ background: darkWithOpacity, color: vibrant, border: `1px solid ${dark}` }}
-			className="relative my-4 mx-auto flex items-center rounded-md p-2"
+			className="relative my-4 flex w-full items-center rounded-md p-2"
 		>
 			<Image
 				alt="Spotify"
@@ -51,7 +51,7 @@ export default function NowPlaying(): JSX.Element {
 			</div>
 		</div>
 	) : (
-		<div className="flex w-full flex-row-reverse items-center">
+		<div className="flex w-full flex-row-reverse items-center p-2">
 			<SpotifyIcon className="block h-6 w-6 fill-nfh-accent-primary" />
 			<div className="inline-flex w-full max-w-full flex-col truncate sm:flex-row">
 				<p className="font-medium">Not Playing</p>

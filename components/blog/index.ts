@@ -1,6 +1,5 @@
-export { default as Markdown } from '../markdown'
-export { default as LinkCard } from './LinkCard'
 export { default as Pagination } from './Pagination'
+export { default as PostLinks } from './PostLinks'
 export { default as ReactionsButton } from './ReactionsButton'
 export { default as ScrollTop } from './ScrollTop'
 export { default as Share } from './Share'

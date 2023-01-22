@@ -1,12 +1,9 @@
-import { Toaster } from '@/components/Dynamic'
+import { Nav } from '@/components/UI'
 
-import ThemePicker from '../toggles/ThemePicker'
-
-export default function Header({ pickerOpen }): JSX.Element {
+export default function Header() {
 	return (
-		<header>
-			<Toaster position="bottom-right" reverseOrder={false} />
-			<ThemePicker open={pickerOpen} />
+		<header className="absolute z-50 flex w-full flex-col print:hidden">
+			<Nav />
 		</header>
 	)
 }

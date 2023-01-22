@@ -1,0 +1,1 @@
+ignores: ["autoprefixer", "sharp", "superjson", "@commitlint/*", "@svgr/webpack", "@types/prettier", "@types/react-dom", "esbuild-register", "eslint-plugin-jsx-a11y", "globby"]

@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.contentlayer/
+
 # dependencies
 /node_modules
 /.pnp
@@ -18,12 +20,10 @@ public/sitemap.xml
 /build
 # xml feeds
 /public/*.xml
-/public/tag/**/*.xml
-/public/category/**/*.xml
+/public/tags/**/*.xml
 # json feeds
 /public/*.json
-/public/tag/**/*.json
-/public/category/**/*.json
+/public/tags/**/*.json
 
 # misc
 .DS_Store

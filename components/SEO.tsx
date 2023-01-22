@@ -1,25 +1,32 @@
-import { BlogSeoProps, CommonSEOProps, PageSEOProps } from 'lib/interfaces'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
+import Script from 'next/script'
 
 import siteMetadata from '@/data/siteMetadata'
 import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
 import { useViewsBySlug } from '@/hooks/useViews'
+import { BlogSeoProps, CommonSEOProps, PageSEOProps } from '@/lib/interfaces'
 
 const ogUrl = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOProps) => {
-	const router = useRouter()
+const CommonSEO = ({
+	title,
+	description,
+	ogType,
+	ogImage,
+	twImage,
+	canonicalUrl,
+}: CommonSEOProps) => {
+	const pathname = usePathname()
 
 	return (
-		<Head>
+		<>
 			<meta
 				name="robots"
 				content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 			/>
 			<title>{title}</title>
 			<meta name="description" content={description} />
-			<link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
+			<link rel="canonical" href={`${siteMetadata.siteUrl}${pathname}`} />
 			<link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 			<link rel="alternate" type="application/json" href="/feed.json" />
 
@@ -43,6 +50,8 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
 			<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
 
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 			{/*Preconnect/Prefetch Meta Tags*/}
 			<link rel="preconnect" href="https://vitals.vercel-insights.com" />
 
@@ -51,28 +60,30 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }: CommonSEOPr
 			<meta property="og:type" content={ogType} />
 			<meta property="og:title" content={title} />
 			<meta property="og:description" content={description} />
-			<meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+			<meta property="og:url" content={`${siteMetadata.siteUrl}${pathname}`} />
 			<meta property="og:site_name" content={siteMetadata.title} />
-			{Array.isArray(ogImage) ? (
-				ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
-			) : (
-				<meta property="og:image" content={ogImage} key={ogImage} />
-			)}
+			<meta property="og:image" content={ogImage} key={ogImage} />
 			<meta property="og:image:width" content="1600" />
 			<meta property="og:image:height" content="836" />
 			<meta property="og:image:alt" content={title} />
 
 			{/*Twitter Meta Tags*/}
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:site" content={siteMetadata.twitter} />
+			<meta name="twitter:site" content={siteMetadata.author.twitter} />
 			<meta name="twitter:title" content={title} />
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={twImage} />
 
+			{/* Canonical URL */}
+			<link
+				rel="canonical"
+				href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${pathname}`}
+			/>
+
 			{/* Webmention Meta Tags */}
 			<link rel="webmention" href={`https://webmention.io/${siteMetadata.webmention}/webmention`} />
 			<link rel="pingback" href={`https://webmention.io/${siteMetadata.webmention}/xmlrpc`} />
-		</Head>
+		</>
 	)
 }
 
@@ -93,7 +104,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 	const ogImage = `${ogUrl}/api/og/image?title=${title}`
 
-	const router = useRouter()
+	const pathname = usePathname()
 	return (
 		<>
 			<CommonSEO
@@ -103,20 +114,17 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 				ogImage={ogImage}
 				twImage={ogImage}
 			/>
-			<Head>
-				<link
-					rel="alternate"
-					type="application/rss+xml"
-					title={`${description} - RSS feed`}
-					href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
-				/>
-			</Head>
+			<link
+				rel="alternate"
+				type="application/rss+xml"
+				title={`${description} - RSS feed`}
+				href={`${siteMetadata.siteUrl}${pathname}/feed.xml`}
+			/>
 		</>
 	)
 }
 
 export const BlogSEO = ({
-	authorDetails,
 	title,
 	slug,
 	description,
@@ -124,27 +132,19 @@ export const BlogSEO = ({
 	updated_at,
 	url,
 	readingTime,
+	wordsCount,
+	canonicalUrl,
 }: BlogSeoProps) => {
-	const publishedAt = new Date(published_at).toString()
-	const updatedAt = new Date(updated_at).toString()
-
-	const date = new Date(publishedAt).toLocaleDateString('en-US', {
+	const date = new Date(published_at).toLocaleDateString('en-US', {
 		month: 'short',
 		day: 'numeric',
 		year: 'numeric',
 	})
 
-	const author = authorDetails.first_name + ' ' + authorDetails.last_name
-
 	const { views } = useViewsBySlug(slug)
 	const { likes } = useSlugReactionsLike(slug)
 	const { dislikes } = useSlugReactionsDislike(slug)
-	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${author}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${readingTime.time}&words=${readingTime.words}&date=${date}`
-
-	const authorList = {
-		'@type': 'Person',
-		name: author,
-	}
+	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${siteMetadata.author.name}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${readingTime}&words=${wordsCount}&date=${date}`
 
 	const structuredData = {
 		'@context': 'https://schema.org',
@@ -155,9 +155,12 @@ export const BlogSEO = ({
 		},
 		headline: title,
 		image: ogImage,
-		datePublished: publishedAt,
-		dateModified: updatedAt,
-		author: authorList,
+		datePublished: published_at,
+		dateModified: updated_at,
+		author: {
+			'@type': 'Person',
+			name: siteMetadata.author.name,
+		},
 		publisher: {
 			'@type': 'Organization',
 			name: siteMetadata.author,
@@ -177,17 +180,17 @@ export const BlogSEO = ({
 				ogType="article"
 				ogImage={ogImage}
 				twImage={ogImage}
+				canonicalUrl={canonicalUrl}
 			/>
-			<Head>
-				{published_at && <meta property="article:published_time" content={publishedAt} />}
-				{updated_at && <meta property="article:modified_time" content={updatedAt} />}
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(structuredData, null, 2),
-					}}
-				/>
-			</Head>
+			{published_at && <meta property="article:published_time" content={published_at} />}
+			{updated_at && <meta property="article:modified_time" content={updated_at} />}
+			<Script
+				id="structured-data-list"
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(structuredData, null, 2),
+				}}
+			/>
 		</>
 	)
 }

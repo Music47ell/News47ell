@@ -13,6 +13,8 @@ export const getStats = async () => {
 	}
 	return fetch(STATS_ENDPOINT, {
 		headers: {
+			'content-type': 'application/json',
+			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
 	})
@@ -24,6 +26,8 @@ export const getNowWatching = async () => {
 	}
 	return fetch(WATCHING_ENDPOINT, {
 		headers: {
+			'content-type': 'application/json',
+			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
 	})
@@ -35,6 +39,8 @@ export const getWatchedMovies = async () => {
 	}
 	return fetch(WATCHED_MOVIES_ENDPOINT, {
 		headers: {
+			'content-type': 'application/json',
+			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
 	})
@@ -46,6 +52,8 @@ export const getWatchedShows = async () => {
 	}
 	return fetch(WATCHED_SHOWS_ENDPOINT, {
 		headers: {
+			'content-type': 'application/json',
+			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
 	})

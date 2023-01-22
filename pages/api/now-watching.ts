@@ -12,10 +12,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 	const trakt = await response.json()
 
-	if (trakt.item === null) {
-		return res.status(200).json({ isWatching: false })
-	}
-
 	const isWatching = true
 	let title: string
 	let episodeTitle: string

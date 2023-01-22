@@ -1,16 +1,28 @@
 import { ExternalIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { useQuote } from '@/hooks/useQuote'
+import { useQuote } from '@/hooks/useGitHub'
 
 function Quote(): JSX.Element {
-	const { quote } = useQuote()
+	const { quote, isError, isLoading } = useQuote()
 
-	if (!quote) {
-		return null
+	if (isError) {
+		return (
+			<p className="flex flex-1 items-center justify-center print:hidden">
+				There was an error fetching a quote.
+			</p>
+		)
+	}
+
+	if (isLoading) {
+		return (
+			<p className="flex flex-1 animate-pulse items-center justify-center print:hidden">
+				Loading a quote...
+			</p>
+		)
 	}
 
 	return (
-		<p key={quote.id} className="py-4 text-center print:hidden">
+		<p key={quote.id} className="flex flex-1 items-center justify-center print:hidden">
 			{quote.quote}
 			{quote.link && (
 				<Link href={quote.link}>

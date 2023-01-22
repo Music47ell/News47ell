@@ -15,7 +15,7 @@ const CustomLink = ({ className, href, rel, ...rest }: Links) => {
 	}
 
 	if (isAnchorLink) {
-		return <a className={style} href={href} {...rest} />
+		return <a aria-hidden="true" tabIndex={-1} className={style} href={href} {...rest} />
 	}
 
 	return (

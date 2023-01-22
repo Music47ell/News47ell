@@ -1,11 +1,7 @@
-import { IPagination } from 'lib/interfaces'
-
 import { default as Link } from '@/components/Link'
-import { useSFX } from '@/hooks/useSFX'
+import { IPagination } from '@/lib/interfaces'
 
 export default function Pagination({ totalPages, currentPage }: IPagination): JSX.Element {
-	const { playPageTurn } = useSFX()
-
 	const prevPage = currentPage - 1 > 0
 	const nextPage = currentPage + 1 <= totalPages
 
@@ -22,11 +18,7 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
 					</button>
 				)}
 				{prevPage && (
-					<Link
-						href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}
-						//@ts-ignore
-						onClick={playPageTurn}
-					>
+					<Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
 						<button rel="previous">Previous</button>
 					</Link>
 				)}
@@ -43,8 +35,7 @@ export default function Pagination({ totalPages, currentPage }: IPagination): JS
 					</button>
 				)}
 				{nextPage && (
-					//@ts-ignore
-					<Link href={`/blog/page/${currentPage + 1}`} onClick={playPageTurn}>
+					<Link href={`/blog/page/${currentPage + 1}`}>
 						<button rel="next">Next</button>
 					</Link>
 				)}

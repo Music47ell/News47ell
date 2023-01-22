@@ -26,61 +26,54 @@ export default function Track(track: Song): JSX.Element {
 	const darkWithOpacity = hexToRGB(palette?.darkVibrant, 0.47)
 
 	return (
-		<div
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-			style={{ background: isHover ? dark : darkWithOpacity, color: vibrant }}
-			className="group relative flex cursor-pointer items-center p-2 transition duration-500"
-		>
-			<BorderEffect bgColor={light} />
+		<div className="flex flex-col">
 			<div
-				style={{
-					background: light,
-				}}
-				className="relative h-32 w-32 flex-none"
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+				style={{ background: isHover ? dark : darkWithOpacity, color: vibrant }}
+				className="group relative flex cursor-pointer items-center p-2 transition duration-500"
 			>
-				<Image
-					draggable={false}
-					className="rounded"
-					width={128}
-					height={128}
-					title={track.album}
-					alt={track.album}
-					src={track.albumImage}
-				/>
-			</div>
-
-			<div className="mr-2 ml-4">
+				<BorderEffect bgColor={light} />
 				<div
 					style={{
-						color: light,
+						background: light,
 					}}
-					className="text-base font-medium"
+					className="relative h-32 w-32 flex-none"
 				>
-					{track.title}
+					<Image
+						draggable={false}
+						className="rounded"
+						width={128}
+						height={128}
+						title={track.album}
+						alt={track.album}
+						src={track.albumImage}
+					/>
 				</div>
-				<div
-					style={{
-						color: light,
-					}}
-					className="-mt-1 text-sm"
-				>
-					{track.artist}
+
+				<div className="mr-2 ml-4">
+					<div
+						style={{
+							color: light,
+						}}
+						className="text-base font-medium"
+					>
+						{track.title}
+					</div>
+					<div
+						style={{
+							color: light,
+						}}
+						className="-mt-1 text-sm"
+					>
+						{track.artist}
+					</div>
 				</div>
 			</div>
-
 			{track.audioUrl ? (
-				<button
-					onClick={track.onToggle}
-					className="ml-auto hover:scale-105"
-					aria-label={track.isPlaying ? 'Pause Button' : 'Play Button'}
-				>
-					{track.isPlaying ? (
-						<PauseIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
-					) : (
-						<PlayIcon className="block h-6 w-6 fill-nfh-accent-primary text-3xl hover:fill-nfh-accent-secondary" />
-					)}
-				</button>
+				<audio controls>
+					<source src={track.audioUrl} type="audio/mpeg" />
+				</audio>
 			) : null}
 		</div>
 	)

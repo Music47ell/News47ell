@@ -17,6 +17,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/api/*": ["api/*"],
+			"@/app/*": ["app/*"],
 			"@/assets/*": ["assets/*"],
 			"@/components/*": ["components/*"],
 			"@/configs/*": ["configs/*"],
@@ -26,10 +27,19 @@
 			"@/hooks/*": ["hooks/*"],
 			"@/layouts/*": ["layouts/*"],
 			"@/lib/*": ["lib/*"],
-			"@/utils/*": ["utils/*"]
+			"@/utils/*": ["utils/*"],
+			"@/contentlayer/generated": ["./.contentlayer/generated"]
 		},
-		"incremental": true
+		"incremental": true,
+		"plugins": [{ "name": "next" }]
 	},
-	"include": ["next-env.d.ts", "additional.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": [
+		"next-env.d.ts",
+		"additional.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".contentlayer/generated",
+		".next/types/**/*.ts"
+	],
 	"exclude": ["node_modules"]
 }

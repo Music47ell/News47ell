@@ -1,5 +1,4 @@
 import { Tracks } from 'lib/types'
-import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 
@@ -17,14 +16,6 @@ export default function TopTracks(): JSX.Element {
 		id: null,
 		isPlaying: false,
 		audio: null,
-	})
-
-	// Stop audio if route is changed
-	Router.events.on('routeChangeComplete', () => {
-		if (currentTrack?.audio) {
-			currentTrack.audio.pause()
-			currentTrack.audio.currentTime = 0
-		}
 	})
 
 	// Initial audio load when page is hydrated

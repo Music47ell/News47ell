@@ -1,0 +1,82 @@
+---
+title: Next.js is what's next for News47ell
+description: After more than a year, the new version of News47ell is finally here!
+published_at: 2022-09-24T20:43:06+03:00
+updated_at: 2023-01-19T20:23:27+03:00
+tags: ['News', 'GitHub', 'News47ell', 'Next.js', 'PlanetScale', 'React.js', 'Supabase', 'TailwindCSS']
+---
+
+After working for more than a year on the new version of [news47ell.com](http://news47ell.com/), I am happy to say that News47ell 4.0 is finally here and as you can see it looks completely different.
+
+The site is rewritten from the ground up using the latest and coolest technologies available out there.
+
+After using Hugo for so long and learning so much, I decided it was time for a new challenge. This time, I went with [Next.js](https://nextjs.org/). A framework based on [react](https://reactjs.org/) that is built for speed. I also switched from Netlify to [Vercel](https://vercel.com/), the developers behind Next.js. This ensures that everything runs smoothly and as intended.
+
+And honestly, I can't remember the last time I had this much fun working on my site.
+
+Next.js is a very powerful framework, with endless possibilities. Anything you can think of, anything you wanna do, is possible. You can find a lot of amazing sites [built with Next.js on GitHub](https://github.com/topics/nextjs) that you can learn so much from and use for inspiration.
+
+## Design
+
+When I started learning Next.js, I came across [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog/) by [Timothy Lin](https://www.timlrx.com/). It had everything I wanted except for one very important thing to me, pagination!
+
+So, I decided to learn how to add it and submit it as my [first-ever pull-request](https://github.com/timlrx/tailwind-nextjs-starter-blog/pull/52). I spent few days googling here and there, playing around with the code and then I did it. I added the pagination feature, submitted the pull-request, worked with Tim on solving few issues and then it was merged. Now, a code I wrote is used by lots of people around the world.
+
+Make sure to check out the template and give it a star.
+
+## CMS
+
+The blog went through a lot of changes during development, I tried many different options for writing and delivering the content to you, the reader. First, I went with the same option I had before, markdown. Then, I decided to go with MDX. After that, I tried [Sanity.io](http://sanity.io/), and later [Notion.so](http://notion.so/).
+
+but then I decided to do something crazy and build my custom-cms using [Supabase](https://supabase.com/), an open-source Firebase alternative. I use Supabase for authentication, [SimpleMDE](https://simplemde.com/) for markdown input, then it's sent to Supabase and stored in a table and that's pretty much it. As for images, I store them on [Cloudinary](https://www.news47ell.com/recommends/cloudinary) and open-graph images are generated using the Cloudinary API. This is courtesy of [Delba Oliveira](https://delba.dev/blog/next-blog-generate-og-image)
+
+And, the blog now lives under the /blog sub-folder while the homepage is now turned into a portfolio that shows you a bit of info about me, cool sections of the site that you should check out, most popular and reacted-to blog posts on the site and much more things.
+
+And that's it for the blog section of the site.
+
+## Themes and SFX
+
+If you look at the header of this site, you'll notice a paint roller as well as a volume button. What is this all about? Well, the paint-roller button is a drawer full of different themes that you can apply to the whole site. It features popular themes like [Dracula](https://draculatheme.com/), [Hacker News](https://news.ycombinator.com/), and more. This is similar to what you see on [Max Böck](https://mxb.dev/) and [Austin Crim's](https://next.austincrim.com/) website.
+
+As for the volume button, that enables or disables the sound effects throughout the site. using the [use-sound](https://github.com/joshwcomeau/use-sound) library made by [Joshua Comeau](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/). Click or hover on buttons and links and let me know what you think. This is courtesy of [Joshua Comeau](https://www.joshwcomeau.com/) and [David Park's](https://davidparks.dev/) website.
+
+## APIs
+
+Now, the section of the side that I worked on most is the dashboard. It contains a lot of cool things that I recommend that you check out for yourself. Most people developing sites using Next.js have heard of [Lee Robinson](https://leerob.io/dashboard) and [Max Dietrich](https://mxd.codes/stats). I took inspiration from their site's dashboard and added my personal touch/data to it and you can check it out in the card below.
+
+<LinkCard url="https://www.news47ell.com/dashboard" />
+
+The first thing you'll notice when entering my dashboard is that I have 4 different sections. Each section displays different widgets and data.
+
+The default section which opens by default is the site's stats. Here you'll see the number of views, reactions, web vitals, and more site-related stats, similar to what [Sam Larsen-Disney](https://sld.codes/stats) and [Braydon Coyer](https://braydoncoyer.dev/stats) have on their websites.
+
+Next, we have the **[Codes](https://www.news47ell.com/dashboard/codes)** page which shows you stats from [CodeStats](https://codestats.net/). The more programming I do, the more experience points I get. It's a pretty simple and fun way to keep track of what languages I program in most and at what time.
+
+After that, we have the **[Music](https://www.news47ell.com/dashboard/music)** page where you can see the 10 recent tracks I listened to and the top 10 tracks for this month from Spotify.
+
+If you're a METAL🤘HEAD like me, then [visit this page](https://www.news47ell.com/recommend/music) and recommend some songs to me and send me a personal message if you like. The track will be automatically added to my Spotify playlist for me to enjoy. I added this after seeing it on [Jacob Roush's](https://roush.io/) website.
+
+Now we move on to the **[Movies & TV Shows](https://www.news47ell.com/dashboard/shows)** that display data from [trakt.tv](http://trakt.tv/) about my shows and movie-watching habits. You'll also see the last 10 movies and shows I've watched, with a poster from [TMDB](https://www.themoviedb.org/) and a link to a YouTube trailer if available.
+
+As for the last section, it shows bookmarks from [Raindrop.io](http://raindrop.io/) and I currently have some plugins and extensions over there but I need to think of something else to have there.
+
+## Analytics
+
+Now let's talk analytics. Previously, I was using Google Analytics to collect data and the only metrics that I looked at from time to time are how good an article is doing, the total number of visits, and real-time analytics.
+
+When developing the new version of the site, I wanted something different. Something lighter and more privacy-focused. So I went with Umami, but wait. I no longer use it.
+
+A last-minute change before publishing this article, I decided to replace Umami with a much simpler solution. Now I'm using PlanetScale in combination with Prisma to collect the number of views in a simple MySQL database.
+
+At the top of each blog post, you'll see the views count, and at the end of each blog post, you'll see thumbs up and down buttons. Those work are similar to what you see on YouTube.
+
+One thing I lost because of this is the ability to know how many people are on the site. Also, I'm only collecting the number of views on my blog posts at the moment. We will see if things change here in the future.
+
+But for now, things seem to be working well and smoothly.
+
+## Conclusion
+
+Hope you enjoy the new look. If you have any feedback or you wanna contribute to the site, the source code is now publicly available on GitHub. Fork it, clone it, submit a pull request and let me know what you think.
+And don't forget to give it a star!
+
+<LinkCard url="https://github.com/Music47ell/News47ell" />

@@ -1,4 +1,4 @@
-import { useLyric } from '@/hooks/useLyric'
+import { useLyric } from '@/hooks/useGitHub'
 
 function RandomLyrics(): JSX.Element {
 	const { lyric } = useLyric()

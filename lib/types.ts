@@ -1,12 +1,55 @@
+import type { Document, MDX } from 'contentlayer/core'
 import { ReactNode } from 'react'
 
-export type AuthorFrontMatter = {
-	id: string
-	name: string
-	bio: string
-	avatar: string
+export type siteMetadata = {
+	title: string
+	altTitle?: string
+	author: string
+	nickname?: string
+	position?: string
+	location?: { country: string; emojiFlag: string }
+	headerTitle?: string
+	description: string
+	language: string
+	siteUrl: string
+	siteRepo?: string
+	siteLogo?: string
+	image?: string
+	socialBanner?: string
 	email: string
-	twitter: string
+	twitter?: string
+	codestats?: string
+	trakt?: string
+	lastfm?: string
+	webmention?: string
+	locale?: string
+	postsPerPages?: number
+	marqueeLists?: { topics: string[] }
+	orbitLinks?: { title: string; href: string; icon: string }[]
+	heroCardLinks?: { title: string; href: string }[]
+	curlCardLinks?: {
+		github: { title: string; text: string }
+		twitter: { title: string; text: string }
+		linkedIn: { title: string; text: string }
+		resume: { title: string; text: string }
+		links: { title: string; text: string }
+	}
+	socialLinks?: {
+		author: { title: string; href: string; icon: string }[]
+		blog: { title: string; href: string; icon: string }[]
+	}
+}
+
+export type MDXDocument = Document & { body: MDX }
+
+export type MDXBlogs = {
+	published_at: string
+	tags?: string[]
+	draft?: boolean
+}
+
+export type MDXAuthor = MDXDocument & {
+	name: string
 }
 
 export type CodeStats = {
@@ -42,68 +85,6 @@ export type TLanguage = {
 	ranking: number
 	name: string
 	xps: number
-}
-
-export type Bookmark = {
-	bookmarks: RaindropCard[]
-	tags: string[]
-	isLoading: boolean
-	isError: string | undefined
-}
-
-export type RaindropCard = {
-	link: string
-	title: string
-	cover: string
-	lastUpdate: string
-	tags: string[]
-}
-
-export type RaindropStats = {
-	items: Array<{
-		_id: string
-		count: number
-	}>
-	meta: {
-		changedBookmarksDate: string
-	}
-}
-
-export type RaindropStatsCard = {
-	bookmarksCount: number
-	lastUpdate: string
-	isLoading: boolean
-	isError: string
-}
-
-export type PostFrontMatter = {
-	id: string
-	title: string
-	published_at: string
-	updated_at: string
-	tags?: string[]
-	category: string
-	published?: boolean
-	description?: string
-	cover?: string[]
-	author?: {
-		id: string
-		username: string
-		first_name: string
-		last_name: string
-		slug: string
-		email: string
-		avatar: string
-		avatar_url: string
-		twitter: string
-	}
-	layout?: string
-	slug: string
-	linked?: string
-	readingTime: {
-		words: number
-		time: number
-	}
 }
 
 export type Quote = {
@@ -204,7 +185,7 @@ export type Quotes = {
 	source: string
 	link: string
 	quote: string
-}[]
+}
 
 export type ProjectBreakdown = {
 	codeStats: []
@@ -314,6 +295,50 @@ export type WatchedShows = {
 
 export type Views = {
 	views: number
+}
+
+export type useResume = {
+	basics: {
+		name: string
+		label: string
+		image: string
+		email: string
+		url: string
+		summary: string
+		location: {
+			country: string
+			countryCode: string
+		}
+		profiles: {
+			id: number
+			network: string
+			username: string
+			url: string
+		}[]
+	}
+	education: {
+		id: number
+		institution: string
+		url: string
+		area: string
+	}[]
+	skills: {
+		id: number
+		name: string
+		keywords: string[]
+	}[]
+	languages: {
+		id: number
+		language: string
+		fluency: string
+	}[]
+	certificates: {
+		id: number
+		name: string
+		date: string
+		issuer: string
+		url: string
+	}[]
 }
 
 export type UseViewCountResult = {
@@ -434,3 +459,9 @@ export type WebMention = {
 	}
 	target: string
 }
+
+export type Toc = {
+	value: string
+	depth: number
+	url: string
+}[]
