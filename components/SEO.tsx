@@ -2,8 +2,6 @@ import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 
 import siteMetadata from '@/data/siteMetadata'
-import { useSlugReactionsDislike, useSlugReactionsLike } from '@/hooks/useReactions'
-import { useViewsBySlug } from '@/hooks/useViews'
 import { BlogSeoProps, CommonSEOProps, PageSEOProps } from '@/lib/interfaces'
 
 const ogUrl = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
@@ -141,10 +139,7 @@ export const BlogSEO = ({
 		year: 'numeric',
 	})
 
-	const { views } = useViewsBySlug(slug)
-	const { likes } = useSlugReactionsLike(slug)
-	const { dislikes } = useSlugReactionsDislike(slug)
-	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${siteMetadata.author.name}&views=${views}&likes=${likes}&dislikes=${dislikes}&time=${readingTime}&words=${wordsCount}&date=${date}`
+	const ogImage = `${ogUrl}/api/og/image?title=${title}&author=${siteMetadata.author.name}&time=${readingTime}&words=${wordsCount}&date=${date}`
 
 	const structuredData = {
 		'@context': 'https://schema.org',

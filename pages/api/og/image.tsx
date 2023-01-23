@@ -11,39 +11,26 @@ export const config: PageConfig = {
 
 const handler = async (req: NextRequest): Promise<ImageResponse> => {
 	const title = req.nextUrl.searchParams.get('title')
-	const views = req.nextUrl.searchParams.get('views')
-	const likes = req.nextUrl.searchParams.get('likes')
-	const dislikes = req.nextUrl.searchParams.get('dislikes')
 	const time = req.nextUrl.searchParams.get('time')
 	const words = req.nextUrl.searchParams.get('words')
 	const date = req.nextUrl.searchParams.get('date')
-	const author = req.nextUrl.searchParams.get('author') || siteMetadata.author.name
-	const ogImages = ['brick-wall.svg', 'circuit-board.svg']
-	const ogImage = ogImages[Math.floor(Math.random() * ogImages.length)]
+	const author = req.nextUrl.searchParams.get('author')
 
 	const url = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : 'http://localhost:3000'
 
 	return new ImageResponse(
 		(
-			<div
-				style={{
-					backgroundImage: `url(${url}/images/og/${ogImage})`,
-				}}
-				tw="flex flex-col justify-between w-full h-full p-12 bg-neutral-900/50"
-			>
+			<div tw="flex flex-col justify-between w-full h-full p-12 bg-[#282a36]">
 				<header tw="flex w-full items-center">
-					<img src={`${url}/images/brand/logo.png`} tw="rounded-full w-20 h-20 mr-6" alt="Logo" />
-					<span tw="text-xl text-gray-100 bg-neutral-700/80 p-5">{`${siteMetadata.title} by ${author}`}</span>
+					<img src={`${url}/images/others/me.png`} tw="rounded-full w-20 h-20 mr-6" alt="Logo" />
+					<span tw="text-3xl text-gray-100">{`${siteMetadata.title} by ${author}`}</span>
 				</header>
 				<div tw="flex flex-col justify-center items-center w-full">
-					<h1 tw="text-5xl text-gray-100 bg-neutral-700/80 p-5">{title}</h1>
+					<h1 tw="text-5xl text-gray-100">{title}</h1>
 				</div>
-				{views && (
-					<footer tw="flex justify-between w-full text-3xl text-gray-100 bg-neutral-700/80 p-5">
-						<span>{`${views} views • ${likes} likes • ${dislikes} dislikes`}</span>
-						<span>{`${time} min read • ${words} words • ${date}`}</span>
-					</footer>
-				)}
+				<footer tw="flex w-full text-3xl text-gray-100">
+					<span>{`${time} min read • ${words} words • ${date}`}</span>
+				</footer>
 			</div>
 		),
 		{
