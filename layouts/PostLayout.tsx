@@ -1,6 +1,5 @@
 import { ScrollTop, Share, Sponsor } from '@/components/blog'
 import { PostLinks } from '@/components/blog'
-import FeaturedArt from '@/components/blog/FeaturedArt'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
@@ -32,8 +31,7 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 				<div className="fixed inset-0 bg-[url(/images/patterns/grid.svg)] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 				<article className="h-entry">
 					<div className="relative z-10 flex h-screen min-h-[600px] w-full flex-col items-center justify-center">
-						<FeaturedArt text={title} />
-						<div className="mt-14 flex items-center justify-center gap-4">
+						<div className="flex items-center justify-center gap-4">
 							<Link href={slug} className="u-url">
 								<time
 									dateTime={hEntryDate(updated_at)}
