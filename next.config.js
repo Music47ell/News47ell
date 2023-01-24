@@ -75,12 +75,6 @@ module.exports = () => {
 						],
 					},
 				],
-				afterFiles: [
-					{
-						source: '/feed.xml',
-						destination: '/feed',
-					},
-				],
 			}
 		},
 
