@@ -75,16 +75,6 @@ module.exports = () => {
 						],
 					},
 				],
-				afterFiles: [
-					{
-						source: '/feed',
-						destination: '/api/feed',
-					},
-					{
-						source: '/sitemap.xml',
-						destination: '/api/sitemap',
-					},
-				],
 			}
 		},
 
