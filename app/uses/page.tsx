@@ -22,25 +22,23 @@ export default function Uses() {
 						))}
 					</div>
 					<h2 className="text-3xl font-bold tracking-tight">Tools</h2>
-					<div className="my-4 flex justify-center">
-						<ul className="flex flex-wrap justify-center gap-12 md:gap-7">
-							{usesData.software.map((s) => (
-								<li
-									key={s.title}
-									className="group relative flex items-center justify-center rounded-full border border-nfh-accent-primary/70 bg-nfh-background-primary/20 p-4 shadow-md shadow-nfh-background-primary/20 transition-all duration-300 hover:rounded-[4rem] hover:border-nfh-accent-primary/50 hover:bg-nfh-background-primary/5 hover:shadow-none md:rounded-xl"
-								>
-									<div className="aspect-square w-20 p-4 transition-all duration-200 group-hover:p-4 sm:p-0 sm:group-hover:p-2">
-										<div className="relative flex aspect-auto h-full w-full items-center justify-center">
-											<s.icon className="h-20 w-20" />
-										</div>
+					<ul className="my-4 flex flex-wrap justify-center gap-12 md:gap-7">
+						{usesData.software.map((s) => (
+							<li
+								key={s.title}
+								className="group relative flex items-center justify-center rounded-full border border-nfh-accent-primary/70 bg-nfh-background-primary/20 p-4 shadow-md shadow-nfh-background-primary/20 transition-all duration-300 hover:rounded-[4rem] hover:border-nfh-accent-primary/50 hover:bg-nfh-background-primary/5 hover:shadow-none md:rounded-xl"
+							>
+								<div className="aspect-square w-20 p-4 transition-all duration-200 group-hover:p-4 sm:p-0 sm:group-hover:p-2">
+									<div className="relative flex aspect-auto h-full w-full items-center justify-center">
+										<s.icon className="h-20 w-20" />
 									</div>
-									<div className="absolute top-3/4 z-20 overflow-hidden whitespace-nowrap rounded-lg bg-nfh-background-secondary px-2 py-1 font-bold text-nfh-text-primary transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 md:scale-0">
-										{s.title}
-									</div>
-								</li>
-							))}
-						</ul>
-					</div>
+								</div>
+								<div className="absolute top-3/4 z-20 overflow-hidden whitespace-nowrap rounded-lg bg-nfh-background-secondary px-2 py-1 font-bold text-nfh-text-primary transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 md:scale-0">
+									{s.title}
+								</div>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</SectionContainer>
