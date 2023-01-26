@@ -13,7 +13,7 @@ export default async function generateSitemap() {
 		.filter((x) => !x.draft && !x.canonicalUrl)
 		.map((x) => `/${x._raw.flattenedPath}`)
 	const contentTags = await allTags(allBlogs).then((tags) =>
-		Object.keys(tags).map((tag) => `/tag/${tag}`)
+		Object.keys(tags).map((tag) => `/blog/tag/${tag}`)
 	)
 	const pages = await globby(
 		[
