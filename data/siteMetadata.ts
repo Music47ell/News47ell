@@ -107,8 +107,13 @@ const siteMetadata = {
 			},
 			{
 				title: 'RSS',
-				href: 'https://www.news47ell.com/feed',
+				href: 'https://www.news47ell.com/blog/feed.xml',
 				icon: 'rss',
+			},
+			{
+				title: 'JSON',
+				href: 'https://www.news47ell.com/blog/feed.json',
+				icon: 'json',
 			},
 			{
 				title: 'Sitemap',

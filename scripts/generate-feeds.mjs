@@ -21,7 +21,11 @@ export default async function generateFeeds() {
 	const generateRss = (siteMetadata, posts, page = 'feed.xml') => `
 	<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 		<channel>
-			<title>${escape(siteMetadata.title)}</title>
+			<title>${
+				page.includes('tag')
+					? `Tag: ${page.split('/')[1]} - ${siteMetadata.title}`
+					: siteMetadata.title
+			}</title>
 			<link>${siteMetadata.siteUrl}/blog</link>
 			<description>${escape(siteMetadata.description)}</description>
 			<language>${siteMetadata.language}</language>
@@ -53,7 +57,11 @@ export default async function generateFeeds() {
 	const generateJson = (siteMetadata, posts, page = 'feed.xml') => `
 	{
 		"version": "https://jsonfeed.org/version/1.1",
-		"title": "${escape(siteMetadata.title)}",
+		"title": "${
+			page.includes('tag')
+				? `Tag: ${page.split('/')[1]} - ${siteMetadata.title}`
+				: siteMetadata.title
+		}",
 		"home_page_url": "${siteMetadata.siteUrl}/blog",
 		"feed_url": "${siteMetadata.siteUrl}/${page}",
 		"icon": "${siteMetadata.siteUrl}/android-chrome-512x512.png",
@@ -76,10 +84,10 @@ export default async function generateFeeds() {
 	// RSS for blog post
 	if (publishPosts.length > 0) {
 		const rss = generateRss(siteMetadata, publishPosts)
-		writeFileSync('./public/feed.xml', rss)
+		writeFileSync('./public/blog/feed.xml', rss)
 		console.log('RSS feed for posts generated...')
 		const json = generateJson(siteMetadata, publishPosts)
-		writeFileSync('./public/feed.json', json)
+		writeFileSync('./public/blog/feed.json', json)
 		console.log('JSON feed for posts generated...')
 	}
 
