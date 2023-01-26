@@ -13,12 +13,12 @@ export default async function generateSitemap() {
 		.filter((x) => !x.draft && !x.canonicalUrl)
 		.map((x) => `/${x._raw.flattenedPath}`)
 	const contentTags = await allTags(allBlogs).then((tags) =>
-		Object.keys(tags).map((tag) => `/tags/${tag}`)
+		Object.keys(tags).map((tag) => `/blog/tag/${tag}`)
 	)
 	const pages = await globby(
 		[
 			'pages/*.(js|tsx)',
-			'public/tags/**/*.xml',
+			'public/blog/tag/**/*.xml',
 			'!pages/_*.(js|tsx)',
 			'!pages/api',
 			'!pages/404.(js|tsx)',
@@ -38,7 +38,6 @@ ${pages
 			.replace('pages/', '/')
 			.replace('public/', '/')
 			.replace(/\.[^/.]+$/, '')
-			.replace('/feed.xml', '')
 			.replace('posts', 'blog')
 		const route = path === '/index' ? '' : path
 		const slashesCount = (route.match(/\//g) || []).length
