@@ -4,14 +4,14 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function PostLinks({ path, filePath }: { path: string; filePath: string }) {
 	const directUrl = (path: string) =>
-		`https://github.com/${siteMetadata.siteRepo}/blob/main/${path}`
+		`https://github.com/${siteMetadata.siteRepo}/blob/main/content/${path}`
 	const discussUrl = (path: string) =>
 		`https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 	const editUrl = (path: string): string =>
-		`https://github.com/${siteMetadata.siteRepo}/edit/main/${path}`
+		`https://github.com/${siteMetadata.siteRepo}/edit/main/content/${path}`
 
 	const historyUrl = (path: string): string =>
-		`https://github.com/${siteMetadata.siteRepo}/commits/main/${path}`
+		`https://github.com/${siteMetadata.siteRepo}/commits/main/content/${path}`
 
 	return (
 		<div className="grid grid-cols-2 gap-4 py-4">
