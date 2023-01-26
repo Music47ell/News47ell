@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"lint": "next lint",
 		"lint:fix": "next lint --fix",
-		"build": "cross-env NODE_OPTIONS='--experimental-json-modules' node -r esbuild-register ./scripts/post-build.mjs",
+		"build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node -r esbuild-register ./scripts/post-build.mjs",
 		"start": "next start",
 		"analyze": "cross-env ANALYZE=true next build",
 		"pre-commit": "npx --no-install lint-staged",
