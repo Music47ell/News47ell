@@ -70,7 +70,9 @@ export default async function generateFeeds() {
 	}
 `
 
-	const publishPosts = allBlogs.filter((post) => post.draft !== true)
+	const publishPosts = allBlogs
+		.filter((post) => post.draft !== true)
+		.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 	// RSS for blog post
 	if (publishPosts.length > 0) {
 		const rss = generateRss(siteMetadata, publishPosts)
@@ -85,13 +87,15 @@ export default async function generateFeeds() {
 	if (publishPosts.length > 0) {
 		const tags = await allTags(publishPosts)
 		for (const tag of Object.keys(tags)) {
-			const filteredPosts = allBlogs.filter((post) => post.tags.map((t) => slug(t)).includes(tag))
+			const filteredPosts = allBlogs
+				.filter((post) => post.tags.map((t) => slug(t)).includes(tag))
+				.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 			const rss = generateRss(siteMetadata, filteredPosts, `tag/${tag}/feed.xml`)
-			const rssPath = path.join('public', 'tags', tag)
+			const rssPath = path.join('public', 'blog', 'tag', tag)
 			mkdirSync(rssPath, { recursive: true })
 			writeFileSync(path.join(rssPath, 'feed.xml'), rss)
 			const json = generateJson(siteMetadata, filteredPosts, `tag/${tag}/feed.xml`)
-			const jsonPath = path.join('public', 'tags', tag)
+			const jsonPath = path.join('public', 'blog', 'tag', tag)
 			mkdirSync(jsonPath, { recursive: true })
 			writeFileSync(path.join(jsonPath, 'feed.json'), json)
 		}
