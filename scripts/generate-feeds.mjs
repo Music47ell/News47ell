@@ -83,11 +83,13 @@ export default async function generateFeeds() {
 		.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 	// RSS for blog post
 	if (publishPosts.length > 0) {
+		const rssPath = path.join('public', 'blog')
+		mkdirSync(rssPath, { recursive: true })
 		const rss = generateRss(siteMetadata, publishPosts)
-		writeFileSync('./public/blog/feed.xml', rss)
+		writeFileSync(path.join(rssPath, 'feed.xml'), rss)
 		console.log('RSS feed for posts generated...')
 		const json = generateJson(siteMetadata, publishPosts)
-		writeFileSync('./public/blog/feed.json', json)
+		writeFileSync(path.join(rssPath, 'feed.json'), json)
 		console.log('JSON feed for posts generated...')
 	}
 
