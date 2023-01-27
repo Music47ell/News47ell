@@ -20,10 +20,9 @@ public/sitemap.xml
 /build
 # xml feeds
 /public/*.xml
-/public/blog/**/*.xml
+/public/**/*.xml
 # json feeds
-/public/*.json
-/public/blog/**/*.json
+/public/**/*.json
 
 # misc
 .DS_Store
