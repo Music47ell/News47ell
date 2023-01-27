@@ -23,7 +23,7 @@ export default function ListLayout({ title, posts, pagination, initialDisplayPos
 				</Link>
 			</div>
 			{displayPosts.map((post) => (
-				<Link key={post.slug} href={`${post.source ? post.source : `/blog/${post.slug}`}`}>
+				<Link key={post.slug} href={`/blog/${post.slug}`}>
 					<article className="h-entry hentry text-base">
 						<div className="group relative mb-6 block cursor-pointer items-center bg-nfh-background-secondary p-2 text-nfh-text-primary transition duration-500 hover:scale-105 hover:opacity-80 hover:shadow-lg">
 							<BorderEffect />

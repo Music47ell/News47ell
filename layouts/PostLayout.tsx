@@ -1,5 +1,6 @@
 import { ScrollTop, Share, Sponsor } from '@/components/blog'
 import { PostLinks } from '@/components/blog'
+import { ExternalIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import Tag from '@/components/Tag'
 import { PageTitle } from '@/components/UI'
@@ -32,20 +33,22 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 				<article className="h-entry">
 					<div className="relative z-10 flex h-screen min-h-[600px] w-full flex-col items-center justify-center">
 						<div className="flex items-center justify-center gap-4">
-							<Link href={slug} className="u-url">
-								<time
-									dateTime={hEntryDate(updated_at)}
-									className="dt-published tooltip"
-									aria-label={`Published at: ${displayDate(published_at)}`}
-								>
-									{displayDate(updated_at)}
-								</time>
+							<time
+								dateTime={hEntryDate(updated_at)}
+								className="dt-published tooltip"
+								aria-label={`Published at: ${displayDate(published_at)}`}
+							>
+								{displayDate(updated_at)}
+							</time>
+							<Link href={slug} className="u-url flex">
+								⌘ Permalink
 							</Link>
 						</div>
 						<div className="text-center">
 							{source ? (
 								<Link href={source}>
 									<PageTitle>{title}</PageTitle>
+									<ExternalIcon className="mt-3 inline-block h-10 w-10 fill-nfh-accent-secondary" />
 								</Link>
 							) : (
 								<PageTitle>{title}</PageTitle>

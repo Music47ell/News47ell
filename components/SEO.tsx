@@ -130,7 +130,6 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 
 export const BlogSEO = ({
 	title,
-	slug,
 	description,
 	published_at,
 	updated_at,
