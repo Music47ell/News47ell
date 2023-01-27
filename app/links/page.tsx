@@ -1,6 +1,7 @@
 import {
 	EnvelopeIcon,
 	GitHubIcon,
+	JSONIcon,
 	LinkedInIcon,
 	PDFIcon,
 	RSSIcon,
@@ -9,16 +10,15 @@ import {
 } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import SectionContainer from '@/components/UI/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Links() {
 	const authorIcons = [TwitterIcon, GitHubIcon, LinkedInIcon, EnvelopeIcon, PDFIcon]
-	const blogIcons = [TwitterIcon, RSSIcon, SitemapIcon]
-
-	/* background by SVGBackgrounds.com */
+	const blogIcons = [TwitterIcon, RSSIcon, JSONIcon, SitemapIcon]
 
 	return (
-		<main className="container my-8 mx-auto max-w-3xl bg-arrow-up-pattern bg-cover bg-center px-6">
+		<SectionContainer className="!max-w-3xl">
 			<h1 className="sr-only">Links</h1>
 			<div className="mt-4 flex flex-col items-center justify-center gap-3">
 				<Image
@@ -34,7 +34,7 @@ export default function Links() {
 						const Icon = authorIcons[idx]
 						return (
 							<Link
-								className="group flex items-center justify-between rounded-lg bg-nfh-background-primary/70 py-6 px-8 text-nfh-accent-primary transition hover:bg-nfh-background-primary hover:text-nfh-accent-primary hover:shadow-xl focus:outline-none focus:ring focus:ring-nfh-accent-primary"
+								className="group flex items-center justify-between rounded-lg bg-nfh-background-secondary/70 py-6 px-8 text-nfh-accent-primary transition hover:bg-nfh-background-secondary hover:text-nfh-accent-primary hover:shadow-xl focus:outline-none focus:ring focus:ring-nfh-accent-primary"
 								key={l.title}
 								href={l.href}
 							>
@@ -57,7 +57,7 @@ export default function Links() {
 						const Icon = blogIcons[idx]
 						return (
 							<Link
-								className="group flex items-center justify-between rounded-lg bg-nfh-background-primary/70 py-6 px-8 text-nfh-accent-primary transition hover:bg-nfh-background-primary hover:text-nfh-accent-primary hover:shadow-xl focus:outline-none focus:ring focus:ring-nfh-accent-primary"
+								className="group flex items-center justify-between rounded-lg bg-nfh-background-secondary/70 py-6 px-8 text-nfh-accent-primary transition hover:bg-nfh-background-secondary hover:text-nfh-accent-primary hover:shadow-xl focus:outline-none focus:ring focus:ring-nfh-accent-primary"
 								key={l.title}
 								href={l.href}
 							>
@@ -68,6 +68,6 @@ export default function Links() {
 					})}
 				</div>
 			</div>
-		</main>
+		</SectionContainer>
 	)
 }

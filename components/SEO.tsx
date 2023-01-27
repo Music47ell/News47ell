@@ -25,8 +25,8 @@ const CommonSEO = ({
 			<title>{title}</title>
 			<meta name="description" content={description} />
 			<link rel="canonical" href={`${siteMetadata.siteUrl}${pathname}`} />
-			<link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-			<link rel="alternate" type="application/json" href="/feed.json" />
+			<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" />
+			<link rel="alternate" type="application/json" href="/blog/feed.json" />
 
 			{/*Favicons Meta Tags*/}
 			<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
@@ -116,7 +116,13 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 				rel="alternate"
 				type="application/rss+xml"
 				title={`${description} - RSS feed`}
-				href={`${siteMetadata.siteUrl}${pathname}/feed.xml`}
+				href={`${siteMetadata.siteUrl}${pathname}/blog/feed.xml`}
+			/>
+			<link
+				rel="alternate"
+				type="application/json"
+				title={`${description} - RSS feed`}
+				href={`${siteMetadata.siteUrl}${pathname}/blog/feed.json`}
 			/>
 		</>
 	)
@@ -124,7 +130,6 @@ export const TaxonomySEO = ({ title, description }: PageSEOProps) => {
 
 export const BlogSEO = ({
 	title,
-	slug,
 	description,
 	published_at,
 	updated_at,

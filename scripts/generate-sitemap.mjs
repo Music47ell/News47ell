@@ -11,18 +11,15 @@ export default async function generateSitemap() {
 	const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
 	const contentPosts = allBlogs
 		.filter((x) => !x.draft && !x.canonicalUrl)
+		.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
 		.map((x) => `/${x._raw.flattenedPath}`)
 	const contentTags = await allTags(allBlogs).then((tags) =>
-		Object.keys(tags).map((tag) => `/blog/tag/${tag}`)
+		Object.keys(tags)
+			.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+			.map((tag) => `/blog/tag/${tag}`)
 	)
 	const pages = await globby(
-		[
-			'pages/*.(js|tsx)',
-			'public/blog/tag/**/*.xml',
-			'!pages/_*.(js|tsx)',
-			'!pages/api',
-			'!pages/404.(js|tsx)',
-		],
+		['pages/*.(js|tsx)', '!pages/_*.(js|tsx)', '!pages/api', '!pages/404.(js|tsx)'],
 		{
 			ignore: ['pages/[slug].(js|tsx)'],
 		}
@@ -38,7 +35,6 @@ ${pages
 			.replace('pages/', '/')
 			.replace('public/', '/')
 			.replace(/\.[^/.]+$/, '')
-			.replace('posts', 'blog')
 		const route = path === '/index' ? '' : path
 		const slashesCount = (route.match(/\//g) || []).length
 		let priority = 1 - 0.2 * slashesCount
