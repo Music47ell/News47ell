@@ -4,7 +4,7 @@ import fetcher from '@/lib/fetcher'
 import { Lastfm } from '@/lib/types'
 
 export function useLastfm() {
-	const { data, error } = useSWR<Lastfm>('/api/lastfm-stats', fetcher)
+	const { data, error, isLoading } = useSWR<Lastfm>('/api/lastfm-stats', fetcher)
 
 	const playCount = data?.user?.playcount
 	const artistsCount = data?.user?.artist_count
@@ -26,7 +26,7 @@ export function useLastfm() {
 		registeredDate,
 		url,
 		name,
-		isLoading: !error && !data,
+		isLoading,
 		isError: error,
 	}
 }

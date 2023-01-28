@@ -12,7 +12,7 @@ import {
 } from '@/lib/types'
 
 export function useDashboardReactions() {
-	const { data, error } = useSWR<Reactions>(`/api/reactions`, fetcher)
+	const { data, error, isLoading } = useSWR<Reactions>(`/api/reactions`, fetcher)
 	const totalLikes = Number(data?.like_count)
 	const totalDislikes = Number(data?.dislike_count)
 	const totalReactions = Number(totalLikes) + Number(totalDislikes)
@@ -21,13 +21,16 @@ export function useDashboardReactions() {
 		totalLikes,
 		totalDislikes,
 		totalReactions,
-		isLoading: !data && !error,
+		isLoading,
 		isError: error,
 	}
 }
 
 export function useSlugReactionsLike(slug: string): UseLikeCountResult {
-	const { data, error, mutate } = useSWR<LikeReaction>(`/api/reactions/like/${slug}`, fetcher)
+	const { data, error, isLoading, mutate } = useSWR<LikeReaction>(
+		`/api/reactions/like/${slug}`,
+		fetcher
+	)
 
 	const debouncedUpdateUserLike = useDebounce(updateUserLike, 1000)
 
@@ -67,7 +70,7 @@ export function useSlugReactionsLike(slug: string): UseLikeCountResult {
 		likes: data?.likes,
 		userLikes: data?.userLikes,
 		toggleUserLike,
-		isLoadingLikes: !data && !error,
+		isLoadingLikes: isLoading,
 	}
 }
 
@@ -86,7 +89,10 @@ async function updateUserLike(slug: string, value: boolean) {
 }
 
 export function useSlugReactionsDislike(slug: string): UseDislikeCountResult {
-	const { data, error, mutate } = useSWR<DislikeReaction>(`/api/reactions/dislike/${slug}`, fetcher)
+	const { data, error, isLoading, mutate } = useSWR<DislikeReaction>(
+		`/api/reactions/dislike/${slug}`,
+		fetcher
+	)
 
 	const debouncedUpdateUserDislike = useDebounce(updateUserDislike, 1000)
 
@@ -126,7 +132,7 @@ export function useSlugReactionsDislike(slug: string): UseDislikeCountResult {
 		dislikes: data?.dislikes,
 		userDislikes: data?.userDislikes,
 		toggleUserDislike,
-		isLoadingDislikes: !data && !error,
+		isLoadingDislikes: isLoading,
 	}
 }
 

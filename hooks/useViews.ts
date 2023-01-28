@@ -5,16 +5,17 @@ import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
 
 export function useViews(): UseViewCountResult {
-	const { data, error } = useSWR<Views>(`/api/views`, fetcher)
+	const { data, error, isLoading } = useSWR<Views>(`/api/views`, fetcher)
 
 	return {
 		views: data?.views,
-		isLoading: !data && !error,
+		isLoading,
+		isError: error,
 	}
 }
 
 export function useViewsBySlug(slug: string): UseViewCountResult {
-	const { data, error, mutate } = useSWR<Views>(`/api/views/${slug}`, {
+	const { data, error, isLoading, mutate } = useSWR<Views>(`/api/views/${slug}`, {
 		revalidateOnMount: false,
 	})
 
@@ -30,6 +31,7 @@ export function useViewsBySlug(slug: string): UseViewCountResult {
 
 	return {
 		views: data?.views,
-		isLoading: !data && !error,
+		isLoading,
+		isError: error,
 	}
 }

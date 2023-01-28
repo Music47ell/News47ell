@@ -7,7 +7,7 @@ import { PageTitle } from '@/components/UI'
 import { SectionContainer } from '@/components/UI'
 import { useViewsBySlug } from '@/hooks/useViews'
 import { IPostLayout } from '@/lib/interfaces'
-import { displayDate, hEntryDate } from '@/utils/format-date'
+import { displayDate, hEntryDate } from '@/utils/format-time-date'
 
 export default function PostLayout({ content, next, prev, children }: IPostLayout) {
 	const {

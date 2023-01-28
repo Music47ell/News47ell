@@ -5,7 +5,7 @@ import { IResumeLayout } from '@/lib/interfaces'
 import { Lyrics, Quotes } from '@/lib/types'
 
 export function useResume() {
-	const { data, error } = useSWR<IResumeLayout>('/api/github/resume', fetcher)
+	const { data, error, isLoading } = useSWR<IResumeLayout>('/api/github/resume', fetcher)
 
 	const resume = {
 		basics: data?.basics,
@@ -17,13 +17,13 @@ export function useResume() {
 
 	return {
 		resume,
-		isLoading: !error && !data,
+		isLoading,
 		isError: error,
 	}
 }
 
 export function useLyric() {
-	const { data, error } = useSWR<Lyrics>('/api/github/lyric', fetcher, {
+	const { data, error, isLoading } = useSWR<Lyrics>('/api/github/lyric', fetcher, {
 		revalidateOnMount: false,
 	})
 
@@ -31,17 +31,17 @@ export function useLyric() {
 
 	return {
 		lyric,
-		isLoading: !error && !data,
+		isLoading,
 		isError: error,
 	}
 }
 
 export function useQuote() {
-	const { data: quote, error } = useSWR<Quotes>('/api/github/quote', fetcher)
+	const { data: quote, error, isLoading } = useSWR<Quotes>('/api/github/quote', fetcher)
 
 	return {
 		quote,
-		isLoading: !error && !quote,
+		isLoading,
 		isError: error,
 	}
 }

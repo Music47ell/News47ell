@@ -4,7 +4,7 @@ import fetcher from '@/lib/fetcher'
 import { Trakt, TraktCard } from '@/lib/types'
 
 export function useTrakt(): TraktCard {
-	const { data, error } = useSWR<Trakt>('/api/trakt-stats', fetcher)
+	const { data, error, isLoading } = useSWR<Trakt>('/api/trakt-stats', fetcher)
 
 	const moviesWatched = data?.movies.watched || 0
 	const showsWatched = data?.shows.watched || 0
@@ -22,7 +22,7 @@ export function useTrakt(): TraktCard {
 		episodesWatched,
 		user,
 		url,
-		isLoading: !error && !data,
+		isLoading,
 		isError: error,
 	}
 }

@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
 
 export function useCodeStats(): CodeStatsCard {
-	const { data, error } = useSWR<CodeStats>(`/api/codestats/`, fetcher)
+	const { data, error, isLoading } = useSWR<CodeStats>(`/api/codestats/`, fetcher)
 
 	const totalXP = data?.total_xp || 0
 	const newXP = data?.new_xp || 0
@@ -20,7 +20,7 @@ export function useCodeStats(): CodeStatsCard {
 		level,
 		link,
 		user,
-		isLoading: !error && !data,
+		isLoading,
 		isError: error,
 	}
 }

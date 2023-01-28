@@ -344,6 +344,7 @@ export type useResume = {
 export type UseViewCountResult = {
 	views?: number
 	isLoading: boolean
+	isError: string
 }
 
 export type Reactions = {
@@ -465,3 +466,11 @@ export type Toc = {
 	depth: number
 	url: string
 }[]
+
+export type Weather = {
+	time: number
+	summary: string
+	temperature: number
+	humidity: number
+	windSpeed: number
+}
