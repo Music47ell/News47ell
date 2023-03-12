@@ -5,6 +5,6 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function NowHead() {
 	return (
-		<PageSEO title={`/now - ${siteMetadata.author.name}`} description={siteMetadata.description} />
+		<PageSEO title={`Now - ${siteMetadata.author.name}`} description={siteMetadata.description} />
 	)
 }
