@@ -30,18 +30,15 @@ export default function NowPlaying(): JSX.Element {
 				src={data?.albumImageUrl || '/images/brand/logo.png'}
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
-				{data?.songUrl ? (
-					<Link className="w-48 text-inherit" href={data.songUrl}>
+				{data?.songUrl && (
+					<Link className="text-inherit" href={data.songUrl}>
 						<p className="text-sm font-medium">{data.title}</p>
 					</Link>
-				) : (
-					<p className="w-48 font-medium">Not Playing</p>
 				)}
 				<p
 					style={{
 						color: light,
 					}}
-					className="w-48"
 				>
 					{data?.artist ?? 'Spotify'}
 				</p>

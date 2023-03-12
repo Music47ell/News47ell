@@ -75,12 +75,6 @@ module.exports = () => {
 						],
 					},
 				],
-				afterFiles: [
-					{
-						source: '/:path*/feed',
-						destination: '/:path*/feed.xml',
-					},
-				],
 			}
 		},
 
@@ -109,6 +103,12 @@ module.exports = () => {
 				})
 			}
 
+			//  redirect /feed to /blog/feed.xml
+			redirects.push({
+				source: '/feed',
+				destination: '/blog/feed.xml',
+				statusCode: 301,
+			})
 			redirects.push({
 				source: '/blog/page/1',
 				destination: '/blog/',

@@ -108,8 +108,15 @@ const KBar = (props: KBarProps) => {
 			perform: () => (window.location.pathname = 'sponsor'),
 		},
 		{
+			id: 'certificates',
+			name: 'Certificates',
+			keywords: 'Go to Certificates',
+			section: 'Go to',
+			perform: () => (window.location.pathname = 'certificates'),
+		},
+		{
 			id: 'resume',
-			name: 'Rsumee',
+			name: 'Resume',
 			keywords: 'Go to resume',
 			section: 'Go to',
 			perform: () => (window.location.pathname = 'resume'),

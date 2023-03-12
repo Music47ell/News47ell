@@ -3,6 +3,8 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
+import type { Blog } from '@/contentlayer/generated'
+import { getBlogHomepage } from '@/lib/contentlayer'
 import { IResumeLayout } from '@/lib/interfaces'
 
 export default function ResumeLayout({
@@ -12,6 +14,8 @@ export default function ResumeLayout({
 	languages,
 	certificates,
 }: IResumeLayout) {
+	const sortedPosts = getBlogHomepage().slice(0, 5) as Blog[]
+
 	const isFirefoxForAndroid = () => {
 		const ua = navigator.userAgent.toLowerCase()
 		return ua.indexOf('android') > -1 && ua.indexOf('firefox') > -1
@@ -36,20 +40,12 @@ export default function ResumeLayout({
 	}
 
 	return (
-		<SectionContainer>
+		<SectionContainer className="print:my-0">
 			<div className="text-center print:hidden">
 				<PageTitle>Resume</PageTitle>
 			</div>
 			<div className="mt-20 border border-nfh-accent-primary text-nfh-text-primary">
-				<div className="grid grid-cols-1 p-5">
-					<div className="order-last mt-14 grid grid-cols-1 text-center md:order-first md:mt-0 md:grid-cols-2">
-						<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
-							{basics.email}
-						</Link>
-						<Link className="text-sm" href={basics.url} aria-label="Link to news47ell.com">
-							{basics.url}
-						</Link>
-					</div>
+				<div className="grid grid-cols-1 p-8">
 					<div className="relative">
 						<div className="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-36 w-36 items-center justify-center rounded-full">
 							<Image
@@ -61,6 +57,14 @@ export default function ResumeLayout({
 							/>
 						</div>
 					</div>
+				</div>
+				<div className="flex justify-evenly space-x-8 md:mt-12">
+					<Link className="text-sm" href={`mailto:${basics.email}`} aria-label="Email address">
+						{basics.email}
+					</Link>
+					<Link className="text-sm" href={basics.url} aria-label="Link to news47ell.com">
+						{basics.url}
+					</Link>
 				</div>
 				<div className="flex justify-evenly space-x-8 md:mt-12">
 					{basics.profiles.map(({ id, network, url }) => (
@@ -106,16 +110,47 @@ export default function ResumeLayout({
 					<div className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
 						<p className="text-sm font-semibold">Certificates</p>
 						<ul className="mt-1 text-sm sm:col-span-2 sm:mt-0">
-							{certificates.map(({ id, name, issuer, url }) => (
-								<li key={id} className="mt-1 text-sm sm:mt-0">
-									<p className="mt-1 text-sm sm:mt-0">
-										{name} |{' '}
-										<Link href={url} aria-label={`Link to ${name}`}>
-											{issuer}
-										</Link>
-									</p>
+							{certificates
+								.sort((a, b) => {
+									return new Date(b.issued).getTime() - new Date(a.issued).getTime()
+								})
+								.slice(0, 5)
+								.map(({ id, name, issuer, url }) => (
+									<li key={id} className="mt-1 text-sm sm:mt-0">
+										<p className="mt-1 text-sm sm:mt-0">
+											{name} |{' '}
+											<Link href={url} aria-label={`Link to ${name}`}>
+												{issuer}
+											</Link>
+										</p>
+									</li>
+								))}
+							<li className="mt-1 text-sm sm:mt-0">
+								<p className="mt-1 text-sm sm:mt-0">
+									<Link href="/certificates" aria-label="Link to Certificates page">
+										For a complete list of certificates, click here.
+									</Link>
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div className="p-6 print:p-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+						<p className="text-sm font-semibold">Recent Blog Posts</p>
+						<ul className="mt-1 text-sm sm:col-span-2 sm:mt-0">
+							{sortedPosts.map((post, index) => (
+								<li key={index} className="mt-1 text-sm sm:mt-0">
+									<Link href={post.slug} aria-label={`Link to ${post.title}`}>
+										{post.title}
+									</Link>
 								</li>
 							))}
+							<li className="mt-1 text-sm sm:mt-0">
+								<p className="mt-1 text-sm sm:mt-0">
+									<Link href="/blog" aria-label="Link to Certificates page">
+										For a complete list of blog posts, click here.
+									</Link>
+								</p>
+							</li>
 						</ul>
 					</div>
 					<div className="p-6 print:hidden print:p-3 print:py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
