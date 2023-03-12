@@ -5,7 +5,7 @@ import { JSONIcon, RSSIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { BorderEffect, SectionContainer } from '@/components/UI'
 import { Layout } from '@/lib/interfaces'
-import { displayDate, hEntryDate } from '@/utils/format-date'
+import { displayDate, hEntryDate } from '@/utils/format-time-date'
 
 export default function ListLayout({ title, posts, pagination, initialDisplayPosts }: Layout) {
 	const pathname = usePathname()

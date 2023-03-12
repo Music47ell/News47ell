@@ -78,7 +78,17 @@ export interface IResumeLayout {
 	certificates: {
 		id: number
 		name: string
-		date: string
+		issued: string
+		issuer: string
+		url: string
+	}[]
+}
+
+export interface ICertificatesLayout {
+	certificates: {
+		id: number
+		name: string
+		issued: string
 		issuer: string
 		url: string
 	}[]

@@ -32,16 +32,11 @@ export default function NowWatching(): JSX.Element {
 				src={`https://image.tmdb.org/t/p/original/${data?.poster}` || '/images/brand/logo.png'}
 			/>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
-				{data?.episodeTitle ? (
-					<p className="w-48 text-inherit">{data.episodeTitle}</p>
-				) : (
-					<p className="w-48 font-medium">Not Watching</p>
-				)}
+				{data?.episodeTitle && <p className="text-inherit">{data.episodeTitle}</p>}
 				<p
 					style={{
 						color: light,
 					}}
-					className="w-48"
 				>
 					{data?.title ?? 'Trakt'}
 				</p>

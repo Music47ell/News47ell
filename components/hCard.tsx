@@ -22,14 +22,10 @@ export default function HCard(): JSX.Element {
 				/>
 			</Link>
 			<div className="ml-3 flex flex-col items-start justify-center text-ellipsis">
-				<Link
-					className="u-email w-48 font-medium"
-					href={`mailto:${siteMetadata.email}`}
-					rel="me authn"
-				>
+				<Link className="u-email font-medium" href={`mailto:${siteMetadata.email}`} rel="me authn">
 					<p className="p-name text-sm font-medium">{siteMetadata.author.name}</p>
 				</Link>
-				<Link className="u-url u-uid w-48 font-medium" href={siteMetadata.siteUrl}>
+				<Link className="u-url u-uid font-medium" href={siteMetadata.siteUrl}>
 					<p className="p-nickname text-sm font-medium">{siteMetadata.author.username}</p>
 				</Link>
 				<p className="p-role role text-sm font-medium">{siteMetadata.position}</p>
