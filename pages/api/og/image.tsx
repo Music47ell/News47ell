@@ -28,9 +28,11 @@ const handler = async (req: NextRequest): Promise<ImageResponse> => {
 				<div tw="flex flex-col justify-center items-center w-full">
 					<h1 tw="text-5xl text-gray-100">{title}</h1>
 				</div>
-				<footer tw="flex w-full text-3xl text-gray-100">
-					<span>{`${time} min read • ${words} words • ${date}`}</span>
-				</footer>
+				{time && words && date ? (
+					<footer tw="flex w-full text-3xl text-gray-100">
+						<span>{`${time} min read • ${words} words • ${date}`}</span>
+					</footer>
+				) : null}
 			</div>
 		),
 		{
