@@ -1,4 +1,3 @@
-import { AllReactions, IndividualReactions } from '@/components/metrics/Reactions'
 import { ViewsCard } from '@/components/metrics/Views'
 
 export default function StatsLayout() {
@@ -10,8 +9,6 @@ export default function StatsLayout() {
 			</div>
 			<div className="grid grid-cols-1 gap-3 lg:grid-cols-3 xl:grid-cols-3">
 				<ViewsCard />
-				<AllReactions />
-				<IndividualReactions />
 			</div>
 		</>
 	)

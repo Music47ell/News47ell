@@ -29,51 +29,6 @@ export const getTotalViews = async (): Promise<{ views: number }> => {
 	}
 }
 
-export const getTotalReactions = async (): Promise<{
-	like_count: number
-	dislike_count: number
-}> => {
-	const like_count = await prisma.postMeta.findMany({
-		select: {
-			likes: true,
-		},
-	})
-
-	const dislike_count = await prisma.postMeta.findMany({
-		select: {
-			dislikes: true,
-		},
-	})
-
-	return {
-		like_count: like_count.reduce((acc, curr) => acc + curr.likes, 0),
-		dislike_count: dislike_count.reduce((acc, curr) => acc + curr.dislikes, 0),
-	}
-}
-
-export const getTopReactions = async () => {
-	const mostLikedPosts = await prisma.postMeta.findMany({
-		select: {
-			likes: true,
-			slug: true,
-		},
-		orderBy: {
-			likes: 'desc',
-		},
-		take: 3,
-	})
-
-	const topReactions = mostLikedPosts.map(({ slug, likes }) => ({
-		title: slug
-			.replace(/-/g, ' ')
-			.replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) => letter.toUpperCase()),
-		slug: `/blog/${slug}`,
-		total: likes,
-	}))
-
-	return topReactions
-}
-
 export const getTopViews = async () => {
 	const mostViewedPosts = await prisma.postMeta.findMany({
 		select: {

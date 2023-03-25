@@ -39,7 +39,7 @@ const LINKS: Array<{ text: string; title: string; color?: (title: string) => str
 
 const longestLength = Math.max(...LINKS.map((link) => link.title.length))
 
-const printLinkTitle = (link: typeof LINKS[0]): string => {
+const printLinkTitle = (link: (typeof LINKS)[0]): string => {
 	const titleText = ` ${link.title} `
 	return kleur.bold(link.color?.(titleText) ?? titleText)
 }

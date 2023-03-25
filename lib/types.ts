@@ -347,35 +347,6 @@ export type UseViewCountResult = {
 	isError: string
 }
 
-export type Reactions = {
-	like_count: number
-	dislike_count: number
-}
-
-export type LikeReaction = {
-	likes: number
-	userLikes: boolean
-}
-
-export type UseLikeCountResult = {
-	toggleUserLike: () => void
-	userLikes: boolean | undefined
-	likes: number | undefined
-	isLoadingLikes: boolean
-}
-
-export type DislikeReaction = {
-	dislikes: number
-	userDislikes: boolean
-}
-
-export type UseDislikeCountResult = {
-	toggleUserDislike: () => void
-	userDislikes: boolean | undefined
-	dislikes: number | undefined
-	isLoadingDislikes: boolean
-}
-
 export type PostsSearchResult = {
 	id: string
 	title: string
