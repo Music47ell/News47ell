@@ -22,7 +22,7 @@ export default function ListLayout({ title, posts, pagination, initialDisplayPos
 				<Link href={`${feedURL + pathname}/feed.xml`}>
 					<RSSIcon className="inline-block h-7 w-7" />
 				</Link>
-				<Link href={`${pathname}/feed.json`}>
+				<Link href={`${feedURL + pathname}/feed.json`}>
 					<JSONIcon className="inline-block h-7 w-7" />
 				</Link>
 			</div>
