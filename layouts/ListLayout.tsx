@@ -4,6 +4,7 @@ import Pagination from '@/components/blog/Pagination'
 import { JSONIcon, RSSIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { BorderEffect, SectionContainer } from '@/components/UI'
+import siteMetaData from '@/data/siteMetadata'
 import { Layout } from '@/lib/interfaces'
 import { displayDate, hEntryDate } from '@/utils/format-time-date'
 
@@ -11,11 +12,14 @@ export default function ListLayout({ title, posts, pagination, initialDisplayPos
 	const pathname = usePathname()
 	const displayPosts = initialDisplayPosts?.length > 0 ? initialDisplayPosts : posts
 
+	const feedURL =
+		process.env.NODE_ENV === 'production' ? siteMetaData.siteUrl : 'http://localhost:3000'
+
 	return (
 		<SectionContainer className="h-feed !max-w-3xl !px-6">
 			<h1 className="font-serif text-4xl">{title}</h1>
 			<div className="flex items-center justify-between">
-				<Link href={`${pathname}/feed.xml`}>
+				<Link href={`${feedURL + pathname}/feed.xml`}>
 					<RSSIcon className="inline-block h-7 w-7" />
 				</Link>
 				<Link href={`${pathname}/feed.json`}>
