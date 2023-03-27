@@ -108,6 +108,11 @@ module.exports = () => {
 				permanent: true,
 			})
 			redirects.push({
+				source: '/feed.xml',
+				destination: '/blog/feed.xml',
+				permanent: true,
+			})
+			redirects.push({
 				source: '/blog/page/1',
 				destination: '/blog/',
 				statusCode: 301,

@@ -26,7 +26,7 @@ export default function PostLayout({ content, next, prev, children }: IPostLayou
 	const { views, isLoading } = useViewsBySlug(slug)
 
 	return (
-		<SectionContainer className="my-0 max-w-full px-0">
+		<SectionContainer className="!my-0 max-w-full !px-0">
 			<ScrollTop />
 			<main className="col-span-10 flex flex-col lg:col-span-7">
 				<div className="fixed inset-0 bg-[url(/images/patterns/grid.svg)] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
