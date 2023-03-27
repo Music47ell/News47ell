@@ -52,18 +52,18 @@ const KBar = (props: KBarProps) => {
 			perform: () => (window.location.pathname = 'blog'),
 		},
 		{
-			id: 'dashboard',
-			name: 'Dashboard',
-			keywords: 'Go to dashboard',
-			section: 'Go to',
-			perform: () => (window.location.pathname = 'dashboard'),
-		},
-		{
 			id: 'tags',
 			name: 'Tags',
 			keywords: 'Go to tags',
 			section: 'Go to',
 			perform: () => (window.location.pathname = 'blog/tags'),
+		},
+		{
+			id: 'dashboard',
+			name: 'Dashboard',
+			keywords: 'Go to dashboard',
+			section: 'Go to',
+			perform: () => (window.location.pathname = 'dashboard'),
 		},
 		{
 			id: 'colophon',
