@@ -30,7 +30,6 @@ export default async function generateSitemap() {
 				<url>
 						<loc>${siteUrl}</loc>
 						<lastmod>${new Date().toISOString()}</lastmod>
-						<priority>1.0</priority>
 				</url>
 ${pages
 	.concat([
