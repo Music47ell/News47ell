@@ -27,7 +27,24 @@ export default async function generateSitemap() {
 	const sitemap = `
 				<?xml version="1.0" encoding="UTF-8"?>
 				<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+				<url>
+						<loc>${siteUrl}</loc>
+						<lastmod>${new Date().toISOString()}</lastmod>
+						<priority>1.0</priority>
+				</url>
 ${pages
+	.concat([
+		'/blog',
+		'/certificates',
+		'/colophon',
+		'/dashboard',
+		'/feeds',
+		'/links',
+		'/now',
+		'/resume',
+		'/sponsor',
+		'/uses',
+	])
 	.concat(contentPosts)
 	.concat(contentTags)
 	.map((page) => {
@@ -36,15 +53,10 @@ ${pages
 			.replace('public/', '/')
 			.replace(/\.[^/.]+$/, '')
 		const route = path === '/index' ? '' : path
-		const slashesCount = (route.match(/\//g) || []).length
-		let priority = 1 - 0.2 * slashesCount
-		if (route.length <= 1 || priority > 1.0) priority = 1.0
-		if (priority < 0.2) priority = 0.2
 		return `
 												<url>
 														<loc>${siteUrl}${route}</loc>
 														<lastmod>${new Date().toISOString()}</lastmod>
-														<priority>${priority}</priority>
 												</url>
 										`
 	})
