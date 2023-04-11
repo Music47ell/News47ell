@@ -39,18 +39,18 @@ const siteMetadata = {
 			'Web Performance',
 		],
 	},
-	orbitLinks: [
+	headerNavLinks: [
 		{ title: 'Twitter', href: 'https://twitter.com/music47ell', icon: 'twitter' },
 		{ title: 'GitHub', href: 'https://github.com/music47ell', icon: 'github' },
 		{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/music47ell', icon: 'linkedin' },
 		{ title: 'Mastodon', href: 'https://mastodon.social/@music47ell', icon: 'mastodon' },
 	],
 	heroCardLinks: [
-		{ title: 'Check the dashboard', href: '/dashboard' },
-		{ title: 'My writings', href: '/blog' },
-		{ title: 'More about me, myself and I', href: '/colophon' },
-		{ title: "See what I'm doing now", href: '/now' },
-		{ title: 'My resume', href: '/resume' },
+		{ title: 'Dashboard', href: '/dashboard' },
+		{ title: 'Blog', href: '/blog' },
+		{ title: 'Colophon', href: '/colophon' },
+		{ title: 'Now', href: '/now' },
+		{ title: 'Resume', href: '/resume' },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

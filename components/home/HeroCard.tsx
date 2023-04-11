@@ -34,7 +34,7 @@ export default function HeroCard() {
 				</div>
 				<div className="mt-16 flex items-center justify-center">
 					<div className="orbit-context relative -top-12 grid h-60 w-60 animate-orbit place-content-center justify-center justify-self-center rounded-full md:h-72 md:w-72 lg:justify-self-start">
-						{siteMetadata.orbitLinks.map((link, idx) => {
+						{siteMetadata.headerNavLinks.map((link, idx) => {
 							const Icon = orbitIcons[idx]
 							const iconStyle = [
 								'top-0 left-1/2 transition-transform',

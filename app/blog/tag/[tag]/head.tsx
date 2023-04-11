@@ -16,7 +16,7 @@ export default function TagHead({ params }: TagHeadProps) {
 
 	return (
 		<TaxonomySEO
-			title={`${title} - ${siteMetadata.title}`}
+			title={`Tag: ${title} - ${siteMetadata.title}`}
 			description={`Posts tagged with ${title} - ${siteMetadata.title}`}
 		/>
 	)
