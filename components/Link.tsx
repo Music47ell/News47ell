@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
+import type { Route } from 'next'
 import Link from 'next/link'
 
 import { Links } from '@/lib/types'
@@ -11,7 +11,7 @@ const CustomLink = ({ className, href, rel, ...rest }: Links) => {
 	} text-nfh-accent-primary hover:text-nfh-text-secondary`.replace(/^\s+/, '')
 
 	if (isInternalLink) {
-		return <Link href={href} className={style} {...rest} />
+		return <Link href={href as Route} className={style} {...rest} />
 	}
 
 	if (isAnchorLink) {

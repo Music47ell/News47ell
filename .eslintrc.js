@@ -17,6 +17,7 @@ module.exports = {
 		'plugin:tailwindcss/recommended',
 	],
 	rules: {
+		'no-template-curly-in-string': 'error',
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
 		'prettier/prettier': 'error',

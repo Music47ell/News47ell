@@ -13,7 +13,16 @@ export const getContent = (content: Blog[] | Page[]) => {
 
 export const getBlogHomepage = () => {
 	const posts = allBlogs.map((post) =>
-		pick(post, ['_id', 'slug', 'title', 'description', 'published_at', 'readingTime', 'wordsCount'])
+		pick(post, [
+			'_id',
+			'slug',
+			'title',
+			'description',
+			'published_at',
+			'updated_at',
+			'readingTime',
+			'wordsCount',
+		])
 	)
 
 	return posts.sort((a: { published_at: string }, b: { published_at: string }) =>
@@ -45,21 +54,4 @@ export function coreContent<T extends MDXDocument>(content: T) {
 
 export function allCoreContent<T extends MDXDocument>(contents: T[]) {
 	return contents.map((c) => coreContent(c)).filter((c) => !('draft' in c && c.draft === true))
-}
-
-export function allTags() {
-	const tagCount: Record<string, number> = {}
-	const tags = allBlogs.map((post) => pick(post, ['tags']))
-
-	tags.forEach((post) => {
-		post.tags.forEach((tag) => {
-			if (tagCount[tag]) {
-				tagCount[tag]++
-			} else {
-				tagCount[tag] = 1
-			}
-		})
-	})
-
-	return tagCount
 }

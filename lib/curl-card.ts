@@ -16,11 +16,6 @@ const LINKS: Array<{ text: string; title: string; color?: (title: string) => str
 		color: kleur.bgBlack().inverse,
 	},
 	{
-		text: siteMetaData.curlCardLinks.links.text,
-		title: 'All Links',
-		color: kleur.red().inverse,
-	},
-	{
 		text: siteMetaData.curlCardLinks.github.text,
 		title: 'GitHub',
 		color: kleur.green().inverse,

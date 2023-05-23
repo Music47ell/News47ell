@@ -1,4 +1,13 @@
-import { TOCInlineProps } from '@/lib/interfaces'
+import { Toc } from '@/lib/types'
+
+export interface TOCInlineProps {
+	toc: Toc
+	indentDepth?: number
+	fromHeading?: number
+	toHeading?: number
+	asDisclosure?: boolean
+	exclude?: string | string[]
+}
 
 /**
  * Generates an inline table of contents

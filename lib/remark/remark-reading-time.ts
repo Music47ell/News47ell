@@ -21,7 +21,10 @@ function getReadingTime(content: string) {
 export function remarkReadingTime() {
 	return function (tree: Parent, file: VFile) {
 		const textOnPage = toString(tree)
-		const { wordsCount, readingTime } = getReadingTime(textOnPage)
+		const { wordsCount, readingTime } = getReadingTime(textOnPage) || {
+			wordsCount: 0,
+			readingTime: 0,
+		}
 
 		file.data.wordsCount = wordsCount
 		file.data.readingTime = readingTime

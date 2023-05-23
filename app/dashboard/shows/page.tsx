@@ -1,16 +1,22 @@
-'use client'
+import type { Metadata } from 'next'
 
-import { ArrowLeftIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { MoviesWatched, ShowsWatched } from '@/components/metrics/Trakt'
-import { TraktCard } from '@/components/metrics/Trakt'
 import { SectionContainer } from '@/components/UI'
+
+import MoviesWatched from './components/MoviesWatched'
+import ShowsWatched from './components/ShowsWatched'
+import TraktCard from './components/TraktCard'
+
+export const metadata: Metadata = {
+	title: 'Shows - Dashboard',
+	description: 'Display my recent entertainment activity.',
+}
 
 export default function Shows() {
 	return (
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
-				<div className="md:flex md:items-center md:justify-between">
+				<div className="md:flex md:items-baseline md:justify-between">
 					<h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movies & TV Shows</h1>
 					<p className="text-xs">Powered by Trakt & TMDB API</p>
 				</div>
@@ -19,14 +25,18 @@ export default function Shows() {
 						href="/dashboard"
 						className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
 					>
-						<ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
+						<span className="m-auto block w-6 text-xl">&#8592;</span>
 					</Link>
 				</div>
 				<TraktCard />
 			</div>
-			<p>List of recent 10 movies I've watched</p>
+			<h3 className="text-2xl font-bold leading-8 tracking-tight">
+				Most Recent Movies I've Watched
+			</h3>
 			<MoviesWatched />
-			<p>List of recent 10 tv shows I've watched</p>
+			<h3 className="text-2xl font-bold leading-8 tracking-tight">
+				Most Recent TV Shows I've Watched
+			</h3>
 			<ShowsWatched />
 		</SectionContainer>
 	)

@@ -1,4 +1,0 @@
-User-Agent: *
-
-Host: https://www.news47ell.com
-Sitemap: https://www.news47ell.com/sitemap.xml

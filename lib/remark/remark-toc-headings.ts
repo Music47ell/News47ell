@@ -6,11 +6,7 @@ import { Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { VFile } from 'vfile'
 
-export type Toc = {
-	value: string
-	depth: number
-	url: string
-}[]
+import { Toc } from '@/lib/types'
 
 export function remarkTocHeadings() {
 	return (tree: Parent, file: VFile) => {
