@@ -7,9 +7,8 @@ import fetcher from '@/lib/fetcher'
 import { PostView } from '@/lib/types'
 
 export default function ViewsCounter({ slug, trackView }: { slug: string; trackView: boolean }) {
-	const { data } = useSWR<PostView[]>(`/api/views/${slug}`, fetcher)
-	const viewsForSlug = data && data?.find((view) => view.slug === slug)
-	const views = new Number(viewsForSlug?.count || 0)
+	const { data } = useSWR<PostView>(`/api/views/${slug}`, fetcher)
+	const views = new Number(data?.count || 0)
 
 	useEffect(() => {
 		const registerView = () => {
