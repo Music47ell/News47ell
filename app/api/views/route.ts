@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { db, viewsTable } from '@/lib/turso'
 
 export const GET = async () => {
-	const result = await db.select().from(viewsTable).all()
+	const data = await db.select().from(viewsTable).all()
 
-	return NextResponse.json(result)
+	return NextResponse.json(data)
 }

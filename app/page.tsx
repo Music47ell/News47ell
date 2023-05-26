@@ -2,12 +2,11 @@ import { Slash } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { Divider, SectionContainer } from '@/components/UI'
+import ViewsCounter from '@/components/ViewsCounter'
 import type { Blog } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getBlogHomepage } from '@/lib/contentlayer'
 import { getTopPosts } from '@/lib/views'
-
-import BlogPostCard from './blog/components/BlogPostCard'
 
 export default async function Homepage() {
 	const posts = getBlogHomepage() as Blog[]
@@ -46,13 +45,33 @@ export default async function Homepage() {
 			<p>Most Recent Blog Posts</p>
 			<ul>
 				{posts.slice(0, 3).map((post, index: number) => (
-					<BlogPostCard key={index} title={post.title} slug={post.slug} />
+					<Link
+						key={post.slug}
+						className="mb-4 flex flex-col space-y-1"
+						href={`/blog/${post.slug}`}
+					>
+						<div className="flex w-full flex-col">
+							<p>{post.title}</p>
+							<span className="flex flex-row"></span>
+							<ViewsCounter slug={post.slug} trackView={false} />
+						</div>
+					</Link>
 				))}
 			</ul>
 			<p>Most Viewed Blog Posts</p>
 			<ul>
 				{topPosts.map((post, index: number) => (
-					<BlogPostCard key={index} title={post.title} slug={post.slug} />
+					<Link
+						key={post.slug}
+						className="mb-4 flex flex-col space-y-1"
+						href={`/blog/${post.slug}`}
+					>
+						<div className="flex w-full flex-col">
+							<p>{post.title}</p>
+							<span className="flex flex-row"></span>
+							<ViewsCounter slug={post.slug} trackView={false} />
+						</div>
+					</Link>
 				))}
 			</ul>
 		</SectionContainer>

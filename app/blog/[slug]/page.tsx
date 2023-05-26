@@ -6,13 +6,12 @@ import { notFound } from 'next/navigation'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { PageTitle } from '@/components/UI'
 import { SectionContainer } from '@/components/UI'
+import ViewsCounter from '@/components/ViewsCounter'
 import type { Blog } from '@/contentlayer/generated'
 import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getContent } from '@/lib/contentlayer'
 import { displayDate, hEntryDate } from '@/utils/format-time-date'
-
-import ViewsCounter from '../components/ViewsCounter'
 
 // https://beta.nextjs.org/docs/api-reference/segment-config
 export const dynamicParams = false
@@ -108,7 +107,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 							</div>
 							<div className="flex items-center">
 								<span className="sr-only">Views</span>
-								<ViewsCounter slug={slug} />
+								<ViewsCounter slug={slug} trackView={true} />
 							</div>
 						</div>
 					</div>
