@@ -22,10 +22,10 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Dashboard', href: '/dashboard' },
-		{ title: 'Blog', href: '/blog' },
-		{ title: 'Colophon', href: '/colophon' },
-		{ title: 'Resume', href: '/resume' },
+		{ title: 'Dashboard', href: '/dashboard', activePath: /^\/dashboard*/ },
+		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
+		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
+		{ title: 'Resume', href: '/resume', activePath: /^\/resume*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },
