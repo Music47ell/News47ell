@@ -65,7 +65,7 @@ turso db tokens create [db-name] -e none
 
 8. Now inside `.env` file, add the following:
 
-```bash
+```bash title=".env.local"
 DATABASE_URL=libsql://[db-url]
 DATABASE_AUTH_TOKEN=[auth-token]
 ```
@@ -82,7 +82,7 @@ npm i drizzle-orm @libsql/client
 
 2. Create a file `lib/turso.ts` to initialize your Turso client
 
-```tsx
+```tsx title="lib/turso.ts"
 import { createClient } from '@libsql/client'
 import { drizzle } from 'drizzle-orm/libsql'
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
@@ -102,7 +102,7 @@ export const viewsTable = sqliteTable('views', {
 
 3. Now we create `app/api/views/[slug]/route.ts` and use it to increment and fetch page views
 
-```tsx
+```tsx title="app/api/views/[slug]/route.ts"
 import { eq } from 'drizzle-orm'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
@@ -157,7 +157,7 @@ export const POST = async (request: NextRequest, { params }: Options) => {
 
 4. Finally, we create `ViewCounter.tsx` component to display the page views which we can use in our blog posts
 
-```tsx
+```tsx title="components/ViewCounter.tsx"
 'use client'
 
 import { useEffect } from 'react'
