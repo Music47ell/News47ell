@@ -60,19 +60,22 @@ export const getNowWatching = async () => {
 
 Now that we have our API call, we can create an API route to fetch the data from Trakt.
 
-```typescript title="pages/api/now-watching.ts"
-import type { NextApiRequest, NextApiResponse } from 'next'
+```typescript title="app/api/now-watching/route.ts"
+import { NextResponse } from 'next/server'
 
-import { getNowWatching } from '../lib/trakt'
+import { getNowWatching } from '@/lib/trakt'
+export const runtime = 'edge'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const response = await getNowWatching()
+export const GET = async () => {
+	const response = await getNowWatching()
 
-  const trakt = await response.json()
+	if (response.status === 204 || response.status > 400) {
+		return NextResponse.json({ isWatching: false })
+	}
 
-  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
+	const trakt = await response.json()
 
-  return res.status(200).json({ trakt })
+	return NextResponse.json(trakt)
 }
 ```
 
