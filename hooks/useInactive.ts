@@ -10,8 +10,8 @@ export const useInactiveTab = () => {
 		]
 
 		const { title } = document
-		let intervalTimer = null
-		let timeoutTimer = null
+		let intervalTimer: string | number | NodeJS.Timer | undefined
+		let timeoutTimer: string | number | NodeJS.Timeout | undefined
 
 		window.addEventListener('blur', () => {
 			intervalTimer = setInterval(() => {

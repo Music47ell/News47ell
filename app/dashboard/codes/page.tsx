@@ -1,16 +1,21 @@
-'use client'
+import type { Metadata } from 'next'
 
-import { ArrowLeftIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { TopLanguages } from '@/components/metrics/CodeStats'
-import { CodeStatsCard } from '@/components/metrics/CodeStats'
 import { SectionContainer } from '@/components/UI'
+
+import CodeStatsCard from './components/CodeStatsCard'
+import TopLanguages from './components/TopLanguages'
+
+export const metadata: Metadata = {
+	title: 'Codes - Dashboard',
+	description: 'Display my recent coding activity.',
+}
 
 export default function Codes() {
 	return (
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
-				<div className="md:flex md:items-center md:justify-between">
+				<div className="md:flex md:items-baseline md:justify-between">
 					<h1 className="text-3xl font-bold tracking-tight md:text-5xl">Codes</h1>
 					<p className="text-xs">Powered by CodeStats API</p>
 				</div>
@@ -19,7 +24,7 @@ export default function Codes() {
 						href="/dashboard"
 						className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
 					>
-						<ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
+						<span className="m-auto block w-6 text-xl">&#8592;</span>
 					</Link>
 				</div>
 				<CodeStatsCard />

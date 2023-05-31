@@ -1,7 +1,13 @@
+import type { MDXOptions } from 'contentlayer/core'
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
+import rehypePresetMinify from 'rehype-preset-minify'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
+import remarkUnwrapImages from 'remark-unwrap-images'
 
-import mdxOptions from './lib/mdx'
-import { extractReadingTime, extractTocHeadings } from './lib/remark'
+import { rehypePrettyCodeClasses, rehypePrettyCodeOptions } from './lib/rehype'
+import { extractReadingTime, extractTocHeadings, remarkImgToJsx } from './lib/remark'
 
 const computedFields: ComputedFields = {
 	slug: {
@@ -60,5 +66,14 @@ const Page = defineDocumentType(() => ({
 export default makeSource({
 	contentDirPath: 'content',
 	documentTypes: [Blog, Page],
-	mdx: mdxOptions,
+	mdx: {
+		cwd: process.cwd(),
+		remarkPlugins: [remarkGfm, remarkUnwrapImages, remarkImgToJsx],
+		rehypePlugins: [
+			rehypeSlug,
+			[rehypePrettyCode, rehypePrettyCodeOptions],
+			[rehypePrettyCodeClasses],
+			rehypePresetMinify,
+		],
+	} as MDXOptions,
 })

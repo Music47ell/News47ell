@@ -1,5 +1,1 @@
-export { default as MoviesWatched } from './MoviesWatched'
 export { default as NowWatching } from './NowWatching'
-export { default as Release } from './Release'
-export { default as ShowsWatched } from './ShowsWatched'
-export { default as TraktCard } from './TraktCard'

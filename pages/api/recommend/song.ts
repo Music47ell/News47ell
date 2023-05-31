@@ -1,4 +1,5 @@
 import { getAccessToken } from '@/lib/spotify'
+import { db, songRecommendationsTable } from '@/lib/turso'
 
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
 
@@ -10,19 +11,16 @@ export default async function handler(
 	const { access_token } = await getAccessToken()
 
 	if (req.query.uri.substring(0, 14) === 'spotify:track:' && !req.query.uri.includes(',')) {
-		await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/song-recommendation`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-			},
-			body: JSON.stringify({
-				note: body.note,
+		await db
+			.insert(songRecommendationsTable)
+			.values({
 				email: body.email,
-				'song-title': body.songTitle,
-				'spotify-uri': req.query.uri,
-			}),
-		}).catch((error) => console.log(error))
+				note: body.note,
+				songTitle: body.songTitle,
+				spotifyUri: req.query.uri,
+			})
+			.returning()
+			.get()
 
 		const getTracks = await fetch(RECOMMEND_PLAYLIST_ENDPOINT, {
 			headers: {

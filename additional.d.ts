@@ -5,11 +5,3 @@ declare module 'react' {
 		rel?: string
 	}
 }
-
-declare global {
-	namespace NodeJS {
-		interface Global {
-			prisma: any
-		}
-	}
-}

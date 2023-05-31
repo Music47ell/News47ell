@@ -1,25 +1,31 @@
-'use client'
-
+import { default as Link } from '@/components/Link'
+import { SectionContainer } from '@/components/UI'
+import { PageTitle } from '@/components/UI'
+import ViewsCounter from '@/components/ViewsCounter'
 import type { Blog } from '@/contentlayer/generated'
-import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
 import { getBlogHomepage } from '@/lib/contentlayer'
 
 export default function Blog() {
-	const sortedPosts = getBlogHomepage() as Blog[]
-
-	const initialDisplayPosts = sortedPosts.splice(0, siteMetadata.postsPerPages)
-	const pagination = {
-		currentPage: 1,
-		totalPages: Math.ceil(sortedPosts.length / siteMetadata.postsPerPages) + 1,
-	}
+	const posts = getBlogHomepage() as Blog[]
 
 	return (
-		<ListLayout
-			posts={sortedPosts}
-			pagination={pagination}
-			initialDisplayPosts={initialDisplayPosts}
-			title="Blog"
-		/>
+		<SectionContainer>
+			<PageTitle>Blog</PageTitle>
+			<main className="h-feed flex flex-col py-8">
+				{posts.map((post, index: number) => (
+					<Link
+						key={post.slug}
+						className="mb-4 flex flex-col space-y-1"
+						href={`/blog/${post.slug}`}
+					>
+						<div className="flex w-full flex-col">
+							<p>{post.title}</p>
+							<span className="flex flex-row"></span>
+							<ViewsCounter slug={post.slug} trackView={false} />
+						</div>
+					</Link>
+				))}
+			</main>
+		</SectionContainer>
 	)
 }

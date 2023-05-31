@@ -31,7 +31,12 @@
 			"@/contentlayer/generated": ["./.contentlayer/generated"]
 		},
 		"incremental": true,
-		"plugins": [{ "name": "next" }]
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"strictNullChecks": true
 	},
 	"include": [
 		"next-env.d.ts",

@@ -1,4 +1,5 @@
-import { NowPlayingSong } from 'lib/types'
+'use client'
+
 import useSWR from 'swr'
 
 import { SpotifyIcon } from '@/components/icons'
@@ -6,10 +7,11 @@ import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { useSafePalette } from '@/hooks/usePalette'
 import fetcher from '@/lib/fetcher'
+import { NowPlayingSong } from '@/lib/types'
 import hexToRGB from '@/utils/hex-to-rgb'
 
 export default function NowPlaying(): JSX.Element {
-	const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher)
+	const { data } = useSWR<NowPlayingSong>('/api/spotify/now-playing', fetcher)
 	const { data: palette } = useSafePalette(data?.albumImageUrl || null)
 
 	const light = palette?.lightVibrant
@@ -48,7 +50,7 @@ export default function NowPlaying(): JSX.Element {
 			</div>
 		</div>
 	) : (
-		<div className="flex w-full flex-row-reverse items-center p-2">
+		<div className="flex w-full flex-row-reverse items-center">
 			<SpotifyIcon className="block h-6 w-6 fill-nfh-accent-primary" />
 			<div className="inline-flex w-full max-w-full flex-col truncate sm:flex-row">
 				<p className="font-medium">Not Playing</p>

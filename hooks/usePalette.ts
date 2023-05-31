@@ -25,6 +25,8 @@ function reducer(state: PaletteState, action): PaletteState {
 			return { ...state, data: action.payload, loading: false }
 		case 'rejectPalette':
 			return { ...state, error: action.payload, loading: false }
+		default:
+			return state
 	}
 }
 

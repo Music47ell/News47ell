@@ -1,14 +1,16 @@
-import { NowWatchingRelease } from 'lib/types'
+'use client'
+
 import useSWR from 'swr'
 
 import { TraktIcon } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { useSafePalette } from '@/hooks/usePalette'
 import fetcher from '@/lib/fetcher'
+import { NowWatchingRelease } from '@/lib/types'
 import hexToRGB from '@/utils/hex-to-rgb'
 
 export default function NowWatching(): JSX.Element {
-	const { data } = useSWR<NowWatchingRelease>('/api/now-watching', fetcher)
+	const { data } = useSWR<NowWatchingRelease>('/api/trakt/now-watching', fetcher)
 
 	const { data: palette } = useSafePalette(
 		data?.isWatching ? `https://image.tmdb.org/t/p/original/${data?.poster}` : null
@@ -46,7 +48,7 @@ export default function NowWatching(): JSX.Element {
 			</div>
 		</div>
 	) : (
-		<div className="flex w-full flex-row-reverse items-center p-2">
+		<div className="flex w-full flex-row-reverse items-center">
 			<TraktIcon className="block h-6 w-6 fill-nfh-accent-primary" />
 			<div className="inline-flex w-full max-w-full flex-col truncate sm:flex-row">
 				<p className="font-medium">Not Watching</p>

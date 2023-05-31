@@ -19,11 +19,6 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			backgroundImage: {
-				'arrow-up-pattern': "url('/images/patterns/arrow-up.svg')",
-				'skulls-pattern': "url('/images/patterns/skulls.svg')",
-				'death-star-pattern': "url('/images/patterns/death-star.svg')",
-			},
 			colors: {
 				türkiye: '#E30A17',
 				'nfh-background-primary': 'rgb(var(--background-primary) / <alpha-value>)',
@@ -164,9 +159,5 @@ module.exports = {
 		},
 	},
 	variants: {},
-	plugins: [
-		require('@tailwindcss/typography'),
-		require('@tailwindcss/forms'),
-		require('./helpers/brandColors'),
-	],
+	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 }

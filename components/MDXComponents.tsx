@@ -1,23 +1,16 @@
-import { ComponentMap } from 'mdx-bundler/client'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { getMDXComponent } from 'next-contentlayer/hooks'
 import React from 'react'
 
 import CustomImage from '@/components/Image'
 import CustomLink from '@/components/Link'
 import { coreContent } from '@/lib/contentlayer'
-import { MDXLayout } from '@/lib/interfaces'
 
-import { Code, Heading, LinkCard, P, Pre, TOCInline } from './mdx'
+import { Code, Heading, P, Pre, TOCInline } from './mdx'
 
-export interface MDXLayoutRenderer extends MDXLayout {
-	MDXComponents?: ComponentMap
-}
-
-const MDXComponents: ComponentMap = {
+const MDXComponents = {
 	CustomImage,
 	pre: Pre,
 	TOCInline,
-	LinkCard,
 	a: CustomLink,
 	p: P,
 	code: Code,
@@ -29,8 +22,8 @@ const MDXComponents: ComponentMap = {
 	h6: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h6" {...props} />,
 }
 
-export const MDXLayoutRenderer = ({ content, ...rest }: MDXLayoutRenderer) => {
-	const MDXLayout = useMDXComponent(content.body.code)
+export const MDXLayoutRenderer = ({ content, ...rest }) => {
+	const MDXLayout = getMDXComponent(content.body.code)
 	const mainContent = coreContent(content)
 
 	return <MDXLayout content={mainContent} components={MDXComponents} {...rest} />

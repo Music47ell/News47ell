@@ -13,39 +13,29 @@
 
 [![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Turso](https://img.shields.io/badge/turso-%234FF8D2.svg?style=for-the-badge&logo=turso&logoColor=white)](https://tailwindcss.com)
+[![Drizzle ORM](https://img.shields.io/badge/Drizzle-%23C5F74F.svg?style=for-the-badge&logo=drizzle&logoColor=white)](https://tailwindcss.com)
 [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
-[![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)](https://prisma.io)
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
 ## Overview
 
+- `app/*` - All other static pages.
+- `app/blog/*` - Static pre-rendered blog pages using markdown.
+- `app/dashboard` - [Personal dashboard](https://www.news47ell.com/dashboard) tracking metrics.
 - `data/*` - TS/JSON data that is used for resume and site settings/info.
-- `layouts/*` - The different layouts used for home page, blog posts, pages, etc.
 - `lib/*` - Short for "library", a collection of helpful utilities or code for external services.
 - `pages/api/*` - [API Routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://www.news47ell.com/dashboard), post views, tv shows, movies and music.
-- `pages/blog/*` - Static pre-rendered blog pages using markdown.
-- `pages/dashboard` - [Personal dashboard](https://www.news47ell.com/dashboard) tracking metrics.
-- `pages/*` - All other static pages.
-- `prisma/*` - My Prisma schema, which uses a PlanetScale MySQL database.
 - `public/*` - Static assets including fonts and images.
 - `styles/*` - A small amount of global styles. I'm mostly using vanilla Tailwind CSS.
 
 ## Features
 
 - Easy styling customization with [Tailwind 3.0](https://tailwindcss.com/blog/tailwindcss-v3) and primary color attribute
-- Lightweight, uses Preact in production build
+- Lightweight
 - Mobile-friendly view
-- Multiple themes
-- Sound effects
-- Uses [Supabase](https://supabase.com/) for postgres database and authentication
-- Uses [PlanetScale](https://planetscale.com/) and [Prisma](https://www.prisma.io/) for analytics
+- Uses [Turso](https://turso.tech//) for post views and song recommendations
 - Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
-- Support for tags - each unique tag will be its own page
-- Support for multiple authors
-- Blog templates
-- Support for nested routing of blog posts
-- Projects page
 - Pre-configured security headers
 - SEO friendly with RSS feed, sitemaps and more!
 

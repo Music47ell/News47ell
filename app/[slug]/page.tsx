@@ -1,12 +1,14 @@
-'use client'
-
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { PageTitle } from '@/components/UI'
+import { SectionContainer } from '@/components/UI'
 import type { Page } from '@/contentlayer/generated'
 import { allPages } from '@/contentlayer/generated'
-import PageLayout from '@/layouts/PageLayout'
+import siteMetadata from '@/data/siteMetadata'
 import { getContent } from '@/lib/contentlayer'
+import { displayDate } from '@/utils/format-time-date'
 
 // https://beta.nextjs.org/docs/api-reference/segment-config
 export const dynamicParams = false
@@ -18,7 +20,39 @@ export async function generateStaticParams() {
 	}))
 }
 
-export default function Page({ params }) {
+export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+	const post = allPages.find((post) => post.slug === params.slug)
+	if (!post) {
+		return
+	}
+
+	const { title, published_at: publishedTime, slug } = post
+	const ogImage = `${siteMetadata.siteUrl}/api/og/image?title=${encodeURIComponent(title)}`
+
+	return {
+		title,
+		description: siteMetadata.description,
+		openGraph: {
+			title,
+			description: siteMetadata.description,
+			publishedTime,
+			url: `${siteMetadata.siteUrl}/blog/${slug}`,
+			images: [
+				{
+					url: ogImage,
+				},
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description: siteMetadata.description,
+			images: [ogImage],
+		},
+	}
+}
+
+export default function Page({ params }: { params: { slug: string } }) {
 	const slug = params.slug as string
 	const pages = getContent(allPages) as Page[]
 	const page = pages.find((page) => page.slug === slug)
@@ -27,9 +61,29 @@ export default function Page({ params }) {
 		notFound()
 	}
 
+	const { title, updated_at } = page
+
 	return (
-		<PageLayout content={page}>
-			<MDXLayoutRenderer content={page} />
-		</PageLayout>
+		<SectionContainer>
+			<main className="col-span-10 flex flex-col lg:col-span-7">
+				<article className="h-entry">
+					<time
+						dateTime={`Updated at: ${displayDate(updated_at)}`}
+						className="dt-published"
+						aria-label={`Updated at: ${displayDate(updated_at)}`}
+					>
+						{displayDate(updated_at)}
+					</time>
+					<PageTitle>{title}</PageTitle>
+					<div className="relative bg-nfh-background-primary">
+						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary sm:mx-auto">
+							<div className="e-content entry-content prose prose-theme max-w-none py-8 text-base">
+								<MDXLayoutRenderer content={page} />
+							</div>
+						</div>
+					</div>
+				</article>
+			</main>
+		</SectionContainer>
 	)
 }

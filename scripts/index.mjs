@@ -1,5 +1,3 @@
-import { slug } from 'github-slugger'
-
 const siteMetadata = {
 	title: 'News47ell',
 	author: 'Ahmet ALMAZ',
@@ -8,26 +6,6 @@ const siteMetadata = {
 	siteUrl: 'https://www.news47ell.com',
 	description: 'Tech news, reviews and interesting links',
 	language: 'en-us',
-}
-
-async function allTags(allBlogs) {
-	const tagCount = {}
-
-	// Iterate through each post, putting all found tags into `tags`
-	allBlogs.forEach((file) => {
-		if (file.tags && file.draft !== true) {
-			file.tags.forEach((tag) => {
-				const formattedTag = slug(tag)
-				if (formattedTag in tagCount) {
-					tagCount[formattedTag] += 1
-				} else {
-					tagCount[formattedTag] = 1
-				}
-			})
-		}
-	})
-
-	return tagCount
 }
 
 const { replace } = ''
@@ -53,4 +31,4 @@ const pe = (m) => esc[m]
  */
 const escape = (es) => replace.call(es, ca, pe)
 
-export { allTags, escape, siteMetadata }
+export { escape, siteMetadata }

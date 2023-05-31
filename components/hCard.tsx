@@ -6,12 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 export default function HCard(): JSX.Element {
 	return (
 		<div className="p-author h-card user-profile relative my-4 flex items-center rounded-md border border-nfh-accent-primary p-2 text-sm">
-			<Link
-				href="/"
-				className="[&>img]:rounded-md"
-				aria-label={siteMetadata.headerTitle}
-				rel="author"
-			>
+			<Link href="/" className="[&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
 				<Image
 					className="photo u-photo"
 					src={siteMetadata.author.avatar}
@@ -28,9 +23,9 @@ export default function HCard(): JSX.Element {
 				<Link className="u-url u-uid font-medium" href={siteMetadata.siteUrl}>
 					<p className="p-nickname text-sm font-medium">{siteMetadata.author.username}</p>
 				</Link>
-				<p className="p-role role text-sm font-medium">{siteMetadata.position}</p>
-				<p className="p-country-name text-sm font-medium">{siteMetadata.location.country}</p>
-				<div className="absolute top-1.5 right-1.5">
+				<p className="p-role role text-sm font-medium">{siteMetadata.author.occupation}</p>
+				<p className="p-country-name text-sm font-medium">{siteMetadata.author.location.country}</p>
+				<div className="absolute right-1.5 top-1.5">
 					<Turkiye className="p-country-flag inline" />
 				</div>
 				<p className="p-note note sr-only">

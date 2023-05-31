@@ -1,5 +1,0 @@
-export { default as Pagination } from './Pagination'
-export { default as PostLinks } from './PostLinks'
-export { default as ScrollTop } from './ScrollTop'
-export { default as Share } from './Share'
-export { default as Sponsor } from './Sponsor'

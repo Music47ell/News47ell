@@ -1,9 +1,8 @@
 import { mkdirSync, writeFileSync } from 'fs'
-import { slug } from 'github-slugger'
 import path from 'path'
 
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
-import { allTags, escape, siteMetadata } from './index.mjs'
+import { escape, siteMetadata } from './index.mjs'
 
 export default async function generateFeeds() {
 	const generateRssItem = (siteMetadata, post) => `
@@ -14,21 +13,16 @@ export default async function generateFeeds() {
 		${post.description && `<description>${escape(post.description)}</description>`}
 		<pubDate>${new Date(post.published_at).toUTCString()}</pubDate>
 		<author>${siteMetadata.email} (${siteMetadata.author})</author>
-		${post.tags && post.tags.map((t) => `<category>${t}</category>`).join('')}
 	</item>
 `
 
 	const generateRss = (siteMetadata, posts, page = 'feed.xml') => `
 	<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 		<channel>
-			<title>${
-				page.includes('tag')
-					? `Tag: ${page.split('/')[1]} - ${siteMetadata.title}`
-					: siteMetadata.title
-			}</title>
+			<title>${siteMetadata.title}</title>
 			<link>${siteMetadata.siteUrl}/blog</link>
 			<description>${escape(siteMetadata.description)}</description>
-			<language>${siteMetadata.language}</language>
+			<language>${siteMetadata.locale}</language>
 			<managingEditor>${siteMetadata.email} (${siteMetadata.author})</managingEditor>
 			<webMaster>${siteMetadata.email} (${siteMetadata.author})</webMaster>
 			<lastBuildDate>${new Date(posts[0].published_at).toUTCString()}</lastBuildDate>
@@ -50,18 +44,13 @@ export default async function generateFeeds() {
 			"url": "${siteMetadata.siteUrl}",
 			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
 		},
-		${post.tags && `"tags": ${JSON.stringify(post.tags)}`}
 	}
 `
 
 	const generateJson = (siteMetadata, posts, page = 'feed.xml') => `
 	{
 		"version": "https://jsonfeed.org/version/1.1",
-		"title": "${
-			page.includes('tag')
-				? `Tag: ${page.split('/')[1]} - ${siteMetadata.title}`
-				: siteMetadata.title
-		}",
+		"title": "${siteMetadata.title}",
 		"home_page_url": "${siteMetadata.siteUrl}/blog",
 		"feed_url": "${siteMetadata.siteUrl}/${page}",
 		"icon": "${siteMetadata.siteUrl}/android-chrome-512x512.png",
@@ -91,25 +80,5 @@ export default async function generateFeeds() {
 		const json = generateJson(siteMetadata, publishPosts)
 		writeFileSync(path.join(rssPath, 'feed.json'), json)
 		console.log('JSON feed for posts generated...')
-	}
-
-	// RSS for tags
-	if (publishPosts.length > 0) {
-		const tags = await allTags(publishPosts)
-		for (const tag of Object.keys(tags)) {
-			const filteredPosts = allBlogs
-				.filter((post) => post.tags.map((t) => slug(t)).includes(tag))
-				.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
-			const rss = generateRss(siteMetadata, filteredPosts, `tag/${tag}/feed.xml`)
-			const rssPath = path.join('public', 'blog', 'tag', tag)
-			mkdirSync(rssPath, { recursive: true })
-			writeFileSync(path.join(rssPath, 'feed.xml'), rss)
-			const json = generateJson(siteMetadata, filteredPosts, `tag/${tag}/feed.xml`)
-			const jsonPath = path.join('public', 'blog', 'tag', tag)
-			mkdirSync(jsonPath, { recursive: true })
-			writeFileSync(path.join(jsonPath, 'feed.json'), json)
-		}
-		console.log('RSS feed for tags generated...')
-		console.log('JSON feed for tags generated...')
 	}
 }

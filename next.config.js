@@ -12,9 +12,6 @@ const { withContentlayer } = require('next-contentlayer')
 module.exports = () => {
 	const plugins = [withContentlayer, withBundleAnalyzer, withSuperjson()]
 	return plugins.reduce((acc, next) => next(acc), {
-		experimental: {
-			appDir: true,
-		},
 		reactStrictMode: true,
 		pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 		eslint: {
@@ -200,6 +197,11 @@ module.exports = () => {
 			redirects.push({
 				source: '/recommends/airtable',
 				destination: 'https://airtable.com/invite/r/BRHMIdTo',
+				statusCode: 301,
+			})
+			redirects.push({
+				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
+				destination: 'trakt-api-nextjs',
 				statusCode: 301,
 			})
 

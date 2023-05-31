@@ -1,16 +1,22 @@
-'use client'
+import type { Metadata } from 'next'
 
-import { ArrowLeftIcon, ListPlusIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { LastfmCard } from '@/components/metrics/Lastfm'
-import { RecentTracks, TopTracks } from '@/components/metrics/Spotify'
 import { SectionContainer } from '@/components/UI'
+
+import LastfmCard from './components/LastfmCard'
+import RecentTracks from './components/RecentTracks'
+import TopTracks from './components/TopTracks'
+
+export const metadata: Metadata = {
+	title: 'Music - Dashboard',
+	description: 'Display my recent music activity.',
+}
 
 export default function Music() {
 	return (
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
-				<div className="md:flex md:items-center md:justify-between">
+				<div className="md:flex md:items-baseline md:justify-between">
 					<h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">Music</h1>
 					<p className="text-xs">Powered by Last.fm & Spotify API</p>
 				</div>
@@ -19,13 +25,12 @@ export default function Music() {
 						href="/dashboard"
 						className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
 					>
-						<ArrowLeftIcon className="m-auto block h-6 w-6 fill-nfh-accent-primary" />
+						<span className="m-auto block w-6 text-xl">&#8592;</span>
 					</Link>
 					<Link
 						href="/dashboard/music/recommend"
-						className="inline-flex w-full items-center justify-center rounded bg-spotify py-2 px-4 font-medium leading-5 !text-white hover:bg-spotify/50"
+						className="inline-flex w-full items-center justify-center rounded bg-green-500 px-4 py-2 font-medium leading-5 !text-white hover:bg-green-500/50"
 					>
-						<ListPlusIcon className="mr-1 inline-block h-5 w-5" />
 						Recommend me some music
 					</Link>
 				</div>
