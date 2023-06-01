@@ -1,9 +1,9 @@
 ---
 title: Real-time page views with Next.js, Turso and Drizzle ORM
-description: "Learn how to build a real-time page views counter with Next.js, Turso and Drizzle ORM"
+description: 'Learn how to build a real-time page views counter with Next.js, Turso and Drizzle ORM'
 draft: false
 published_at: 2023-05-23T23:01:20+03:00
-updated_at: 2023-05-23T23:01:20+03:00
+updated_at: 2023-06-02T00:07:00+03:00
 tags: ['Next.js', 'Turso', 'Drizzle ORM']
 ---
 
@@ -24,8 +24,6 @@ Introducing [Turso](https://turso.tech/), the SQLite edge database that will rev
 ```bash
 brew install chiselstrike/tap/turso
 ```
-
-[Click here](https://docs.turso.tech/tutorials/get-started-turso-cli/step-01-installation) for more options
 
 2. Sign up to Turso:
 
@@ -54,7 +52,11 @@ turso db shell [db-name]
 6. Create a new table for `views`:
 
 ```sql
-CREATE TABLE views (slug text, title text, count bigint);
+CREATE TABLE IF NOT EXISTS views (
+    slug TEXT PRIMARY KEY,
+    title TEXT,
+    count INTEGER
+);
 ```
 
 7. Create an `auth` token
@@ -132,24 +134,20 @@ export const POST = async (request: NextRequest, { params }: Options) => {
 
 	const count = !data.length ? 0 : Number(data[0].count)
 
-	if (data) {
-		await db
-			.update(viewsTable)
-			.set({ count: count + 1 })
-			.where(eq(viewsTable.slug, slug))
-			.returning()
-			.get()
-	} else {
-
-		await db
-			.insert(viewsTable)
-			.values({
-				slug,
-				count: 1,
-			})
-			.returning()
-			.get()
-	}
+	await db
+    .insert(viewsTable)
+    .values({
+      slug,
+      count: 1,
+    })
+    .onConflictDoUpdate({
+      target: viewsTable.slug,
+      set: {
+        count: count + 1,
+      },
+    })
+    .returning()
+    .get()
 
 	return NextResponse.json({ count: count + 1 })
 }
@@ -166,21 +164,25 @@ import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
 import { PostView } from '@/lib/types'
 
-export default function ViewsCounter({ slug }: { slug: string }) {
+export default function ViewsCounter({ slug, trackView }: { slug: string; trackView: boolean }) {
 	const { data } = useSWR<PostView>(`/api/views/${slug}`, fetcher)
-	const views = data && new Number(data?.count || 0)
+	const views = new Number(data?.count || 0)
 
 	useEffect(() => {
-		if (process.env.NODE_ENV === 'production') {
+		const registerView = () => {
 			fetch(`/api/views/${slug}`, {
 				method: 'POST',
 			})
+		}
+
+		if (trackView) {
+			registerView()
 		}
 	}, [slug])
 
 	return (
 		<p className="font-mono text-sm tracking-tighter">
-			{views ? `${views.toLocaleString()} views` : '--- views'}
+			{data ? `${views.toLocaleString()} views` : '--- views'}
 		</p>
 	)
 }
