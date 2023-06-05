@@ -1,7 +1,6 @@
+import { MediaCard } from '@/components/UI'
 import { getTopTracks } from '@/lib/spotify'
 import { Song } from '@/lib/types'
-
-import Track from './Track'
 
 const getTopTenTracks = async () => {
 	const { items } = await getTopTracks()
@@ -29,8 +28,8 @@ const TopTracks = asyncComponent(async () => {
 
 	return (
 		<div className="grid gap-2 md:grid-cols-2">
-			{topTracks.map((track) => (
-				<Track key={track.songUrl} {...track} />
+			{topTracks.map((track, index) => (
+				<MediaCard key={index} title={track.title} image={track.albumImage} url={track.songUrl} />
 			))}
 		</div>
 	)

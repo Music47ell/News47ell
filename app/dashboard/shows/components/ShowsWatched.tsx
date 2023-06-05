@@ -1,6 +1,5 @@
+import { MediaCard } from '@/components/UI'
 import { getWatchedShows } from '@/lib/trakt'
-
-import Release from './Release'
 
 const getTraktShows = async () => {
 	const data = await getWatchedShows()
@@ -21,7 +20,7 @@ const ShowsWatched = asyncComponent(async () => {
 	return (
 		<div className="grid gap-2 md:grid-cols-2">
 			{shows.map((show, index) => (
-				<Release key={index} {...show} />
+				<MediaCard key={index} title={show.title} image={show.poster} url={show.url} />
 			))}
 		</div>
 	)

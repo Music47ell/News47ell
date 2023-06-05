@@ -20,7 +20,7 @@ export default function ViewsCounter({ slug, trackView }: { slug: string; trackV
 		if (process.env.NODE_ENV === 'production' && trackView) {
 			registerView()
 		}
-	}, [slug])
+	}, [slug, trackView])
 
 	return (
 		<p className="font-mono text-sm tracking-tighter">

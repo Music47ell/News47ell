@@ -200,6 +200,11 @@ module.exports = () => {
 				statusCode: 301,
 			})
 			redirects.push({
+				source: '/recommends/filen',
+				destination: 'https://filen.io/r/7449a516ff16f72e28ed060e7c4bb4a3',
+				statusCode: 301,
+			})
+			redirects.push({
 				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
 				destination: 'trakt-api-nextjs',
 				statusCode: 301,

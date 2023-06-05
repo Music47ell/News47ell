@@ -48,6 +48,7 @@ module.exports = {
 				wiggle: 'wiggle 1s linear',
 				orbit: 'orbit 40s linear infinite',
 				'orbit-reverse': 'orbit-reverse 40s linear infinite',
+				'loading-bar': 'loading-bar 2s infinite',
 			},
 			keyframes: (theme) => ({
 				fadeIn: {
@@ -83,6 +84,10 @@ module.exports = {
 				'orbit-reverse': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(-1turn)' },
+				},
+				'loading-bar': {
+					'0%, 100%': { transform: 'translateX(-95%)' },
+					'50%': { transform: 'translateX(95%)' },
 				},
 			}),
 			typography: (theme) => ({

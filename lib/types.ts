@@ -44,8 +44,8 @@ export type Song = {
 
 export type NowWatchingRelease = {
 	poster: string
-	episodeTitle: string
 	title: string
+	url: string
 	isWatching: boolean
 }
 
@@ -69,12 +69,10 @@ export type TraktMovie = {
 	movie: {
 		ids: {
 			tmdb: number
-			imdb: string
 		}
 		title: string
 		link: string
 		poster: string
-		trailer: string
 	}
 }
 
@@ -82,12 +80,10 @@ export type TraktShow = {
 	show: {
 		ids: {
 			tmdb: number
-			imdb: string
 		}
 		title: string
 		link: string
 		poster: string
-		trailer: string
 	}
 }
 
@@ -131,22 +127,6 @@ export type Links = {
 	onClick?: () => void
 	onMouseEnter?: () => void
 	onMouseLeave?: () => void
-}
-
-export type PaletteColors = {
-	vibrant?: string
-	muted?: string
-	darkVibrant?: string
-	darkMuted?: string
-	lightVibrant?: string
-	lightMuted?: string
-	[name: string]: string | undefined
-}
-
-export type PaletteState = {
-	loading: boolean
-	error?: Error
-	data: PaletteColors
 }
 
 export type WebMention = {

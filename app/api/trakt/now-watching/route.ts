@@ -14,43 +14,38 @@ export const GET = async () => {
 	const trakt = await response.json()
 
 	const isWatching = true
-	let title: string
-	let episodeTitle: string
 	let id: number
+	let title: string
+	let url: string
 	let poster: string
 
 	switch (trakt.type) {
 		case 'movie':
 			title = trakt.movie.title
 			id = trakt.movie.ids.tmdb
-			await getTMDBMovies(id)
-				.then(async (tmdb) => {
-					const tmdbJson = await tmdb.json()
-					poster = tmdbJson.poster_path
-				})
-				.catch(() => {
-					poster = ''
-				})
-				.finally(() => {
-					return NextResponse.json({ isWatching, title, poster })
-				})
-			break
+			url = `https://www.themoviedb.org/movie/${id}`
+			try {
+				const tmdb = await getTMDBMovies(id)
+				const tmdbJson = await tmdb.json()
+				poster = `https://image.tmdb.org/t/p/original/${tmdbJson.poster_path}`
+				return NextResponse.json({ isWatching, title, url, poster })
+			} catch (error) {
+				poster = ''
+				return NextResponse.json({ isWatching, title, url, poster })
+			}
 		case 'episode':
-			title = trakt.show.title
-			episodeTitle = trakt.episode.title
+			title = trakt.episode.title
 			id = trakt.show.ids.tmdb
-			await getTMDBShows(id)
-				.then(async (tmdb) => {
-					const tmdbJson = await tmdb.json()
-					poster = tmdbJson.poster_path
-				})
-				.catch(() => {
-					poster = ''
-				})
-				.finally(() => {
-					return NextResponse.json({ isWatching, title, episodeTitle, poster })
-				})
-			break
+			url = `https://www.themoviedb.org/tv/${id}`
+			try {
+				const tmdb = await getTMDBShows(id)
+				const tmdbJson = await tmdb.json()
+				poster = `https://image.tmdb.org/t/p/original/${tmdbJson.poster_path}`
+				return NextResponse.json({ isWatching, title, url, poster })
+			} catch (error) {
+				poster = ''
+				return NextResponse.json({ isWatching, title, url, poster })
+			}
 		default:
 			return NextResponse.json({ isWatching: false })
 	}
