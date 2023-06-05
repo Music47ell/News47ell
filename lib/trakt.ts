@@ -57,10 +57,9 @@ export const getWatchedMovies = async () => {
 	const stats = (await response.json()) as TraktMovie[]
 
 	const ids = stats
-		.map((movie: { movie: { ids: { tmdb: number; imdb: string } } }) => {
+		.map((movie: { movie: { ids: { tmdb: number } } }) => {
 			return {
 				tmdb: movie.movie.ids.tmdb,
-				imdb: movie.movie.ids.imdb,
 			}
 		})
 		.filter(
@@ -70,22 +69,16 @@ export const getWatchedMovies = async () => {
 		.slice(0, 10)
 
 	const movies = await Promise.all(
-		ids.map(async (id: { tmdb: number; imdb: string }) => {
+		ids.map(async (id: { tmdb: number }) => {
 			const tmdb = await getTMDBMovies(id.tmdb)
 			const tmdbJson = await tmdb.json()
-			const poster = tmdbJson.poster_path
-			const link = id.imdb
-			const trailer =
-				tmdbJson.videos.results.find((video: { name: string }) => video.name === 'Official Trailer')
-					?.key ||
-				tmdbJson.videos.results.find((video: { type: string }) => video.type === 'Trailer')?.key ||
-				null
+			const title: string = tmdbJson.title
+			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`
+			const url = `https://www.themoviedb.org/movie/${id.tmdb}`
 			return {
-				imdb: id.imdb,
-				title: tmdbJson.title,
+				title,
 				poster,
-				link,
-				trailer,
+				url,
 			}
 		})
 	)
@@ -108,10 +101,9 @@ export const getWatchedShows = async () => {
 	const stats = (await response.json()) as TraktShow[]
 
 	const ids = stats
-		.map((show: { show: { ids: { tmdb: number; imdb: string } } }) => {
+		.map((show: { show: { ids: { tmdb: number } } }) => {
 			return {
 				tmdb: show.show.ids.tmdb,
-				imdb: show.show.ids.imdb,
 			}
 		}, [])
 		.filter(
@@ -121,28 +113,16 @@ export const getWatchedShows = async () => {
 		.slice(0, 10)
 
 	const shows = await Promise.all(
-		ids.map(async (id: { tmdb: number; imdb: string }) => {
+		ids.map(async (id: { tmdb: number }) => {
 			const tmdb = await getTMDBShows(id.tmdb)
 			const tmdbJson = await tmdb.json()
-			const poster = tmdbJson.poster_path
-			const link = id.imdb
-			const officialTrailers =
-				tmdbJson.videos.results.filter(
-					(video: { name: string; type: string; official: boolean }) =>
-						video.official === true ||
-						video.name === 'Official Trailer' ||
-						video.name === 'Trailer' ||
-						video.type === 'Opening Credits'
-				) && tmdbJson.videos.results.filter((video: { site: string }) => video.site === 'YouTube')
-
-			const trailer =
-				officialTrailers && officialTrailers.length > 0 ? officialTrailers[0].key : null
+			const title: string = tmdbJson.name
+			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`
+			const url = `https://www.themoviedb.org/tv/${id.tmdb}`
 			return {
-				imdb: id.imdb,
-				title: tmdbJson.name,
+				title,
 				poster,
-				link,
-				trailer,
+				url,
 			}
 		})
 	)
