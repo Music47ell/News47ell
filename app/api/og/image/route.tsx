@@ -12,13 +12,11 @@ export const GET = async (req: NextRequest): Promise<ImageResponse> => {
 
 	return new ImageResponse(
 		(
-			<div tw="flex flex-col justify-between w-full h-full p-12 bg-[#282a36]">
-				<header tw="flex w-full items-center">
+			<div tw="flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]">
+				<h1 tw="text-5xl text-gray-100 m-auto">{title}</h1>
+				<div tw="flex flex-row items-center">
 					<img src={`${url}/images/others/me.png`} tw="rounded-full w-20 h-20 mr-6" alt="Logo" />
 					<span tw="text-3xl text-gray-100">{`${siteMetadata.title} by ${siteMetadata.author.name}`}</span>
-				</header>
-				<div tw="flex flex-col justify-center items-center w-full">
-					<h1 tw="text-5xl text-gray-100">{title}</h1>
 				</div>
 			</div>
 		),
