@@ -53,6 +53,13 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
 			description,
 			images: [ogImage],
 		},
+		alternates: {
+			canonical: `${siteMetadata.siteUrl}/blog/${slug}`,
+			types: {
+				'application/rss+xml': `${siteMetadata.siteUrl}/blog/feed.xml`,
+				'application/json': `${siteMetadata.siteUrl}/blog/feed.json`,
+			},
+		},
 	}
 }
 

@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
-import { getTMDBMovies, getTMDBShows } from '@/lib/tmdb'
+import { getTMDBData } from '@/lib/tmdb'
 import { Trakt, TraktMovie, TraktShow } from '@/lib/types'
 
 const TRAKT_CLIENT_ID = process.env.TRAKT_CLIENT_ID
@@ -33,13 +33,31 @@ export const getNowWatching = async () => {
 	if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
 		throw new Error(`No Trakt API key found!`)
 	}
-	return fetch(WATCHING_ENDPOINT, {
+	const response = await fetch(WATCHING_ENDPOINT, {
 		headers: {
 			'content-type': 'application/json',
 			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
 	})
+	if (response.status === 204) {
+		return {
+			status: response.status,
+		}
+	}
+
+	try {
+		const watching = await response.json()
+
+		return {
+			status: response.status,
+			data: watching,
+		}
+	} catch (error) {
+		return {
+			status: response.status,
+		}
+	}
 }
 
 export const getWatchedMovies = async () => {
@@ -70,7 +88,7 @@ export const getWatchedMovies = async () => {
 
 	const movies = await Promise.all(
 		ids.map(async (id: { tmdb: number }) => {
-			const tmdb = await getTMDBMovies(id.tmdb)
+			const tmdb = await getTMDBData(id.tmdb, 'movies')
 			const tmdbJson = await tmdb.json()
 			const title: string = tmdbJson.title
 			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`
@@ -114,7 +132,7 @@ export const getWatchedShows = async () => {
 
 	const shows = await Promise.all(
 		ids.map(async (id: { tmdb: number }) => {
-			const tmdb = await getTMDBShows(id.tmdb)
+			const tmdb = await getTMDBData(id.tmdb, 'shows')
 			const tmdbJson = await tmdb.json()
 			const title: string = tmdbJson.name
 			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`

@@ -10,16 +10,11 @@ export default function Blog() {
 
 	return (
 		<SectionContainer>
-			<PageTitle>Blog</PageTitle>
 			<main className="h-feed flex flex-col py-8">
 				{posts.map((post, index: number) => (
-					<Link
-						key={post.slug}
-						className="mb-4 flex flex-col space-y-1"
-						href={`/blog/${post.slug}`}
-					>
+					<Link key={index} className="mb-4 flex flex-col space-y-1" href={`/blog/${post.slug}`}>
 						<div className="flex w-full flex-col">
-							<p>{post.title}</p>
+							<h2 className="text-2xl font-bold">{post.title}</h2>
 							<span className="flex flex-row"></span>
 							<ViewsCounter slug={post.slug} trackView={false} />
 						</div>
