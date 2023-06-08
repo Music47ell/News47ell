@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server'
 
 import { getTMDBData } from '@/lib/tmdb'
 import { getNowWatching } from '@/lib/trakt'
+
 export const runtime = 'edge'
+export const fetchCache = 'force-no-store'
 
 export const GET = async () => {
 	const response = await getNowWatching()

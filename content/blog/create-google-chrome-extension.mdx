@@ -2,7 +2,7 @@
 title: Create a Google Chrome Extension
 description: Learn how to create a Google Chrome extension.
 published_at: 2017-08-14T18:06:21+00:00
-published_at: 2023-06-07T23:39:34+03:00
+updated_at: 2023-06-07T23:39:34+03:00
 tags: ['How To', 'Google Chrome', 'Google Chrome Extension']
 ---
 
@@ -30,22 +30,23 @@ As long as you follow the rules.
 
 Create a set of files and folders that look something like this:
 
-<pre><strong>FirstGoogleChromeextension</strong>
+```text
+FirstGoogleChromeextension
   manifest.json
   popup.html
-    <strong>Assets</strong>
-      <strong>img</strong>
+    Assets
+      img
         icon.png
         icon16.png
         icon48.png
         icon128.png
-      <strong>gif</strong>
+      gif
         cool.gif
-      <strong>audio</strong>
+      audio
         cool.ogg
-      <strong>JS</strong>
+      JS
         popup.js
-</pre>
+```
 
 ### Step 2:
 
@@ -89,7 +90,6 @@ Now, let's explain those few lines from above that are not obvious:
   * `icons`: A set of icons that are used throughout the extension.
   * 16: icon 16*16 is used as the favicon for an extension's pages.
   * 48: icon 48*48 is used in the extensions management page. [^fn1]
-    </sup>
   * 128: icon 128*128 is used during installation and by the Chrome Web Store.
 
 ### Step 3:

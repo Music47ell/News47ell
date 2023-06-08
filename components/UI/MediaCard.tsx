@@ -18,7 +18,7 @@ export default function MediaCard({ title, image, url }: MediaCardProps) {
 						</div>
 					</div>
 					<Image
-						className="block h-auto max-h-full w-auto max-w-full"
+						className="block w-auto"
 						draggable={false}
 						width={100}
 						height={100}
