@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import { PageTitle } from '@/components/UI'
 import { SectionContainer } from '@/components/UI'
 
 export default function SongRecommendationForm() {
@@ -151,9 +152,7 @@ export default function SongRecommendationForm() {
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
 				<div className="md:flex md:items-baseline md:justify-between">
-					<h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">
-						Recommend A Song
-					</h1>
+					<PageTitle>Recommend A Song</PageTitle>
 					<p className="text-xs">Powered by Spotify API & Turso</p>
 				</div>
 				<div className="space-y-2 md:space-y-5">

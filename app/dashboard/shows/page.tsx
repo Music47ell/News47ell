@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
+import { PageTitle } from '@/components/UI'
 
 import MoviesWatched from './components/MoviesWatched'
 import ShowsWatched from './components/ShowsWatched'
@@ -17,7 +18,7 @@ export default function Shows() {
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
 				<div className="md:flex md:items-baseline md:justify-between">
-					<h1 className="text-3xl font-bold tracking-tight md:text-5xl">Movies & TV Shows</h1>
+					<PageTitle>Movies & TV Shows</PageTitle>
 					<p className="text-xs">Powered by Trakt & TMDB API</p>
 				</div>
 				<div className="space-y-2 md:space-y-5">

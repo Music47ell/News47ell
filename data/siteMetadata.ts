@@ -7,13 +7,13 @@ const siteMetadata = {
 	locale: 'en-US',
 	author: {
 		name: 'Ahmet ALMAZ',
+		username: 'Music47ell',
+		occupation: 'Founder and Editor-in-Chief | Full Stack Developer',
+		avatar: '/images/others/me.png',
 		location: {
 			country: 'Türkiye',
 			emojiFlag: '🇹🇷',
 		},
-		username: 'Music47ell',
-		occupation: 'Founder and Editor-in-Chief | Full Stack Developer',
-		avatar: '/images/others/me.png',
 		social: [
 			{ title: 'Twitter', href: 'https://twitter.com/music47ell' },
 			{ title: 'GitHub', href: 'https://github.com/music47ell' },

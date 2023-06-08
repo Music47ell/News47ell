@@ -37,9 +37,6 @@ export const getAccessToken = async () => {
 			'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		body: searchParams.toString(),
-		next: {
-			revalidate: 3600,
-		},
 	})
 
 	return response.json()
@@ -70,9 +67,6 @@ export const getNowPlaying = async () => {
 	const response = await fetch(NOW_PLAYING_ENDPOINT, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
-		},
-		next: {
-			revalidate: 60,
 		},
 	})
 	if (response.status === 204) {
@@ -120,9 +114,6 @@ export const getRecentTracks = async () => {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
-		next: {
-			revalidate: 86400,
-		},
 	})
 	const recentTracks = (await response.json()) as RecentTracks
 
@@ -152,9 +143,6 @@ export const getTopTracks = async () => {
 	const response = await fetch(TOP_TRACKS_ENDPOINT, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
-		},
-		next: {
-			revalidate: 86400,
 		},
 	})
 	const topTracks = (await response.json()) as TopTracks

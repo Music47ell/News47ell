@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
+import { PageTitle } from '@/components/UI'
 
 import LastfmCard from './components/LastfmCard'
 import RecentTracks from './components/RecentTracks'
@@ -17,7 +18,7 @@ export default function Music() {
 		<SectionContainer>
 			<div className="space-y-2 pt-6 md:space-y-5">
 				<div className="md:flex md:items-baseline md:justify-between">
-					<h1 className="text-3xl font-bold leading-8 tracking-tight md:text-5xl">Music</h1>
+					<PageTitle>Music</PageTitle>
 					<p className="text-xs">Powered by Last.fm & Spotify API</p>
 				</div>
 				<div className="space-y-2 md:space-y-5">

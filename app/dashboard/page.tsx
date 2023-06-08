@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { FilmIcon, MusicIcon, TerminalIcon } from '@/components/icons'
 import { default as Link } from '@/components/Link'
 import { SectionContainer } from '@/components/UI'
+import { PageTitle } from '@/components/UI'
 import { allBlogs } from '@/contentlayer/generated'
 import { getBlogViews } from '@/lib/views'
 
@@ -22,7 +23,7 @@ export default async function Dashboard() {
 	return (
 		<SectionContainer>
 			<div className="md:flex md:items-baseline md:justify-between">
-				<h1 className="text-3xl font-bold tracking-tight md:text-5xl">Dashboard</h1>
+				<PageTitle>Dashboard</PageTitle>
 				<p className="text-xs">updated every 60 seconds</p>
 			</div>
 

@@ -14,9 +14,9 @@ export default async function Homepage() {
 	return (
 		<SectionContainer>
 			<div className="mt-4 grid grid-cols-1 items-center md:grid-cols-6 md:text-left">
-				<h1 className="order-2 col-span-5 leading-tight md:order-1 md:leading-normal">
+				<div className="order-2 col-span-5 leading-tight md:order-1 md:leading-normal">
 					<div className="text-xl font-semibold md:text-3xl">
-						<h1>Merhaba 👋</h1>
+						<span>Merhaba 👋</span>
 					</div>
 					<p>
 						{`My name is ${siteMetadata.author.name}. I'm Full Stack Developer from`}
@@ -27,7 +27,7 @@ export default async function Homepage() {
 						<br />
 						This site is where I conduct all my experiments, and share my thoughts and ideas.
 					</p>
-				</h1>
+				</div>
 				<div className="order-1 m-auto md:order-2">
 					<Image
 						src={siteMetadata.author.avatar}
@@ -45,11 +45,7 @@ export default async function Homepage() {
 			<p>Most Recent Blog Posts</p>
 			<ul>
 				{posts.slice(0, 3).map((post, index: number) => (
-					<Link
-						key={post.slug}
-						className="mb-4 flex flex-col space-y-1"
-						href={`/blog/${post.slug}`}
-					>
+					<Link key={index} className="mb-4 flex flex-col space-y-1" href={`/blog/${post.slug}`}>
 						<div className="flex w-full flex-col">
 							<p>{post.title}</p>
 							<span className="flex flex-row"></span>
