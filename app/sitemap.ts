@@ -9,10 +9,10 @@ export default async function sitemap() {
 			lastModified: post.updated_at.split('T')[0],
 		}))
 	const pages = allPages
-		.filter((post) => !(post.draft === true))
-		.map((post) => ({
-			url: `${siteMetadata.siteUrl}/${post.slug}`,
-			lastModified: post.updated_at.split('T')[0],
+		.filter((page) => !(page.draft === true))
+		.map((page) => ({
+			url: `${siteMetadata.siteUrl}/${page.slug}`,
+			lastModified: page.updated_at.split('T')[0],
 		}))
 
 	const routes = ['', '/blog', '/dashboard'].map((route) => ({
