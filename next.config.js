@@ -225,6 +225,11 @@ module.exports = () => {
 				permanent: false,
 			})
 			redirects.push({
+				source: '/recommends/digitalocean',
+				destination: 'https://m.do.co/c/6a7a39b2c514',
+				permanent: false,
+			})
+			redirects.push({
 				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
 				destination: 'trakt-api-nextjs',
 				statusCode: 301,
