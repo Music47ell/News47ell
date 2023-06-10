@@ -100,6 +100,21 @@ module.exports = () => {
 				})
 			}
 			redirects.push({
+				source: '/tag/:id',
+				destination: '/blog',
+				permanent: true,
+			})
+			redirects.push({
+				source: '/category/:id',
+				destination: '/blog',
+				permanent: true,
+			})
+			redirects.push({
+				source: '/categories',
+				destination: '/blog',
+				permanent: true,
+			})
+			redirects.push({
 				source: '/feed',
 				destination: '/blog/feed.xml',
 				permanent: true,
@@ -112,97 +127,102 @@ module.exports = () => {
 			redirects.push({
 				source: '/blog/page/1',
 				destination: '/blog/',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/.env',
 				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/wp-login.php',
 				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/wp-admin',
 				destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/dropbox',
 				destination: 'https://db.tt/rpn4OoHp',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/nextdns',
 				destination: 'https://nextdns.io/?from=9an823hm',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/torguard',
 				destination: 'https://torguard.net/aff.php?aff=1952',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/windscribe',
 				destination: 'https://windscribe.com/?friend=31d4tfuk',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/unlocator',
 				destination: 'https://unlocator.com/account/aff/go/V49E6hpEZ01uLgZo',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/generatepress',
 				destination: 'https://generatepress.com/?ref=152',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/cloudinary',
 				destination: 'https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/e6soikva7dynlmmz9bry',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/kraken',
 				destination: 'https://kraken.io/?ref=396b2b007884',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/shortpixel',
 				destination: 'https://shortpixel.com/free-sign-up-referrer/referrer/69204',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/cloudimage',
 				destination: 'https://www.cloudimage.io/en/home?ref=ahmadalmaaz',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/bunnycdn',
 				destination: 'https://bunnycdn.com/?ref=g71bm7ti0k',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/camscanner',
 				destination: 'https://www.camscanner.com/r1?1657794000',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/gitkraken',
 				destination: 'https://www.gitkraken.com/invite/s3KuPCPQ',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/airtable',
 				destination: 'https://airtable.com/invite/r/BRHMIdTo',
-				statusCode: 301,
+				permanent: false,
 			})
 			redirects.push({
 				source: '/recommends/filen',
 				destination: 'https://filen.io/r/7449a516ff16f72e28ed060e7c4bb4a3',
-				statusCode: 301,
+				permanent: false,
+			})
+			redirects.push({
+				source: '/recommends/lightningbase',
+				destination: 'https://secure.lightningbase.com/aff.php?aff=314',
+				permanent: false,
 			})
 			redirects.push({
 				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
