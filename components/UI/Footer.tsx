@@ -4,6 +4,8 @@ import { NowPlaying } from '@/components/metrics/Spotify'
 import { NowWatching } from '@/components/metrics/Trakt'
 import siteMetadata from '@/data/siteMetadata'
 
+import SponsorPopover from './SponsorPopover'
+
 export default function Footer(): JSX.Element {
 	return (
 		<footer className="z-40 border-t border-nfh-accent-primary bg-nfh-background-secondary p-4 print:hidden">
@@ -16,6 +18,7 @@ export default function Footer(): JSX.Element {
 							</Link>
 						))}
 					</div>
+					<SponsorPopover />
 					<NowPlaying />
 					<NowWatching />
 					<HCard />
