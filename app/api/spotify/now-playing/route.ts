@@ -2,6 +2,7 @@ import { getNowPlaying } from 'lib/spotify'
 import { NextResponse } from 'next/server'
 
 export const runtime = 'edge'
+export const fetchCache = 'force-no-store'
 
 export const GET = async () => {
 	try {

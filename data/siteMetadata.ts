@@ -5,6 +5,7 @@ const siteMetadata = {
 	siteUrl: 'https://www.news47ell.com',
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',
+	githubSponsorUrl: 'https://github.com/sponsors/Music47ell',
 	author: {
 		name: 'Ahmet ALMAZ',
 		username: 'Music47ell',
