@@ -2,6 +2,7 @@ import '@/assets/css/tailwind.css'
 
 import type { Metadata } from 'next'
 
+import Analytics from '@/components/Analytics'
 import { Footer, Header } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -105,6 +106,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className="bg-nfh-background-primary text-nfh-text-primary antialiased">
+				<Analytics />
 				<div className="flex h-screen flex-col justify-between">
 					<Header />
 					{children}
