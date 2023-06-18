@@ -114,6 +114,7 @@ export const getRecentTracks = async () => {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
+		next: { revalidate: 60 },
 	})
 	const recentTracks = (await response.json()) as RecentTracks
 
@@ -144,6 +145,7 @@ export const getTopTracks = async () => {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
+		next: { revalidate: 60 },
 	})
 	const topTracks = (await response.json()) as TopTracks
 

@@ -71,6 +71,7 @@ export const getWatchedMovies = async () => {
 			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
+		next: { revalidate: 1320 },
 	})
 
 	const stats = (await response.json()) as TraktMovie[]
@@ -115,6 +116,7 @@ export const getWatchedShows = async () => {
 			'trakt-api-version': '2',
 			'trakt-api-key': TRAKT_CLIENT_ID,
 		},
+		next: { revalidate: 1320 },
 	})
 
 	const stats = (await response.json()) as TraktShow[]
