@@ -21,12 +21,12 @@ export default function Header() {
 					<Link
 						key={index}
 						href={link.href}
-						className="relative text-base font-medium leading-none sm:text-lg"
+						className={`relative rounded-sm p-2 text-base font-medium leading-none hover:bg-nfh-background-secondary sm:text-lg ${
+							!!pathname && link.activePath.test(pathname)
+								? 'bg-nfh-background-secondary'
+								: 'bg-transparent'
+						}`}
 					>
-						{!!pathname && link.activePath.test(pathname) && (
-							<span className="absolute inset-0 z-10 border-b border-nfh-accent-primary" />
-						)}
-
 						{link.title}
 					</Link>
 				))}

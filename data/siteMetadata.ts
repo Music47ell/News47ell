@@ -25,7 +25,6 @@ const siteMetadata = {
 		{ title: 'Dashboard', href: '/dashboard', activePath: /^\/dashboard*/ },
 		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
 		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
-		{ title: 'Uses', href: '/uses', activePath: /^\/uses*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },
