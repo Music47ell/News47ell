@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className="bg-nfh-background-primary text-nfh-text-primary antialiased">
 				<Analytics />
-				<div className="flex h-screen flex-col justify-between">
+				<div className="flex min-h-screen flex-col justify-between">
 					<Header />
 					{children}
 					<Footer />
