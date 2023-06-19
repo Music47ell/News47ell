@@ -10,7 +10,7 @@ export default function Header() {
 	const pathname = usePathname()
 
 	return (
-		<header className="container m-auto flex w-full max-w-3xl flex-row items-center justify-between p-4 sm:min-h-[74px]">
+		<header className="sticky inset-x-0 top-0 z-20 m-auto flex w-full flex-row items-center justify-between bg-nfh-background-primary bg-opacity-30 p-4 backdrop-blur-lg sm:min-h-[74px]">
 			<a href="/" aria-label={siteMetadata.title}>
 				<Slash className="m-auto block h-10 w-auto md:hidden" />
 				<News47ell className="m-auto hidden h-10 w-auto md:block" />
