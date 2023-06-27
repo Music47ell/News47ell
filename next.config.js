@@ -232,7 +232,27 @@ module.exports = () => {
 			redirects.push({
 				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
 				destination: 'trakt-api-nextjs',
-				statusCode: 301,
+				permanent: true,
+			})
+			redirects.push({
+				source: '/blog/git-ignore-node-modules-dropbox',
+				destination: 'sync-node-project-ignore-node-modules-rsync-bash-script',
+				permanent: true,
+			})
+			redirects.push({
+				source: '/stats',
+				destination: '/dashboard',
+				permanent: true,
+			})
+			redirects.push({
+				source: '/toolbox',
+				destination: '/uses',
+				permanent: true,
+			})
+			redirects.push({
+				source: '/archive',
+				destination: '/blog',
+				permanent: true,
 			})
 
 			return redirects

@@ -1,0 +1,73 @@
+---
+title: Use rsync to Sync a Node Project to Dropbox and Ignore the node modules Folder
+description: Learn how to use rsync to sync a Node.js project to Dropbox and ignore the node_modules folder using a bash script.
+draft: true
+published_at: 2023-06-13T20:40:52+03:00
+updated_at: 2023-06-13T20:40:52+03:00
+tags: ['How To', 'Node JS', 'Node Modules', 'Dropbox', 'Gitignore', 'Git']
+---
+
+When working on Node.js projects, it's common to have a large number of dependencies installed in the `node_modules` folder. This folder can be quite large and can slow down the syncing process when backing up or transferring your project to [Dropbox](/recommends/dropbox).
+
+To overcome this issue, you can use [rsync](https://rsync.samba.org/), a powerful command-line tool for synchronizing files and directories, along with a bash script that excludes the `node_modules` folder and also filter out anything in a `.gitignore` file that you specify. In this article, I'll guide you through the process of setting up and using this bash script to sync your Node.js project while ignoring the `node_modules` folder.
+
+## Step 1: Create the Bash Script
+
+To get started, open your favorite text editor and create a new file. You can name it something like `sync-node-projects.sh`. Paste the following code into the file:
+
+```shell
+#!/usr/bin/env bash
+
+set -e # Exit on error
+
+src_dir="$HOME/Projects/"
+dest_dir="$HOME/Dropbox/Projects-Backup/"
+
+# run rsync
+rsync -a --delete \
+  --filter=':- .gitignore' \
+  --exclude='node_modules' \
+  --exclude='.git' \
+  --exclude='.DS_Store' \
+  --chmod='F-w' \
+  "$src_dir" "$dest_dir"
+```
+
+Let's go through the script and understand what each part does:
+
+- The first line (`#!/usr/bin/env bash`) specifies the interpreter for the script as bash.
+- The `set -e` command ensures that the script exits immediately if any command within it returns a non-zero status, indicating an error.
+- The `src_dir` variable defines the source directory path, where your Node.js project is located. Update it with the appropriate path for your system.
+- The `dest_dir` variable defines the destination directory path, where you want to backup or transfer your project. Modify it to suit your needs.
+- The `rsync` command is responsible for synchronizing the files and directories. Let's examine its options:
+  - The `-a` flag stands for "archive mode" and is a convenient way to sync files while preserving their permissions, ownership, and other attributes.
+  - The `--delete` option ensures that any files or directories that exist in the destination but not in the source are deleted during the sync. This helps keep both locations identical.
+  - The `--filter=':- .gitignore'` flag excludes files and directories specified in the `.gitignore` file from being synced. This ensures that files ignored by Git are also ignored by rsync.
+  - The `--exclude='node_modules'` option tells rsync to skip syncing the `node_modules` folder, which can be large and unnecessary for backup or transfer purposes.
+  - The `--exclude='.git'` flag excludes the `.git` folder, as it is not required for syncing and can be quite large.
+  - The `--exclude='.DS_Store'` option excludes the `.DS_Store` file, which is specific to macOS and contains metadata that is not relevant for syncing.
+  - The `--chmod='F-w'` flag removes write permissions from all files in the destination directory, ensuring they remain read-only. This prevents accidental modifications in the backup location.
+
+## Step 2: Save and Make the Script Executable
+
+After pasting the script into your text editor, save the file and navigate to the location where you saved it using the terminal. To make the script executable, run the following command:
+
+```shell
+chmod +x sync-node-project.sh
+```
+
+This command grants execute permissions to the script.
+
+## Step 3: Run the Script
+
+To sync your Node.js project, open a terminal and navigate to the location of the script. Execute the script by running the following command:
+
+```shell
+./sync-node-project.sh
+```
+
+The script will start syncing your Node.js project from the source directory (`src_dir`) to the destination directory (`dest_dir`), excluding the `node_modules` folder.
+
+## Conclusion
+
+Congratulations! You have successfully set up a bash script that uses rsync to sync your Node.js project while ignoring the `node_modules` folder. By excluding this folder from the syncing process, you can save time and space, especially when working with large projects. Remember to run the script whenever you want to sync your project, and all your changes will be transferred while keeping the unnecessary `node_modules` folder out of the equation.
