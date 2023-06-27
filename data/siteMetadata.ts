@@ -41,6 +41,76 @@ const siteMetadata = {
 			text: 'https://www.news47ell.com/resume',
 		},
 	},
+	affiliateLinks: [
+		{
+			title: 'BunnyCDN',
+			href: 'https://www.news47ell.com/recommends/bunnycdn',
+		},
+		{
+			title: 'Cloudinary',
+			href: 'https://www.news47ell.com/recommends/cloudinary',
+		},
+		{
+			title: 'TorGuard',
+			href: 'https://www.news47ell.com/recommends/torguard',
+		},
+		{
+			title: 'Windscribe',
+			href: 'https://www.news47ell.com/recommends/windscribe',
+		},
+		{
+			title: 'Kraken',
+			href: 'https://www.news47ell.com/recommends/kraken',
+		},
+		{
+			title: 'ShortPixel',
+			href: 'https://www.news47ell.com/recommends/shortpixel',
+		},
+		{
+			title: 'Dropbox',
+			href: 'https://www.news47ell.com/recommends/dropbox',
+		},
+		{
+			title: 'CamScanner',
+			href: 'https://www.news47ell.com/recommends/camscanner',
+		},
+		{
+			title: 'NextDNS',
+			href: 'https://www.news47ell.com/recommends/nextdns',
+		},
+		{
+			title: 'Filen',
+			href: 'https://www.news47ell.com/recommends/filen',
+		},
+		{
+			title: 'Unlocator',
+			href: 'https://www.news47ell.com/recommends/unlocator',
+		},
+		{
+			title: 'GeneratePress',
+			href: 'https://www.news47ell.com/recommends/generatepress',
+		},
+		{
+			title: 'CloudImage',
+			href: 'https://www.news47ell.com/recommends/cloudimage',
+		},
+		{
+			title: 'GitKraken',
+			href: 'https://www.news47ell.com/recommends/gitkraken',
+		},
+		{
+			title: 'AirTable',
+			href: 'https://www.news47ell.com/recommends/airtable',
+		},
+		{
+			title: 'Lightning Base',
+			href: 'https://www.news47ell.com/recommends/lightningbase',
+		},
+		{
+			title: 'DigitalOcean',
+			href: 'https://www.news47ell.com/recommends/digitalocean',
+		},
+	],
 }
 
 export default siteMetadata

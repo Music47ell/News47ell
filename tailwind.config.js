@@ -32,8 +32,8 @@ module.exports = {
 					'background-secondary': rgbToTailwind('rgb(68, 71, 90)'), // Current Line
 					'text-primary': rgbToTailwind('rgb(248, 248, 242)'), // Foreground
 					'text-secondary': rgbToTailwind('rgb(139, 233, 253)'), // Cyan
-					'accent-primary': rgbToTailwind('rgb(189, 147, 249)'), // Purple
-					'accent-secondary': rgbToTailwind('rgb(98, 114, 164)'), // Comment
+					'accent-primary': rgbToTailwind('rgb(255, 85, 85)'), // Red
+					'accent-secondary': rgbToTailwind('rgb(189, 147, 249)'), // Purple
 				},
 			},
 			animation: {
