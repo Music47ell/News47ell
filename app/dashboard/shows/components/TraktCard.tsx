@@ -74,7 +74,7 @@ const TraktCard = asyncComponent(async () => {
 					<span className="shrink-0">Episodes watched</span>
 
 					<div className="flex items-center space-x-2">
-						<div className="truncate">{stats.episodes.watched}</div>
+						<div className="truncate">{stats.episodes.watched.toLocaleString()}</div>
 					</div>
 				</div>
 			</div>

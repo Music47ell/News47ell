@@ -27,7 +27,7 @@ const TopTracks = asyncComponent(async () => {
 	const topTracks = await getTopTenTracks()
 
 	return (
-		<div className="grid gap-2 md:grid-cols-2">
+		<div className="my-10 flex flex-col gap-3">
 			{topTracks.map((track, index) => (
 				<MediaCard key={index} title={track.title} image={track.albumImage} url={track.songUrl} />
 			))}

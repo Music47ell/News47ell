@@ -5,16 +5,9 @@ function InfoIcon({ className }: { className?: string }): JSX.Element {
 			width="24"
 			height="24"
 			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
 			className={className}
 		>
-			<circle cx="12" cy="12" r="10"></circle>
-			<line x1="12" y1="16" x2="12" y2="12"></line>
-			<line x1="12" y1="8" x2="12.01" y2="8"></line>
+			<path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
 		</svg>
 	)
 }

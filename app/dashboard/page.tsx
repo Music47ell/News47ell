@@ -71,7 +71,7 @@ export default async function Dashboard() {
 
 					<div className="flex items-center rounded-lg text-center">
 						<h2 className="m-0 text-3xl font-bold">
-							{allBlogs.reduce((acc, curr) => acc + curr.wordsCount, 0)}
+							{allBlogs.reduce((acc, curr) => acc + curr.wordsCount, 0).toLocaleString()}
 						</h2>
 					</div>
 				</div>

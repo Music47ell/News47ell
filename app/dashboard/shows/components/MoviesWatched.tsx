@@ -18,7 +18,7 @@ const MoviesWatched = asyncComponent(async () => {
 	const movies = await getTraktMovies()
 
 	return (
-		<div className="grid gap-2 md:grid-cols-2">
+		<div className="my-10 flex flex-col gap-3">
 			{movies.map((movie, index) => (
 				<MediaCard key={index} title={movie.title} image={movie.poster} url={movie.url} />
 			))}

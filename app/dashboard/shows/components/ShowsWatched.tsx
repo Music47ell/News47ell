@@ -18,7 +18,7 @@ const ShowsWatched = asyncComponent(async () => {
 	const shows = await getTraktShows()
 
 	return (
-		<div className="grid gap-2 md:grid-cols-2">
+		<div className="my-10 flex flex-col gap-3">
 			{shows.map((show, index) => (
 				<MediaCard key={index} title={show.title} image={show.poster} url={show.url} />
 			))}
