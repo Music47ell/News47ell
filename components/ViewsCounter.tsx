@@ -1,40 +1,14 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
 import { PostView } from '@/lib/types'
 
-interface ViewsCounterProps {
-	slug: string
-	trackView: boolean
-}
-
-const ViewsCounter: React.FC<ViewsCounterProps> = ({ slug, trackView }) => {
+export default function ViewsCounter({ slug, trackView }: { slug: string; trackView: boolean }) {
 	const { data } = useSWR<PostView>(`/api/views/${slug}`, fetcher)
-	const [views, setViews] = useState(0)
-	const viewsCount = new Number(data?.count) as number
-
-	useEffect(() => {
-		if (data?.count) {
-			const increment = Math.ceil(viewsCount / 50) // Adjust the increment value as per your requirement
-			let currentViews = 0
-
-			const timer = setInterval(() => {
-				currentViews += increment
-				if (currentViews >= viewsCount) {
-					currentViews = viewsCount
-					clearInterval(timer)
-				}
-				setViews(currentViews)
-			}, 30) // Adjust the interval time as per your requirement
-
-			return () => {
-				clearInterval(timer)
-			}
-		}
-	}, [data?.count, viewsCount])
+	const views = new Number(data?.count || 0)
 
 	useEffect(() => {
 		const registerView = () => {
@@ -49,12 +23,8 @@ const ViewsCounter: React.FC<ViewsCounterProps> = ({ slug, trackView }) => {
 	}, [slug, trackView])
 
 	return (
-		<div className="flex items-center">
-			<span className="font-mono text-sm tracking-tighter">
-				{data ? `${views.toLocaleString()} views` : '--- views'}
-			</span>
-		</div>
+		<p className="font-mono text-sm tracking-tighter">
+			{data ? `${views.toLocaleString()} views` : '--- views'}
+		</p>
 	)
 }
-
-export default ViewsCounter
