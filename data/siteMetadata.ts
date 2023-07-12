@@ -1,3 +1,5 @@
+import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon } from '@/components/icons'
+
 const siteMetadata = {
 	title: 'News47ell',
 	altTitle: 'NEWS FOR HELL',
@@ -23,9 +25,10 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Dashboard', href: '/dashboard', activePath: /^\/dashboard*/ },
-		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
-		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
+		{ title: 'Dashboard', href: '/dashboard', icon: DashboardIcon, activePath: /^\/dashboard*/ },
+		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
+		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
+		{ title: 'Sponsors', href: '/sponsors', icon: CoffeeIcon, activePath: /^\/sponsors*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },
@@ -110,6 +113,10 @@ const siteMetadata = {
 		{
 			title: 'DigitalOcean',
 			href: 'https://www.news47ell.com/recommends/digitalocean',
+		},
+		{
+			title: 'Skiff',
+			href: 'https://www.news47ell.com/recommends/skiff',
 		},
 	],
 }

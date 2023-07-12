@@ -4,7 +4,7 @@ import Link from 'next/link'
 import siteMetadata from '@/data/siteMetadata'
 import { Links } from '@/lib/types'
 
-const CustomLink = ({ className, href, rel, children, ...rest }: Links) => {
+const CustomLink = ({ className, href, children, ...rest }: Links) => {
 	const isInternalLink = href && href.startsWith('/')
 	const isAnchorLink = href && href.startsWith('#')
 	const isAffiliateLink = href && href.startsWith('$')
@@ -46,7 +46,11 @@ const CustomLink = ({ className, href, rel, children, ...rest }: Links) => {
 
 	return (
 		<a
-			href={`${href}?ref=${siteMetadata.siteUrl.replace(/(https?:\/\/)?(www\.)?/, '')}`}
+			href={`${
+				href?.includes('mailto:')
+					? href
+					: `${href}?ref=${siteMetadata.siteUrl.replace(/(https?:\/\/)?(www\.)?/, '')}`
+			}`}
 			className={style}
 			{...rest}
 		>

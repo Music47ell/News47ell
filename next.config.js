@@ -61,13 +61,20 @@ module.exports = () => {
 			return {
 				beforeFiles: [
 					{
-						source: '/:path*',
+						source: '/',
 						destination: '/api/curl-card',
 						has: [
 							{
 								type: 'header',
 								key: 'user-agent',
 								value: 'curl/(.*)',
+							},
+						],
+						missing: [
+							{
+								type: 'query',
+								key: 'card',
+								value: '(.*)',
 							},
 						],
 					},
@@ -227,6 +234,11 @@ module.exports = () => {
 			redirects.push({
 				source: '/recommends/digitalocean',
 				destination: 'https://m.do.co/c/6a7a39b2c514',
+				permanent: false,
+			})
+			redirects.push({
+				source: '/recommends/skiff',
+				destination: 'https://app.skiff.com/signup?mail&referral=music47ell',
 				permanent: false,
 			})
 			redirects.push({

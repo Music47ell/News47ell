@@ -9,14 +9,12 @@ type MediaCardProps = {
 
 export default function MediaCard({ title, image, url }: MediaCardProps) {
 	return (
-		<div className="flex flex-col">
-			<Link className="relative col-span-2 h-full !w-full truncate no-underline" href={url}>
-				<div className="flex h-full w-full max-w-full flex-row items-center justify-between gap-1 truncate bg-nfh-accent-secondary/50 p-2">
-					<div className="flex flex-col gap-12 truncate">
-						<div className="flex flex-col">
-							<p className="max-w-full truncate text-xs font-bold">{title}</p>
-						</div>
-					</div>
+		<Link
+			href={url}
+			className="relative flex items-center gap-5 overflow-hidden bg-nfh-accent-secondary/10 p-4 hover:bg-nfh-accent-secondary/30"
+		>
+			<div className="relative origin-center">
+				{image ? (
 					<Image
 						className="block w-auto"
 						draggable={false}
@@ -26,8 +24,15 @@ export default function MediaCard({ title, image, url }: MediaCardProps) {
 						alt={title}
 						src={image}
 					/>
-				</div>
-			</Link>
-		</div>
+				) : (
+					<div className="h-full w-full animate-pulse bg-white"></div>
+				)}
+			</div>
+			<div>
+				<p className="origin-left text-base font-semibold text-white md:text-xl">
+					{title ?? <div className="h-4 w-full animate-pulse bg-white"></div>}
+				</p>
+			</div>
+		</Link>
 	)
 }

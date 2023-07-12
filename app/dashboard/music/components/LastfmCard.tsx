@@ -57,7 +57,7 @@ const LastfmCard = asyncComponent(async () => {
 					<span className="shrink-0">Total Scrobbles</span>
 
 					<div className="flex items-center space-x-2">
-						<div className="truncate">{stats.playCount}</div>
+						<div className="truncate">{stats.playCount.toLocaleString()}</div>
 					</div>
 				</div>
 
@@ -73,7 +73,7 @@ const LastfmCard = asyncComponent(async () => {
 					<span className="shrink-0">Artists Count</span>
 
 					<div className="flex items-center space-x-2">
-						<div className="truncate">{stats.artistsCount} Artists</div>
+						<div className="truncate">{stats.artistsCount.toLocaleString()} Artists</div>
 					</div>
 				</div>
 
@@ -81,7 +81,7 @@ const LastfmCard = asyncComponent(async () => {
 					<span className="shrink-0">Tracks Count</span>
 
 					<div className="flex items-center space-x-2">
-						<div className="truncate">{stats.tracksCount} Tracks</div>
+						<div className="truncate">{stats.tracksCount.toLocaleString()} Tracks</div>
 					</div>
 				</div>
 			</div>
