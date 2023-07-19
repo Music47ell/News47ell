@@ -23,9 +23,6 @@ export const getStats = async () => {
 
 	const stats = (await response.json()) as Trakt
 
-	stats.user = siteMetadata.author.username
-	stats.url = `https://trakt.tv/users/${siteMetadata.author.username}/`
-
 	return stats
 }
 

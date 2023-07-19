@@ -15,6 +15,7 @@ export type TLanguage = {
 	ranking: number
 	name: string
 	xps: number
+	progress: number
 }
 
 export type TraktRelease = {

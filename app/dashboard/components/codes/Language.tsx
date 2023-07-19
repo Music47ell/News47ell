@@ -1,5 +1,7 @@
 import { TLanguage } from '@/lib/types'
 
+import Progress from './Progress'
+
 export default function Language(language: TLanguage): JSX.Element {
 	return (
 		<div className="flex flex-row items-baseline rounded-md bg-nfh-background-secondary p-2">
@@ -9,6 +11,10 @@ export default function Language(language: TLanguage): JSX.Element {
 				<p className="w-60 truncate sm:w-96 md:w-full" color="gray.500">
 					{language.xps.toLocaleString()}
 				</p>
+				<Progress
+					percent={language.progress}
+					className="bg-gradient-to-r from-amber-400 to-rose-600"
+				/>
 			</div>
 		</div>
 	)

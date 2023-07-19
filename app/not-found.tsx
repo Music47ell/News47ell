@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
 	return (
 		<SectionContainer>
-			<div className="space-y-2 pt-6 md:space-y-5">
+			<div className="space-y-2 md:space-y-5">
 				<div className="md:flex md:items-baseline md:justify-between">
 					<PageTitle>404 Not Found (╯°□°）╯︵ ┻━┻</PageTitle>
 				</div>

@@ -99,10 +99,19 @@ module.exports = () => {
 				'roundups',
 			]
 
+			const dashboards = ['codes', 'music', 'music/recommend', 'shows']
+
 			for (const category of categories) {
 				redirects.push({
 					source: `/${category}/:id`,
 					destination: `/blog/:id`,
+					permanent: true,
+				})
+			}
+			for (const dashboard of dashboards) {
+				redirects.push({
+					source: `/${dashboards}/:id`,
+					destination: `/dashboard`,
 					permanent: true,
 				})
 			}
