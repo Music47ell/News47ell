@@ -1,6 +1,5 @@
 import { getTopLanguages } from '@/lib/codestats'
 
-import Language from './Language'
 import Progress from './Progress'
 
 const LEVEL_FACTOR = 0.025
