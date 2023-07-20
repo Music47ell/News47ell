@@ -1,6 +1,6 @@
-import { default as Link } from '@/components/Link'
 import { getStats } from '@/lib/lastfm'
 import { Lastfm } from '@/lib/types'
+import { displayNumbers } from '@/utils/formatters'
 
 import OverviewItem from '../../components/OverviewItem'
 
@@ -37,10 +37,10 @@ const LastfmCard = asyncComponent(async () => {
 	return (
 		<div className="mb-1 grid gap-3 py-2 md:grid-cols-2">
 			<OverviewItem label="Account Age" value={stats.registeredDate} />
-			<OverviewItem label="Artists" value={stats.artistsCount} />
-			<OverviewItem label="Tracks" value={stats.tracksCount} />
-			<OverviewItem label="Total Scrobbles" value={stats.playCount} />
-			<OverviewItem label="Average Play" value={stats.averagePlayCount} />
+			<OverviewItem label="Artists" value={displayNumbers.format(stats.artistsCount)} />
+			<OverviewItem label="Tracks" value={displayNumbers.format(stats.tracksCount)} />
+			<OverviewItem label="Total Scrobbles" value={displayNumbers.format(stats.playCount)} />
+			<OverviewItem label="Average Play" value={displayNumbers.format(stats.averagePlayCount)} />
 		</div>
 	)
 })

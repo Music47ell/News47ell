@@ -1,30 +1,7 @@
 import { getTopLanguages } from '@/lib/codestats'
+import { get_level, get_level_progress } from '@/utils/level-calc'
 
 import Progress from './Progress'
-
-const LEVEL_FACTOR = 0.025
-
-function get_level(xp) {
-	return Math.floor(Math.sqrt(xp) * LEVEL_FACTOR)
-}
-
-function get_next_level_xp(level) {
-	return Math.ceil((level + 1) / LEVEL_FACTOR) ** 2
-}
-
-function get_level_progress(xp) {
-	const level = get_level(xp)
-	const current_level_xp = get_next_level_xp(level - 1)
-	const next_level_xp = get_next_level_xp(level)
-	const have_xp = xp - current_level_xp
-	const needed_xp = next_level_xp - current_level_xp
-
-	return Math.round((have_xp / needed_xp) * 100)
-}
-
-const XP_FORMATTER = new Intl.NumberFormat('en-US', {
-	maximumFractionDigits: 0,
-})
 
 const getCodeStatsTopLanguages = async () => {
 	const data = await getTopLanguages()
@@ -81,7 +58,6 @@ const TopLanguages = asyncComponent(async () => {
 				</p>
 				<div className="grid gap-2 px-4 py-3">
 					{sortedLanguages.map((language, index) => (
-						// <Language ranking={index + 1} key={language.name} {...language} />
 						<Progress
 							key={index}
 							data={language}

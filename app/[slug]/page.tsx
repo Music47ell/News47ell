@@ -8,7 +8,7 @@ import type { Page } from '@/contentlayer/generated'
 import { allPages } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getContent } from '@/lib/contentlayer'
-import { displayDate } from '@/utils/format-time-date'
+import { displayDate } from '@/utils/formatters'
 
 // https://beta.nextjs.org/docs/api-reference/segment-config
 export const dynamicParams = false

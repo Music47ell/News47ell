@@ -11,7 +11,7 @@ export default function Shows() {
 	return (
 		<>
 			<div className="space-y-2 md:space-y-5">
-				<SectionHeading title="Shows Stats" />
+				<SectionHeading title="Movies & Shows Stats" />
 				<SectionSubHeading>
 					<div className="text-neutral-400 md:flex-row md:items-center">
 						<span>My all time </span>

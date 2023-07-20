@@ -3,9 +3,11 @@ import type { Metadata } from 'next'
 import { SectionContainer } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
 import { allBlogs } from '@/contentlayer/generated'
+import { getGithubUser } from '@/lib/github'
 import { getBlogViews } from '@/lib/views'
 
 import Codes from './components/codes'
+import Contributions from './components/codes/Contributions'
 import Music from './components/music'
 import OverviewItem from './components/OverviewItem'
 import SectionHeading from './components/SectionHeading'
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
 
 export default async function Dashboard() {
 	let views
+	const githubUser = await getGithubUser()
+	console.log(githubUser)
 
 	try {
 		;[views] = await Promise.all([getBlogViews()])
@@ -53,6 +57,7 @@ export default async function Dashboard() {
 					value={allBlogs.reduce((acc, curr) => acc + curr.wordsCount, 0).toLocaleString()}
 				/>
 			</div>
+			<Contributions />
 			<hr className="my-6 border-gray-700" />
 			<Codes />
 			<hr className="my-6 border-gray-700" />

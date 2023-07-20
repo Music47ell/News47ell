@@ -2,6 +2,8 @@
 
 import { motion, Variants } from 'framer-motion'
 
+import { displayNumbers } from '@/utils/formatters'
+
 interface ProgressProps {
 	data: { name: string; percent?: number; xps?: number; level?: number }
 	className?: string
@@ -23,7 +25,7 @@ const Progress = ({ data, className }: ProgressProps) => {
 			<div className="flex w-24 flex-col">
 				{name}
 				<span className="text-xs text-neutral-400">Level {level}</span>
-				<span className="text-xs text-neutral-400">XP {xps}</span>
+				<span className="text-xs text-neutral-400">XP {displayNumbers.format(xps)}</span>
 			</div>
 			<div className="relative flex h-3 flex-1 justify-center rounded-full bg-nfh-background-secondary">
 				<motion.span

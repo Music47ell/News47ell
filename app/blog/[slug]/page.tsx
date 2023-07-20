@@ -11,7 +11,7 @@ import type { Blog } from '@/contentlayer/generated'
 import { allBlogs } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getContent } from '@/lib/contentlayer'
-import { displayDate, hEntryDate } from '@/utils/format-time-date'
+import { displayDate, hEntryDate } from '@/utils/formatters'
 
 // https://beta.nextjs.org/docs/api-reference/segment-config
 export const dynamicParams = false

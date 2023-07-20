@@ -1,5 +1,5 @@
-import { default as Link } from '@/components/Link'
 import { getStats } from '@/lib/trakt'
+import { displayNumbers } from '@/utils/formatters'
 
 import OverviewItem from '../../components/OverviewItem'
 
@@ -23,19 +23,22 @@ const TraktCard = asyncComponent(async () => {
 		<div className="mb-1 grid gap-3 py-2 md:grid-cols-2">
 			<OverviewItem
 				label="Total Days"
-				value={((stats.episodes.minutes + stats.movies.minutes) / 60 / 24).toFixed(2)}
+				value={displayNumbers.format((stats.episodes.minutes + stats.movies.minutes) / 60 / 24)}
 			/>
 			<OverviewItem label="Shows" value={stats.shows.watched} />
 			<OverviewItem label="Movies" value={stats.movies.watched} />
 			<OverviewItem
 				label="Days spent on shows"
-				value={(stats.episodes.minutes / 60 / 24).toFixed(2)}
+				value={displayNumbers.format(stats.episodes.minutes / 60 / 24)}
 			/>
 			<OverviewItem
 				label="Days spent on movies"
-				value={(stats.movies.minutes / 60 / 24).toFixed(2)}
+				value={displayNumbers.format(stats.movies.minutes / 60 / 24)}
 			/>
-			<OverviewItem label="Episodes watched" value={stats.episodes.watched.toLocaleString()} />
+			<OverviewItem
+				label="Episodes watched"
+				value={displayNumbers.format(stats.episodes.watched)}
+			/>
 		</div>
 	)
 })
