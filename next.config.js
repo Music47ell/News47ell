@@ -251,6 +251,16 @@ module.exports = () => {
 				permanent: false,
 			})
 			redirects.push({
+				source: '/recommends/mailchimp',
+				destination: 'https://eepurl.com/ijLsYf',
+				permanent: false,
+			})
+			redirects.push({
+				source: '/recommends/emailoctopus',
+				destination: 'https://emailoctopus.com/?urli=3vR3w',
+				permanent: false,
+			})
+			redirects.push({
 				source: '/blog/display-current-show-movie-now-watching-trakt-nextjs',
 				destination: 'trakt-api-nextjs',
 				permanent: true,

@@ -1,6 +1,7 @@
 import { Slash } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import NewsletterForm from '@/components/NewsletterForm'
 import { Divider, SectionContainer } from '@/components/UI'
 import ViewsCounter from '@/components/ViewsCounter'
 import type { Blog } from '@/contentlayer/generated'
@@ -42,6 +43,7 @@ export default async function Homepage() {
 			<Divider>
 				<Slash className="block h-10 w-auto" />
 			</Divider>
+			<NewsletterForm />
 			<p>Most Recent Blog Posts</p>
 			<ul>
 				{posts.slice(0, 3).map((post, index: number) => (

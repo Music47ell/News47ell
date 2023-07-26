@@ -3,11 +3,10 @@ import type { Metadata } from 'next'
 import { SectionContainer } from '@/components/UI'
 import { PageTitle } from '@/components/UI'
 import { allBlogs } from '@/contentlayer/generated'
-import { getGithubUser } from '@/lib/github'
+import { getSubscribersCount } from '@/lib/emailoctopus'
 import { getBlogViews } from '@/lib/views'
 
 import Codes from './components/codes'
-import Contributions from './components/codes/Contributions'
 import Music from './components/music'
 import OverviewItem from './components/OverviewItem'
 import SectionHeading from './components/SectionHeading'
@@ -20,15 +19,9 @@ export const metadata: Metadata = {
 }
 
 export default async function Dashboard() {
-	let views
-	const githubUser = await getGithubUser()
-	console.log(githubUser)
+	const views = await getBlogViews()
+	const subscribers = await getSubscribersCount()
 
-	try {
-		;[views] = await Promise.all([getBlogViews()])
-	} catch (error) {
-		console.error(error)
-	}
 	return (
 		<SectionContainer>
 			<div className="flex flex-col gap-y-2">
@@ -56,8 +49,8 @@ export default async function Dashboard() {
 					label="Number of Words"
 					value={allBlogs.reduce((acc, curr) => acc + curr.wordsCount, 0).toLocaleString()}
 				/>
+				<OverviewItem label="Newsletter Subscribers Count" value={subscribers.toLocaleString()} />
 			</div>
-			<Contributions />
 			<hr className="my-6 border-gray-700" />
 			<Codes />
 			<hr className="my-6 border-gray-700" />
