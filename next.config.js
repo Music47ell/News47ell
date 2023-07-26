@@ -99,10 +99,19 @@ module.exports = () => {
 				'roundups',
 			]
 
+			const dashboards = ['codes', 'music', 'music/recommend', 'shows']
+
 			for (const category of categories) {
 				redirects.push({
 					source: `/${category}/:id`,
 					destination: `/blog/:id`,
+					permanent: true,
+				})
+			}
+			for (const dashboard of dashboards) {
+				redirects.push({
+					source: `/${dashboards}/:id`,
+					destination: `/dashboard`,
 					permanent: true,
 				})
 			}
@@ -239,6 +248,16 @@ module.exports = () => {
 			redirects.push({
 				source: '/recommends/skiff',
 				destination: 'https://app.skiff.com/signup?mail&referral=music47ell',
+				permanent: false,
+			})
+			redirects.push({
+				source: '/recommends/mailchimp',
+				destination: 'https://eepurl.com/ijLsYf',
+				permanent: false,
+			})
+			redirects.push({
+				source: '/recommends/emailoctopus',
+				destination: 'https://emailoctopus.com/?urli=3vR3w',
 				permanent: false,
 			})
 			redirects.push({

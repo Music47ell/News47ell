@@ -10,7 +10,6 @@ export const getCodeStats = async () => {
 	const stats = (await response.json()) as CodeStats
 
 	stats.user = siteMetadata.author.username
-	stats.url = `https://codestats.net/users/${siteMetadata.author.username}`
 	stats.previous_xp = stats?.total_xp - stats?.new_xp
 	stats.level = Math.floor(0.025 * Math.sqrt(stats?.total_xp - stats?.new_xp))
 

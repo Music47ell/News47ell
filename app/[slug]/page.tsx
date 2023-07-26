@@ -8,7 +8,7 @@ import type { Page } from '@/contentlayer/generated'
 import { allPages } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getContent } from '@/lib/contentlayer'
-import { displayDate } from '@/utils/format-time-date'
+import { displayDate } from '@/utils/formatters'
 
 // https://beta.nextjs.org/docs/api-reference/segment-config
 export const dynamicParams = false
@@ -75,7 +75,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 						{displayDate(updated_at)}
 					</time>
 					<PageTitle>{title}</PageTitle>
-					<div className="relative bg-nfh-background-primary">
+					<div className="relative bg-nfh-background-primary py-6">
 						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary sm:mx-auto">
 							<div className="e-content entry-content prose prose-theme max-w-none py-8 text-base">
 								<MDXLayoutRenderer content={page} />
