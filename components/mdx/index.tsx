@@ -1,4 +1,5 @@
 export { default as Blockquote } from './Blockquote'
+export { default as BlogNewsletterForm } from './BlogNewsletterForm'
 export { default as Code } from './Code'
 export { default as Heading } from './Heading'
 export { default as P } from './P'

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import type { Route } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { default as Link } from '@/components/Link'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import NewsletterForm from '@/components/NewsletterForm'
 import { PageTitle } from '@/components/UI'
@@ -88,10 +88,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 							>
 								{displayDate(updated_at)}
 							</time>
-							<Link
-								href={slug as Route}
-								className="u-url flex text-nfh-accent-primary hover:text-nfh-text-secondary"
-							>
+							<Link href={slug as Route} className="u-url flex">
 								⌘ Permalink
 							</Link>
 						</div>

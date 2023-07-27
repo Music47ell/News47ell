@@ -59,7 +59,7 @@ const NewsletterForm = ({
 	return (
 		<section className="bg-nfh-background-secondary">
 			<div className="mx-auto max-w-screen-xl px-4 py-8">
-				<div className="mx-auto max-w-screen-md sm:text-center">
+				<div className="not-prose mx-auto max-w-screen-md sm:text-center">
 					<h2 className="mb-4 text-3xl tracking-tight text-nfh-text-primary sm:text-4xl">
 						{title}
 					</h2>

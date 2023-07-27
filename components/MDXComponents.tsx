@@ -5,7 +5,7 @@ import CustomImage from '@/components/Image'
 import CustomLink from '@/components/Link'
 import { coreContent } from '@/lib/contentlayer'
 
-import { Blockquote, Code, Heading, P, Pre, Strong, TOCInline } from './mdx'
+import { Blockquote, BlogNewsletterForm, Code, Heading, P, Pre, Strong, TOCInline } from './mdx'
 
 const MDXComponents = {
 	CustomImage,
@@ -16,6 +16,7 @@ const MDXComponents = {
 	code: Code,
 	blockquote: Blockquote,
 	strong: Strong,
+	BlogNewsletterForm,
 	h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h1" {...props} />,
 	h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h2" {...props} />,
 	h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <Heading as="h3" {...props} />,
