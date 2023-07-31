@@ -9,7 +9,7 @@ import type { Blog } from '@/contentlayer/generated'
 const BlogPostList: React.FC<{ post: Blog; key: number }> = ({ post, key }) => {
 	return (
 		<motion.div
-			key={index}
+			key={key}
 			className="my-4 flex w-full flex-col rounded-lg bg-nfh-background-secondary p-4 shadow-md"
 			initial={{ opacity: 0, y: -20 }}
 			animate={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ const BlogPostList: React.FC<{ post: Blog; key: number }> = ({ post, key }) => {
 			transition={{ duration: 0.5 }}
 			whileHover={{ scale: 1.05 }}
 		>
-			<Link key={index} href={`/blog/${post.slug}`}>
+			<Link href={`/blog/${post.slug}`}>
 				<div className="flex w-full flex-col">
 					<h2 className="text-2xl font-bold">{post.title}</h2>
 					<span className="flex flex-row"></span>
