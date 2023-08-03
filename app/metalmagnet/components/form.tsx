@@ -156,12 +156,6 @@ export default function SongRecommendationForm() {
 					<p className="text-xs">Powered by Spotify API & Turso</p>
 				</div>
 				<div className="space-y-2 md:space-y-5">
-					<Link
-						href="/dashboard/music"
-						className="block rounded bg-nfh-background-secondary p-3 text-xs font-bold uppercase leading-normal shadow-lg"
-					>
-						<span className="m-auto block w-6 text-xl">&#8592;</span>
-					</Link>
 					<input
 						onChange={(e) => setSearchInput(e.target.value)}
 						disabled={isRecommended}
