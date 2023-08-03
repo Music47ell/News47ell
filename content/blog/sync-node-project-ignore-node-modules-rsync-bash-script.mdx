@@ -11,6 +11,8 @@ When working on Node.js projects, it's common to have a large number of dependen
 
 To overcome this issue, you can use [rsync](https://rsync.samba.org/), a powerful command-line tool for synchronizing files and directories, along with a bash script that excludes the `node_modules` folder and also filter out anything in a `.gitignore` file that you specify. In this article, I'll guide you through the process of setting up and using this bash script to sync your Node.js project while ignoring the `node_modules` folder.
 
+> Info: ICYMI, I recently wrote two articles about how to exclude node_modules from syncing during backup. The first one uses [Maestral](/blog/maestral-review-exclude-node-modules-dropbox-mignore-gitignore) and the second one uses [Filen](/blog/maestral-review-exclude-node-modules-dropbox-mignore-gitignore)
+
 ## Step 1: Create the Bash Script
 
 To get started, open your favorite text editor and create a new file. You can name it something like `sync-node-projects.sh`. Paste the following code into the file:

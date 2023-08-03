@@ -1,0 +1,87 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import type { Route } from 'next'
+
+import { default as Link } from '@/components/Link'
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import NewsletterForm from '@/components/NewsletterForm'
+import { PageTitle } from '@/components/UI'
+import { SectionContainer } from '@/components/UI'
+import ViewsCounter from '@/components/ViewsCounter'
+import { displayDate, hEntryDate } from '@/utils/formatters'
+
+const BlogPost = ({
+	source,
+	title,
+	publishedAt,
+	updatedAt,
+	readingTime,
+	wordsCount,
+	slug,
+	post,
+}) => {
+	return (
+		<SectionContainer>
+			<motion.main
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				className="col-span-10 flex flex-col lg:col-span-7"
+			>
+				<motion.article
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					className="h-entry"
+				>
+					<div className="relative flex w-full flex-col items-center justify-center">
+						<div className="flex items-center justify-center gap-4">
+							<time
+								dateTime={hEntryDate(updatedAt)}
+								className="dt-published"
+								aria-label={`Published at: ${displayDate(publishedAt)}`}
+							>
+								{displayDate(updatedAt)}
+							</time>
+							<Link href={slug as Route} className="u-url flex">
+								⌘ Permalink
+							</Link>
+						</div>
+						<div className="text-center">
+							{source ? (
+								<Link href={source as Route}>
+									<PageTitle>{title} &#8599;</PageTitle>
+								</Link>
+							) : (
+								<PageTitle>{title}</PageTitle>
+							)}
+						</div>
+						<div className="grid grid-cols-3 items-center justify-items-center gap-4 text-sm tabular-nums">
+							<div className="flex items-center">
+								<span className="sr-only">Reading time</span>
+								<span>{readingTime} minutes</span>
+							</div>
+							<div className="flex items-center">
+								<span className="sr-only">Words Count</span>
+								<span>{wordsCount} words</span>
+							</div>
+							<div className="flex items-center">
+								<span className="sr-only">Views</span>
+								<ViewsCounter slug={slug} trackView={true} />
+							</div>
+						</div>
+					</div>
+					<div className="relative bg-nfh-background-primary py-6">
+						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary sm:mx-auto">
+							<div className="e-content entry-content prose prose-theme max-w-none text-base">
+								<MDXLayoutRenderer content={post} toc={post?.toc} />
+							</div>
+						</div>
+					</div>
+				</motion.article>
+				<NewsletterForm />
+			</motion.main>
+		</SectionContainer>
+	)
+}
+
+export default BlogPost

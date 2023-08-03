@@ -77,7 +77,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 					<PageTitle>{title}</PageTitle>
 					<div className="relative bg-nfh-background-primary py-6">
 						<div className="relative max-w-3xl divide-y divide-nfh-accent-secondary sm:mx-auto">
-							<div className="e-content entry-content prose prose-theme max-w-none py-8 text-base">
+							<div className="e-content entry-content prose prose-theme max-w-none text-base">
 								<MDXLayoutRenderer content={page} />
 							</div>
 						</div>

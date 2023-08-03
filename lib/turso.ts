@@ -16,11 +16,12 @@ export const viewsTable = sqliteTable('views', {
 	count: integer('count').notNull().default(0),
 })
 
-export const songRecommendationsTable = sqliteTable('song-recommendation', {
+export const songRecommendationsTable = sqliteTable('metalmagnet', {
 	id: integer('id').primaryKey(),
 	createdAt: integer('created_at', { mode: 'timestamp' }).default(sql`(strftime('%s', 'now'))`),
 	email: text('email'),
 	note: text('note'),
 	songTitle: text('song-title').notNull(),
 	spotifyUri: text('spotify-uri').notNull(),
+	spotifyUrl: text('spotify-url').notNull(),
 })

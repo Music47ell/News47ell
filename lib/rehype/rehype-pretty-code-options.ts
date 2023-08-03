@@ -23,9 +23,9 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 		node.properties.className = ['']
 	},
 	onVisitHighlightedLine(node) {
-		node.properties.className.push(HIGHLIGHTED_LINE)
+		node.properties.className = [HIGHLIGHTED_LINE]
 	},
-	onVisitHighlightedWord(node) {
+	onVisitHighlightedChars(node) {
 		node.properties.className = [HIGHLIGHTED_WORD]
 	},
 }
