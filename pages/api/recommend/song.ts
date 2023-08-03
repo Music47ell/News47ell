@@ -4,7 +4,7 @@ import { db, songRecommendationsTable } from '@/lib/turso'
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
 
 export default async function handler(
-	req: { body: string; query: { uri: string } },
+	req: { body: string; query: { uri: string; url: string } },
 	res: { statusCode: number; end: () => void }
 ) {
 	const body = JSON.parse(req.body)
@@ -18,6 +18,7 @@ export default async function handler(
 				note: body.note,
 				songTitle: body.songTitle,
 				spotifyUri: req.query.uri,
+				spotifyUrl: req.query.url,
 			})
 			.returning()
 			.get()

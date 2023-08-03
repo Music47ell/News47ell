@@ -22,7 +22,7 @@ export default function Music() {
 				</SectionSubHeading>
 				<div className="space-y-2 md:space-y-5">
 					<Link
-						href="/dashboard/music/recommend"
+						href="/metalmagnet"
 						className="inline-flex w-full items-center justify-center rounded bg-green-500 px-4 py-2 font-medium leading-5 !text-white"
 					>
 						Recommend me some music

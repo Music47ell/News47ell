@@ -152,7 +152,7 @@ export default function SongRecommendationForm() {
 		<SectionContainer>
 			<div className="space-y-2 md:space-y-5">
 				<div className="md:flex md:items-baseline md:justify-between">
-					<PageTitle>Recommend A Song</PageTitle>
+					<PageTitle>Metal Magnet</PageTitle>
 					<p className="text-xs">Powered by Spotify API & Turso</p>
 				</div>
 				<div className="space-y-2 md:space-y-5">
@@ -227,7 +227,7 @@ export default function SongRecommendationForm() {
 				selectedOption.map((song) => (
 					<form key={song.uri} className="my-4">
 						<div className="relative flex flex-col rounded-xl border p-4">
-							<div className="z-50 flex items-center pb-4">
+							<div className="flex items-center pb-4">
 								<Image
 									className="mr-6 h-40 w-40 bg-cover object-cover"
 									width={600}
@@ -262,7 +262,7 @@ export default function SongRecommendationForm() {
 								</div>
 							</div>
 							{song.preview && (
-								<audio className="z-50 m-auto flex w-full flex-col px-10 pb-6" controls>
+								<audio className="m-auto flex w-full flex-col px-10 pb-6" controls>
 									<source src={song.preview} type="audio/mpeg" />
 								</audio>
 							)}
