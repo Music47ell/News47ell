@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 
+import siteMetadata from './data/siteMetadata'
 import { rehypePrettyCodeClasses, rehypePrettyCodeOptions } from './lib/rehype'
 import { extractReadingTime, extractTocHeadings, remarkImgToJsx } from './lib/remark'
 
@@ -47,7 +48,26 @@ const Blog = defineDocumentType(() => ({
 		source: { type: 'string', required: false },
 		canonicalUrl: { type: 'string', required: false },
 	},
-	computedFields,
+	computedFields: {
+		...computedFields,
+		structuredData: {
+			type: 'json',
+			resolve: (doc) => ({
+				'@context': 'https://schema.org',
+				'@type': 'BlogPosting',
+				headline: doc.title,
+				datePublished: doc.published_at,
+				dateModified: doc.updated_at || doc.updated_at,
+				description: doc.description,
+				image: `${siteMetadata.siteUrl}/api/og/image?title=${doc.title}`,
+				url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+				author: {
+					'@type': 'Person',
+					name: siteMetadata.author.name,
+				},
+			}),
+		},
+	},
 }))
 
 const Page = defineDocumentType(() => ({

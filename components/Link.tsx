@@ -1,10 +1,16 @@
 import type { Route } from 'next'
+import type { LinkProps } from 'next/link'
 import Link from 'next/link'
+import { AnchorHTMLAttributes } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
-import { Links } from '@/lib/types'
 
-const CustomLink = ({ className, href, children, ...rest }: Links) => {
+const CustomLink = ({
+	className,
+	href,
+	children,
+	...rest
+}: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
 	const isInternalLink = href && href.startsWith('/')
 	const isAnchorLink = href && href.startsWith('#')
 	const isAffiliateLink = href && href.startsWith('$')

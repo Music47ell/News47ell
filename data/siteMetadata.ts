@@ -1,4 +1,4 @@
-import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon } from '@/components/icons'
+import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon } from '../components/icons'
 
 const siteMetadata = {
 	title: 'News47ell',

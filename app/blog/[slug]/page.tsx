@@ -67,11 +67,10 @@ export default function Post({ params }: { params: { slug: string } }) {
 		notFound()
 	}
 
-	const { source, title, published_at, updated_at, readingTime, wordsCount } = post
+	const { source, title, published_at, updated_at, readingTime, wordsCount, structuredData } = post
 
 	return (
 		<BlogPost
-			key={source}
 			source={source}
 			title={title}
 			publishedAt={published_at}
@@ -80,6 +79,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 			wordsCount={wordsCount}
 			slug={slug}
 			post={post}
+			structuredData={structuredData}
 		/>
 	)
 }

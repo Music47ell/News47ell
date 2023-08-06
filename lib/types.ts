@@ -120,16 +120,6 @@ export type Lastfm = {
 	}
 }
 
-export type Links = {
-	rel?: string
-	href?: string
-	className?: string
-	children?: React.ReactNode
-	onClick?: () => void
-	onMouseEnter?: () => void
-	onMouseLeave?: () => void
-}
-
 export type WebMention = {
 	source: string
 	verified: boolean
