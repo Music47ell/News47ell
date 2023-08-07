@@ -26,14 +26,12 @@ This current version is maintained by aboutfeeds.com:
 
         <head>
             <title>
-                News47ell RSS Feed |
+                RSS Feed |
                 <xsl:value-of select="/rss/channel/title" />
             </title>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-            <style type="text/css">
-            *{box-sizing:border-box}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:14px;line-height:1.5;color:#24292e;background-color:#282a36;max-width:60ch;margin:auto;padding:8px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body::before,.markdown-body::after{display:table;content:""}.container-md{max-width:768px;margin-right:auto;margin-left:auto}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}a{color:#ff5555;text-decoration:none}img{max-width:100%;border-style:none}.rule,hr{height:0;margin:15px 0;overflow:hidden;background:0 0;border:0;border-bottom:1px solid #dfe2e5;box-sizing:content-box}.text-white{color:#fff!important}.border-0{border:0!important}h2{font-size:24px;font-weight:600}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}.pb-5{padding-bottom:32px!important}.mb-0{margin-bottom:0!important}h3{font-size:20px;font-weight:600}.text-gray-light{color:#6a737d!important}small{font-size:90%}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.py-1{padding-top:4px!important;padding-bottom:4px!important}.px-1{padding-right:4px!important;padding-left:4px!important}.mb-1{margin-bottom:4px!important}.bg-yellow-light{background-color:#fff5b1!important}p{margin-top:0;margin-bottom:10px}.markdown-body>*:first-child{margin-top:0!important}.markdown-body>*:last-child{margin-bottom:0!important}b,strong{font-weight:600}.b,strong{font-weight:bolder}.b{font-weight:600}.strong{font-weight:bolder}
-            </style>
+            <link rel="stylesheet" href="/styles.css"/>
         </head>
 
         <body>
@@ -42,9 +40,10 @@ This current version is maintained by aboutfeeds.com:
             <strong>This is a web feed,</strong> also known as an RSS feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
           </p>
           <p class="text-gray-light">
-            Visit <a href="https://aboutfeeds.com">About Feeds</a> to get started with newsreaders and subscribing. It’s free.
+            Visit <a href="https://aboutfeeds.com">About Feeds</a> to get started with newsreaders and subscribing. It's free.
           </p>
         </nav>
+        <hr />
         <header>
             <a class="head_link" target="_blank">
               <xsl:attribute name="href">
