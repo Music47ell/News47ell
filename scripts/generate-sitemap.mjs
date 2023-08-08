@@ -22,6 +22,7 @@ export default async function generateSitemap() {
   <?xml-stylesheet href="/sitemap.xsl" type="text/xsl"?>
   <urlset
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <description>${escape(siteMetadata.description)}</description>
     ${items.map((post) => generateUrl(siteMetadata, post)).join("")}
   </urlset>
 `;

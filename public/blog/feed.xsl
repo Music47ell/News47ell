@@ -1,99 +1,91 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  version="3.0"
+>
+  <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes" />
+  <xsl:template match="/">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <title>RSS Feed | <xsl:value-of select="/rss/channel/title" /></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  draculaLc: "#E30A17",
+                  draculaTc: "#282a36",
+                  draculaBg: "#282a36",
+                },
+              },
+            },
+          };
+        </script>
+      </head>
 
-# Pretty Feed
-
-Styles an RSS/Atom feed, making it friendly for humans viewers, and adds a link
-to aboutfeeds.com for new user onboarding. See it in action:
-
-   https://interconnected.org/home/feed
-
-
-## Credits
-
-pretty-feed is based on work by lepture.com:
-
-   https://lepture.com/en/2019/rss-style-with-xsl
-
-This current version is maintained by aboutfeeds.com:
-
-   https://github.com/genmon/aboutfeeds
-
--->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://www.w3.org/2005/Atom" version="3.0">
-    <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes" />
-    <xsl:template match="/">
-        <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-
-        <head>
-            <title>
-                RSS Feed |
-                <xsl:value-of select="/rss/channel/title" />
-            </title>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-            <link rel="stylesheet" href="/styles.css"/>
-        </head>
-
-        <body>
-        <nav class="container-md markdown-body">
-          <p class="bg-yellow-light px-1 py-1 mb-1">
-            <strong>This is a web feed,</strong> also known as an RSS feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
-          </p>
-          <p class="text-gray-light">
-            Visit <a href="https://aboutfeeds.com">About Feeds</a> to get started with newsreaders and subscribing. It's free.
+      <body
+        class="bg-draculaBg text-draculaTc font-sans text-base leading-6 text-gray-700 max-w-[60ch] mx-auto p-2"
+      >
+        <nav class="container mx-auto py-4">
+          <div class="bg-yellow-200 px-4 py-2 mb-2">
+            <p>
+              <strong>This is a web feed,</strong> also known as an RSS feed.
+            </p>
+            <p>
+              <small
+                >Subscribe by copying the URL from the address bar into your
+                newsreader.</small
+              >
+            </p>
+          </div>
+          <p class="text-gray-500">
+            Visit
+            <a class="text-draculaLc" href="https://aboutfeeds.com"
+              >About Feeds</a
+            >
+            to get started with newsreaders and subscribing. It's free.
           </p>
         </nav>
-        <hr />
-        <header>
-            <a class="head_link" target="_blank">
-              <xsl:attribute name="href">
-                <xsl:value-of select="/rss/channel/link"/>
-              </xsl:attribute>
-              <img src="/images/brand/feed_banner.png" alt="News47ell" />
-            </a>
-            <hr />
-            <h2 class="border-0 text-white">
-            <!-- https://commons.wikimedia.org/wiki/File:Feed-icon.svg -->
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="vertical-align: text-bottom; width: 1.2em; height: 1.2em;" class="pr-1" id="RSSicon" viewBox="0 0 256 256">
-                <defs>
-                  <linearGradient x1="0.085" y1="0.085" x2="0.915" y2="0.915" id="RSSg">
-                    <stop  offset="0.0" stop-color="#E3702D"/><stop  offset="0.1071" stop-color="#EA7D31"/>
-                    <stop  offset="0.3503" stop-color="#F69537"/><stop  offset="0.5" stop-color="#FB9E3A"/>
-                    <stop  offset="0.7016" stop-color="#EA7C31"/><stop  offset="0.8866" stop-color="#DE642B"/>
-                    <stop  offset="1.0" stop-color="#D95B29"/>
-                  </linearGradient>
-                </defs>
-                <rect width="256" height="256" rx="55" ry="55" x="0"  y="0"  fill="#CC5D15"/>
-                <rect width="246" height="246" rx="50" ry="50" x="5"  y="5"  fill="#F49C52"/>
-                <rect width="236" height="236" rx="47" ry="47" x="10" y="10" fill="url(#RSSg)"/>
-                <circle cx="68" cy="189" r="24" fill="#FFF"/>
-                <path d="M160 213h-34a82 82 0 0 0 -82 -82v-34a116 116 0 0 1 116 116z" fill="#FFF"/>
-                <path d="M184 213A140 140 0 0 0 44 73 V 38a175 175 0 0 1 175 175z" fill="#FFF"/>
-              </svg>
-              <xsl:value-of select="/rss/channel/title"/>
-              </h2>
-            <p class="text-white"><xsl:value-of select="/rss/channel/description"/></p>
-            <hr />
-          </header>
-             <h2 class="text-white">Recent Items</h2>
-          <xsl:for-each select="/rss/channel/item">
-            <div class="pb-5">
-              <h3 class="mb-0">
-                <a target="_blank">
-                  <xsl:attribute name="href">
-                    <xsl:value-of select="link"/>
-                  </xsl:attribute>
-                  <xsl:value-of select="title"/>
-                </a>
-              </h3>
-              <small class="text-gray-light">
-                Published: <xsl:value-of select="pubDate" />
-              </small>
-            </div>
-          </xsl:for-each>
-        </body>
-
-        </html>
-    </xsl:template>
-    <auto-scroll xmlns="http://www.w3.org/1999/xhtml"></auto-scroll>
+        <header class="mx-auto max-w-2xl">
+          <a target="_blank">
+            <xsl:attribute name="href">
+              <xsl:value-of select="/rss/channel/link" />
+            </xsl:attribute>
+            <img src="/images/brand/feed_banner.png" alt="News47ell" />
+          </a>
+          <hr class="my-4" />
+          <h2 class="border-0 text-white flex items-center">
+            <xsl:value-of select="/rss/channel/title" /> RSS Feed
+          </h2>
+          <p class="text-white">
+            <xsl:value-of select="/rss/channel/description" />
+          </p>
+          <hr class="my-4" />
+        </header>
+        <xsl:for-each select="/rss/channel/item">
+          <div class="pb-5">
+            <h3 class="mb-0 text-2xl font-semibold">
+              <a class="text-draculaLc" target="_blank">
+                <xsl:attribute name="href">
+                  <xsl:value-of select="link" />
+                </xsl:attribute>
+                <xsl:value-of select="title" />
+              </a>
+            </h3>
+            <small class="text-gray-500">
+              Published: <xsl:value-of select="pubDate" />
+            </small>
+          </div>
+        </xsl:for-each>
+      </body>
+    </html>
+  </xsl:template>
+  <auto-scroll xmlns="http://www.w3.org/1999/xhtml"></auto-scroll>
 </xsl:stylesheet>
