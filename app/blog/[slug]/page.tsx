@@ -24,7 +24,7 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
 		return
 	}
 
-	const { title, published_at: publishedTime, description: description, slug } = post
+	const { title, published_at: publishedTime, description, slug } = post
 	const ogImage = `${siteMetadata.siteUrl}/api/og/image?title=${encodeURIComponent(title)}`
 
 	return {
@@ -67,7 +67,16 @@ export default function Post({ params }: { params: { slug: string } }) {
 		notFound()
 	}
 
-	const { source, title, published_at, updated_at, readingTime, wordsCount, structuredData } = post
+	const {
+		source,
+		title,
+		cover,
+		published_at,
+		updated_at,
+		readingTime,
+		wordsCount,
+		structuredData,
+	} = post
 
 	return (
 		<BlogPost
@@ -77,6 +86,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 			updatedAt={updated_at}
 			readingTime={readingTime}
 			wordsCount={wordsCount}
+			cover={cover}
 			slug={slug}
 			post={post}
 			structuredData={structuredData}

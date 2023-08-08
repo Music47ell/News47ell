@@ -44,6 +44,7 @@ const Blog = defineDocumentType(() => ({
 		draft: { type: 'boolean', required: false },
 		published_at: { type: 'string', required: true },
 		updated_at: { type: 'string', required: true },
+		cover: { type: 'image', required: false },
 		tags: { type: 'list', of: { type: 'string' }, required: false },
 		source: { type: 'string', required: false },
 		canonicalUrl: { type: 'string', required: false },

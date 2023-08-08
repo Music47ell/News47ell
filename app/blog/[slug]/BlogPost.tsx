@@ -1,5 +1,6 @@
 import type { Route } from 'next'
 
+import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -15,6 +16,7 @@ const BlogPost = ({
 	updatedAt,
 	readingTime,
 	wordsCount,
+	cover,
 	slug,
 	post,
 	structuredData,
@@ -27,7 +29,16 @@ const BlogPost = ({
 			<SectionContainer>
 				<main className="col-span-10 flex flex-col lg:col-span-7">
 					<article className="h-entry">
-						<div className="relative flex w-full flex-col items-center justify-center">
+						<div className="relative flex w-full flex-col items-center justify-center gap-4">
+							{post.cover && (
+								<Image
+									src={cover.filePath.replace('../public', '')}
+									alt=""
+									width={800}
+									height={500 / post.cover.aspectRatio}
+									blurDataURL={post.cover.blurhashDataUrl}
+								/>
+							)}
 							<div className="flex items-center justify-center gap-4">
 								<time
 									dateTime={hEntryDate(updatedAt)}
