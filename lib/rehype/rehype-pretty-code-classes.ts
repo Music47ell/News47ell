@@ -2,9 +2,8 @@ import { visit } from 'unist-util-visit'
 
 // div.BLOCK > pre.PRE > code.CODE
 const BLOCK =
-	'my-5 overflow-hidden rounded-lg bg-nfh-background-secondary ring-1 ring-inset ring-nfh-background-secondary/[3%]'
-const TITLE =
-	'mb-0.5 rounded-t-md bg-nfh-background-secondary px-3 py-2 font-mono text-sm text-nfh-text-primary'
+	'my-5 overflow-hidden bg-nfh-background-secondary ring-1 ring-inset ring-nfh-background-secondary/[3%]'
+const TITLE = 'mb-0.5 bg-nfh-background-secondary px-3 py-2 font-mono text-sm text-nfh-text-primary'
 const CODE = 'grid [&>span]:border-l-4 [&>span]:border-l-transparent [&>span]:pl-2 [&>span]:pr-3'
 const NUMBERED_LINES =
 	'[counter-reset:line] before:[&>span]:mr-3 before:[&>span]:inline-block before:[&>span]:w-4 before:[&>span]:text-right before:[&>span]:text-white/20 before:[&>span]:![content:counter(line)] before:[&>span]:[counter-increment:line]'
