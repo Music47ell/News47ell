@@ -23,9 +23,10 @@ const BlogPost = ({
 }) => {
 	return (
 		<>
-			<script type="application/ld+json" suppressHydrationWarning>
-				{JSON.stringify(structuredData)}
-			</script>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
 			<SectionContainer>
 				<main className="col-span-10 flex flex-col lg:col-span-7">
 					<article className="h-entry">
@@ -33,9 +34,11 @@ const BlogPost = ({
 							{post.cover && (
 								<Image
 									src={cover.filePath.replace('../public', '')}
-									alt=""
-									width={800}
-									height={500 / post.cover.aspectRatio}
+									alt={cover.fileName}
+									sizes="100vw"
+									className="h-auto w-full"
+									width={500}
+									height={300}
 									blurDataURL={post.cover.blurhashDataUrl}
 								/>
 							)}

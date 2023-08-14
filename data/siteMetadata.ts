@@ -1,4 +1,4 @@
-import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon } from '../components/icons'
+import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon, Slash } from '../components/icons'
 
 const siteMetadata = {
 	title: 'News47ell',
@@ -25,6 +25,7 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
+		{ title: 'Home', href: '/', icon: Slash, activePath: /^\/home*/ },
 		{ title: 'Dashboard', href: '/dashboard', icon: DashboardIcon, activePath: /^\/dashboard*/ },
 		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
 		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
