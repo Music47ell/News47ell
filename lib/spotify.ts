@@ -1,12 +1,14 @@
 // scope=user-read-currently-playing%20 user-top-read%20user-read-recently-played
 //import 'server-only'
 
+import { Episode, Track } from './types'
+
 const client_id = process.env.SPOTIFY_CLIENT_ID
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`
 const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?limit=10`
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
@@ -42,23 +44,10 @@ export const getAccessToken = async () => {
 	return response.json()
 }
 
-type Song = {
+export type NowPlayingResponse = {
 	is_playing: boolean
-	item: {
-		name: string
-		artists: {
-			name: string
-		}[]
-		album: {
-			name: string
-			images: {
-				url: string
-			}[]
-		}
-		external_urls: {
-			spotify: string
-		}
-	}
+	currently_playing_type: 'episode' | 'track'
+	item: Episode | Track
 }
 
 export const getNowPlaying = async () => {
@@ -69,6 +58,7 @@ export const getNowPlaying = async () => {
 			Authorization: `Bearer ${access_token}`,
 		},
 	})
+
 	if (response.status === 204) {
 		return {
 			status: response.status,
@@ -76,11 +66,11 @@ export const getNowPlaying = async () => {
 	}
 
 	try {
-		const song = (await response.json()) as Song
+		const nowPlaying = (await response.json()) as NowPlayingResponse
 
 		return {
 			status: response.status,
-			data: song,
+			data: nowPlaying,
 		}
 	} catch {
 		return {

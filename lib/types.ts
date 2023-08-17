@@ -25,13 +25,47 @@ export type TraktRelease = {
 	trailer: string
 }
 
+export type Episode = {
+	name: string
+	images: {
+		url: string
+	}
+	show: {
+		name: string
+		images: {
+			url: string
+		}
+	}
+	external_urls: {
+		spotify: string
+	}
+}
+
+export type Track = {
+	name: string
+	artists: {
+		name: string
+	}[]
+	album: {
+		name: string
+		images: {
+			url: string
+		}[]
+	}
+	external_urls: {
+		spotify: string
+	}
+}
+
 export type NowPlayingSong = {
-	album: string
-	albumImageUrl: string
-	artist: string
 	isPlaying: boolean
-	songUrl: string
+	playingType: 'episode' | 'track'
 	title: string
+	artist?: string
+	albumImageUrl: string
+	episodeImageUrl: string
+	songUrl: string
+	episodeUrl: string
 }
 
 export type Song = {

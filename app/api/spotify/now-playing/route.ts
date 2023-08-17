@@ -1,4 +1,5 @@
 import { getNowPlaying } from 'lib/spotify'
+import { Episode, Track } from 'lib/types'
 import { NextResponse } from 'next/server'
 
 export const runtime = 'edge'
@@ -11,34 +12,54 @@ export const GET = async () => {
 		if (
 			response.status === 204 ||
 			response.status > 400 ||
-			response?.data?.item === null ||
+			response?.data?.currently_playing_type === null ||
 			!response.data
 		) {
 			return NextResponse.json({ isPlaying: false })
 		}
 
-		const song = response.data
+		const playingType = response.data.currently_playing_type
 
-		// Don't show song if it is paused
-		if (song.is_playing === false) {
+		if (playingType === 'episode') {
+			// Handle episode case
+			const episode = response.data.item as Episode
+			const isPlaying = response.data.is_playing
+			const title = episode.name
+			const show = episode.show.name
+			const episodeUrl = episode.external_urls.spotify
+			const episodeImageUrl = episode.images[0]?.url || episode.show.images[0]?.url
+
+			return NextResponse.json({
+				isPlaying,
+				playingType,
+				title,
+				show,
+				episodeUrl,
+				episodeImageUrl,
+			})
+		} else if (playingType === 'track') {
+			// Handle track case
+			const track = response.data.item as Track
+			const isPlaying = response.data.is_playing
+			const title = track.name
+			const artist = track.artists.map((_artist) => _artist.name).join(', ')
+			const album = track.album.name
+			const albumImageUrl = track.album.images[0].url
+			const songUrl = track.external_urls.spotify
+
+			return NextResponse.json({
+				isPlaying,
+				playingType,
+				title,
+				artist,
+				album,
+				albumImageUrl,
+				songUrl,
+			})
+		} else {
+			// Handle other playing types if needed
 			return NextResponse.json({ isPlaying: false })
 		}
-
-		const isPlaying = song.is_playing
-		const title = song.item.name
-		const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
-		const album = song.item.album.name
-		const albumImageUrl = song.item.album.images[0].url
-		const songUrl = song.item.external_urls.spotify
-
-		return NextResponse.json({
-			isPlaying,
-			title,
-			artist,
-			album,
-			albumImageUrl,
-			songUrl,
-		})
 	} catch {
 		return NextResponse.json(
 			{
