@@ -77,6 +77,13 @@ export type Song = {
 	albumImage: string
 }
 
+export type Podcast = {
+	podcastUrl: string
+	title: string
+	show: string
+	podcastImage: string
+}
+
 export type NowWatchingRelease = {
 	poster: string
 	title: string

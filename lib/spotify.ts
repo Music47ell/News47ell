@@ -1,4 +1,5 @@
-// scope=user-read-currently-playing%20 user-top-read%20user-read-recently-played
+// https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=http
+// %3A%2F%2Flocalhost:3000&scope=user-read-currently-playing%20user-top-read%20user-read-recently-played%20user-library-read
 //import 'server-only'
 
 import { Episode, Track } from './types'
@@ -10,6 +11,8 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`
 const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10`
+const RECENT_PODCAST_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10&type=episode`
+const SHOWS_ENDPOINT = `https://api.spotify.com/v1/me/shows?limit=10&offset=0`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?limit=10`
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
@@ -140,6 +143,61 @@ export const getTopTracks = async () => {
 	const topTracks = (await response.json()) as TopTracks
 
 	return topTracks
+}
+
+type RecentPodcasts = {
+	items: {
+		episode: {
+			name: string
+			show: {
+				name: string
+				images: { url: string }[]
+			}
+			external_urls: {
+				spotify: string
+			}
+			audio_preview_url: string
+		}
+	}[]
+}
+
+export const getRecentPodcasts = async () => {
+	const { access_token } = await getAccessToken()
+	const response = await fetch(RECENT_PODCAST_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+		next: { revalidate: 60 },
+	})
+	const recentPodcasts = (await response.json()) as RecentPodcasts
+
+	return recentPodcasts
+}
+
+type SubscribedShows = {
+	items: {
+		show: {
+			name: string
+			publisher: string
+			images: { url: string }[]
+			external_urls: {
+				spotify: string
+			}
+		}
+	}[]
+}
+
+export const getSubscribedShows = async () => {
+	const { access_token } = await getAccessToken()
+	const response = await fetch(SHOWS_ENDPOINT, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+		next: { revalidate: 60 },
+	})
+	const subscribedShows = (await response.json()) as SubscribedShows
+
+	return subscribedShows
 }
 
 export const getTracksUri = async () => {
