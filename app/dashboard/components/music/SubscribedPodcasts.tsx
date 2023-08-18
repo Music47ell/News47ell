@@ -10,8 +10,6 @@ const getRecentTenPodcasts = async () => {
 		podcastImage: show.images[0].url,
 	})) as Podcast[]
 
-	console.log(subscribedShows)
-
 	return subscribedShows
 }
 

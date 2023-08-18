@@ -12,7 +12,7 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`
 const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10`
 const RECENT_PODCAST_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10&type=episode`
-const SHOWS_ENDPOINT = `https://api.spotify.com/v1/me/shows?limit=10&offset=0`
+const SHOWS_ENDPOINT = `https://api.spotify.com/v1/me/shows?limit=10`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?limit=10`
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 const RECOMMEND_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${process.env.NEXT_PUBLIC_SPOTIFY_RECOMMENDATIONS_PLAYLIST_ID}/tracks`
