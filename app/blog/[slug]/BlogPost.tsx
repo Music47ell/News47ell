@@ -46,6 +46,7 @@ const BlogPost = ({
 								dateTime={hEntryDate(updatedAt)}
 								className="dt-published"
 								aria-label={`Published at: ${displayDate(publishedAt)}`}
+								itemProp="dateModified"
 							>
 								{displayDate(updatedAt)}
 							</time>
