@@ -5,6 +5,7 @@ import SectionHeading from '../SectionHeading'
 import SectionSubHeading from '../SectionSubHeading'
 import LastfmCard from './LastfmCard'
 import RecentTracks from './RecentTracks'
+import SubscribedPodcasts from './SubscribedPodcasts'
 import TopTracks from './TopTracks'
 
 export default function Music() {
@@ -34,6 +35,8 @@ export default function Music() {
 			<RecentTracks />
 			<h3 className="text-2xl font-bold leading-8 tracking-tight">Daily Top Tracks</h3>
 			<TopTracks />
+			<h3 className="text-2xl font-bold leading-8 tracking-tight">Podcasts I Follow</h3>
+			<SubscribedPodcasts />
 		</section>
 	)
 }

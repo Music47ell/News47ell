@@ -7,14 +7,11 @@ const rgbToTailwind = (rgb) =>
 		.join(' ')
 
 module.exports = {
-	experimental: {
-		optimizeUniversalDefaults: true,
-	},
 	content: [
 		'./app/**/*.{js,ts,jsx,tsx}',
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}',
-		'./layouts/**/*.{js,ts,jsx,tsx}',
+		'./pages/**/*.{js,ts,tsx}',
+		'./components/**/*.{js,ts,tsx}',
+		'./layouts/**/*.{js,ts,tsx}',
 		'./lib/**/*.ts',
 	],
 	theme: {

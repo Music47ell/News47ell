@@ -2,7 +2,7 @@ import { type Options } from 'rehype-pretty-code'
 
 const HIGHLIGHTED_LINE =
 	'!border-nfh-accent-primary bg-nfh-background-secondary/50 before:!text-nfh-text-secondary'
-const HIGHLIGHTED_WORD = 'rounded bg-nfh-accent-secondary py-0.5 px-1 text-nfh-text-primary'
+const HIGHLIGHTED_WORD = 'bg-nfh-accent-secondary py-0.5 px-1 text-nfh-text-primary'
 
 // export const
 

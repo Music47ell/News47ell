@@ -7,7 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 export default function Footer(): JSX.Element {
 	return (
 		<footer className="z-40 border-t border-nfh-accent-primary bg-nfh-background-secondary p-4 print:hidden">
-			<div className="flex flex-col items-center">
+			<div className="m-auto flex max-w-md flex-col items-center">
 				<div className="grid grid-cols-1 space-y-2">
 					<div className="flex items-center justify-between space-x-3">
 						{siteMetadata.author.social.map((link, index) => (

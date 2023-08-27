@@ -25,13 +25,47 @@ export type TraktRelease = {
 	trailer: string
 }
 
+export type Episode = {
+	name: string
+	images: {
+		url: string
+	}
+	show: {
+		name: string
+		images: {
+			url: string
+		}
+	}
+	external_urls: {
+		spotify: string
+	}
+}
+
+export type Track = {
+	name: string
+	artists: {
+		name: string
+	}[]
+	album: {
+		name: string
+		images: {
+			url: string
+		}[]
+	}
+	external_urls: {
+		spotify: string
+	}
+}
+
 export type NowPlayingSong = {
-	album: string
-	albumImageUrl: string
-	artist: string
 	isPlaying: boolean
-	songUrl: string
+	playingType: 'episode' | 'track'
 	title: string
+	artist?: string
+	albumImageUrl: string
+	episodeImageUrl: string
+	songUrl: string
+	episodeUrl: string
 }
 
 export type Song = {
@@ -41,6 +75,13 @@ export type Song = {
 	title: string
 	album: string
 	albumImage: string
+}
+
+export type Podcast = {
+	podcastUrl: string
+	title: string
+	show: string
+	podcastImage: string
 }
 
 export type NowWatchingRelease = {
@@ -118,16 +159,6 @@ export type Lastfm = {
 		url: string
 		name: string
 	}
-}
-
-export type Links = {
-	rel?: string
-	href?: string
-	className?: string
-	children?: React.ReactNode
-	onClick?: () => void
-	onMouseEnter?: () => void
-	onMouseLeave?: () => void
 }
 
 export type WebMention = {

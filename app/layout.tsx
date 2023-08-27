@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 
 import Analytics from '@/components/Analytics'
 import { Footer, Header } from '@/components/UI'
+import Nav from '@/components/UI/Nav'
 import siteMetadata from '@/data/siteMetadata'
 
 export const metadata: Metadata = {
@@ -108,6 +109,7 @@ export default function RootLayout({ children }) {
 				<Analytics />
 				<div className="flex min-h-screen flex-col justify-between">
 					<Header />
+					<Nav />
 					{children}
 					<Footer />
 				</div>

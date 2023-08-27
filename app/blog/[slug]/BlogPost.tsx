@@ -1,8 +1,6 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import type { Route } from 'next'
 
+import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -18,27 +16,37 @@ const BlogPost = ({
 	updatedAt,
 	readingTime,
 	wordsCount,
+	cover,
 	slug,
 	post,
+	structuredData,
 }) => {
 	return (
 		<SectionContainer>
-			<motion.main
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				className="col-span-10 flex flex-col lg:col-span-7"
-			>
-				<motion.article
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					className="h-entry"
-				>
-					<div className="relative flex w-full flex-col items-center justify-center">
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
+			<main className="col-span-10 flex flex-col lg:col-span-7">
+				<article className="h-entry">
+					<div className="relative flex w-full flex-col items-center justify-center gap-4">
+						{post.cover && (
+							<Image
+								src={cover.filePath.replace('../public', '')}
+								alt={cover.fileName}
+								sizes="100vw"
+								className="h-auto w-full"
+								width={500}
+								height={300}
+								blurDataURL={post.cover.blurhashDataUrl}
+							/>
+						)}
 						<div className="flex items-center justify-center gap-4">
 							<time
 								dateTime={hEntryDate(updatedAt)}
 								className="dt-published"
 								aria-label={`Published at: ${displayDate(publishedAt)}`}
+								itemProp="dateModified"
 							>
 								{displayDate(updatedAt)}
 							</time>
@@ -77,9 +85,9 @@ const BlogPost = ({
 							</div>
 						</div>
 					</div>
-				</motion.article>
+				</article>
 				<NewsletterForm />
-			</motion.main>
+			</main>
 		</SectionContainer>
 	)
 }

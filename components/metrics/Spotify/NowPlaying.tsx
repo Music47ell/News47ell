@@ -11,7 +11,13 @@ export default function NowPlaying(): JSX.Element {
 	const { data } = useSWR<NowPlayingSong>('/api/spotify/now-playing', fetcher)
 
 	return data?.isPlaying ? (
-		<MediaCard title={data.title} image={data.albumImageUrl} url={data.songUrl} />
+		<div>
+			{data.playingType === 'episode' ? (
+				<MediaCard title={data.title} image={data.episodeImageUrl} url={data.episodeUrl} />
+			) : (
+				<MediaCard title={data.title} image={data.albumImageUrl} url={data.songUrl} />
+			)}
+		</div>
 	) : (
 		<div className="flex w-full flex-row-reverse items-center">
 			<SpotifyIcon className="block h-6 w-6 fill-nfh-accent-primary" />

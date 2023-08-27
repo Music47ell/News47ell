@@ -1,13 +1,20 @@
-import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon } from '@/components/icons'
+import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon, Slash } from '../components/icons'
 
 const siteMetadata = {
 	title: 'News47ell',
 	altTitle: 'NEWS FOR HELL',
 	description: 'Tech news, reviews and interesting links',
 	siteUrl: 'https://www.news47ell.com',
+	siteLogo: '/images/brand/logo.png',
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',
 	githubSponsorUrl: 'https://github.com/sponsors/Music47ell',
+	social: [
+		{ title: 'Twitter', href: 'https://twitter.com/news47ell' },
+		{ title: 'Facebook', href: 'https://www.facebook.com/news47ell' },
+		{ title: 'LinkedIn', href: 'https://www.linkedin.com/company/news47ell' },
+		{ title: 'Mastodon', href: 'https://mastodon.social/@news47ell' },
+	],
 	author: {
 		name: 'Ahmet ALMAZ',
 		username: 'Music47ell',
@@ -25,6 +32,7 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
+		{ title: 'Home', href: '/', icon: Slash, activePath: /^\/home*/ },
 		{ title: 'Dashboard', href: '/dashboard', icon: DashboardIcon, activePath: /^\/dashboard*/ },
 		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
 		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
