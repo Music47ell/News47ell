@@ -1,14 +1,15 @@
 'use client'
 
 import { News47ell } from '@/components/icons'
+import { default as Link } from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Header() {
 	return (
-		<header className="sticky inset-x-0 top-0 z-20 m-auto w-full bg-nfh-background-primary/30 p-4 backdrop-blur-lg sm:min-h-[74px]">
-			<a href="/" aria-label={siteMetadata.title}>
+		<header className="m-auto w-full p-4">
+			<Link href="/" aria-label={siteMetadata.title}>
 				<News47ell className="m-auto block h-10 w-auto" />
-			</a>
+			</Link>
 		</header>
 	)
 }

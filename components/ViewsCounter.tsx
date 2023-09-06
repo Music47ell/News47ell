@@ -23,7 +23,7 @@ export default function ViewsCounter({ slug, trackView }: { slug: string; trackV
 	}, [slug, trackView])
 
 	return (
-		<p className="font-mono text-sm tracking-tighter">
+		<p className="shrink-0 font-mono text-sm tracking-tighter text-nfh-text-primary">
 			{data ? `${views.toLocaleString()} views` : '--- views'}
 		</p>
 	)

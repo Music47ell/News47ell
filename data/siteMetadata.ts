@@ -32,10 +32,8 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Home', href: '/', icon: Slash, activePath: /^\/home*/ },
-		{ title: 'Dashboard', href: '/dashboard', icon: DashboardIcon, activePath: /^\/dashboard*/ },
-		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
 		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
+		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
 		{ title: 'Sponsors', href: '/sponsors', icon: CoffeeIcon, activePath: /^\/sponsors*/ },
 	],
 	curlCardLinks: {

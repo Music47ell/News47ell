@@ -1,9 +1,9 @@
 import { Slash } from '@/components/icons'
 import { default as Image } from '@/components/Image'
 import { default as Link } from '@/components/Link'
+import Most from '@/components/Most'
 import NewsletterForm from '@/components/NewsletterForm'
 import { Divider, SectionContainer } from '@/components/UI'
-import ViewsCounter from '@/components/ViewsCounter'
 import type { Blog } from '@/contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { getBlogHomepage } from '@/lib/contentlayer'
@@ -14,64 +14,52 @@ export default async function Homepage() {
 	const topPosts = await getTopPosts()
 	return (
 		<SectionContainer>
-			<div className="mt-4 grid grid-cols-1 items-center md:grid-cols-6 md:text-left">
-				<div className="order-2 col-span-5 leading-tight md:order-1 md:leading-normal">
-					<div className="text-xl font-semibold md:text-3xl">
-						<span>Merhaba 👋</span>
+			<div className="space-y-8">
+				<div className="overflow-hidden rounded-xl border border-nfh-accent-primary bg-nfh-background-secondary">
+					<div className="relative border-b border-nfh-accent-primary px-4 py-3">
+						<div className="flex items-center gap-x-2">
+							<p className="font-width-5 font-bold">Merhaba 👋</p>
+						</div>
 					</div>
-					<p>
-						{`My name is ${siteMetadata.author.name}. I'm Full Stack Developer from`}
-						<span className="font-bold">
-							{' '}
-							{siteMetadata.author.location.country + ' ' + siteMetadata.author.location.emojiFlag}
-						</span>
-						<br />
-						This site is where I conduct all my experiments, and share my thoughts and ideas.
-					</p>
+					<div className="flex items-start justify-between gap-x-8 border-b border-nfh-accent-primary p-4">
+						<div className="space-y-2">
+							<p>
+								{`My name is ${siteMetadata.author.name}. I'm Full Stack Developer from`}
+								<span className="font-bold">
+									{' '}
+									{siteMetadata.author.location.country +
+										' ' +
+										siteMetadata.author.location.emojiFlag}
+								</span>
+							</p>
+							<p>
+								This site is where I conduct all my experiments, and share my thoughts and ideas.
+							</p>
+						</div>
+						<Image
+							src={siteMetadata.author.avatar}
+							alt={siteMetadata.author.name}
+							height={96}
+							width={96}
+							priority={true}
+							className="col-span-1 rounded-md"
+						/>
+					</div>
+					<div className="divide-y divide-nfh-accent-secondary border-nfh-accent-primary">
+						{siteMetadata.headerNavLinks.map((link) => (
+							<Link key={link.title} href={link.href} className="flex items-center gap-x-2 p-4">
+								{link.title}
+							</Link>
+						))}
+					</div>
 				</div>
-				<div className="order-1 m-auto md:order-2">
-					<Image
-						src={siteMetadata.author.avatar}
-						alt={siteMetadata.author.name}
-						height={160}
-						width={160}
-						priority={true}
-						className="col-span-1 rounded-full"
-					/>
-				</div>
+				<Divider>
+					<Slash className="block h-10 w-auto" />
+				</Divider>
+				<NewsletterForm />
+				<Most title="Most Recent Blog Posts" posts={posts} />
+				<Most title="Most Viewed Blog Posts" posts={topPosts} />
 			</div>
-			<Divider>
-				<Slash className="block h-10 w-auto" />
-			</Divider>
-			<NewsletterForm />
-			<p>Most Recent Blog Posts</p>
-			<ul>
-				{posts.slice(0, 3).map((post, index: number) => (
-					<Link key={index} className="mb-4 flex flex-col space-y-1" href={`/blog/${post.slug}`}>
-						<div className="flex w-full flex-col">
-							<p>{post.title}</p>
-							<span className="flex flex-row"></span>
-							<ViewsCounter slug={post.slug} trackView={false} />
-						</div>
-					</Link>
-				))}
-			</ul>
-			<p>Most Viewed Blog Posts</p>
-			<ul>
-				{topPosts.map((post, index: number) => (
-					<Link
-						key={post.slug}
-						className="mb-4 flex flex-col space-y-1"
-						href={`/blog/${post.slug}`}
-					>
-						<div className="flex w-full flex-col">
-							<p>{post.title}</p>
-							<span className="flex flex-row"></span>
-							<ViewsCounter slug={post.slug} trackView={false} />
-						</div>
-					</Link>
-				))}
-			</ul>
 		</SectionContainer>
 	)
 }

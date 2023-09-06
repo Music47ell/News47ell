@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
+import { default as Link } from '@/components/Link'
+import NewsletterForm from '@/components/NewsletterForm'
 import { SectionContainer } from '@/components/UI'
 import { Loader } from '@/components/UI'
 import type { Blog } from '@/contentlayer/generated'
@@ -18,7 +20,17 @@ export default function Blog() {
 
 	return (
 		<SectionContainer>
-			<main className="h-feed flex flex-col py-8">
+			<NewsletterForm />
+			<div className="mb-2 mt-6 flex justify-end">
+				<Link
+					href="/blog/feed.xml"
+					target="_blank"
+					className="font-width-3 flex items-center gap-x-1 text-sm font-semibold transition-colors"
+				>
+					<span>RSS</span>
+				</Link>
+			</div>
+			<main className="divide-y divide-nfh-accent-secondary overflow-hidden rounded-xl border border-nfh-accent-primary bg-nfh-background-secondary">
 				<Suspense fallback={<Loader />}>
 					{posts.map((post, index: number) => (
 						<BlogPostList key={index} post={post} />

@@ -31,17 +31,13 @@ export const getClientCredentialToken = async () => {
 }
 
 export const getAccessToken = async () => {
-	const searchParams = new URLSearchParams()
-	searchParams.append('grant_type', 'refresh_token')
-	searchParams.append('refresh_token', refresh_token as string)
-
 	const response = await fetch(TOKEN_ENDPOINT, {
 		method: 'POST',
 		headers: {
 			Authorization: `Basic ${basic}`,
 			'Content-Type': 'application/x-www-form-urlencoded',
 		},
-		body: searchParams.toString(),
+		body: `grant_type=refresh_token&refresh_token=${refresh_token}`,
 	})
 
 	return response.json()
