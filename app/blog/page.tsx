@@ -25,7 +25,7 @@ export default function Blog() {
 				<Link
 					href="/blog/feed.xml"
 					target="_blank"
-					className="font-width-3 flex items-center gap-x-1 text-sm font-semibold transition-colors"
+					className="flex items-center gap-x-1 text-sm font-semibold transition-colors"
 				>
 					<span>RSS</span>
 				</Link>

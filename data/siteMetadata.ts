@@ -1,5 +1,3 @@
-import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon, Slash } from '../components/icons'
-
 const siteMetadata = {
 	title: 'News47ell',
 	altTitle: 'NEWS FOR HELL',
@@ -32,9 +30,9 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
-		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
-		{ title: 'Sponsors', href: '/sponsors', icon: CoffeeIcon, activePath: /^\/sponsors*/ },
+		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
+		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
+		{ title: 'Sponsors', href: '/sponsors', activePath: /^\/sponsors*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

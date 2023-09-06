@@ -18,7 +18,7 @@ export default async function Homepage() {
 				<div className="overflow-hidden rounded-xl border border-nfh-accent-primary bg-nfh-background-secondary">
 					<div className="relative border-b border-nfh-accent-primary px-4 py-3">
 						<div className="flex items-center gap-x-2">
-							<p className="font-width-5 font-bold">Merhaba 👋</p>
+							<p className="font-bold">Merhaba 👋</p>
 						</div>
 					</div>
 					<div className="flex items-start justify-between gap-x-8 border-b border-nfh-accent-primary p-4">
