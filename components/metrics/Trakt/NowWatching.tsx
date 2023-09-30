@@ -4,11 +4,21 @@ import useSWR from 'swr'
 
 import { TraktIcon } from '@/components/icons'
 import { MediaCard } from '@/components/UI'
+import siteMetadata from '@/data/siteMetadata'
 import fetcher from '@/lib/fetcher'
-import { NowWatchingRelease } from '@/lib/types'
+
+export type NowWatchingRelease = {
+	isWatching: boolean
+	title: string
+	poster: string
+	url: string
+}
 
 export default function NowWatching(): JSX.Element {
-	const { data } = useSWR<NowWatchingRelease>('/api/trakt/now-watching', fetcher)
+	const { data } = useSWR<NowWatchingRelease>(
+		`${siteMetadata.apiOrigin}/api/trakt/now-watching`,
+		fetcher
+	)
 
 	return data?.isWatching ? (
 		<MediaCard title={data.title} image={data.poster} url={data.url} />

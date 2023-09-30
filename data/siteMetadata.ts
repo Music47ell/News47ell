@@ -1,10 +1,9 @@
-import { CoffeeIcon, DashboardIcon, InfoIcon, PenIcon, Slash } from '../components/icons'
-
 const siteMetadata = {
 	title: 'News47ell',
 	altTitle: 'NEWS FOR HELL',
 	description: 'Tech news, reviews and interesting links',
 	siteUrl: 'https://www.news47ell.com',
+	apiOrigin: 'https://dashboard.news47ell.com',
 	siteLogo: '/images/brand/logo.png',
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',
@@ -32,11 +31,9 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Home', href: '/', icon: Slash, activePath: /^\/home*/ },
-		{ title: 'Dashboard', href: '/dashboard', icon: DashboardIcon, activePath: /^\/dashboard*/ },
-		{ title: 'Blog', href: '/blog', icon: PenIcon, activePath: /^\/blog*/ },
-		{ title: 'Colophon', href: '/colophon', icon: InfoIcon, activePath: /^\/colophon*/ },
-		{ title: 'Sponsors', href: '/sponsors', icon: CoffeeIcon, activePath: /^\/sponsors*/ },
+		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
+		{ title: 'Sponsors', href: '/sponsors', activePath: /^\/sponsors*/ },
+		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

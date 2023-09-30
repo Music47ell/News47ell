@@ -34,8 +34,4 @@ const hEntryDate = (date: string) => {
 	return now
 }
 
-const displayNumbers = new Intl.NumberFormat('en-US', {
-	maximumFractionDigits: 0,
-})
-
-export { displayDate, displayDateAndTime, displayNumbers, hEntryDate }
+export { displayDate, displayDateAndTime, hEntryDate }

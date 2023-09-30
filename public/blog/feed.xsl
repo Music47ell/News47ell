@@ -39,17 +39,13 @@
               <strong>This is a web feed,</strong> also known as an RSS feed.
             </p>
             <p>
-              <small
-                >Subscribe by copying the URL from the address bar into your
-                newsreader.</small
-              >
+              <small>Subscribe by copying the URL from the address bar into your
+                newsreader.</small>
             </p>
           </div>
           <p class="text-gray-500">
             Visit
-            <a class="text-draculaLc" href="https://aboutfeeds.com"
-              >About Feeds</a
-            >
+            <a class="text-draculaLc" href="https://aboutfeeds.com">About Feeds</a>
             to get started with newsreaders and subscribing. It's free.
           </p>
         </nav>

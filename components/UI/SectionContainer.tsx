@@ -1,6 +1,6 @@
 export default function SectionContainer({ children }) {
 	return (
-		<section className="container m-auto flex max-w-3xl flex-1 flex-col gap-y-5 p-4 print:my-0 print:items-center print:justify-center">
+		<section className="container mx-auto flex max-w-screen-sm flex-1 flex-col p-4 print:my-0 print:items-center print:justify-center">
 			{children}
 		</section>
 	)

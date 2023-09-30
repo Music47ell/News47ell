@@ -22,19 +22,17 @@
 
 - `app/*` - All other static pages.
 - `app/blog/*` - Static pre-rendered blog pages using markdown.
-- `app/dashboard` - [Personal dashboard](https://www.news47ell.com/dashboard) tracking metrics.
 - `data/*` - TS/JSON data that is used for resume and site settings/info.
 - `lib/*` - Short for "library", a collection of helpful utilities or code for external services.
-- `pages/api/*` - [API Routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://www.news47ell.com/dashboard), post views, tv shows, movies and music.
 - `public/*` - Static assets including fonts and images.
 - `styles/*` - A small amount of global styles. I'm mostly using vanilla Tailwind CSS.
 
 ## Features
 
-- Easy styling customization with [Tailwind 3.0](https://tailwindcss.com/blog/tailwindcss-v3) and primary color attribute
+- Easy styling customization with [Tailwind](https://tailwindcss.com/)
 - Lightweight
 - Mobile-friendly view
-- Uses [Turso](https://turso.tech//) for post views and song recommendations
+- Uses [Turso](https://turso.tech//) for post views
 - Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - Pre-configured security headers
 - SEO friendly with RSS feed, sitemaps and more!

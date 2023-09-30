@@ -27,7 +27,7 @@ export default async function generateSitemap() {
   </urlset>
 `;
 
-  const routes = ['', 'blog', 'dashboard'].map((route) => ({
+  const routes = ['', 'blog'].map((route) => ({
     title: route === '' ? 'Home' :
       route.charAt(0).toUpperCase() + route.slice(1),
     slug: route,
