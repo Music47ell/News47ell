@@ -110,11 +110,16 @@ module.exports = () => {
 			}
 			for (const dashboard of dashboards) {
 				redirects.push({
-					source: `/${dashboards}/:id`,
-					destination: `/dashboard`,
+					source: `/dashboard/${dashboard}`,
+					destination: `https://dashboard.news47ell.com`,
 					permanent: true,
 				})
 			}
+			redirects.push({
+				source: '/dashboard',
+				destination: `https://dashboard.news47ell.com`,
+				permanent: true,
+			})
 			redirects.push({
 				source: '/tag/:id',
 				destination: '/blog',
@@ -268,11 +273,6 @@ module.exports = () => {
 			redirects.push({
 				source: '/blog/git-ignore-node-modules-dropbox',
 				destination: 'sync-node-project-ignore-node-modules-rsync-bash-script',
-				permanent: true,
-			})
-			redirects.push({
-				source: '/stats',
-				destination: '/dashboard',
 				permanent: true,
 			})
 			redirects.push({

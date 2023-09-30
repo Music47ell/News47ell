@@ -1,10 +1,13 @@
 import { mkdirSync, writeFileSync } from 'fs'
 import path from 'path'
+import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
 
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { escape, siteMetadata } from './index.mjs'
 
 export default async function generateFeeds() {
+	const parser = new MarkdownIt();
   const generateRssItem = (siteMetadata, post) => `
 	<item>
 		<guid>${siteMetadata.siteUrl}/blog/${post.slug}</guid>
@@ -13,12 +16,23 @@ export default async function generateFeeds() {
 		${post.description && `<description>${escape(post.description)}</description>`}
 		<pubDate>${new Date(post.published_at).toUTCString()}</pubDate>
 		<author>${siteMetadata.email} (${siteMetadata.author})</author>
+		<wordsCount>${post.wordsCount}</wordsCount>
+		<content:encoded><![CDATA[${sanitizeHtml(parser.render(post.body.raw))}]]></content:encoded>
 	</item>
 `
 
   const generateRss = (siteMetadata, posts, page = 'feed.xml') => `<?xml version="1.0" encoding="utf-8"?>
   <?xml-stylesheet href="/blog/feed.xsl" type="text/xsl"?>
-	<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 		<channel>
 			<title>${siteMetadata.title}</title>
 			<link>${siteMetadata.siteUrl}/blog</link>
@@ -45,6 +59,8 @@ export default async function generateFeeds() {
 			"url": "${siteMetadata.siteUrl}",
 			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
 		},
+		"words_count": "${post.wordsCount}",
+		"content_html": "${sanitizeHtml(parser.render(post.body.raw))}"
 	}
 `
 

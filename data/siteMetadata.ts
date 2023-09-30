@@ -3,6 +3,7 @@ const siteMetadata = {
 	altTitle: 'NEWS FOR HELL',
 	description: 'Tech news, reviews and interesting links',
 	siteUrl: 'https://www.news47ell.com',
+	apiOrigin: 'https://dashboard.news47ell.com',
 	siteLogo: '/images/brand/logo.png',
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',
@@ -30,9 +31,9 @@ const siteMetadata = {
 		],
 	},
 	headerNavLinks: [
-		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
 		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
 		{ title: 'Sponsors', href: '/sponsors', activePath: /^\/sponsors*/ },
+		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },
 	],
 	curlCardLinks: {
 		github: { title: 'GitHub', text: 'https://github.com/music47ell' },

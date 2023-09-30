@@ -92,7 +92,7 @@ const NewsletterForm = ({
 							{!subscribed && (
 								<button
 									type="submit"
-									className="hover:bg-primary-800 w-full border border-nfh-accent-primary px-5 py-3 text-center text-sm font-medium text-nfh-text-primary focus:ring-4 focus:ring-nfh-accent-secondary"
+									className="w-full border border-nfh-accent-primary px-5 py-3 text-center text-sm font-medium text-nfh-text-primary focus:ring-4 focus:ring-nfh-accent-secondary"
 									disabled={subscribed}
 								>
 									Subscribe
