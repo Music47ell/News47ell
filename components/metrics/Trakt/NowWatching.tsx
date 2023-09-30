@@ -6,7 +6,13 @@ import { TraktIcon } from '@/components/icons'
 import { MediaCard } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import fetcher from '@/lib/fetcher'
-import { NowWatchingRelease } from '@/lib/types'
+
+export type NowWatchingRelease = {
+	isWatching: boolean
+	title: string
+	poster: string
+	url: string
+}
 
 export default function NowWatching(): JSX.Element {
 	const { data } = useSWR<NowWatchingRelease>(

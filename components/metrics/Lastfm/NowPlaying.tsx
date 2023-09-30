@@ -6,7 +6,13 @@ import { LastfmIcon } from '@/components/icons'
 import { MediaCard } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 import fetcher from '@/lib/fetcher'
-import { NowPlayingSong } from '@/lib/types'
+
+export type NowPlayingSong = {
+	isPlaying: boolean
+	title: string
+	albumImageUrl: string
+	songUrl: string
+}
 
 export default function NowPlaying(): JSX.Element {
 	const { data } = useSWR<NowPlayingSong>(
@@ -16,11 +22,7 @@ export default function NowPlaying(): JSX.Element {
 
 	return data?.isPlaying ? (
 		<div>
-			{data.playingType === 'episode' ? (
-				<MediaCard title={data.title} image={data.episodeImageUrl} url={data.episodeUrl} />
-			) : (
-				<MediaCard title={data.title} image={data.albumImageUrl} url={data.songUrl} />
-			)}
+			<MediaCard title={data.title} image={data.albumImageUrl} url={data.songUrl} />
 		</div>
 	) : (
 		<div className="flex w-full flex-row-reverse items-center">
