@@ -59,7 +59,7 @@ export default async function generateFeeds() {
 			"url": "${siteMetadata.siteUrl}",
 			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
 		},
-		"words_count": "${post.wordsCount}",
+		"words_count": ${post.wordsCount},
 		"content_html": "${sanitizeHtml(parser.render(post.body.raw)).replace(/"/g, "'").replace(/\n/g, '').replace(/[\x00-\x1F\x7F-\x9F]/g, '')}"
 	}
 `
