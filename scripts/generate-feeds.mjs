@@ -8,7 +8,7 @@ import { escape, siteMetadata } from './index.mjs'
 
 export default async function generateFeeds() {
 	const parser = new MarkdownIt();
-  const generateRssItem = (siteMetadata, post) => `
+	const generateRssItem = (siteMetadata, post) => `
 	<item>
 		<guid>${siteMetadata.siteUrl}/blog/${post.slug}</guid>
 		<title>${escape(post.title)}</title>
@@ -21,7 +21,7 @@ export default async function generateFeeds() {
 	</item>
 `
 
-  const generateRss = (siteMetadata, posts, page = 'feed.xml') => `<?xml version="1.0" encoding="utf-8"?>
+	const generateRss = (siteMetadata, posts, page = 'feed.xml') => `<?xml version="1.0" encoding="utf-8"?>
   <?xml-stylesheet href="/blog/feed.xsl" type="text/xsl"?>
 	<rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -47,7 +47,7 @@ export default async function generateFeeds() {
 	</rss>
 `
 
-  const generateJsonItem = (siteMetadata, post) => `
+	const generateJsonItem = (siteMetadata, post) => `
 	{
 		"id": "${siteMetadata.siteUrl}/blog/${post.slug}",
 		"url": "${siteMetadata.siteUrl}/blog/${post.slug}",
@@ -60,11 +60,11 @@ export default async function generateFeeds() {
 			"avatar": "${siteMetadata.siteUrl}/${siteMetadata.avatar}"
 		},
 		"words_count": "${post.wordsCount}",
-		"content_html": "${sanitizeHtml(parser.render(post.body.raw))}"
+		"content_html": "${sanitizeHtml(parser.render(post.body.raw)).replace(/"/g, "'").replace(/\n/g, '').replace(/[\x00-\x1F\x7F-\x9F]/g, '')}"
 	}
 `
 
-  const generateJson = (siteMetadata, posts, page = 'feed.xml') => `{
+	const generateJson = (siteMetadata, posts, page = 'feed.xml') => `{
 		"version": "https://jsonfeed.org/version/1.1",
 		"title": "${siteMetadata.title}",
 		"home_page_url": "${siteMetadata.siteUrl}/blog",
@@ -83,18 +83,18 @@ export default async function generateFeeds() {
 	}
 `
 
-  const publishPosts = allBlogs
-    .filter((post) => post.draft !== true)
-    .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
-  // RSS for blog post
-  if (publishPosts.length > 0) {
-    const rssPath = path.join('public', 'blog')
-    mkdirSync(rssPath, { recursive: true })
-    const rss = generateRss(siteMetadata, publishPosts)
-    writeFileSync(path.join(rssPath, 'feed.xml'), rss)
-    console.log('RSS feed for posts generated...')
-    const json = generateJson(siteMetadata, publishPosts)
-    writeFileSync(path.join(rssPath, 'feed.json'), json)
-    console.log('JSON feed for posts generated...')
-  }
+	const publishPosts = allBlogs
+		.filter((post) => post.draft !== true)
+		.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+	// RSS for blog post
+	if (publishPosts.length > 0) {
+		const rssPath = path.join('public', 'blog')
+		mkdirSync(rssPath, { recursive: true })
+		const rss = generateRss(siteMetadata, publishPosts)
+		writeFileSync(path.join(rssPath, 'feed.xml'), rss)
+		console.log('RSS feed for posts generated...')
+		const json = generateJson(siteMetadata, publishPosts)
+		writeFileSync(path.join(rssPath, 'feed.json'), json)
+		console.log('JSON feed for posts generated...')
+	}
 }
