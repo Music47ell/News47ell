@@ -2,6 +2,7 @@ const siteMetadata = {
 	title: 'News47ell',
 	altTitle: 'NEWS FOR HELL',
 	description: 'Tech news, reviews and interesting links',
+	username: 'news47ell',
 	siteUrl: 'https://www.news47ell.com',
 	apiOrigin: 'https://dashboard.news47ell.com',
 	siteLogo: '/images/brand/logo.png',
@@ -30,7 +31,7 @@ const siteMetadata = {
 			{ title: 'Mastodon', href: 'https://mastodon.social/@music47ell' },
 		],
 	},
-	headerNavLinks: [
+	NavLinks: [
 		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
 		{ title: 'Sponsors', href: '/sponsors', activePath: /^\/sponsors*/ },
 		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },

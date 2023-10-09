@@ -7,16 +7,9 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {
 	return (
-		<footer className="p-4 print:hidden">
+		<footer className="print:hidden">
 			<div className="m-auto flex max-w-md flex-col items-center">
 				<div className="grid grid-cols-1">
-					<div className="flex items-center justify-between space-x-3">
-						{siteMetadata.headerNavLinks.map((link, index) => (
-							<Link key={index} href={link.href}>
-								{link.title}
-							</Link>
-						))}
-					</div>
 					<NowPlaying />
 					<NowWatching />
 					<HCard />

@@ -21,8 +21,16 @@ export default async function Homepage() {
 							<p className="font-bold">Merhaba 👋</p>
 						</div>
 					</div>
-					<div className="flex items-start justify-between gap-x-8 border-b border-nfh-accent-primary p-4">
-						<div className="space-y-2">
+					<div className="flex flex-col items-center justify-center gap-x-8 border-b border-nfh-accent-primary p-4 max-md:space-y-4 md:flex-row md:justify-between">
+						<Image
+							src={siteMetadata.author.avatar}
+							alt={siteMetadata.author.name}
+							height={96}
+							width={96}
+							priority={true}
+							className="col-span-1 rounded-md md:order-2"
+						/>
+						<div className="text-center md:text-left">
 							<p>
 								{`My name is ${siteMetadata.author.name}. I'm Full Stack Developer from`}
 								<span className="font-bold">
@@ -36,21 +44,6 @@ export default async function Homepage() {
 								This site is where I conduct all my experiments, and share my thoughts and ideas.
 							</p>
 						</div>
-						<Image
-							src={siteMetadata.author.avatar}
-							alt={siteMetadata.author.name}
-							height={96}
-							width={96}
-							priority={true}
-							className="col-span-1 rounded-md"
-						/>
-					</div>
-					<div className="divide-y divide-nfh-accent-secondary border-nfh-accent-primary">
-						{siteMetadata.headerNavLinks.map((link) => (
-							<Link key={link.title} href={link.href} className="flex items-center gap-x-2 p-4">
-								{link.title}
-							</Link>
-						))}
 					</div>
 				</div>
 				<Divider>
