@@ -3,7 +3,8 @@ import '@/assets/css/tailwind.css'
 import type { Metadata } from 'next'
 
 import Analytics from '@/components/Analytics'
-import { Footer, Header } from '@/components/UI'
+import { Slash } from '@/components/icons'
+import { Divider, Footer, Header, Nav } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 
 export const metadata: Metadata = {
@@ -108,7 +109,11 @@ export default function RootLayout({ children }) {
 				<Analytics />
 				<div className="flex min-h-screen flex-col justify-between">
 					<Header />
+					<Nav />
 					{children}
+					<Divider>
+						<Slash className="block h-10 w-auto" />
+					</Divider>
 					<Footer />
 				</div>
 			</body>

@@ -1,6 +1,4 @@
-import { Slash } from '@/components/icons'
 import { default as Image } from '@/components/Image'
-import { default as Link } from '@/components/Link'
 import Most from '@/components/Most'
 import NewsletterForm from '@/components/NewsletterForm'
 import { Divider, SectionContainer } from '@/components/UI'
@@ -46,9 +44,6 @@ export default async function Homepage() {
 						</div>
 					</div>
 				</div>
-				<Divider>
-					<Slash className="block h-10 w-auto" />
-				</Divider>
 				<NewsletterForm />
 				<Most title="Most Recent Blog Posts" posts={posts} />
 				<Most title="Most Viewed Blog Posts" posts={topPosts} />
