@@ -11,12 +11,13 @@
 
 ## Stack
 
-[![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Turso](https://img.shields.io/badge/turso-%234FF8D2.svg?style=for-the-badge&logo=turso&logoColor=white)](https://tailwindcss.com)
-[![Drizzle ORM](https://img.shields.io/badge/Drizzle-%23C5F74F.svg?style=for-the-badge&logo=drizzle&logoColor=white)](https://tailwindcss.com)
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
-[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+- `Next.js` - A React framework for building server-side rendered and static web applications.
+- `TypeScript` - A typed superset of JavaScript that compiles to plain JavaScript.
+- `Tailwind CSS` - A utility-first CSS framework for rapidly building custom user interfaces.
+- `Drizzle ORM` - A lightweight and simple ORM for Node.js that supports multiple databases.
+- `Turso` - A Fast, Easy and Cheap Database.
+- `Vercel` - A cloud platform for static sites and serverless functions.
+
 
 ## Overview
 
@@ -32,7 +33,7 @@
 - Easy styling customization with [Tailwind](https://tailwindcss.com/)
 - Lightweight
 - Mobile-friendly view
-- Uses [Turso](https://turso.tech//) for post views
+- Uses [Turso](https://turso.tech/) for post views
 - Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - Pre-configured security headers
 - SEO friendly with RSS feed, sitemaps and more!
