@@ -1,8 +1,7 @@
 import HCard from '@/components/hCard'
 import { Slash } from '@/components/icons'
 import { default as Link } from '@/components/Link'
-import { NowPlaying } from '@/components/metrics/Lastfm'
-import { NowWatching } from '@/components/metrics/Trakt'
+import { NowPlaying, NowWatching } from '@/components/UI'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer(): JSX.Element {

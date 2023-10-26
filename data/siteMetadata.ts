@@ -4,7 +4,6 @@ const siteMetadata = {
 	description: 'Tech news, reviews and interesting links',
 	username: 'news47ell',
 	siteUrl: 'https://www.news47ell.com',
-	apiOrigin: 'https://dashboard.news47ell.com',
 	siteLogo: '/images/brand/logo.png',
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',

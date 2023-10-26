@@ -40,3 +40,36 @@ export type Toc = {
 	depth: number
 	url: string
 }[]
+
+export type RecentTracks = {
+	recenttracks: {
+		track: {
+			name: string
+			artist: {
+				'#text': string
+			}
+			album: {
+				'#text': string
+			}
+			url: string
+			image: {
+				size: string
+				'#text': string
+			}[]
+			date: {
+				uts: string
+				'#text': string
+			}
+			'@attr': {
+				nowplaying: string
+			}
+		}[]
+		'@attr': {
+			user: string
+			page: string
+			perPage: string
+			totalPages: string
+			total: string
+		}
+	}
+}
