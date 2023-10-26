@@ -36,7 +36,7 @@ export const GET = async () => {
 		return NextResponse.json(
 			{
 				isPlaying: false,
-				message: 'Error getting Now Playing from Spotify',
+				message: 'Error getting Now Playing from Last.fm',
 			},
 			{ status: 500 }
 		)
