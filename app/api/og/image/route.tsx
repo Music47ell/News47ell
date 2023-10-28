@@ -1,5 +1,5 @@
+import { ImageResponse } from 'next/og'
 import type { NextRequest } from 'next/server'
-import { ImageResponse } from 'next/server'
 
 import siteMetadata from '@/data/siteMetadata'
 

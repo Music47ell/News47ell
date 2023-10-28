@@ -92,14 +92,17 @@ export const metadata: Metadata = {
 	appleWebApp: {
 		title: siteMetadata.title,
 	},
-	themeColor: [
-		{ media: '(prefers-color-scheme: light)', color: '#fff' },
-		{ media: '(prefers-color-scheme: dark)', color: '#000' },
-	],
 	other: {
 		webmention: `https://webmention.io/${siteMetadata.siteUrl}/webmention`,
 		pingback: `https://webmention.io/${siteMetadata.siteUrl}/xmlrpc`,
 	},
+}
+
+export const viewport = {
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#fff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#000' },
+	],
 }
 
 export default function RootLayout({ children }) {

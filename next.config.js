@@ -2,16 +2,14 @@
  * @type {import('next').NextConfig}
  **/
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
-})
-
-const { withSuperjson } = require('next-superjson')
 const { withContentlayer } = require('next-contentlayer')
 
 module.exports = () => {
-	const plugins = [withContentlayer, withBundleAnalyzer, withSuperjson()]
+	const plugins = [withContentlayer]
 	return plugins.reduce((acc, next) => next(acc), {
+		experimental: {
+			webpackBuildWorker: true,
+		},
 		reactStrictMode: true,
 		pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 		eslint: {
