@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { visit } from 'unist-util-visit'
 
 // div.BLOCK > pre.PRE > code.CODE

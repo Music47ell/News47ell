@@ -1,5 +1,4 @@
 import siteMetadata from '@/data/siteMetadata'
-import { getTMDBData } from '@/lib/tmdb'
 
 const TRAKT_CLIENT_ID = process.env.TRAKT_CLIENT_ID
 

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @typescript-eslint/indent, @typescript-eslint/no-unused-vars */
 import kleur from 'kleur'
 import stringWidth from 'string-width'
 

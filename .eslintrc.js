@@ -12,7 +12,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
+		//'plugin:prettier/recommended',
 		'next/core-web-vitals',
 		'plugin:tailwindcss/recommended',
 	],
@@ -20,7 +20,7 @@ module.exports = {
 		'no-template-curly-in-string': 'error',
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		'prettier/prettier': 'error',
+		//'prettier/prettier': 'error',
 		indent: 'off',
 		'@typescript-eslint/indent': [
 			'error',
