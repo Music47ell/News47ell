@@ -1,0 +1,84 @@
+---
+import Email from '@/components/icons/Email.html'
+---
+
+<div class="rounded-xl border border-yellow-500 bg-stone-900 p-4">
+	<div class="not-prose mx-auto max-w-screen-md sm:text-center">
+		<h2 class="mb-4 text-2xl tracking-tight text-gray-100">Subscribe to the newsletter</h2>
+
+		<form id="subscribe-form">
+			<div class="mx-auto max-w-screen-sm items-center gap-4 flex flex-col sm:flex-row">
+				<div class="relative w-full">
+					<label for="email" class="mb-2 hidden text-sm font-medium text-gray-100">
+						Email address
+					</label>
+
+					<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+						<Email />
+					</div>
+
+					<input
+						type="email"
+						id="email"
+						name="email"
+						class="{success
+							? 'bg-stone-700 placeholder:text-cyan-300'
+							: 'bg-stone-900 placeholder:text-gray-100'} block w-full border border-yellow-500 bg-stone-900 p-3 pl-10 text-sm focus:border-purple-400 focus:ring-purple-400"
+						autocomplete="email"
+						placeholder="Enter your email"
+						required
+					/>
+				</div>
+
+				<div>
+					<button
+						type="submit"
+						id="submit"
+						class="w-full border border-yellow-500 px-5 py-3 text-center text-sm font-medium text-gray-100 focus:ring-4 focus:ring-purple-400"
+					>
+						Subscribe
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- success or error message -->
+	<div class="mt-4 text-sm text-gray-100" id="message"></div>
+</div>
+
+<script lang="ts" type="module">
+	const form = document.getElementById('subscribe-form')
+	const email = document.getElementById('email')
+	const button = document.getElementById('submit')
+	const message = document.getElementById('message')
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault()
+
+		// Display loading message while waiting for the response
+		button.textContent = 'Loading...'
+
+		const res = await fetch('/api/newsletter', {
+			body: JSON.stringify({
+				email: email.value,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
+		})
+
+		const { error } = await res.json()
+
+		if (error) {
+			// Display error message if there's an error
+			message.textContent = error.message
+			button.textContent = 'Subscribe'
+		} else if (res.status === 200) {
+			// Display "Thank you for subscribing" on success
+			message.textContent = '🤘 Hell yeah! You are now subscribed.'
+			email.disabled = true
+			button.remove()
+		}
+	})
+</script>

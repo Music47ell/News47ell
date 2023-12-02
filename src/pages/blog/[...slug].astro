@@ -1,0 +1,32 @@
+---
+export const prerender = true
+
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+import PostLayout from '@/layouts/PostLayout.astro'
+import { components } from '@/components/mdx/index.astro'
+
+export async function getStaticPaths() {
+	const blogs = await getCollection('blog')
+
+	return blogs.map((blog) => {
+		return {
+			params: { slug: blog.slug },
+			props: { blog },
+		}
+	})
+}
+
+interface Props {
+	blog: CollectionEntry<'blog'>
+}
+
+const { blog } = Astro.props
+const { headings, Content, remarkPluginFrontmatter } = await blog.render()
+const { title, description, cover, published_at, source } = blog.data
+const { lastModified, readingTime, wordsCount } = remarkPluginFrontmatter
+---
+
+<PostLayout title={title} description={description} cover={cover} published_at={published_at} source={source} lastModified={lastModified} readingTime={readingTime} wordsCount={wordsCount} headings={headings} slug={blog.slug}>
+    <Content components={components} />
+</PostLayout>

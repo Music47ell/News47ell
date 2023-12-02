@@ -1,0 +1,12 @@
+---
+const { id, ...attrs } = Astro.props
+---
+
+<h1 id={id} class="text-3xl md:text-4xl font-bold tracking-wide text-gray-100" {...attrs}>
+	<a
+		href={`#${id}`}
+		class="text-red-500 hover:decoration-yellow-500 transition-colors duration-100 hover:underline"
+		>#</a
+	>
+	<slot />
+</h1>

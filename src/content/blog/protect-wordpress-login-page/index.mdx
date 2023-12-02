@@ -1,0 +1,120 @@
+---
+title: Protect WordPress Login Page
+description: Learn how to protect WordPress login page from brute force attack by changing the login URL, limiting the number of failed login attempts, and more.
+published_at: 2017-11-08T19:39:07+00:00
+tags: ['How To', 'Security', 'WordPress', 'WordPress Plugin']
+---
+
+Being the number one [^fn1] CMS in the world, websites running WordPress are a great target for hackers who want to take control of other people's websites. Hackers will ask for a ransom, sell personal information that belongs to the site’s owner/s and it’s users, distribute malware, send spam or simply, to eliminate competitors.
+
+One very popular way of getting administrative access to a WordPress site is by attacking the login page.
+
+Thy name is wp-login.php.
+
+We all know it and you should know that everyone knows it. Hackers will use it since it's the gateway to your site and you should do your best to Protect your WordPress Login Page.
+
+Using a technique called Brute Force Attack, hackers take advantage of a few weak points that come with every WordPress installation. You should harden those weak points as soon as possible to keep intruders outside and your site safe and protected.
+
+In this tutorial, you will learn How to Protect WordPress Login Page from Brute Force Attack
+
+Brute Force Attack aims at being the simplest kind of method to gain access to a site: it tries usernames and passwords, over and over again, until it gets in. Often deemed 'inelegant', they can be very successful when people use passwords like '123456' and usernames like 'admin.'. [WordPress Codex][1]
+
+### Things a hacker needs to brute force into your WordPress site.
+
+There are 3 simple things that a hacker needs in order to brute force into your WordPress site:
+
+- Username
+- Password
+- WordPress Login URL
+
+### Weak points that hackers can take advantage of.
+
+With every WordPress installation, there come a few weak points that you should modify right away to make your site harder to brute force into.
+
+- Known WordPress username.
+- Easy to crack passwords.
+- Knows WordPress login page URL.
+- Unlimited amount of failed attempts.
+
+Let’s work our way from the top and strengthen each one of these weak points in order to protect WordPress login page.
+
+## 1. Change WordPress admin username
+
+Running an old WordPress site? Chances are, the main WordPress username is called **Admin** and that one is used against you to take control of your site.
+
+In order to fix this issue, you have to:
+
+1. Go to your WordPress Dashboard
+2. Click on Users > Add new
+3. Fill all the necessary info and pick the role of the new user as Administrator.
+4. Log out of your admin account and sign in to your new account.
+5. Click on Users > All Users
+6. Hover the mouse over the old user and click on delete.
+7. Select _Attribute all content to_ and select the newly created account and click on _Confirm Deletion_.
+
+## 2. Create a stronger password.
+
+This is the easiest thing to do and it can be done in a matter of seconds.
+
+Either invest in a password manager like 1Password and generate a strong password using it.
+
+Or, use an online [Password Generator][2] by LastPass
+
+In order to change your password, you need to go to Users > Your Profile > New Password.
+
+## 3. Limit login attempts
+
+Think about it, how many attempts do you need to enter your password?
+
+2 times if you're entering it from your memory and one time if you're using a password manager. That's 3 attempts in total.
+
+Then why give a hacker unlimited amount of attempts until they manage to access your site?
+
+You can easily lock it down with a plug-in like [Wordfence][3] which among other great security features, allows you to [lock someone out of your website][4] after a number of failed attempts that you set.
+
+The reason I picked Wordfence instead of other plugins like Limit Login Attempts is that the latter hasn’t been updated in 5 years and it’s not recommended to use an outdated plugin.
+
+Choosing Wordfence is a much better option because it contains many great security features and it keeps getting updated and getting better.
+
+## 4. Protect WordPress Login Page by changing the URL
+
+Like I said in the beginning, everyone knows about wp-login.php. It’s the gateway to your site admin area. So it's obvious that you should learn how to protect it.
+
+The best way to Protect WordPress Login Page is by changing the URL and you can do that by using the [WPS Hide Login.][6]
+
+1. Go to Plugins > Add new
+2. Search for **WPS Hide Login**. Install and Activate.
+3. Go to Settings > General.
+4. Scroll down to WPS Hide Login. That’s where you will see the place where you enter the new URL.
+
+Now that your new login page URL had changed, when a hacker tries and visits domain.tld/wp-login.php they will be taken to your 404 page instead.
+
+![Wordfence_wp-login_attempts](./_assets/wordfence_wp-login_attempts.png)
+
+As you see from the screenshot above taken from Wordfence real-time traffic scan of News47ell, there are a lot of people interested in logging into my site from all over the world.
+
+They all trying to visit wp-login.php, a non-existent page thanks to WPS Hide Login.
+
+And in case you forgot your new secure URL, delete the plugin, and reinstall it again. It's that simple.
+
+## 5. Enable Two Factor Authentication
+
+Let’s say that the hacker found out your new and unique login URL and even found out your username and password, having two factor authentication enabled would be great since it will prevent the hacker from logging in to your site because they don’t have the ‘something you have’ element.
+
+## Conclusion:
+
+You can also do two more things to make your site even more secure by choosing a secure host, like Lightning Base which I have been using for….scroll down a bit and see the number, Lightning Base offers many great security features to protect your WordPress site which you can [read more about it here.][12]
+
+Plus, you can use Cloudflare which also offers a [suite of security features][13] that will increase the security of your site even more.
+
+As you can see, it's not that hard to Protect WordPress Login Page and it doesn’t cost you anything. So go ahead and install these plugins to protect your WordPress login page today for a safer future&#8230;too cheesy?
+
+[^fn1]: 28.7% of websites around the world use WordPress.
+
+[1]: https://codex.wordpress.org/Brute_Force_Attacks
+[2]: https://lastpass.com/generatepassword.php
+[3]: https://wordpress.org/plugins/wordfence/
+[4]: https://docs.wordfence.com/en/Wordfence_options#Lock_out_after_how_many_login_failures
+[6]: https://wordpress.org/plugins/wps-hide-login/ 'WPS Hide Login — WordPress Plugins'
+[12]: https://lightningbase.com/wordpress-hosting/features/#security
+[13]: https://www.cloudflare.com/security/

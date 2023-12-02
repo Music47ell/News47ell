@@ -1,0 +1,29 @@
+/*
+  ## https://httpsecurityreport.com/best_practice.html#hsts
+  ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+  ## https://hstspreload.org/
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; upgrade-insecure-requests; report-uri https://news47ell.report-uri.com/r/d/csp/wizard; report-to Wizard;
+
+  ## https://caniuse.com/mdn-http_headers_nel
+  NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
+
+  ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+  X-Content-Type-Options: nosniff
+
+  ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+  X-Frame-Options: DENY
+
+  ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+  X-XSS-Protection: 1; mode=block
+
+  ## https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  ## https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/
+  Permissions-Policy: ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=() interest-cohort=()
+
+  Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://news47ell.report-uri.com/a/d/g"}],"include_subdomains":true}
+
+  X-Emoji: 🖤6️⃣4️⃣0️⃣5️⃣0️⃣9️⃣➖0️⃣4️⃣0️⃣1️⃣4️⃣7️⃣🖤

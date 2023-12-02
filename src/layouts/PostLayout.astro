@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Prose from '@/components/Prose.astro'
+import Title from '@/components/Title.astro'
+import Link from '@/components/Link.astro'
+import { hEntryDate, displayDate } from '@/utils/formatters'
+import ViewsCounter from '@/components/ViewsCounter.astro'
+import { Image } from 'astro:assets'
+import Newsletter from '@/components/Newsletter.astro'
+
+const {
+	title,
+	description,
+	published_at,
+	lastModified,
+	wordsCount,
+	readingTime,
+	cover,
+	source,
+	slug,
+} = Astro.props
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	slug={slug}
+	published_at={published_at}
+	updated_at={lastModified}
+	wordsCount={wordsCount}
+	image={cover?.src.src}
+	type="article"
+>
+	<main class="col-span-10 flex flex-col lg:col-span-7">
+		<Prose>
+			<header class="relative flex w-full flex-col">
+				{
+					cover && (
+						<Image src={cover.src} alt={cover.alt} class="h-auto w-full" width="500" height="300" />
+					)
+				}
+				<div class="flex items-center justify-between gap-x-3 mb-3.5 text-gray-100">
+					<time
+						datetime={hEntryDate(published_at)}
+						class="dt-published"
+						aria-label={`Published at: ${displayDate(published_at)}`}
+						itemprop="dateModified"
+					>
+						{displayDate(lastModified)}
+					</time>
+					<Link href={slug} class="u-url flex">⌘ Permalink</Link>
+				</div>
+				{
+					source ? (
+						<Link href={source}>
+							<Title>{title} &#8599;</Title>
+						</Link>
+					) : (
+						<Title>{title}</Title>
+					)
+				}
+				<div class="flex items-center justify-between gap-x-3 text-sm text-gray-100">
+					<span>{readingTime} minutes</span>
+					<span>{wordsCount} words</span>
+					<ViewsCounter slug={slug} trackViews={true} />
+				</div>
+			</header>
+					<div class="e-content entry-content">
+						<slot />
+					</div>
+		</Prose>
+	</main>
+	<Newsletter />
+</BaseLayout>

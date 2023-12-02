@@ -1,0 +1,32 @@
+---
+export const prerender = true
+
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+import PageLayout from '@/layouts/PageLayout.astro'
+import { components } from '@/components/mdx/index.astro'
+
+export async function getStaticPaths() {
+	const pages = await getCollection('pages')
+
+	return pages.map((page) => {
+		return {
+			params: { slug: page.slug },
+			props: { page },
+		}
+	})
+}
+
+interface Props {
+	page: CollectionEntry<'pages'>
+}
+
+const { page } = Astro.props
+const { Content, remarkPluginFrontmatter } = await page.render()
+const { title, description, published_at } = page.data
+const { lastModified } = remarkPluginFrontmatter
+---
+
+<PageLayout title={title} description={description} published_at={published_at} lastModified={lastModified} slug={page.slug}>
+    <Content components={components} />
+</PageLayout>

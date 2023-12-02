@@ -1,0 +1,7 @@
+---
+const { ...attrs } = Astro.props
+---
+
+<tr class="hover:bg-gray-50 focus:bg-gray-300 active:bg-red-200" tabindex="0" {...attrs}>
+	<slot />
+</tr>

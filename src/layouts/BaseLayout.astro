@@ -1,0 +1,56 @@
+---
+import Header from '../components/Header.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+import '../assets/css/tailwind.css'
+import Meta from '@/components/Meta.astro'
+import siteMetadata from '@/data/siteMetadata'
+
+export interface Props {
+	title: string
+	description: string
+	slug: string
+	published_at: Date
+	updated_at: Date
+	wordsCount?: number
+	image?: string | undefined
+	type?: 'website' | 'article'
+}
+
+const {
+	title,
+	description,
+	slug,
+	published_at,
+	updated_at,
+	wordsCount,
+	type = 'website',
+} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<Meta
+			title={title}
+			description={description}
+			slug={slug}
+			published_at={published_at}
+			updated_at={updated_at}
+			wordsCount={wordsCount}
+			image={siteMetadata.siteLogo}
+			type={type}
+		/>
+	</head>
+	<body class="bg-stone-950 text-gray-100 antialiased">
+		<div class="flex min-h-screen flex-col justify-between">
+			<Header />
+			<Nav />
+			<section
+				class="container mx-auto flex max-w-screen-sm gap-4 flex-col p-4 print:my-0 print:items-center print:justify-center"
+			>
+				<slot />
+			</section>
+			<Footer />
+		</div>
+	</body>
+</html>

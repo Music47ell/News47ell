@@ -1,0 +1,5 @@
+---
+const { id, name, ...attrs } = Astro.props
+---
+
+<input id={id} name={name} type="checkbox" class="my-0" {...attrs} /><slot />

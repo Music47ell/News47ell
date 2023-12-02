@@ -1,0 +1,7 @@
+---
+const { ...attrs } = Astro.props
+---
+
+<ul class="list-disc marker:text-yellow-500" {...attrs}>
+	<slot />
+</ul>

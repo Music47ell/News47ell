@@ -1,0 +1,157 @@
+---
+title: Host Google Fonts Locally in WordPress
+description: Learn how to host Google fonts locally in WordPress and achieve a high score in GTMetrix.
+published_at: 2017-01-02T21:36:10+00:00
+tags: ['How To', 'Google Fonts', 'WordPress Plugin', 'WordPress']
+---
+
+One issue I encountered while trying to achieve a high score in [GTmetrix][1] was in regards to Google fonts and how I injected them into my site directly using Google fonts CDN. The only way to solve it was to learn How to Host Google Fonts Locally.
+
+> An interactive directory of free hosted application programming interfaces for web fonts.
+>
+> - Wikipedia
+
+Most people are familiar with Google fonts. For those who don't, here's how I describe it:
+
+It's a big, free and awesome library of fonts which you can use as your heart desire. It's managed by Google and served from the domains fonts.gstatic.com fonts.googleapis.com
+There's many ways to add Google fonts to your site, two of the most popular options are:
+
+- **Standard (link rel= method)**: You paste the Google font link in the header of your site. For example: header.php for WordPress users.
+- **@import**: with this options, you inject the code inside your stylesheet. For example: style.css for WordPress users.
+
+These two options great for both development and production environment, but I personally use them only for development.
+
+As I mentioned before, my issue was with GTmetrix. I wanted to achieve the highest score possible, but I faced these two issues:
+
+- PageSpeed: [Minify CSS][2].
+- Yslow: [Add Expires headers][3].
+
+Both showed a link to the Google fonts that I used on this site. Which is the following:
+
+_https://fonts.googleapis.com/css?family=Alef:700|Open+Sans:400,600_
+
+In order to solve these issues, I had to learn one thing:
+
+## How to Host Google Fonts Locally
+
+Learning how to do that is an easy thing, and only takes 4 steps. 7 steps if you want to turn it into a WordPress plugin.
+
+All you need is an access to your server and a text editor.
+
+I use Google Webfonts Helper by [Mario Ranftl][4] because it has the CSS ready for you but you can still download the fonts using [Google Fonts official][5] site.
+
+### Step 1
+
+Visit [Google Webfonts Helper][6] and search for your desired font.
+
+### Step 2
+
+Select the character sets and styles that you need
+
+### Step 3
+
+Chose what browsers you want to support and copy the CSS code and paste it in your website stylesheet file or [Custome CSS Plugin][7].
+
+You have two options here:
+
+- Best Support: You will get these font formats: _eot,woff,woff2,ttf,svg_
+- Modern Browsers: You will get these font formats: _woff,woff2_
+
+The example below is Open Sans font with support for all browsers:
+
+```css
+/* open-sans-regular - latin */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.eot'); /* IE9 Compat Modes */
+	src:
+		local('Open Sans Regular'),
+		local('OpenSans-Regular'),
+		url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
+		url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.woff2') format('woff2'),
+		url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.woff') format('woff'),
+		url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.ttf') format('truetype'),
+		url('../LocalFontsPlugin/assets/fonts/open-sans-v15-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+```
+
+Please make sure you have the right destination for the font files, which depend on where you want to put them on your server.
+
+### Step 4
+
+Download your font .zip file. Uncompress it & upload the font files to your server.
+
+And that's it. The font that you've chosen will be loaded from your server.
+
+If you would like to take this one step further, you can convert this into a [Site Specific WordPress plugin][8].
+
+### Host Google Fonts Locally using a WordPress Plugin
+
+In order to wrap this and turn it into a Site Specific WordPress Plugin, make sure that first, you create a set of folders and sub-folders that look similar to the one described below and follow the same structure:
+
+```md
+**LocalFontsPlugin**
+LocalFontsPlugin.php
+**Assets**
+**Fonts**
+open-sans-v15-latin-regular.eot
+open-sans-v15-latin-regular.woff2
+open-sans-v15-latin-regular.woff
+open-sans-v15-latin-regular.ttf
+open-sans-v15-latin-regular.svg
+**CSS**
+LocalFontsPlugin.css
+```
+
+### Step 5
+
+Put all the fonts you downloaded in step 4 inside the /Fonts folder
+
+### Step 6
+
+Inside the folder LocalFontsPlugin create the file LocalFontsPlugin.php and write this in it:
+
+```php
+<?php
+/*
+Plugin Name: Local Fonts
+Description: Code to host Google Fonts locally
+Version: 1.0
+Author: Ahmet ALMAZ
+Author URI: https://www.news47ell.com
+*/
+/* Start Adding Functions Below this Line */
+// Register Style
+function LocalFontsPlugin_styles() {
+        // Add CSS file
+        wp_enqueue_style( 'LocalFontsPluginCSS', plugin_dir_url( __FILE__ ) . 'assets/css/LocalFontsPlugin.css' );
+}
+add_action( 'wp_enqueue_scripts', 'LocalFontsPlugin_styles' );
+/* Stop Adding Functions Above this Line */
+?>
+```
+
+### Step 7
+
+Inside the folder CSS, create a file and name it LocalFontsPlugin.css. Inside it, write the CSS code that you got in step 3
+
+Zip it all up and upload it as a new plugin. Activate it and that's it.
+
+You can download a sample of this plugin [here][9].
+
+### In Conclusion
+
+Now I control the fonts on my site. They load faster than before, and I got rid of the 2 annoying [GTmetrix][10] error.
+
+[1]: https://gtmetrix.com/reports/www.news47ell.com/SkemaKoD
+[2]: https://gtmetrix.com/minify-css.html
+[3]: https://gtmetrix.com/add-expires-headers.html
+[4]: http://mranftl.com/
+[5]: https://fonts.google.com/
+[6]: https://google-webfonts-helper.herokuapp.com/
+[7]: https://www.news47ell.com/reviews/simple-custom-css-js-review-custom-css-wordpress-plugin/
+[8]: https://www.news47ell.com/how-to/create-site-specific-wordpress-plugin/
+[9]: https://drive.google.com/open?id=1L6kDFl2E9zvld7tNKVA7kx4yWxqr1iAI
+[10]: https://gtmetrix.com/reports/www.news47ell.com/YhyjdQy2

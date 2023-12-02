@@ -1,0 +1,15 @@
+---
+import siteMetadata from '@/data/siteMetadata'
+---
+
+<nav class="w-full border-y border-yellow-500 bg-stone-900 px-6 py-4 shadow-inner">
+	<ul class="flex justify-center gap-x-4">
+		{
+			siteMetadata.NavLinks.map((navLink) => (
+				<li>
+					<a href={navLink.href}>{navLink.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>

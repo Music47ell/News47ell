@@ -1,0 +1,167 @@
+---
+title: Add Konami Code to WordPress Site Using JavaScript
+description: Learn how to add Konami Code to WordPress Site using JavaScript.
+published_at: 2017-02-16T18:57:45+00:00
+tags: ['How To', 'JavaScript', 'Konami Code', 'WordPress Plugin', 'WordPress']
+---
+
+The title of this article is a big giveaway to people who know what the Konami code is, so I guess I should make this intro as short as possible so we can quickly dive in and learn how to add Konami Code to WordPress Site using JavaScript.
+First appeared in the video game [Gradius][1] back in May 29, 1985, the [Konami Code][2] is a set of keystrokes that when pressed in the following order will enable a cheat in the game: `↑↑↓↓←→←→BA`
+
+The Konami code appeared in many of the video games made by the Japanese entertainment company.
+
+For example:
+
+- Contra
+- Silent Hill 3
+- Teenage Mutant Ninja Turtles
+- Metal Gear Rising: Revengeance
+
+In non-Konami games such as:
+
+- Assassin's Creed III (Ubisoft Montreal)
+- Half-Life 2 (Valve Corporation)
+- Plants vs. Zombies (PopCap)
+- Resident Evil 2 (Capcom)
+
+And in movies, like Wreck-It Ralph:
+
+![wreck_it_ralph konami code](./_assets/wreck_it_ralph_konami_code.gif)
+
+But that's not all, this code can also be added to your website:
+
+- MacStories
+- Digg
+- Reddit (Must have the RES Extension installed)
+- And of course, here at News47ell. Duh.
+
+Now buckle up, because the game is about to begin.
+
+## How to Add Konami Code to WordPress Site Using JavaScript
+
+The JavaScript code snippet provided below originally written by [Wolfgang Stöttinger](https://twitter.com/wo_sto) over at [stackoverflow](https://stackoverflow.com/questions/31626852/how-to-add-konami-code-in-a-website-based-on-html)
+
+Let's dive right in:
+
+### Step 1:
+
+Create a set of folders and sub-folders that look similar to the one described below and follow the same structure:
+
+```md
+**KonamiCodePlugin**
+KonamiCodePlugin.php
+**Assets**
+**JS**
+KonamiCode.js
+```
+
+### Step 2:
+
+Paste this code inside KonamiCodePlugin.php:
+
+```php
+<?php
+/*
+Plugin Name: Konami Code for WordPress
+Description: Code for Adding Konami Code in WordPress
+Version: 1.0
+Author: Ahmet ALMAZ
+Author URI: https://www.news47ell.com
+*/
+// Register Script
+function Konami_Code_scripts()
+{
+    wp_enqueue_script('KonamiCodeJS', plugin_dir_url(__FILE__) . 'assets/js/KonamiCode.js', array(
+        'jquery'
+    ));
+}
+add_action('wp_enqueue_scripts', 'Konami_Code_scripts');
+?>
+```
+
+### Step 3:
+
+Paste this code inside KonamiCode.js:
+
+```js
+// a key map of allowed keys
+var allowedKeys = {
+	37: 'left',
+	38: 'up',
+	39: 'right',
+	40: 'down',
+	65: 'a',
+	66: 'b',
+}
+// the 'official' Konami Code sequence
+var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a']
+// a variable to remember the 'position' the user has reached so far.
+var konamiCodePosition = 0
+// add keydown event listener
+document.addEventListener('keydown', function (e) {
+	// get the value of the key code from the key map
+	var key = allowedKeys[e.keyCode]
+	// get the value of the required key from the konami code
+	var requiredKey = konamiCode[konamiCodePosition]
+	// compare the key with the required key
+	if (key == requiredKey) {
+		// move to the next key in the konami code sequence
+		konamiCodePosition++
+		// if the last key is reached, activate cheats
+		if (konamiCodePosition == konamiCode.length) activateCheats()
+	} else konamiCodePosition = 0
+})
+function activateCheats() {
+	document.body.style.backgroundImage = "url('images/cheatBackground.png')"
+	var audio = new Audio('audio/pling.mp3')
+	audio.play()
+	alert('cheats activated')
+}
+```
+
+.Zip the KonamiCodePlugin folder and upload it to your WordPress site as a new plugin. You should be good to go with your very own, brand new Konami Code easter egg.
+
+If you want, you can just copy the JS code from step 3, and paste it inside the [Simple Custom CSS JS WordPress plugin](https://www.news47ell.com/reviews/simple-custom-css-js-review-custom-css-wordpress-plugin/) which I reviewed before.
+
+### Let's break the last 5 lines of the code:
+
+The easter eggs lay from line 37 to 43 or in other words, the things that will be triggered once you finish pressing the required keys.
+
+The code above does 3 things:
+
+1. Change the `body.style.backgroundImage`
+
+```js
+document.body.style.backgroundImage = "url('images/cheatBackground.png')"
+```
+
+2. Plays an `audio` file
+
+```js
+var audio = new Audio('audio/pling.mp3')
+```
+
+3. Show an `alert` with a message
+
+```js
+alert('cheats activated')
+```
+
+If you want the easter egg 1 and 2, you have to specify the URL in the code in step 3 for the image and the audio file.
+
+You can remove any of these lines to remove their function and add more if you want as well.
+
+## Conclusion:
+
+That was fun, right?
+
+You just learned How to Add Konami Code to WordPress Site Using JavaScript and you now have a fun little easter egg hidden inside your site which I'm sure, a reader someday will trigger.
+
+The idea for this article all started when I was reading the source code of the site MacStories and in their core.js file, I noticed a Konami Code reference after I un-minified the file. I decided to give it a shot. Voilà!
+
+[View Tweet](https://twitter.com/Music47ell/status/803651351305519104)
+
+Have fun implementing it on your site.
+
+[1]: https://en.wikipedia.org/wiki/Gradius_(video_game)
+[2]: https://en.wikipedia.org/wiki/Konami_Code

@@ -11,7 +11,7 @@
 
 ## Stack
 
-- `Next.js` - A React framework for building server-side rendered and static web applications.
+- `Astro` - A fast, flexible new static site framework for the modern web.
 - `TypeScript` - A typed superset of JavaScript that compiles to plain JavaScript.
 - `Tailwind CSS` - A utility-first CSS framework for rapidly building custom user interfaces.
 - `Drizzle ORM` - A lightweight and simple ORM for Node.js that supports multiple databases.
@@ -21,12 +21,14 @@
 
 ## Overview
 
-- `app/*` - All other static pages.
-- `app/blog/*` - Static pre-rendered blog pages using markdown.
-- `data/*` - TS/JSON data that is used for resume and site settings/info.
-- `lib/*` - Short for "library", a collection of helpful utilities or code for external services.
-- `public/*` - Static assets including fonts and images.
-- `styles/*` - A small amount of global styles. I'm mostly using vanilla Tailwind CSS.
+- `assets` - Static assets such as images, favicons, and manifest files.
+- `components` - Reusable components.
+- `content` - Content for the blog posts and pages.
+- `data` - Metadata for the site
+- `layouts` - Layouts for the site.
+- `libs` - Libraries for the site.
+- `pages` - Pages for the site.
+- `utils` - Utility functions for the site.
 
 ## Features
 
@@ -34,7 +36,7 @@
 - Lightweight
 - Mobile-friendly view
 - Uses [Turso](https://turso.tech/) for post views
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
+- Automatic image optimization via [astro:assets](https://docs.astro.build/en/guides/images/#images-in-astro-files)
 - Pre-configured security headers
 - SEO friendly with RSS feed, sitemaps and more!
 

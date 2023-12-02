@@ -1,0 +1,62 @@
+---
+const { slug, trackViews } = Astro.props
+---
+
+<span data-post-views={slug} class="shrink-0">
+	--- views
+</span>
+
+<script define:vars={{ slug, trackViews }} lang="ts" type="module">
+	let views = 0
+	let data = { count: 0 }
+
+	const fetchViews = async () => {
+		const res = await fetch(`/api/views?slug=${encodeURIComponent(slug)}`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+
+		data = await res.json()
+		views = data.count
+
+		if (!location.href.includes('localhost') && trackViews) {
+			const res = await fetch(`/api/views?slug=${encodeURIComponent(slug)}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
+
+			data = await res.json()
+			views = data.count
+		}
+
+		const el = document.querySelector(`[data-post-views="${slug}"]`)
+		el.innerHTML = `${views} ${views === 1 ? 'view' : 'views'}`
+	}
+
+	// Intersection Observer configuration
+	const options = {
+		root: null, // use the viewport as the root
+		threshold: 0.5, // trigger when at least 50% of the element is visible
+	}
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				fetchViews()
+				observer.unobserve(entry.target) // stop observing once fetched
+			}
+		})
+	}, options)
+
+	// Target element
+	const targetElement = document.querySelector(`[data-post-views="${slug}"]`)
+
+	// Start observing the target element
+	if (targetElement) {
+		observer.observe(targetElement)
+	}
+</script>
