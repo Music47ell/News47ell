@@ -1,0 +1,8 @@
+---
+const { ...attrs } = Astro.props
+---
+
+<a
+	class="text-red-500 hover:decoration-yellow-500 transition-colors duration-100 hover:underline"
+	{...attrs}><slot /></a
+>

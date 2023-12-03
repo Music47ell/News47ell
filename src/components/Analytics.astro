@@ -1,0 +1,23 @@
+<edge-analytics></edge-analytics>
+<script is:inline async>
+	class EdgeAnalytics extends HTMLElement {
+		constructor() {
+			super()
+			setTimeout(function () {
+				navigator.sendBeacon(
+					'/api/correct-horse-battery-staple',
+					JSON.stringify({
+						slug: window.location.pathname,
+						referrer: document.referrer,
+					})
+				)
+			}, 10000)
+		}
+	}
+	customElements.define('edge-analytics', EdgeAnalytics)
+</script>
+
+<script
+	is:inline
+	data-website-id={import.meta.env.PUBLIC_UMAMI_WEBSITE_ID}
+	src={import.meta.env.PUBLIC_UMAMI_TRACKER_SCRIPT_URL}></script>

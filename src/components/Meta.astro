@@ -1,0 +1,219 @@
+---
+import siteMetadata from '@/data/siteMetadata'
+import Analytics from '@/components/Analytics.astro'
+
+export interface Props {
+	title: string
+	description: string
+	slug: string
+	published_at: Date
+	updated_at: Date
+	wordsCount: number | undefined
+	type: string
+	image: string
+}
+
+const { title, description, slug, published_at, updated_at, wordsCount, type, image } = Astro.props
+
+const pageTitle = title === siteMetadata.title ? title : `${title} | ${siteMetadata.title}`
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const imageURL = new URL(image, Astro.site)
+const twitter = {
+	site: '@',
+	author: siteMetadata.author.username,
+}
+
+const isProduction = import.meta.env.PROD
+
+const ogImage = isProduction
+	? `${siteMetadata.siteUrl}/api/og.png?title=${encodeURIComponent(title)}`
+	: `localhost:4321/api/og.png?title=${encodeURIComponent(title)}`
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta
+	name="robots"
+	content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+/>
+{title ? <title>{pageTitle}</title> : null}
+{description ? <meta name="description" content={description} /> : null}
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={canonicalURL} />
+<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" />
+
+{/*Favicons Meta Tags*/}
+<link
+	href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+	rel="icon"
+	type="image/x-icon"
+/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#E30A17" />
+<meta name="apple-mobile-web-app-title" content="News47ell" />
+<meta name="application-name" content="News47ell" />
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png" />
+<meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+
+{/*Open Graph Meta Tags*/}
+<meta property="og:locale" content={siteMetadata.locale} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content={siteMetadata.title} />
+<meta name="og:image" content={ogImage} />
+
+{/*Twitter Meta Tags*/}
+<meta
+	name="twitter:card"
+	content={type == 'article' && image ? 'summary_large_image' : 'summary'}
+/>
+<meta name="twitter:site" content={type == 'article' ? twitter.author : twitter.site} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{/*JSON-LD*/}
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'Article',
+				'@id': `${siteMetadata.siteUrl}/blog/${slug}`,
+				isPartOf: {
+					'@id': `${siteMetadata.siteUrl}/blog/${slug}`,
+				},
+				author: {
+					name: siteMetadata.author.name,
+					'@id': siteMetadata.siteUrl,
+				},
+				headline: title,
+				datePublished: published_at,
+				dateModified: updated_at,
+				mainEntityOfPage: {
+					'@id': `${siteMetadata.siteUrl}/blog/${slug}`,
+				},
+				wordCount: wordsCount,
+				publisher: {
+					'@id': siteMetadata.siteUrl,
+				},
+				image: {
+					'@id': ogImage,
+				},
+				thumbnailUrl: ogImage,
+				inLanguage: siteMetadata.locale,
+			},
+			{
+				'@type': 'WebPage',
+				'@id': `${siteMetadata.siteUrl}/blog/${slug}`,
+				url: `${siteMetadata.siteUrl}/blog/${slug}`,
+				name: title,
+				isPartOf: {
+					'@id': `${siteMetadata.siteUrl}/blog/${slug}`,
+				},
+				primaryImageOfPage: {
+					'@id': ogImage,
+				},
+				image: {
+					'@id': ogImage,
+				},
+				thumbnailUrl: ogImage,
+				datePublished: published_at,
+				dateModified: updated_at,
+				description: description,
+				inLanguage: siteMetadata.locale,
+				potentialAction: [
+					{
+						'@type': 'ReadAction',
+						target: [`${siteMetadata.siteUrl}/blog/${slug}`],
+					},
+				],
+			},
+			{
+				'@type': 'ImageObject',
+				inLanguage: 'en-US',
+				'@id': ogImage,
+				url: ogImage,
+				contentUrl: ogImage,
+				width: 1200,
+				height: 628,
+				caption: title,
+			},
+			{
+				'@type': 'BreadcrumbList',
+				'@id': `${siteMetadata.siteUrl}/blog/${slug}#breadcrumb`,
+				itemListElement: [
+					{
+						'@type': 'ListItem',
+						position: 1,
+						name: 'Blog',
+						item: siteMetadata.siteUrl,
+					},
+					{
+						'@type': 'ListItem',
+						position: 2,
+						name: title,
+					},
+				],
+			},
+			{
+				'@type': 'WebSite',
+				'@id': siteMetadata.siteUrl,
+				url: siteMetadata.siteUrl,
+				name: siteMetadata.title,
+				description: siteMetadata.description,
+				publisher: {
+					'@id': siteMetadata.siteUrl,
+				},
+				inLanguage: 'en-US',
+			},
+			{
+				'@type': 'Organization',
+				'@id': siteMetadata.siteUrl,
+				name: siteMetadata.title,
+				url: siteMetadata.siteUrl,
+				logo: {
+					'@type': 'ImageObject',
+					inLanguage: siteMetadata.locale,
+					'@id': `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+					url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+					contentUrl: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+					width: 400,
+					height: 400,
+					caption: siteMetadata.title,
+				},
+				image: {
+					'@id': `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+				},
+				sameAs: [siteMetadata.social.map((url) => url.href)],
+			},
+			{
+				'@type': 'Person',
+				'@id': `${siteMetadata.siteUrl}/colphon`,
+				name: siteMetadata.author.name,
+				image: {
+					'@type': 'ImageObject',
+					inLanguage: siteMetadata.locale,
+					'@id': `${siteMetadata.siteUrl}${siteMetadata.author.avatar}`,
+					url: `${siteMetadata.siteUrl}${siteMetadata.author.avatar}`,
+					contentUrl: `${siteMetadata.siteUrl}${siteMetadata.author.avatar}`,
+					caption: siteMetadata.author.name,
+				},
+				description: siteMetadata.author.occupation,
+				sameAs: [siteMetadata.author.social.map((url) => url.href)],
+			},
+		],
+	})}
+/>
+
+{isProduction ? <Analytics /> : null}

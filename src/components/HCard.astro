@@ -1,0 +1,43 @@
+---
+import siteMetadata from '@/data/siteMetadata'
+import { Image } from 'astro:assets'
+import Link from '@/components/Link.astro'
+import Türkiye from '@/components/icons/Türkiye.html'
+---
+
+<div
+	class="p-author h-card user-profile relative flex items-center rounded-md border border-yellow-500 bg-stone-900 p-2 text-sm"
+>
+	<Link href="/" class="[&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
+		<Image
+			class="photo u-photo"
+			src={siteMetadata.author.avatar}
+			alt={siteMetadata.author.name}
+			width="64"
+			height="64"
+		/>
+	</Link>
+	<div class="ml-3 flex flex-col items-start justify-center text-ellipsis">
+		<Link class="u-email font-medium" href={`mailto:${siteMetadata.email}`} rel="me authn">
+			<p class="p-name text-sm font-medium">{siteMetadata.author.name}</p>
+		</Link>
+		<Link class="u-url u-uid font-medium" href={siteMetadata.siteUrl}>
+			<p class="p-nickname text-sm font-medium">
+				{siteMetadata.author.username}
+			</p>
+		</Link>
+		<p class="p-role role text-sm font-medium">
+			{siteMetadata.author.occupation}
+		</p>
+		<p class="p-country-name text-sm font-medium">
+			{siteMetadata.author.location.country}
+		</p>
+		<div class="absolute right-1.5 top-1.5">
+			<Türkiye />
+		</div>
+		<p class="p-note note sr-only">
+			My name is Ahmet. I'm Full Stack Developer from Türkiye 🇹🇷. This site is where I conduct all
+			my experiments, and share my thoughts and ideas.
+		</p>
+	</div>
+</div>

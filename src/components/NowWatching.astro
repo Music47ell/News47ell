@@ -1,0 +1,49 @@
+---
+import MediaCard from '@/components/MediaCard.astro'
+---
+
+<MediaCard />
+
+<script lang="ts" type="module">
+	const fetchNowWatching = async () => {
+		const res = await fetch('/api/now-watching')
+		const data = await res.json()
+		return data
+	}
+
+	const updateUI = (data) => {
+		const url = data.url || ''
+		const title = data.title || ''
+		const image = data.image || ''
+		const isWatching = data.isWatching || false
+
+		if (isWatching) {
+			document.querySelector(`[data-card]`).classList.remove('hidden')
+		}
+
+		const urlEl = document.querySelector(`[data-url]`)
+		const titleEl = document.querySelector(`[data-title]`)
+		const imageEl = document.querySelector(`[data-image]`)
+
+		urlEl.href = url
+		imageEl.src = image
+		imageEl.width = imageEl.height = 100
+		titleEl.textContent = imageEl.alt = imageEl.title = title
+	}
+
+	const fetchDataAndUpdateUI = async () => {
+		try {
+			const data = await fetchNowWatching()
+			updateUI(data)
+		} catch (error) {
+			console.error('Error fetching now watching data:', error)
+		}
+	}
+
+	// Fetch and update data every 10 minutes (600,000 milliseconds)
+	const updateInterval = 600000
+	setInterval(fetchDataAndUpdateUI, updateInterval)
+
+	// Initial fetch and update
+	fetchDataAndUpdateUI()
+</script>

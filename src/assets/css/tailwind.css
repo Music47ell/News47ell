@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@page {
+	size: auto;
+	margin: 0mm;
+}
+
+.task-list-item::before {
+	@apply hidden;
+}
+
+.task-list-item {
+	@apply list-none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+::selection {
+	@apply bg-purple-400;
+}
+
+/* Scrollbar */
+
+/* Chrome */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-full bg-yellow-500 transition-colors hover:bg-yellow-500;
+}
+
+/* Firefox */
+* {
+	scrollbar-width: 'thin';
+	scrollbar-color: theme('colors.red.500') theme('colors.transparent');
+}
+
+kbd {
+	font-family: monospace;
+	background: var(--a2);
+	padding: calc(var(--unit) * 0.5);
+	border-radius: calc(var(--unit) * 0.5);
+}

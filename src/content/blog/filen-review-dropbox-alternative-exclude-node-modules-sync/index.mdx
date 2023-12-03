@@ -1,0 +1,45 @@
+---
+title: Filen Review - Dropbox alternative with a way to exclude node_modules folder
+description: Read my review of Filen, an end-to-end encrypted cloud storage solution that allows you to exclude node_modules folder from syncing and so much more.
+published_at: 2023-07-12T18:52:04+03:00
+cover:
+  src: ./_assets/filen.png
+  alt: Filen Review - Dropbox alternative with a way to exclude node_modules folder
+tags: ['macOS', 'iOS', 'Android', 'Encrypted Cloud Storage', 'E2EE']
+---
+
+If you're a web developer, use npm packages, and like to back up your projects to Dropbox, then I'm sure you did the following Google search at some point:
+
+_How can I exclude the `node_modules` directory from syncing in Dropbox?_
+
+I've been using a custom bash script for few years now that uses rsync to copy folders from one place to a Dropbox folder and exclude certain files, folders, and everything in a `.gitignore` file.
+
+This solution worked great but it meant that I had to have two copies of everything I needed to backup.
+
+> Info: ICYMI, I recently wrote two articles about how to exclude node_modules from syncing during backup. The first one uses [rsync](/blog/sync-node-project-ignore-node-modules-rsync-bash-script) and the second one uses [Maestral](/blog/maestral-review-exclude-node-modules-dropbox-mignore-gitignore)
+
+Well, with the introduction of [Filen]($filen), I don't have to worry about this anymore. Filen is a Dropbox alternative that allows you to exclude the `node_modules` folder from syncing and so much more.
+
+## Introducing Filen: A Dropbox Alternative with Advanced Syncing Options
+
+[Filen]($filen) is a zero knowledge end-to-end encrypted cloud storage that has all the features that you love and are used to from [Dropbox]($dropbox), as well as an easy-to-use interface, encryption for all your data in a German high-security data center, the ability to share files and pictures using a private link or with other Filen users, syncing your data across multiple devices, ability to backup your camera folder from your phone automatically and selective sync option as well.
+
+All of this is cool but one `node_modules` folder can ruin all of this for a web developer.
+
+For those of you who don't know, a `node_modules` folder contains all the necessary files to run a Node.js project. Like this website that uses Next.js. The problem with it is that it can be large and time-consuming to sync due to its size and frequent updates.
+
+For example, the `node_modules` folder for this website is '632.9 MB' and it contains '48,363' files. That takes forever to sync and any update, removal, or installation of a new module means syncing again and again.
+
+With [Filen]($filen), you don't have to worry about any of this. See, Filen has a neat feature that allows you to select files and folders to be ignored while syncing. Like a `.gitignore` file. They call it actually `.filenignore` file but in reality, it's not a file, it's a section in the app where you list the files and folders and it will do the rest.
+
+Imagine having a Projects folder housing all your web development projects. By instructing Filen to sync the folder and selecting your [preferred sync option](https://filen.io/apps/desktop) (e.g., two-way, local to cloud, cloud to local, local backup, or cloud backup), you can then utilize the `.filenignore` option to exclude the `node_modules` folder from syncing.
+
+Let Filen handle the synchronization while you focus on your development tasks, saving you time and ensuring a seamless experience.
+
+You can sign up to [Filen]($filen) for free and we both get 10 GB of storage space. If you need more, you can upgrade to a paid plan. The paid plans start at 11.99€ annually for 100 GB of storage space or, you can pay 29.99€ for a lifetime plan with 100 GB of storage space. You can check out the [pricing page](https://filen.io/pricing) for more options.
+
+## Conclusion
+
+Say goodbye to the hassle of dealing with large `node_modules` folders during syncing.
+
+Let [Filen]($filen) revolutionize your cloud storage experience by providing a simple yet powerful solution for excluding these folders effortlessly.

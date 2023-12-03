@@ -1,0 +1,3 @@
+node_modules/**
+src/components/MediaCard.astro
+src/content/blog/set-dns-automatically-using-openvpn/index.mdx

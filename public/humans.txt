@@ -9,5 +9,5 @@ Location:           Türkiye
 /* SITE */
 Doctype:            HTML5
 Standards:          HTML5, CSS3, SVG
-Components:         Hugo, Markdown
-Software:           Visual Studio Code, Figma, kitty, Git, Chrome Developer Tools
+Components:         Astro, Markdown
+Software:           Visual Studio Code, Penpot, kitty, Git, Firefox Developer Edition

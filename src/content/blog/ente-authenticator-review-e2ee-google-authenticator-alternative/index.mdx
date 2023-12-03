@@ -1,0 +1,62 @@
+---
+title: ente Auth Review - An E2EE Google Authenticator Alternative
+description: ente Auth an open source, end to end encrypted Google Authenticator alternative that offers a secure way to store your 2FA codes and sync them across devices.
+published_at: 2023-08-14T10:49:41+03:00
+cover:
+  src: ./_assets/ente-auth.png
+  alt: 'ente Auth Review - An E2EE Google Authenticator Alternative'
+tags: ['Two Factor Authentication', 'E2EE', 'Open-Source', 'Security', 'Authenticator', 'Review']
+---
+
+In the realm of authentication services, it's essential to choose a solution that not only enhances security and convenience but also ensures reliability and continuity. While Google Authenticator has been a popular choice, its sudden discontinuation of certain products is alarming.
+
+> Info: Squarespace, a popular website builder, has announced that they've “entered into a definitive asset purchase agreement with Google, whereby Squarespace will acquire the assets associated with the Google Domains business.” Read more about it [here](https://9to5google.com/2023/06/15/google-domains-squarespace/).
+
+In this blog post, we will introduce ente Auth, a robust alternative to Google Authenticator.
+
+We will explore its key features, including secure backups, multi-device synchronization, offline mode, and token import/export capabilities
+
+## Who is ente?
+
+[ente](https://ente.io/) is a privacy-focused Google Photos alternative that offers end-to-end encryption and secure backups. It's an alternative to Google Photos that ensures your photos remain safe and accessible.
+
+[ente Auth](https://ente.io/blog/auth/) is a secure, reliable and [open-source](https://github.com/ente-io/auth) alternative to Google Authenticator that's available on the [Web](https://auth.ente.io/), [Android](https://play.google.com/store/apps/details?id=io.ente.auth) and [iOS](https://apps.apple.com/us/app/ente-authenticator/id6444121398).
+
+Now, let's dive into ente Auth's key features.
+
+## Secure Backups: Protecting Your Tokens and Data
+
+One significant advantage of ente Auth over Google Authenticator is its emphasis on secure backups. ente Auth encrypts and preserves your 2FA tokens using the same trusted protocols as Ente Photos.
+
+This ensures that even in the event of device loss or data loss, your tokens remain safe and can be easily restored. ente Auth provides peace of mind and protects your valuable authentication data.
+
+> Warning: Google only recently added a backup feature to Google Authenticator. However, it's not end-to-end encrypted. Read more about it [here](https://www.bleepingcomputer.com/news/google/google-will-add-end-to-end-encryption-to-google-authenticator/).
+
+## Multi-Device Synchronization
+
+ente Auth offers seamless multi-device synchronization, ensuring that your 2FA tokens are readily accessible across all your devices.
+When you sign into a new device, ente Auth automatically syncs your tokens, eliminating the need to manually transfer or re-add them.
+
+This feature provides a smooth transition between devices, making it a reliable choice for users who switch between multiple devices frequently.
+
+## Offline Mode
+
+ente Auth empowers users with an offline mode. This means you can generate 2FA tokens even when you're not connected to the internet.
+
+Whether you're traveling, in areas with limited connectivity, or experiencing network outages, ente Auth ensures that your authentication process remains uninterrupted.
+
+## Token Import/Export
+
+Another compelling reason to choose ente Auth over Google Authenticator is its flexibility in importing and exporting tokens. ente Auth supports various methods to add tokens, including scanning QR codes, manual entry of 2FA secrets, and bulk importing from file that contains a list of codes in the following format:
+
+```bash
+otpauth://totp/provider.com:you@email.com?secret=YOUR_SECRET
+```
+
+Moreover, it allows you to export your added codes to an **unencrypted** text file. This flexibility provides users with greater control over their authentication data and facilitates seamless migration to other applications if desired.
+
+## Conclusion
+
+In a digital world where reliability and continuity are paramount, ente Auth offers a robust alternative to Google Authenticator.
+
+By prioritizing secure backups, multi-device synchronization, offline mode, and flexible token management, ente Auth empowers users to have a reliable and consistent authentication experience.

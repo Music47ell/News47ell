@@ -11,29 +11,32 @@
 
 ## Stack
 
-[![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Turso](https://img.shields.io/badge/turso-%234FF8D2.svg?style=for-the-badge&logo=turso&logoColor=white)](https://tailwindcss.com)
-[![Drizzle ORM](https://img.shields.io/badge/Drizzle-%23C5F74F.svg?style=for-the-badge&logo=drizzle&logoColor=white)](https://tailwindcss.com)
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
-[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+- `Astro` - A fast, flexible new static site framework for the modern web.
+- `TypeScript` - A typed superset of JavaScript that compiles to plain JavaScript.
+- `Tailwind CSS` - A utility-first CSS framework for rapidly building custom user interfaces.
+- `Drizzle ORM` - A lightweight and simple ORM for Node.js that supports multiple databases.
+- `Turso` - A Fast, Easy and Cheap Database.
+- `Vercel` - A cloud platform for static sites and serverless functions.
+
 
 ## Overview
 
-- `app/*` - All other static pages.
-- `app/blog/*` - Static pre-rendered blog pages using markdown.
-- `data/*` - TS/JSON data that is used for resume and site settings/info.
-- `lib/*` - Short for "library", a collection of helpful utilities or code for external services.
-- `public/*` - Static assets including fonts and images.
-- `styles/*` - A small amount of global styles. I'm mostly using vanilla Tailwind CSS.
+- `assets` - Static assets such as images, favicons, and manifest files.
+- `components` - Reusable components.
+- `content` - Content for the blog posts and pages.
+- `data` - Metadata for the site
+- `layouts` - Layouts for the site.
+- `libs` - Libraries for the site.
+- `pages` - Pages for the site.
+- `utils` - Utility functions for the site.
 
 ## Features
 
 - Easy styling customization with [Tailwind](https://tailwindcss.com/)
 - Lightweight
 - Mobile-friendly view
-- Uses [Turso](https://turso.tech//) for post views
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
+- Uses [Turso](https://turso.tech/) for post views
+- Automatic image optimization via [astro:assets](https://docs.astro.build/en/guides/images/#images-in-astro-files)
 - Pre-configured security headers
 - SEO friendly with RSS feed, sitemaps and more!
 
