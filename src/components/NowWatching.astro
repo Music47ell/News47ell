@@ -1,49 +1,64 @@
----
-import MediaCard from '@/components/MediaCard.astro'
----
+<now-watching>
+<div data-card class="hidden overflow-hidden p-4 rounded-xl border border-yellow-500 bg-stone-900">
+	<a data-url class="flex relative items-center gap-5">
+		<div class="relative origin-center">
+			<img class="block" data-image />
+		</div>
+		<div>
+			<p data-title class="origin-left text-base font-semibold text-white md:text-xl"></p>
+		</div>
+	</a>
+</div>
+</now-watching>
 
-<MediaCard />
+<script is:inline async>
+ class NowWatching extends HTMLElement {
+		async connectedCallback() {
+			const fetchNowWatching = async () => {
+				const res = await fetch('/api/now-watching')
+				const data = await res.json()
+				return data
+			}
 
-<script lang="ts" type="module">
-	const fetchNowWatching = async () => {
-		const res = await fetch('/api/now-watching')
-		const data = await res.json()
-		return data
-	}
+			const updateUI = (data) => {
+				const url = data.url || ''
+				const title = data.title || ''
+				const image = data.image || ''
+				const isWatching = data.isWatching || false
 
-	const updateUI = (data) => {
-		const url = data.url || ''
-		const title = data.title || ''
-		const image = data.image || ''
-		const isWatching = data.isWatching || false
+				const urlEl = this.querySelector('[data-url]')
+				const titleEl = this.querySelector('[data-title]')
+				const imageEl = this.querySelector('[data-image]')
 
-		if (isWatching) {
-			document.querySelector(`[data-card]`).classList.remove('hidden')
+				if (isWatching) {
+					this.querySelector('[data-card]').classList.remove('hidden')
+				} else if (!isWatching) {
+					this.querySelector('[data-card]').classList.add('hidden')
+				}
+
+				urlEl.href = url
+				imageEl.src = image
+				imageEl.width = imageEl.height = 100
+				titleEl.textContent = imageEl.alt = imageEl.title = title
+			}
+
+			const fetchDataAndUpdateUI = async () => {
+				try {
+					const data = await fetchNowWatching()
+					updateUI(data)
+				} catch (error) {
+					console.error('Error fetching now watching data:', error)
+				}
+			}
+
+			// Fetch and update data every 1 minute (60000 milliseconds)
+			const updateInterval = 60000
+			setInterval(fetchDataAndUpdateUI, updateInterval)
+
+			// Initial fetch and update
+			fetchDataAndUpdateUI()
 		}
-
-		const urlEl = document.querySelector(`[data-url]`)
-		const titleEl = document.querySelector(`[data-title]`)
-		const imageEl = document.querySelector(`[data-image]`)
-
-		urlEl.href = url
-		imageEl.src = image
-		imageEl.width = imageEl.height = 100
-		titleEl.textContent = imageEl.alt = imageEl.title = title
 	}
 
-	const fetchDataAndUpdateUI = async () => {
-		try {
-			const data = await fetchNowWatching()
-			updateUI(data)
-		} catch (error) {
-			console.error('Error fetching now watching data:', error)
-		}
-	}
-
-	// Fetch and update data every 10 minutes (600,000 milliseconds)
-	const updateInterval = 600000
-	setInterval(fetchDataAndUpdateUI, updateInterval)
-
-	// Initial fetch and update
-	fetchDataAndUpdateUI()
+	customElements.define('now-watching', NowWatching)
 </script>
