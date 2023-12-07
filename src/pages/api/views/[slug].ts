@@ -6,11 +6,11 @@ import { z } from 'zod'
 import { getCollection } from 'astro:content'
 const allBlogs = await getCollection('blog')
 import { db, viewsTable } from '@/libs/turso'
-import escapeRegExp from '@/utils/escapeRegExp'
 
 export async function GET({ request, params }: APIContext) {
-	const query = new URL(request.url).searchParams
-	const slug = escapeRegExp(String(query.get('slug')))
+	const slug = z.string().parse(params.slug)
+	if (!slug) return { status: 404 }
+
 	if (!slug) return { status: 404 }
 
 	const data = await db.select().from(viewsTable).where(eq(viewsTable.slug, slug)).all()
@@ -21,8 +21,7 @@ export async function GET({ request, params }: APIContext) {
 }
 
 export async function POST({ request, params }: APIContext) {
-	const query = new URL(request.url).searchParams
-	const slug = escapeRegExp(String(query.get('slug')))
+	const slug = z.string().parse(params.slug)
 
 	const data = await db.select().from(viewsTable).where(eq(viewsTable.slug, slug)).all()
 
