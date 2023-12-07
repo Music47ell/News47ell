@@ -166,16 +166,13 @@
 		{
 			"source": "/",
 			"destination": "/api/curl-card",
-			"headers": [
+			"has": [
 				{
+					"type": "header",
 					"key": "user-agent",
 					"value": "curl/(.*)"
 				}
-			],
-			"method": "GET",
-			"query": {
-				"card": "(.*)"
-			}
+			]
 		}
 	]
 }
