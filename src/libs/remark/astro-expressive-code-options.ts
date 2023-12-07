@@ -1,5 +1,6 @@
-/** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
-export default function astroExpressiveCodeOptions() {
+import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
+
+export const astroExpressiveCodeOptions = (): AstroExpressiveCodeOptions => {
 	return {
 		themes: ['dracula'],
 		styleOverrides: {

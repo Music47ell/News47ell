@@ -17,7 +17,6 @@ const { title, description, slug, published_at, updated_at, wordsCount, type, im
 
 const pageTitle = title === siteMetadata.title ? title : `${title} | ${siteMetadata.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const imageURL = new URL(image, Astro.site)
 const twitter = {
 	site: '@',
 	author: siteMetadata.author.username,

@@ -1,0 +1,178 @@
+{
+	"redirects": [
+		{ "source": "/articles/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/deals/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/giveaways/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/how-to/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/interviews/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/linked/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/news/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/polls/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/projects/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/reviews/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/roundups/:id", "destination": "/blog/:id", "statusCode": 301 },
+		{ "source": "/dashboard", "destination": "https://dashboard.news47ell.com", "statusCode": 301 },
+		{
+			"source": "/dashboard/codes",
+			"destination": "https://dashboard.news47ell.com",
+			"statusCode": 301
+		},
+		{
+			"source": "/dashboard/music",
+			"destination": "https://dashboard.news47ell.com",
+			"statusCode": 301
+		},
+		{
+			"source": "/dashboard/music/recommend",
+			"destination": "https://dashboard.news47ell.com",
+			"statusCode": 301
+		},
+		{
+			"source": "/dashboard/shows",
+			"destination": "https://dashboard.news47ell.com",
+			"statusCode": 301
+		},
+		{
+			"source": "/.env",
+			"destination": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+			"permanent": true
+		},
+		{
+			"source": "/wp-login.php",
+			"destination": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+			"permanent": true
+		},
+		{
+			"source": "/wp-admin",
+			"destination": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+			"permanent": true
+		},
+		{ "source": "/recommends/dropbox", "destination": "https://db.tt/rpn4OoHp", "permanent": true },
+		{
+			"source": "/recommends/nextdns",
+			"destination": "https://nextdns.io/?from=9an823hm",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/torguard",
+			"destination": "https://torguard.net/aff.php?aff=1952",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/windscribe",
+			"destination": "https://windscribe.com/?friend=31d4tfuk",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/unlocator",
+			"destination": "https://unlocator.com/account/aff/go/V49E6hpEZ01uLgZo",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/generatepress",
+			"destination": "https://generatepress.com/?ref=152",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/cloudinary",
+			"destination": "https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/e6soikva7dynlmmz9bry",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/kraken",
+			"destination": "https://kraken.io/?ref=396b2b007884",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/shortpixel",
+			"destination": "https://shortpixel.com/free-sign-up-referrer/referrer/69204",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/cloudimage",
+			"destination": "https://www.cloudimage.io/en/home?ref=ahmadalmaaz",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/bunnycdn",
+			"destination": "https://bunnycdn.com/?ref=g71bm7ti0k",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/camscanner",
+			"destination": "https://www.camscanner.com/r1?1657794000",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/gitkraken",
+			"destination": "https://www.gitkraken.com/invite/s3KuPCPQ",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/airtable",
+			"destination": "https://airtable.com/invite/r/BRHMIdTo",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/filen",
+			"destination": "https://filen.io/r/7449a516ff16f72e28ed060e7c4bb4a3",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/lightningbase",
+			"destination": "https://secure.lightningbase.com/aff.php?aff=314",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/digitalocean",
+			"destination": "https://m.do.co/c/6a7a39b2c514",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/skiff",
+			"destination": "https://app.skiff.com/signup?mail&referral=music47ell",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/mailchimp",
+			"destination": "https://eepurl.com/ijLsYf",
+			"permanent": true
+		},
+		{
+			"source": "/recommends/emailoctopus",
+			"destination": "https://emailoctopus.com/?urli=3vR3w",
+			"permanent": true
+		},
+		{
+			"source": "/blog/display-current-show-movie-now-watching-trakt-nextjs",
+			"destination": "/blog/trakt-api-nextjs",
+			"statusCode": 301
+		},
+		{
+			"source": "/blog/git-ignore-node-modules-dropbox",
+			"destination": "/blog/sync-node-project-ignore-node-modules-rsync-bash-script",
+			"statusCode": 301
+		},
+		{ "source": "/tag/:id", "destination": "/blog", "statusCode": 301 },
+		{ "source": "/category/:id", "destination": "/blog", "statusCode": 301 },
+		{ "source": "/categories", "destination": "/blog", "statusCode": 301 },
+		{ "source": "/toolbox", "destination": "/uses", "statusCode": 301 },
+		{ "source": "/archive", "destination": "/blog", "statusCode": 301 },
+		{ "source": "/feed", "destination": "/blog/feed.xml", "statusCode": 301 },
+		{ "source": "/feed.xml", "destination": "/blog/feed.xml", "statusCode": 301 },
+		{ "source": "/blog/page/1", "destination": "/blog/", "permanent": true }
+	],
+	"rewrites": [
+		{
+			"source": "/",
+			"destination": "/api/curl-card",
+			"has": [
+				{
+					"type": "header",
+					"key": "user-agent",
+					"value": "curl/(.*)"
+				}
+			]
+		}
+	]
+}
