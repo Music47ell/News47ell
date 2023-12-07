@@ -161,5 +161,21 @@
 		{ "source": "/feed", "destination": "/blog/feed.xml", "statusCode": 301 },
 		{ "source": "/feed.xml", "destination": "/blog/feed.xml", "statusCode": 301 },
 		{ "source": "/blog/page/1", "destination": "/blog/", "permanent": true }
+	],
+	"rewrites": [
+		{
+			"source": "/",
+			"destination": "/api/curl-card",
+			"headers": [
+				{
+					"key": "user-agent",
+					"value": "curl/(.*)"
+				}
+			],
+			"method": "GET",
+			"query": {
+				"card": "(.*)"
+			}
+		}
 	]
 }
