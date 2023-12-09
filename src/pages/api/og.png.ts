@@ -1,15 +1,13 @@
 import type { APIRoute } from 'astro'
-import { getEntryBySlug } from 'astro:content'
 import * as fs from 'node:fs/promises'
 import { html } from 'satori-html'
 import satori from 'satori'
 import sharp from 'sharp'
 import siteMetadata from '@/data/siteMetadata'
-import escapeRegExp from '@/utils/escapeRegExp'
 
 export async function GET({ request }: APIContext) {
-	const query = new URL(request.url).searchParams
-	const title = escapeRegExp(String(query.get('title')))
+	const { searchParams } = new URL(request.url)
+	const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
 
 	const importImage = await sharp(await fs.readFile('./public/images/others/me.png'))
 		.resize(128)

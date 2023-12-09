@@ -23,7 +23,6 @@
 		"@libsql/client": "^0.3.6",
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/sharp": "^0.32.0",
 		"@vercel/edge": "^1.1.1",
 		"astro": "^4.0.3",
 		"astro-expressive-code": "^0.29.1",
@@ -55,5 +54,10 @@
 		"lint-staged": "^15.1.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-astro": "^0.12.2"
+	},
+	"pnpm": {
+		"overrides": {
+			"sharp@<0.32.6": "0.32.6"
+		}
 	}
 }
