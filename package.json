@@ -16,10 +16,10 @@
 		"find:depcheck": "npx depcheck"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^2.0.0",
-		"@astrojs/rss": "^4.0.1",
-		"@astrojs/tailwind": "^5.0.3",
-		"@astrojs/vercel": "^6.0.1",
+		"@astrojs/mdx": "^1.1.5",
+		"@astrojs/rss": "^3.0.0",
+		"@astrojs/tailwind": "^5.0.2",
+		"@astrojs/vercel": "^5.2.0",
 		"@libsql/client": "^0.3.6",
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.10",
