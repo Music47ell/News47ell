@@ -63,7 +63,9 @@ Now that we have our API call, we can create an API route to fetch the data from
 import { NextResponse } from 'next/server'
 
 import { getNowWatching } from '@/lib/trakt'
-export const runtime = 'edge'
+export const config = {
+	runtime: 'edge',
+}
 
 export const GET = async () => {
 	const response = await getNowWatching()
