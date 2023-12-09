@@ -50,6 +50,11 @@ export default defineConfig({
 				'@': '/src',
 			},
 		},
+		// fix: No loader is configured for ".node"
+		// https://github.com/yisibl/resvg-js/issues/175#issuecomment-1577291297
+		ssr: { external: ['sharp'] },
+		optimizeDeps: { exclude: ['sharp'] },
+		build: { rollupOptions: { external: ['sharp'] } },
 	},
 	markdown: {
 		remarkPlugins: [remarkModifiedTime, remarkReadingTime],
