@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro'
-import { readFileSync } from 'node:fs'
 import { html } from 'satori-html'
 import satori from 'satori'
 import sharp from 'sharp'
@@ -9,17 +8,15 @@ export async function GET({ request }: APIContext) {
 	const { searchParams } = new URL(request.url)
 	const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
 
-	const importImage = await sharp(readFileSync('./public/images/others/me.png'))
-		.resize(128)
-		.png()
-		.toBuffer()
-	const imgSrc = 'data:image/png;base64,' + importImage.toString('base64')
+	const url = import.meta.env.PROD === 'production' ? siteMetadata.siteUrl : 'http://localhost:4321'
 
 	const markup =
 		html(`<div tw="flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]">
 				<h1 tw="text-5xl text-gray-100 m-auto">${title}</h1>
 				<div tw="flex flex-row items-center">
-					<img src="${imgSrc}" tw="rounded-full w-20 h-20 mr-3" alt="${siteMetadata.author.name}" />
+					<img src="${`${url}/images/others/me.png`}" tw="rounded-full w-20 h-20 mr-3" alt="${
+						siteMetadata.author.name
+					}" />
 					<span tw="text-5xl text-[#E30A17]">/</span>
 					<span tw="text-3xl text-gray-100">${siteMetadata.title.toLowerCase()} by ${
 						siteMetadata.author.name
