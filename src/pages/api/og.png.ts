@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import * as fs from 'node:fs/promises'
+import { readFileSync } from 'node:fs'
 import { html } from 'satori-html'
 import satori from 'satori'
 import sharp from 'sharp'
@@ -9,7 +9,7 @@ export async function GET({ request }: APIContext) {
 	const { searchParams } = new URL(request.url)
 	const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
 
-	const importImage = await sharp(await fs.readFile('./public/images/others/me.png'))
+	const importImage = await sharp(readFileSync('./public/images/others/me.png'))
 		.resize(128)
 		.png()
 		.toBuffer()
