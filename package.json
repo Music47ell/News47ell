@@ -10,10 +10,10 @@
 		"astro": "astro",
 		"lint": "prettier --check  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
 		"lint:fix": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-		"update": "pnpx npm-check-updates --format group --interactive",
+		"update": "npx npm-check-updates --format group --interactive",
 		"pre-commit": "npx --no-install lint-staged",
 		"prepare": "husky install",
-		"find:depcheck": "pnpx depcheck"
+		"find:depcheck": "npx depcheck"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^2.0.0",
@@ -33,7 +33,7 @@
 		"sanitize-html": "^2.11.0",
 		"satori": "^0.10.11",
 		"satori-html": "^0.3.2",
-		"sharp": "^0.32.6",
+		"sharp": "^0.33.0",
 		"string-width": "^7.0.0",
 		"tailwindcss": "^3.3.5",
 		"unist-util-visit": "^5.0.0",
