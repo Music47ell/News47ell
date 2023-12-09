@@ -24,7 +24,7 @@
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.10",
 		"@vercel/edge": "^1.1.1",
-		"astro": "^4.0.3",
+		"astro": "^3.6.4",
 		"astro-expressive-code": "^0.29.1",
 		"drizzle-orm": "^0.29.0",
 		"kleur": "^4.1.5",

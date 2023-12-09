@@ -21,20 +21,6 @@ const site = VERCEL_PREVIEW_SITE || siteMetadata.siteUrl
 export default defineConfig({
 	site: site,
 	output: 'server',
-	server: {
-		headers: {
-			'Accept-Encoding': 'br, gzip, compress',
-			'Content-Security-Policy': 'upgrade-insecure-requests; block-all-mixed-content',
-			'Permissions-Policy':
-				'ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=()',
-			'Referrer-Policy': 'strict-origin-when-cross-origin',
-			'Report-To': `{"group":"default","max_age":31536000,"endpoints":[{"url":"https://news47ell.report-uri.com/a/d/g"}],"include_subdomains":true}`,
-			'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-			'X-Content-Type-Options': 'nosniff',
-			'X-Frame-Options': 'DENY',
-			'X-XSS-Protection': '1; mode=block',
-		},
-	},
 	adapter: vercel({
 		edgeMiddleware: true,
 	}),
@@ -50,11 +36,6 @@ export default defineConfig({
 				'@': '/src',
 			},
 		},
-		// fix: No loader is configured for ".node"
-		// https://github.com/yisibl/resvg-js/issues/175#issuecomment-1577291297
-		ssr: { external: ['sharp'] },
-		optimizeDeps: { exclude: ['sharp'] },
-		build: { rollupOptions: { external: ['sharp'] } },
 	},
 	markdown: {
 		remarkPlugins: [remarkModifiedTime, remarkReadingTime],
