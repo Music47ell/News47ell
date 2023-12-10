@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
-import { html } from 'satori-html'
 import satori from 'satori'
-import { Resvg } from '@resvg/resvg-js'
+import { html as toReactElement } from 'satori-html'
+import { Resvg, type ResvgRenderOptions } from '@resvg/resvg-js'
 import siteMetadata from '@/data/siteMetadata'
 
 export async function GET({ request }: APIContext) {
@@ -10,7 +10,11 @@ export async function GET({ request }: APIContext) {
 
 	const url = import.meta.env.PROD === 'production' ? siteMetadata.siteUrl : 'http://localhost:4321'
 
-	const markup = html` <div
+	const height = 630
+	const width = 1200
+
+	const html = toReactElement(`
+	<div
 		tw="flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]"
 	>
 		<h1 tw="text-5xl text-gray-100 m-auto">${title}</h1>
@@ -25,22 +29,30 @@ export async function GET({ request }: APIContext) {
 				>${siteMetadata.title.toLowerCase()} by ${siteMetadata.author.name}</span
 			>
 		</div>
-	</div>`
+	</div>`)
 
-	const svg = await satori(markup, {
-		width: 1200,
-		height: 630,
+	const svg = await satori(html, {
 		fonts: [
 			{
 				name: 'Alef',
 				data: await fetch('https://fonts.gstatic.com/s/alef/v12/FeVfS0NQpLYgrjJbC5FxxbU.ttf').then(
 					(res) => res.arrayBuffer()
 				),
+				style: 'normal',
 			},
 		],
+
+		height,
+		width,
 	})
 
-	const resvg = new Resvg(svg)
+	const opts: ResvgRenderOptions = {
+		fitTo: {
+			mode: 'width',
+			value: width,
+		},
+	}
+	const resvg = new Resvg(svg, opts)
 	const pngData = resvg.render()
 	const pngBuffer = pngData.asPng()
 
