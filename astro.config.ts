@@ -36,6 +36,9 @@ export default defineConfig({
 				'@': '/src',
 			},
 		},
+		optimizeDeps: {
+			exclude: ['@resvg/resvg-js'],
+		},
 	},
 	markdown: {
 		remarkPlugins: [remarkModifiedTime, remarkReadingTime],
