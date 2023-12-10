@@ -46,13 +46,7 @@ export async function GET({ request }: APIContext) {
 		width,
 	})
 
-	const opts: ResvgRenderOptions = {
-		fitTo: {
-			mode: 'width',
-			value: width,
-		},
-	}
-	const resvg = new Resvg(svg, opts)
+	const resvg = new Resvg(svg)
 	const pngData = resvg.render()
 	const pngBuffer = pngData.asPng()
 
