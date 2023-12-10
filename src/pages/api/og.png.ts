@@ -10,9 +10,6 @@ export async function GET({ request }: APIContext) {
 
 	const url = import.meta.env.PROD === 'production' ? siteMetadata.siteUrl : 'http://localhost:4321'
 
-	const height = 630
-	const width = 1200
-
 	const html = toReactElement(`
 	<div
 		tw="flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]"
@@ -32,18 +29,16 @@ export async function GET({ request }: APIContext) {
 	</div>`)
 
 	const svg = await satori(html, {
+		width: 1200,
+		height: 630,
 		fonts: [
 			{
 				name: 'Alef',
 				data: await fetch('https://fonts.gstatic.com/s/alef/v12/FeVfS0NQpLYgrjJbC5FxxbU.ttf').then(
 					(res) => res.arrayBuffer()
 				),
-				style: 'normal',
 			},
 		],
-
-		height,
-		width,
 	})
 
 	const resvg = new Resvg(svg)
