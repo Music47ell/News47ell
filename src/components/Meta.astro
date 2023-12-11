@@ -25,8 +25,8 @@ const twitter = {
 const isProduction = import.meta.env.PROD
 
 const ogImage = isProduction
-	? `${siteMetadata.siteUrl}/api/og.png?title=${encodeURIComponent(title)}`
-	: `localhost:4321/api/og.png?title=${encodeURIComponent(title)}`
+	? `${siteMetadata.siteUrl}/api/${encodeURIComponent(slug)}.og.png`
+	: `localhost:4321/api/${encodeURIComponent(slug)}.og.png`
 ---
 
 <meta charset="utf-8" />
