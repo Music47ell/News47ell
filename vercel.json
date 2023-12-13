@@ -1,4 +1,32 @@
 {
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{ "key": "Accept-Encoding", "value": "br, gzip, compress" },
+				{
+					"key": "Content-Security-Policy",
+					"value": "upgrade-insecure-requests; block-all-mixed-content"
+				},
+				{
+					"key": "Permissions-Policy",
+					"value": "ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=()"
+				},
+				{ "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+				{
+					"key": "Report-To",
+					"value": "{\"group\":\"default\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"https://news47ell.report-uri.com/a/d/g\"}],\"include_subdomains\":true}"
+				},
+				{
+					"key": "Strict-Transport-Security",
+					"value": "max-age=63072000; includeSubDomains; preload"
+				},
+				{ "key": "X-Content-Type-Options", "value": "nosniff" },
+				{ "key": "X-Frame-Options", "value": "DENY" },
+				{ "key": "X-XSS-Protection", "value": "1; mode=block" }
+			]
+		}
+	],
 	"redirects": [
 		{ "source": "/articles/:id", "destination": "/blog/:id", "statusCode": 301 },
 		{ "source": "/deals/:id", "destination": "/blog/:id", "statusCode": 301 },
