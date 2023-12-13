@@ -76,7 +76,7 @@
                 <xsl:attribute name="href">
                   <xsl:value-of select="sitemap:loc" />
                 </xsl:attribute>
-                <xsl:value-of select="sitemap:title" />
+                <xsl:value-of select="sitemap:loc" />
               </a>
             </h3>
             <small class="text-gray-500">

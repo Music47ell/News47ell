@@ -11,16 +11,13 @@ async function generateSitemap() {
     <?xml version="1.0" encoding="UTF-8"?>
     <?xml-stylesheet href="/sitemap.xsl" type="text/xsl"?>
     <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <description>${siteMetadata.description}</description>
     <url>
         <loc>${siteMetadata.siteUrl}</loc>
-        <title>${siteMetadata.title}</title>
         <lastmod>${new Date().toISOString()}</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>${siteMetadata.siteUrl}/blog</loc>
-        <title>Blog</title>
         <lastmod>${new Date().toISOString()}</lastmod>
         <priority>1.00</priority>
     </url>
@@ -31,11 +28,7 @@ async function generateSitemap() {
 			.map((page) => {
 				return `
             <url>
-                <loc>${siteMetadata.siteUrl}/blog/${page.slug}</loc>
-                <title>${page.data.title
-									.replace(/&/g, '&amp;')
-									.replace(/</g, '&lt;')
-									.replace(/>/g, '&gt;')}</title>
+                <loc>${siteMetadata.siteUrl}/${page.slug}</loc>
                 <lastmod>${new Date(page.data.published_at).toISOString()}</lastmod>
                 <priority>0.80</priority>
             </url>
@@ -50,10 +43,6 @@ async function generateSitemap() {
 				return `
             <url>
                 <loc>${siteMetadata.siteUrl}/blog/${post.slug}</loc>
-                <title>${post.data.title
-									.replace(/&/g, '&amp;')
-									.replace(/</g, '&lt;')
-									.replace(/>/g, '&gt;')}</title>
                 <lastmod>${new Date(post.data.published_at).toISOString()}</lastmod>
                 <priority>0.80</priority>
             </url>
