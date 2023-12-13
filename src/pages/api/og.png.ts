@@ -1,50 +1,102 @@
 import type { APIRoute } from 'astro'
-import { html } from 'satori-html'
-import satori from 'satori'
-import sharp from 'sharp'
+import { ImageResponse } from '@vercel/og'
+import fs from 'fs'
 import siteMetadata from '@/data/siteMetadata'
 
 export async function GET({ request }: APIContext) {
-	const { searchParams } = new URL(request.url)
-	const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
+	try {
+		const { searchParams } = new URL(request.url)
+		const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
 
-	const url = import.meta.env.PROD === 'production' ? siteMetadata.siteUrl : 'http://localhost:4321'
-
-	const markup =
-		html(`<div tw="flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]">
-				<h1 tw="text-5xl text-gray-100 m-auto">${title}</h1>
-				<div tw="flex flex-row items-center">
-					<img src="${`${url}/images/others/me.png`}" tw="rounded-full w-20 h-20 mr-3" alt="${
-						siteMetadata.author.name
-					}" />
-					<span tw="text-5xl text-[#E30A17]">/</span>
-					<span tw="text-3xl text-gray-100">${siteMetadata.title.toLowerCase()} by ${
-						siteMetadata.author.name
-					}</span>
-				</div>
-			</div>`)
-	const svg = await satori(markup, {
-		width: 1200,
-		height: 630,
-		fonts: [
-			{
-				name: 'Alef',
-				data: await fetch('https://fonts.gstatic.com/s/alef/v12/FeVfS0NQpLYgrjJbC5FxxbU.ttf').then(
-					(res) => res.arrayBuffer()
-				),
-				weight: 400,
-				style: 'normal',
+		const html = {
+			type: 'div',
+			props: {
+				tw: 'flex flex-col justify-center w-full h-full p-12 items-center bg-[#282a36]',
+				children: [
+					{
+						type: 'h1',
+						props: {
+							tw: 'text-5xl text-gray-100 m-auto',
+							children: title,
+							fontFamily: 'Open Sans',
+						},
+					},
+					{
+						type: 'div',
+						props: {
+							tw: 'flex flex-row items-center',
+							children: [
+								{
+									type: 'span',
+									props: {
+										tw: 'text-5xl text-[#E30A17]',
+										children: '/',
+									},
+								},
+								{
+									type: 'div',
+									props: {
+										tw: 'text-5xl text-gray-100 flex',
+										children: [
+											{
+												type: 'span',
+												props: {
+													children: `${siteMetadata.title.toLowerCase()}`,
+													style: {
+														fontFamily: 'Alef',
+													},
+												},
+											},
+											{
+												type: 'span',
+												props: {
+													children: 'by',
+													tw: 'mx-3',
+												},
+											},
+											{
+												type: 'span',
+												props: {
+													children: siteMetadata.author.name,
+													style: {
+														fontFamily: 'Open Sans',
+													},
+												},
+											},
+										],
+									},
+								},
+							],
+						},
+					},
+				],
 			},
-		],
-	})
-	const png = sharp(Buffer.from(svg)).png()
-	const response = await png.toBuffer()
+		}
 
-	return new Response(response, {
-		status: 200,
-		headers: {
-			'Content-Type': 'image/png',
-			'Cache-Control': 's-maxage=1, stale-while-revalidate=59',
-		},
-	})
+		return new ImageResponse(html, {
+			width: 1200,
+			height: 600,
+			fonts: [
+				{
+					name: 'Alef',
+					data: await fetch(
+						'https://fonts.gstatic.com/s/alef/v12/FeVfS0NQpLYgrjJbC5FxxbU.ttf'
+					).then((res) => res.arrayBuffer()),
+					style: 'normal',
+				},
+				{
+					name: 'Open Sans',
+					data: await fetch(
+						'https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0e.ttf'
+					).then((res) => res.arrayBuffer()),
+					style: 'normal',
+				},
+			],
+		})
+	} catch (e) {
+		console.log(`${e.message}`)
+		return new Response(`Failed to generate the image`, {
+			status: 500,
+		})
+	}
 }
