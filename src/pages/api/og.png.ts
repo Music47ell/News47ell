@@ -7,9 +7,6 @@ export async function GET({ request }: APIContext) {
 		const { searchParams } = new URL(request.url)
 		const title = searchParams.has('title') ? searchParams.get('title') : siteMetadata.title
 
-		const url =
-			import.meta.env.PROD === 'production' ? siteMetadata.siteUrl : 'http://localhost:4321'
-
 		const html = {
 			type: 'div',
 			props: {
@@ -28,14 +25,6 @@ export async function GET({ request }: APIContext) {
 						props: {
 							tw: 'flex flex-row items-center',
 							children: [
-								{
-									type: 'img',
-									props: {
-										src: `${url}/images/others/me.png`,
-										tw: 'rounded-full w-30 h-30 mr-3',
-										alt: siteMetadata.author.name,
-									},
-								},
 								{
 									type: 'span',
 									props: {
