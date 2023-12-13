@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro'
 import { ImageResponse } from '@vercel/og'
+import fs from 'fs'
 import siteMetadata from '@/data/siteMetadata'
 
 export async function GET({ request }: APIContext) {
@@ -35,14 +36,14 @@ export async function GET({ request }: APIContext) {
 								{
 									type: 'div',
 									props: {
-										tw: 'text-4xl text-gray-100 flex',
+										tw: 'text-5xl text-gray-100 flex',
 										children: [
 											{
 												type: 'span',
 												props: {
 													children: `${siteMetadata.title.toLowerCase()}`,
 													style: {
-														fontFamily: 'Alef', // Use Alef font for the title
+														fontFamily: 'Alef',
 													},
 												},
 											},
@@ -58,7 +59,7 @@ export async function GET({ request }: APIContext) {
 												props: {
 													children: siteMetadata.author.name,
 													style: {
-														fontFamily: 'Open Sans', // Use Open Sans font for the name
+														fontFamily: 'Open Sans',
 													},
 												},
 											},
@@ -71,23 +72,6 @@ export async function GET({ request }: APIContext) {
 				],
 			},
 		}
-
-		// const svg = await satori(markup, {
-		// 	width: 1200,
-		// 	height: 630,
-		// 	fonts: [
-		// 		{
-		// 			name: 'Alef',
-		// 			data: await fetch('https://fonts.gstatic.com/s/alef/v12/FeVfS0NQpLYgrjJbC5FxxbU.ttf').then(
-		// 				(res) => res.arrayBuffer()
-		// 			),
-		// 			weight: 400,
-		// 			style: 'normal',
-		// 		},
-		// 	],
-		// })
-		// const png = sharp(Buffer.from(svg)).png()
-		// const response = await png.toBuffer()
 
 		return new ImageResponse(html, {
 			width: 1200,
