@@ -40,5 +40,5 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkModifiedTime, remarkReadingTime],
 	},
-	integrations: [tailwind(), astroExpressiveCode(astroExpressiveCodeOptions), mdx()],
+	integrations: [tailwind(), astroExpressiveCode(astroExpressiveCodeOptions()), mdx()],
 })
