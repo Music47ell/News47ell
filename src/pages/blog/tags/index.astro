@@ -1,0 +1,41 @@
+---
+const pageTitle = 'Tags'
+
+import { getCollection } from 'astro:content'
+const blog = await getCollection('blog')
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import siteMetadata from '@/data/siteMetadata'
+
+import Link from '@/components/Link.astro'
+import ViewsCounter from '@/components/ViewsCounter.astro'
+import Newsletter from '@/components/Newsletter.astro'
+
+const tags = blog.map((blog) => blog.data.tags).flat()
+.reduce<{ [key: string]: number }>(function (result, c) {
+  var count = result[c] || 0;
+  result[c] = count + 1;
+  return result;
+}, {});
+---
+
+<BaseLayout title={pageTitle} description={siteMetadata.description} type="website">
+	<Newsletter />
+	<main
+		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
+	>
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {
+        Object.keys(tags)
+        .sort((a, b) => tags[b] - tags[a])
+        .map((tag) => (
+            <div class="p-4">
+                <Link href={`/blog/tag/${tag.toLowerCase().replace(' ', '-')}`}>
+                    {tag}
+                </Link>
+                <p class="text-gray-400 text-sm">{tags[tag]} posts</p>
+            </div>
+        ))
+    </div>
+	</main>
+</BaseLayout>

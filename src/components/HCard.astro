@@ -6,9 +6,9 @@ import Türkiye from '@/components/icons/Türkiye.html'
 ---
 
 <div
-	class="p-author h-card user-profile relative flex items-center rounded-md border border-yellow-500 bg-stone-900 p-2 text-sm"
+	class="h-card user-profile relative flex items-center rounded-md border border-yellow-500 bg-stone-900 p-2 text-sm"
 >
-	<Link href="/" class="[&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
+	<Link href="/" class="p-author [&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
 		<Image
 			class="photo u-photo"
 			src={siteMetadata.author.avatar}

@@ -11,6 +11,7 @@ import Newsletter from '@/components/Newsletter.astro'
 const {
 	title,
 	description,
+	tags,
 	published_at,
 	lastModified,
 	wordsCount,
@@ -69,6 +70,15 @@ const {
 						<slot />
 					</div>
 		</Prose>
+		<div class="grid grid-cols-2 items-center gap-x-3 mb-3.5 text-gray-100">
+		  {
+            tags && tags.map(tag => (
+              <Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category border border-yellow-500 rounded bg-stone-900 text-yellow-500 px-2 py-1 mt-2">
+                {tag}
+              </Link>
+            ))
+          }
+        </div>
 	</main>
 	<Newsletter />
 </BaseLayout>

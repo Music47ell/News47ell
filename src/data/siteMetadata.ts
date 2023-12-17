@@ -32,6 +32,7 @@ const siteMetadata = {
 	},
 	NavLinks: [
 		{ title: 'Blog', href: '/blog', activePath: /^\/blog*/ },
+		{ title: 'Tags', href: '/blog/tags', activePath: /^\/blog\/tags*/ },
 		{ title: 'Projects', href: '/projects', activePath: /^\/projects*/ },
 		{ title: 'Sponsors', href: '/sponsors', activePath: /^\/sponsors*/ },
 		{ title: 'Colophon', href: '/colophon', activePath: /^\/colophon*/ },

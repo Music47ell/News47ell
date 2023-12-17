@@ -4,6 +4,7 @@ import Analytics from '@/components/Analytics.astro'
 
 export interface Props {
 	title: string
+	tagTitle: string
 	description: string
 	slug: string
 	published_at: Date
@@ -13,7 +14,7 @@ export interface Props {
 	image: string
 }
 
-const { title, description, slug, published_at, updated_at, wordsCount, type, image } = Astro.props
+const { title, tagTitle, description, slug, published_at, updated_at, wordsCount, type, image } = Astro.props
 
 const pageTitle = title === siteMetadata.title ? title : `${title} | ${siteMetadata.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -39,7 +40,9 @@ const ogImage = isProduction
 {description ? <meta name="description" content={description} /> : null}
 <meta name="generator" content={Astro.generator} />
 <link rel="canonical" href={canonicalURL} />
-<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title={`${siteMetadata.title} » RSS Feed`} href="/blog/feed.xml" />
+{Astro.url.pathname.includes('/blog/tag/') ? <link rel="alternate" type="application/rss+xml" title={`${siteMetadata.title} » ${tagTitle} Tag Feed`} href={`/blog/tag/${Astro.params.tag}/feed.xml`} /> : null}
+
 
 {/*Favicons Meta Tags*/}
 <link

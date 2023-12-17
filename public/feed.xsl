@@ -79,6 +79,17 @@
               Published: <xsl:value-of select="pubDate" /> by
 	              <xsl:value-of select="author" />
             </small>
+            <p class="text-gray-500 mt-1">
+            <small>
+        Categories:
+        <xsl:for-each select="category">
+          <span>
+            <xsl:value-of select="." />
+          </span>
+          <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+        </small>
+      </p>
           </div>
         </xsl:for-each>
       </body>
