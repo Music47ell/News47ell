@@ -21,6 +21,11 @@ async function generateSitemap() {
         <lastmod>${new Date().toISOString()}</lastmod>
         <priority>1.00</priority>
     </url>
+    <url>
+        <loc>${siteMetadata.siteUrl}/blog/tags</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <priority>1.00</priority>
+    </url>
     ${pages
 			.sort((a, b) => {
 				return new Date(b.data.published_at).getTime() - new Date(a.data.published_at).getTime()

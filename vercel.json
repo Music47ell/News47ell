@@ -181,14 +181,12 @@
 			"destination": "/blog/sync-node-project-ignore-node-modules-rsync-bash-script",
 			"statusCode": 301
 		},
-		{ "source": "/tag/:id", "destination": "/blog", "statusCode": 301 },
 		{ "source": "/category/:id", "destination": "/blog", "statusCode": 301 },
 		{ "source": "/categories", "destination": "/blog", "statusCode": 301 },
 		{ "source": "/toolbox", "destination": "/uses", "statusCode": 301 },
 		{ "source": "/archive", "destination": "/blog", "statusCode": 301 },
 		{ "source": "/feed", "destination": "/blog/feed.xml", "statusCode": 301 },
-		{ "source": "/feed.xml", "destination": "/blog/feed.xml", "statusCode": 301 },
-		{ "source": "/blog/page/1", "destination": "/blog/", "permanent": true }
+		{ "source": "/feed.xml", "destination": "/blog/feed.xml", "statusCode": 301 }
 	],
 	"rewrites": [
 		{

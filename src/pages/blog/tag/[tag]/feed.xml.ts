@@ -8,6 +8,13 @@ const parser = new MarkdownIt()
 export async function GET(context: any) {
 	const blog: CollectionEntry<'blog'>[] = await getCollection('blog')
 
+	const tag = context.params.tag
+	const filteredBlog = blog
+		.sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime())
+		.filter((blog) =>
+			blog.data.tags.map((tag) => tag.replace(/\s+/g, '-').toLowerCase()).includes(tag)
+		)
+
 	return rss({
 		title: siteMetadata.title,
 		description: siteMetadata.description,
@@ -22,7 +29,7 @@ export async function GET(context: any) {
     <managingEditor>${siteMetadata.email} (${siteMetadata.author.name})</managingEditor>
     <atom:link href="${context.site}/feed.xml" rel="self" type="application/rss+xml" />
     `,
-		items: blog
+		items: filteredBlog
 			.sort((a, b) => b.data.published_at - a.data.published_at)
 			.map((post) => ({
 				title: post.data.title,
