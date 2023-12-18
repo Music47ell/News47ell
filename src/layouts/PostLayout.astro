@@ -34,7 +34,7 @@ const {
 >
 	<main class="col-span-10 flex flex-col lg:col-span-7">
 		<Prose>
-			<header class="relative flex w-full flex-col">
+			<header class="relative flex w-full flex-col border-b border-yellow-500 pb-4">
 				{
 					cover && (
 						<Image src={cover.src} alt={cover.alt} class="h-auto w-full" width="500" height="300" />
@@ -74,7 +74,7 @@ const {
 		  {
             tags && tags.map(tag => (
               <Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category border border-yellow-500 rounded bg-stone-900 text-yellow-500 px-2 py-1 mt-2">
-                {tag}
+                # {tag}
               </Link>
             ))
           }

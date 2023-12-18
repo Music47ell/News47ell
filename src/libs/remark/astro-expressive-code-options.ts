@@ -3,6 +3,7 @@ import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
 export default function astroExpressiveCodeOptions(): AstroExpressiveCodeOptions {
 	return {
 		themes: ['dracula'],
+		useThemedScrollbars: false,
 		styleOverrides: {
 			borderRadius: '0px',
 			// You can optionally override the plugin's default styles here
