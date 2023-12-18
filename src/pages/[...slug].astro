@@ -27,6 +27,12 @@ const { title, description, published_at } = page.data
 const { lastModified } = remarkPluginFrontmatter
 ---
 
-<PageLayout title={title} description={description} published_at={published_at} lastModified={lastModified} slug={page.slug}>
-    <Content components={components} />
+<PageLayout
+	title={title}
+	description={description}
+	published_at={published_at}
+	lastModified={lastModified}
+	slug={page.slug}
+>
+	<Content components={components} />
 </PageLayout>

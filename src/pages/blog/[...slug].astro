@@ -2,7 +2,7 @@
 export const prerender = true
 
 import { getCollection } from 'astro:content'
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'
 
 import PostLayout from '@/layouts/PostLayout.astro'
 import { components } from '@/components/mdx/index.astro'
@@ -28,6 +28,18 @@ const { title, description, tags, cover, published_at, source } = blog.data
 const { lastModified, readingTime, wordsCount } = remarkPluginFrontmatter
 ---
 
-<PostLayout title={title} description={description} tags={tags} cover={cover} published_at={published_at} source={source} lastModified={lastModified} readingTime={readingTime} wordsCount={wordsCount} headings={headings} slug={blog.slug}>
-    <Content components={components} />
+<PostLayout
+	title={title}
+	description={description}
+	tags={tags}
+	cover={cover}
+	published_at={published_at}
+	source={source}
+	lastModified={lastModified}
+	readingTime={readingTime}
+	wordsCount={wordsCount}
+	headings={headings}
+	slug={blog.slug}
+>
+	<Content components={components} />
 </PostLayout>

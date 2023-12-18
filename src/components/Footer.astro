@@ -8,29 +8,29 @@ import Slash from '@/components/icons/Slash.html'
 ---
 
 <footer class="m-auto px-4 flex max-w-md flex-col items-center gap-4 print:hidden">
-		<div class="grid grid-cols-1 gap-y-2">
-			<NowPlaying />
-			<NowWatching />
-			<HCard />
-			<div class="flex items-center justify-between gap-x-3">
-				{siteMetadata.author.social.map((link) => <Link href={link.href}>{link.title}</Link>)}
-			</div>
-			<div class="copyright mt-2 text-center text-xs" item-prop="copyrightYear">
-				COPYRIGHT © 2013 / <span class="year">{new Date().getFullYear()}</span>{' '}
-				{siteMetadata.altTitle}. ALL RIGHTS RESERVED.
-			</div>
-			<div class="mt-2 text-center">
-				<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</Link>
-				 An IndieWeb Webring 🕸💍
-				<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
-				<p class="text-xs">
-					Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
-				</p>
-			</div>
-			<div class="m-auto my-6">
-				<Link href="/" aria-label={siteMetadata.title}>
-					<Slash />
-				</Link>
-			</div>
+	<div class="grid grid-cols-1 gap-y-2">
+		<NowPlaying />
+		<NowWatching />
+		<HCard />
+		<div class="flex items-center justify-between gap-x-3">
+			{siteMetadata.author.social.map((link) => <Link href={link.href}>{link.title}</Link>)}
 		</div>
+		<div class="copyright mt-2 text-center text-xs" item-prop="copyrightYear">
+			COPYRIGHT © 2013 / <span class="year">{new Date().getFullYear()}</span>{' '}
+			{siteMetadata.altTitle}. ALL RIGHTS RESERVED.
+		</div>
+		<div class="mt-2 text-center">
+			<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/previous">←</Link>
+			 An IndieWeb Webring 🕸💍
+			<Link href="https://xn--sr8hvo.ws/%F0%9F%9B%81%F0%9F%9A%BC%F0%9F%A6%83/next">→</Link>
+			<p class="text-xs">
+				Have a good {new Date().toLocaleString('default', { weekday: 'long' })}!
+			</p>
+		</div>
+		<div class="m-auto my-6">
+			<Link href="/" aria-label={siteMetadata.title}>
+				<Slash />
+			</Link>
+		</div>
+	</div>
 </footer>

@@ -2,9 +2,7 @@
 const { slug, trackViews } = Astro.props
 ---
 
-<span data-post-views={slug} class="shrink-0">
-	--- views
-</span>
+<span data-post-views={slug} class="shrink-0"> --- views</span>
 
 <script define:vars={{ slug, trackViews }} lang="ts" type="module">
 	let views = 0

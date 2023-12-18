@@ -18,7 +18,6 @@
 - `Turso` - A Fast, Easy and Cheap Database.
 - `Vercel` - A cloud platform for static sites and serverless functions.
 
-
 ## Overview
 
 - `assets` - Static assets such as images, favicons, and manifest files.

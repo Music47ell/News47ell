@@ -67,17 +67,19 @@ const {
 					<ViewsCounter slug={slug} trackViews={true} />
 				</div>
 			</header>
-					<div class="e-content entry-content">
-						<slot />
-					</div>
+			<div class="e-content entry-content">
+				<slot />
+			</div>
 		</Prose>
 		<div class="flex flex-wrap gap-x-2 justify-end">
-		  {tags.map(tag => (
-              <Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category">
-                #{tag}
-              </Link>
-            ))}
-        </div>
+			{
+				tags.map((tag) => (
+					<Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category">
+						#{tag}
+					</Link>
+				))
+			}
+		</div>
 	</main>
 	<Newsletter />
 </BaseLayout>
