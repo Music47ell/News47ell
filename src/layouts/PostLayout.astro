@@ -7,6 +7,7 @@ import { hEntryDate, displayDate } from '@/utils/formatters'
 import ViewsCounter from '@/components/ViewsCounter.astro'
 import { Image } from 'astro:assets'
 import Newsletter from '@/components/Newsletter.astro'
+import siteMetadata from '@/data/siteMetadata'
 
 const {
 	title,
@@ -34,7 +35,7 @@ const {
 >
 	<main class="col-span-10 flex flex-col lg:col-span-7">
 		<Prose>
-			<header class="relative flex w-full flex-col">
+			<header class="relative flex w-full flex-col border-b border-yellow-500 pb-4">
 				{
 					cover && (
 						<Image src={cover.src} alt={cover.alt} class="h-auto w-full" width="500" height="300" />
@@ -66,19 +67,19 @@ const {
 					<ViewsCounter slug={slug} trackViews={true} />
 				</div>
 			</header>
-					<div class="e-content entry-content">
-						<slot />
-					</div>
+			<div class="e-content entry-content">
+				<slot />
+			</div>
 		</Prose>
-		<div class="grid grid-cols-2 items-center gap-x-3 mb-3.5 text-gray-100">
-		  {
-            tags && tags.map(tag => (
-              <Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category border border-yellow-500 rounded bg-stone-900 text-yellow-500 px-2 py-1 mt-2">
-                {tag}
-              </Link>
-            ))
-          }
-        </div>
+		<div class="flex flex-wrap gap-x-2 justify-end">
+			{
+				tags.map((tag) => (
+					<Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category">
+						#{tag}
+					</Link>
+				))
+			}
+		</div>
 	</main>
 	<Newsletter />
 </BaseLayout>

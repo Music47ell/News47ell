@@ -9,24 +9,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import siteMetadata from '@/data/siteMetadata'
 
 export async function getStaticPaths() {
-	const blogs = (await getCollection('blog')) as CollectionEntry[];
+	const blogs = (await getCollection('blog')) as CollectionEntry[]
 
-  const tags = [...new Set(blogs.flatMap((blog) => blog.data.tags))];
+	const tags = [...new Set(blogs.flatMap((blog) => blog.data.tags))]
 	return tags.map((tag) => ({
-		params: { tag: tag.replace(/\s+/g, '-') }
-	}));
+		params: { tag: tag.replace(/\s+/g, '-') },
+	}))
 }
 
-const { tag } = Astro.params;
+const { tag } = Astro.params
 
 const tagTitle = (await getCollection('blog'))
-    .flatMap((blog) => blog.data.tags)
-    .find((t) => t.replace(/\s+/g, '-').toLowerCase() === tag)
+	.flatMap((blog) => blog.data.tags)
+	.find((t) => t.replace(/\s+/g, '-').toLowerCase() === tag)
 
 const blogs = (await getCollection('blog'))
-  .sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime())
-  .filter((blog) => blog.data.tags.map((tag) => tag.replace(/\s+/g, '-').toLowerCase()).includes(tag));
-
+	.sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime())
+	.filter((blog) =>
+		blog.data.tags.map((tag) => tag.replace(/\s+/g, '-').toLowerCase()).includes(tag)
+	)
 ---
 
 <BaseLayout

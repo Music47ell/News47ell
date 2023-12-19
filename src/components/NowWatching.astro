@@ -1,18 +1,21 @@
 <now-watching>
-<div data-card class="hidden overflow-hidden p-4 rounded-xl border border-yellow-500 bg-stone-900">
-	<a data-url class="flex relative items-center gap-5">
-		<div class="relative origin-center">
-			<img class="block" data-image />
-		</div>
-		<div>
-			<p data-title class="origin-left text-base font-semibold text-white md:text-xl"></p>
-		</div>
-	</a>
-</div>
+	<div
+		data-card
+		class="hidden overflow-hidden p-4 rounded-xl border border-yellow-500 bg-stone-900"
+	>
+		<a data-url class="flex relative items-center gap-5" href="/">
+			<div class="relative origin-center">
+				<img data-image class="block" alt="" />
+			</div>
+			<div>
+				<p data-title class="origin-left text-base font-semibold text-white md:text-xl"></p>
+			</div>
+		</a>
+	</div>
 </now-watching>
 
 <script is:inline async>
- class NowWatching extends HTMLElement {
+	class NowWatching extends HTMLElement {
 		async connectedCallback() {
 			const fetchNowWatching = async () => {
 				const res = await fetch('/api/now-watching')

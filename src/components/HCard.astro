@@ -8,7 +8,7 @@ import Türkiye from '@/components/icons/Türkiye.html'
 <div
 	class="h-card user-profile relative flex items-center rounded-md border border-yellow-500 bg-stone-900 p-2 text-sm"
 >
-	<Link href="/" class="p-author [&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
+	<Link href="/" class="[&>img]:rounded-md" aria-label={siteMetadata.title} rel="author">
 		<Image
 			class="photo u-photo"
 			src={siteMetadata.author.avatar}
@@ -18,8 +18,8 @@ import Türkiye from '@/components/icons/Türkiye.html'
 		/>
 	</Link>
 	<div class="ml-3 flex flex-col items-start justify-center text-ellipsis">
-		<Link class="u-email font-medium" href={`mailto:${siteMetadata.email}`} rel="me authn">
-			<p class="p-name text-sm font-medium">{siteMetadata.author.name}</p>
+		<Link class="u-email font-medium" href={`mailto:${siteMetadata.email}`} rel="me authn author">
+			<p class="p-name p-author text-sm font-medium">{siteMetadata.author.name}</p>
 		</Link>
 		<Link class="u-url u-uid font-medium" href={siteMetadata.siteUrl}>
 			<p class="p-nickname text-sm font-medium">
