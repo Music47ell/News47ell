@@ -211,7 +211,7 @@ const ogImage = isProduction
 				image: {
 					'@id': `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
 				},
-				sameAs: [siteMetadata.social.map((url) => url.href)],
+				sameAs: [siteMetadata.socials.map((url) => url.href)],
 			},
 			{
 				'@type': 'Person',
@@ -226,7 +226,7 @@ const ogImage = isProduction
 					caption: siteMetadata.author.name,
 				},
 				description: siteMetadata.author.occupation,
-				sameAs: [siteMetadata.author.social.map((url) => url.href)],
+				sameAs: [siteMetadata.author.socials.map((url) => url.url)],
 			},
 		],
 	})}

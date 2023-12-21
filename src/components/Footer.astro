@@ -13,7 +13,7 @@ import Slash from '@/components/icons/Slash.html'
 		<NowWatching />
 		<HCard />
 		<div class="flex items-center justify-between gap-x-3">
-			{siteMetadata.author.social.map((link) => <Link href={link.href}>{link.title}</Link>)}
+			{siteMetadata.author.socials.map((link) => <Link href={link.url}>{link.title}</Link>)}
 		</div>
 		<div class="copyright mt-2 text-center text-xs" item-prop="copyrightYear">
 			COPYRIGHT © 2013 / <span class="year">{new Date().getFullYear()}</span>{' '}

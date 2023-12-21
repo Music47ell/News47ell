@@ -8,11 +8,11 @@ const siteMetadata = {
 	email: 'ahmet@news47ell.com',
 	locale: 'en-US',
 	githubSponsorUrl: 'https://github.com/sponsors/Music47ell',
-	social: [
-		{ title: 'Twitter', href: 'https://twitter.com/news47ell' },
-		{ title: 'Facebook', href: 'https://www.facebook.com/news47ell' },
-		{ title: 'LinkedIn', href: 'https://www.linkedin.com/company/news47ell' },
-		{ title: 'Mastodon', href: 'https://mastodon.social/@news47ell' },
+	socials: [
+		{ title: 'Twitter', url: 'https://twitter.com/news47ell' },
+		{ title: 'Facebook', url: 'https://www.facebook.com/news47ell' },
+		{ title: 'LinkedIn', url: 'https://www.linkedin.com/company/news47ell' },
+		{ title: 'Mastodon', url: 'https://mastodon.social/@news47ell' },
 	],
 	author: {
 		name: 'Ahmet ALMAZ',
@@ -23,11 +23,11 @@ const siteMetadata = {
 			country: 'Türkiye',
 			emojiFlag: '🇹🇷',
 		},
-		social: [
-			{ title: 'Twitter', href: 'https://twitter.com/music47ell' },
-			{ title: 'GitHub', href: 'https://github.com/music47ell' },
-			{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/music47ell' },
-			{ title: 'Mastodon', href: 'https://mastodon.social/@music47ell' },
+		socials: [
+			{ title: 'Twitter', url: 'https://twitter.com/music47ell' },
+			{ title: 'GitHub', url: 'https://github.com/music47ell' },
+			{ title: 'LinkedIn', url: 'https://www.linkedin.com/in/music47ell' },
+			{ title: 'Mastodon', url: 'https://mastodon.social/@music47ell' },
 		],
 	},
 	NavLinks: [

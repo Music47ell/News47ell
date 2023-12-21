@@ -61,10 +61,18 @@ const {
 						<Title>{title}</Title>
 					)
 				}
-				<div class="flex items-center justify-between gap-x-3 text-sm text-gray-100">
+				<div class="flex items-center justify-between gap-x-2 text-sm text-gray-100">
 					<span>{readingTime} minutes</span>
+					 /
 					<span>{wordsCount} words</span>
+					 /
 					<ViewsCounter slug={slug} trackViews={true} />
+					 /
+					<span>
+						<Link rel="author" class="p-author h-card" href={siteMetadata.author.socials[0].url}>
+							{siteMetadata.author.name}
+						</Link>
+					</span>
 				</div>
 			</header>
 			<div class="e-content entry-content">
