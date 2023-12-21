@@ -21,11 +21,11 @@ import Türkiye from '@/components/icons/Türkiye.html'
 		<Link class="u-email font-medium" href={`mailto:${siteMetadata.email}`} rel="me authn author">
 			<p class="p-name p-author text-sm font-medium">{siteMetadata.author.name}</p>
 		</Link>
-		<Link class="u-url u-uid font-medium" href={siteMetadata.siteUrl}>
+		<a class="u-url u-uid" href={siteMetadata.siteUrl}>
 			<p class="p-nickname text-sm font-medium">
 				{siteMetadata.author.username}
 			</p>
-		</Link>
+		</a>
 		<p class="p-role role text-sm font-medium">
 			{siteMetadata.author.occupation}
 		</p>
