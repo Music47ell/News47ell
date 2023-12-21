@@ -20,6 +20,7 @@ const site = VERCEL_PREVIEW_SITE || siteMetadata.siteUrl
 // https://astro.build/config
 export default defineConfig({
 	site: site,
+	trailingSlash: 'never',
 	output: 'server',
 	adapter: vercel({
 		edgeMiddleware: true,
@@ -40,5 +41,5 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkModifiedTime, remarkReadingTime],
 	},
-	integrations: [tailwind(), astroExpressiveCode(astroExpressiveCodeOptions()), mdx()],
+	integrations: [astroExpressiveCode(astroExpressiveCodeOptions()), mdx(), tailwind()],
 })

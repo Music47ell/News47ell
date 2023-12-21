@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro'
 import { ImageResponse } from '@vercel/og'
-import fs from 'fs'
 import siteMetadata from '@/data/siteMetadata'
 
 export async function GET({ request }: APIContext) {

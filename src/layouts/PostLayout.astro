@@ -71,12 +71,12 @@ const {
 				<slot />
 			</div>
 		</Prose>
-		<div class="flex flex-wrap gap-x-2 justify-end">
+		<div class="tag flex flex-wrap gap-x-2 justify-end">
 			{
 				tags.map((tag) => (
-					<Link href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category">
+					<a href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`} class="p-category">
 						#{tag}
-					</Link>
+					</a>
 				))
 			}
 		</div>
