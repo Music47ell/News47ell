@@ -2,9 +2,6 @@
 const { ...attrs } = Astro.props
 ---
 
-<table
-	class="w-full text-sm rounded-md"
-	{...attrs}
->
+<table class="w-full text-sm rounded-md" {...attrs}>
 	<slot />
 </table>

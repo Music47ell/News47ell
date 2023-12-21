@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 
@@ -13,7 +15,7 @@ export async function getStaticPaths() {
 
 	const tags = [...new Set(blogs.flatMap((blog) => blog.data.tags))]
 	return tags.map((tag) => ({
-		params: { tag: tag.replace(/\s+/g, '-') },
+		params: { tag: tag.replace(/\s+/g, '-').toLowerCase() },
 	}))
 }
 
