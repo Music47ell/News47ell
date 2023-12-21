@@ -63,7 +63,3 @@ kbd {
 .h-card a {
 	@apply text-red-500 decoration-yellow-500 transition-colors duration-100 hover:underline;
 }
-
-.tag a {
-	@apply text-red-500 decoration-yellow-500 transition-colors duration-100 hover:underline;
-}

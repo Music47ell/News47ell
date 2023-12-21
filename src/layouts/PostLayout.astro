@@ -70,12 +70,12 @@ const {
 			<div class="e-content entry-content">
 				<slot />
 			</div>
-			<div class="tag flex flex-wrap gap-x-2 justify-end">
+			<div class="flex flex-wrap gap-x-2 justify-end">
 				{
 					tags.map((tag) => (
-						<a class="p-category" href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`}>
+						<Link class="p-category" href={`/blog/tag/${tag.replace(' ', '-').toLowerCase()}`}>
 							#{tag}
-						</a>
+						</Link>
 					))
 				}
 			</div>
