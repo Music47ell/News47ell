@@ -63,14 +63,14 @@ const {
 				}
 				<Link
 					rel="author"
-					class="p-author h-card flex items-center justify-center"
+					class="h-card flex items-center justify-center not-prose"
 					href={siteMetadata.author.socials[0].url}
 				>
-					<span class="mr-2">{siteMetadata.author.name}</span>
+					<p class="p-author mr-2">{siteMetadata.author.name}</p>
 					<Image
 						src={siteMetadata.author.avatar}
 						alt={siteMetadata.author.name}
-						class="u-photo h-5 w-5 rounded-full not-prose"
+						class="u-photo h-5 w-5 rounded-full"
 						width="20"
 						height="20"
 					/>
