@@ -9,11 +9,11 @@ export const config = {
 export async function POST({ params, request }: APIContext) {
 	const date = new Date()
 	const currentUrl = new URL(request.url)
-	const { slug, referrer } = await new Response(request.body).json()
+	const { title, slug, referrer } = await new Response(request.body).json()
 	const { flag, country, city, latitude, longitude } = geolocation(request)
 
 	try {
-		if (!(flag && country && city && latitude && longitude && slug && referrer)) {
+		if (!(flag && country && city && latitude && longitude && title && slug && referrer)) {
 			return Response.json({
 				message: 'Missing required parameters',
 			})
@@ -24,6 +24,7 @@ export async function POST({ params, request }: APIContext) {
 		} else {
 			await db.insert(analyticsTable).values({
 				date: date.toISOString(),
+				title: title,
 				slug: slug,
 				referrer: referrer,
 				flag: flag,
