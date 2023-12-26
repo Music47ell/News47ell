@@ -19,6 +19,7 @@ export const viewsTable = sqliteTable('views', {
 export const analyticsTable = sqliteTable('analytics', {
 	id: integer('id').primaryKey(),
 	date: text('date').notNull(),
+	title: text('title').notNull(),
 	slug: text('slug').notNull(),
 	referrer: text('referrer').notNull(),
 	flag: text('flag'),
