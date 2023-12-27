@@ -1,6 +1,4 @@
 ---
-const pageTitle = 'Tags'
-
 import { getCollection } from 'astro:content'
 const blog = await getCollection('blog')
 
@@ -21,7 +19,7 @@ const tags = blog
 	}, {})
 ---
 
-<BaseLayout title={pageTitle} description={siteMetadata.description} type="website">
+<BaseLayout title="Tags" description={siteMetadata.description} type="website">
 	<Newsletter />
 	<main
 		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
