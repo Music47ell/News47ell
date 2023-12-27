@@ -1,6 +1,4 @@
 ---
-const pageTitle = 'Blog'
-
 import { getCollection } from 'astro:content'
 const blog = await getCollection('blog')
 
@@ -14,7 +12,7 @@ import Newsletter from '@/components/Newsletter.astro'
 const posts = blog.sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime())
 ---
 
-<BaseLayout title={pageTitle} description={siteMetadata.description} type="website">
+<BaseLayout title="Blog" description={siteMetadata.description} type="website">
 	<Newsletter />
 	<main
 		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"

@@ -17,7 +17,7 @@ export interface Props {
 const { title, tagTitle, description, slug, published_at, updated_at, wordsCount, type, image } =
 	Astro.props
 
-const pageTitle = type == 'article' ? `${title}` : `${title} | ${siteMetadata.title}`
+const pageTitle = title === siteMetadata.title ? title : `${title} | ${siteMetadata.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const twitter = {
 	site: '@',
