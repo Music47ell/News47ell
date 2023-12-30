@@ -13,7 +13,7 @@ const tags = blog
 	.map((blog) => blog.data.tags)
 	.flat()
 	.reduce<{ [key: string]: number }>(function (result, c) {
-		var count = result[c] || 0
+		const count = result[c] || 0
 		result[c] = count + 1
 		return result
 	}, {})
@@ -24,7 +24,8 @@ const tags = blog
 	<main
 		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
 	>
-		<div class="flex justify-center flex-wrap gap-1">
+		<h1 class="text-4xl font-bold p-4">Tags</h1>
+		<div class="flex flex-wrap gap-1 p-2">
 			{
 				Object.keys(tags)
 					.sort((a, b) => tags[b] - tags[a])

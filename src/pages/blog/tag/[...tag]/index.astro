@@ -1,5 +1,5 @@
 ---
-export const prerender = true;
+export const prerender = true
 
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
@@ -44,7 +44,7 @@ const blogs = (await getCollection('blog'))
 	>
 		{
 			blogs.map((post) => (
-				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 pt-5 max-sm:flex-col">
+				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">
 					<Link href={`/blog/${post.slug}`}>
 						<p class="font-medium">{post.data.title}</p>
 					</Link>
