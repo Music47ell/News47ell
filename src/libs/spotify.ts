@@ -1,6 +1,7 @@
-// https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:4321&scope=user-read-currently-playing%20user-top-read%20user-read-recently-played
+// https://accounts.spotify.com/authorize?client_id=CLIENT_ID&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:4321&scope=user-read-currently-playing%20user-top-read%20user-read-recently-played%20user-library-read
+// curl -H "Authorization: Basic <base64 encoded client_id:client_secret>" -d grant_type=authorization_code -d code=<code> -d redirect_uri=http%3A%2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
 
-import type { Episode, Track } from './types'
+import type { Song, Episode, Track, Podcast } from './types'
 
 const client_id = import.meta.env.SPOTIFY_CLIENT_ID
 const client_secret = import.meta.env.SPOTIFY_CLIENT_SECRET
@@ -9,9 +10,10 @@ const refresh_token = import.meta.env.SPOTIFY_REFRESH_TOKEN
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode`
 const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10`
-const RECENT_PODCAST_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10&type=episode`
 const SHOWS_ENDPOINT = `https://api.spotify.com/v1/me/shows?limit=10`
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?limit=10`
+const TOP_ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/top/artists?limit=10'
+
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
 export const getClientCredentialToken = async () => {
@@ -101,7 +103,16 @@ export const getRecentTracks = async () => {
 			Authorization: `Bearer ${access_token}`,
 		},
 	})
-	const recentTracks = (await response.json()) as RecentTracks
+	const { items } = (await response.json()) as RecentTracks
+
+	const recentTracks = items.map(({ track }) => ({
+		artist: track.artists ? track.artists.map((_artist) => _artist.name).join(', ') : '',
+		songUrl: track.external_urls?.spotify,
+		audioUrl: track?.preview_url,
+		title: track?.name,
+		album: track.album?.name,
+		albumImage: track.album?.images[0].url,
+	})) as Song[]
 
 	return recentTracks
 }
@@ -131,37 +142,56 @@ export const getTopTracks = async () => {
 			Authorization: `Bearer ${access_token}`,
 		},
 	})
-	const topTracks = (await response.json()) as TopTracks
+	const { items } = (await response.json()) as TopTracks
+
+	const topTracks = items.map((track) => ({
+		artist: track.artists.map((_artist) => _artist.name).join(', '),
+		songUrl: track.external_urls.spotify,
+		audioUrl: track.preview_url,
+		title: track.name,
+		album: track.album.name,
+		albumImage: track.album.images[0].url,
+	})) as Song[]
 
 	return topTracks
 }
 
-type RecentPodcasts = {
+type TopArtists = {
 	items: {
-		episode: {
+		name: string
+		artists: {
 			name: string
-			show: {
-				name: string
-				images: { url: string }[]
-			}
-			external_urls: {
-				spotify: string
-			}
-			audio_preview_url: string
 		}
+		images: {
+			url: string
+		}[]
+		external_urls: {
+			spotify: string
+		}
+		preview_url: string
 	}[]
 }
 
-export const getRecentPodcasts = async () => {
+export const getTopArtists = async () => {
 	const { access_token } = await getAccessToken()
-	const response = await fetch(RECENT_PODCAST_ENDPOINT, {
+
+	const response = await fetch(TOP_ARTISTS_ENDPOINT, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
+		next: { revalidate: 60 },
 	})
-	const recentPodcasts = (await response.json()) as RecentPodcasts
+	const { items } = (await response.json()) as TopArtists
 
-	return recentPodcasts
+	const topArtists = items.map((artist) => ({
+		artist: artist.name,
+		songUrl: artist.external_urls.spotify,
+		audioUrl: artist.preview_url,
+		title: artist.name,
+		albumImage: artist.images[0].url,
+	})) as Song[]
+
+	return topArtists
 }
 
 type SubscribedShows = {
@@ -184,7 +214,13 @@ export const getSubscribedShows = async () => {
 			Authorization: `Bearer ${access_token}`,
 		},
 	})
-	const subscribedShows = (await response.json()) as SubscribedShows
+	const { items } = (await response.json()) as SubscribedShows
+
+	const subscribedShows = items.map(({ show }) => ({
+		podcastUrl: show.external_urls?.spotify,
+		title: show.name,
+		podcastImage: show.images[0].url,
+	})) as Podcast[]
 
 	return subscribedShows
 }
