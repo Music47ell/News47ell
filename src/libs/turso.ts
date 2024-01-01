@@ -29,6 +29,16 @@ export const analyticsTable = sqliteTable('analytics', {
 	longitude: text('longitude'),
 })
 
+export const getBlogViews = async () => {
+	const result = await db.select().from(viewsTable).all()
+
+	if (result.length === 0) {
+		return 0
+	}
+
+	return result.reduce((acc, curr) => acc + Number(curr.count), 0)
+}
+
 export const getTopPosts = async () => {
 	const result = await db.select().from(viewsTable).orderBy(desc(viewsTable.count)).limit(3).all()
 

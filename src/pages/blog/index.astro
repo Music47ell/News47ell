@@ -17,9 +17,10 @@ const posts = blog.sort((a, b) => b.data.published_at.getTime() - a.data.publish
 	<main
 		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
 	>
+		<h1 class="text-4xl font-bold p-4">Blog</h1>
 		{
 			posts.map((post) => (
-				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 pt-5 max-sm:flex-col">
+				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">
 					<Link href={`/blog/${post.slug}`}>
 						<p class="font-medium">{post.data.title}</p>
 					</Link>
