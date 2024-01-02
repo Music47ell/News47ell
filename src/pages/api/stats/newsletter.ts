@@ -1,6 +1,5 @@
 import type { APIContext } from 'astro'
 import { getSubscribersCount } from '@/libs/emailoctopus'
-import type { Song } from '@/libs/types'
 
 export async function GET() {
 	try {

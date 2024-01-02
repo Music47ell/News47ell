@@ -1,6 +1,5 @@
 import type { APIContext } from 'astro'
 import { getStats } from '@/libs/trakt'
-import type { Song } from '@/libs/types'
 
 export async function GET() {
 	try {
