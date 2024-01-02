@@ -1,6 +1,5 @@
 import type { APIContext } from 'astro'
 import { getTopTracks } from '@/libs/spotify'
-import type { Song } from '@/libs/types'
 
 export async function GET() {
 	try {
