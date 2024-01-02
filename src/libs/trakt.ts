@@ -5,8 +5,8 @@ const TRAKT_CLIENT_ID = import.meta.env.TRAKT_CLIENT_ID
 
 const WATCHING_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/watching`
 const STATS_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/stats`
-const WATCHED_MOVIES_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/history/movies?page=1&limit=10`
-const WATCHED_SHOWS_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/history/shows?limit=500`
+const WATCHED_MOVIES_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/history/movies?page=1&limit=20`
+const WATCHED_SHOWS_ENDPOINT = `https://api.trakt.tv/users/${siteMetadata.author.username}/history/shows?limit=1000`
 
 export const getNowWatching = async () => {
 	if (TRAKT_CLIENT_ID === null || TRAKT_CLIENT_ID === undefined) {
@@ -88,12 +88,15 @@ export const getWatchedMovies = async (): Promise<Movie[]> => {
 			(movie: { tmdb: number }, index: number, self: { tmdb: number }[]) =>
 				self.findIndex((s: { tmdb: number }) => s.tmdb === movie.tmdb) === index
 		)
-		.slice(0, 10)
+		.slice(0, 20)
 
 	const movies = await Promise.all(
 		ids.map(async (id: { tmdb: number }) => {
 			const tmdb = await getTMDBData(id.tmdb, 'movies')
 			const tmdbJson = await tmdb.json()
+			if (!tmdbJson.poster_path || !tmdbJson.title) {
+				return null
+			}
 			const title: string = tmdbJson.title
 			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`
 			const url = `https://www.themoviedb.org/movie/${id.tmdb}`
@@ -103,7 +106,7 @@ export const getWatchedMovies = async (): Promise<Movie[]> => {
 				url,
 			}
 		})
-	)
+	).then((movies) => movies.filter((movie) => movie !== null).slice(0, 10))
 
 	return movies
 }
@@ -139,12 +142,15 @@ export const getWatchedShows = async (): Promise<Show[]> => {
 			(show: { tmdb: number }, index: number, self: { tmdb: number }[]) =>
 				self.findIndex((s: { tmdb: number }) => s.tmdb === show.tmdb) === index
 		)
-		.slice(0, 10)
+		.slice(0, 20)
 
 	const shows = await Promise.all(
 		ids.map(async (id: { tmdb: number }) => {
 			const tmdb = await getTMDBData(id.tmdb, 'shows')
 			const tmdbJson = await tmdb.json()
+			if (!tmdbJson.poster_path || !tmdbJson.name) {
+				return null
+			}
 			const title: string = tmdbJson.name
 			const poster = `https://image.tmdb.org/t/p/original${tmdbJson.poster_path}`
 			const url = `https://www.themoviedb.org/tv/${id.tmdb}`
@@ -154,7 +160,7 @@ export const getWatchedShows = async (): Promise<Show[]> => {
 				url,
 			}
 		})
-	)
+	).then((shows) => shows.filter((show) => show !== null).slice(0, 10))
 
 	return shows
 }
