@@ -194,7 +194,7 @@ export const getTopArtists = async () => {
 	return topArtists
 }
 
-type SubscribedShows = {
+type SubscribedPodcasts = {
 	items: {
 		show: {
 			name: string
@@ -207,20 +207,20 @@ type SubscribedShows = {
 	}[]
 }
 
-export const getSubscribedShows = async () => {
+export const getSubscribedPodcasts = async () => {
 	const { access_token } = await getAccessToken()
 	const response = await fetch(SHOWS_ENDPOINT, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
 	})
-	const { items } = (await response.json()) as SubscribedShows
+	const { items } = (await response.json()) as SubscribedPodcasts
 
-	const subscribedShows = items.map(({ show }) => ({
+	const subscribedPodcasts = items.map(({ show }) => ({
 		podcastUrl: show.external_urls?.spotify,
 		title: show.name,
 		podcastImage: show.images[0].url,
 	})) as Podcast[]
 
-	return subscribedShows
+	return subscribedPodcasts
 }

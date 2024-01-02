@@ -1,10 +1,10 @@
 import type { APIContext } from 'astro'
-import { getSubscribedShows } from '@/libs/spotify'
+import { getSubscribedPodcasts } from '@/libs/spotify'
 import type { Song } from '@/libs/types'
 
 export async function GET() {
 	try {
-		const data = await getSubscribedShows()
+		const data = await getSubscribedPodcasts()
 
 		return Response.json(data)
 	} catch {
