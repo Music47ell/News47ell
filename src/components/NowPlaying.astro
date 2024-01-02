@@ -18,7 +18,7 @@
 	class NowPlaying extends HTMLElement {
 		async connectedCallback() {
 			const fetchNowPlaying = async () => {
-				const res = await fetch('/api/now-playing')
+				const res = await fetch('/api/now/playing')
 				const data = await res.json()
 				return data
 			}
