@@ -10,6 +10,10 @@
 					"value": "upgrade-insecure-requests; block-all-mixed-content"
 				},
 				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "https://*.news47ell.com http://localhost:3000 http://localhost:4321"
+				},
+				{
 					"key": "Permissions-Policy",
 					"value": "ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=()"
 				},
