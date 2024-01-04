@@ -5,7 +5,7 @@ export async function GET() {
 	try {
 		const data = await getSubscribersCount()
 
-		return Response.json(data)
+		return Response.json({ total: data })
 	} catch {
 		return Response.json({ error: 'Something went wrong' }, { status: 500 })
 	}
