@@ -9,7 +9,7 @@ const { slug, trackViews } = Astro.props
 	let data = { count: 0 }
 
 	const fetchViews = async () => {
-		const res = await fetch(`/api/views/${encodeURIComponent(slug)}`, {
+		const res = await fetch(`/api/turso/views/${slug}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ const { slug, trackViews } = Astro.props
 		views = data.count
 
 		if (!location.href.includes('localhost') && trackViews) {
-			const res = await fetch(`/api/views/${encodeURIComponent(slug)}`, {
+			const res = await fetch(`/api/turso/views/${slug}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

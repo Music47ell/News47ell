@@ -24,7 +24,7 @@ interface Props {
 
 const { blog } = Astro.props
 const { headings, Content, remarkPluginFrontmatter } = await blog.render()
-const { title, description, tags, cover, published_at, source } = blog.data
+const { title, description, tags, cover, published_at, source, series_id } = blog.data
 const { lastModified, readingTime, wordsCount } = remarkPluginFrontmatter
 ---
 
@@ -40,6 +40,7 @@ const { lastModified, readingTime, wordsCount } = remarkPluginFrontmatter
 	wordsCount={wordsCount}
 	headings={headings}
 	slug={blog.slug}
+	series_id={series_id}
 >
 	<Content components={components} />
 </PostLayout>
