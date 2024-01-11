@@ -16,7 +16,17 @@ const blogCollection = defineCollection({
 				.optional(),
 			published_at: z.date(),
 			source: z.string().url().optional(),
+			series_id: z.string().optional(),
 		}),
+})
+
+const seriesCollection = defineCollection({
+	type: 'content',
+	schema: z.object({
+		id: z.string(),
+		title: z.string(),
+		description: z.string(),
+	}),
 })
 
 const pagesCollection = defineCollection({
@@ -30,5 +40,6 @@ const pagesCollection = defineCollection({
 
 export const collections = {
 	blog: blogCollection,
+	series: seriesCollection,
 	pages: pagesCollection,
 }

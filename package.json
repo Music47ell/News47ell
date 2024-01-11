@@ -10,10 +10,10 @@
 		"astro": "astro",
 		"lint": "prettier --check  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
 		"lint:fix": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-		"update": "npx npm-check-updates --format group --interactive",
-		"pre-commit": "npx --no-install lint-staged",
+		"update": "pnpx npm-check-updates --format group --interactive",
+		"pre-commit": "pnpx lint-staged",
 		"prepare": "husky install",
-		"find:depcheck": "npx depcheck"
+		"find:depcheck": "pnpx depcheck"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^2.0.1",

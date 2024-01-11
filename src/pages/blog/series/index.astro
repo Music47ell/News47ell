@@ -1,0 +1,34 @@
+---
+const pageTitle = 'Series'
+
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import siteMetadata from '@/data/siteMetadata'
+
+import Link from '@/components/Link.astro'
+import ViewsCounter from '@/components/ViewsCounter.astro'
+import Newsletter from '@/components/Newsletter.astro'
+
+const series = (await getCollection('series')) as CollectionEntry[]
+---
+
+<BaseLayout title={pageTitle} description={siteMetadata.description} type="website">
+	<Newsletter />
+	<main
+		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
+	>
+		<h1 class="text-4xl font-bold p-4">Series</h1>
+		{
+			series.map((post) => (
+				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">
+					<Link href={`/blog/series/${post.slug}`}>
+						<p class="font-medium">{post.data.title}</p>
+					</Link>
+					<ViewsCounter slug={post.slug} trackViews={false} />
+				</div>
+			))
+		}
+	</main>
+</BaseLayout>

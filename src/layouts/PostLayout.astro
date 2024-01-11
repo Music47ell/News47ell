@@ -6,6 +6,7 @@ import Link from '@/components/Link.astro'
 import { hEntryDate, displayDate } from '@/utils/formatters'
 import ViewsCounter from '@/components/ViewsCounter.astro'
 import { Image } from 'astro:assets'
+import Series from '@/components/Series.astro'
 import Newsletter from '@/components/Newsletter.astro'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -20,6 +21,7 @@ const {
 	cover,
 	source,
 	slug,
+	series_id,
 } = Astro.props
 ---
 
@@ -82,6 +84,7 @@ const {
 					 /
 					<ViewsCounter slug={slug} trackViews={true} />
 				</div>
+				{series_id && <Series id={series_id} slug={slug} />}
 			</header>
 			<div class="e-content entry-content">
 				<slot />

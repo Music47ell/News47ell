@@ -1,47 +1,66 @@
 {
 	"trailingSlash": false,
-	"headers": [
-		{
-			"source": "/(.*)",
-			"headers": [
-				{ "key": "Accept-Encoding", "value": "br, gzip, compress" },
-				{
-					"key": "Content-Security-Policy",
-					"value": "upgrade-insecure-requests; block-all-mixed-content"
-				},
-				{ "key": "Access-Control-Allow-Origin", "value": "*" },
-				{
-					"key": "Permissions-Policy",
-					"value": "ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=()"
-				},
-				{ "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-				{
-					"key": "Report-To",
-					"value": "{\"group\":\"default\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"https://news47ell.report-uri.com/a/d/g\"}],\"include_subdomains\":true}"
-				},
-				{
-					"key": "Strict-Transport-Security",
-					"value": "max-age=63072000; includeSubDomains; preload"
-				},
-				{ "key": "X-Content-Type-Options", "value": "nosniff" },
-				{ "key": "X-Frame-Options", "value": "DENY" },
-				{ "key": "X-XSS-Protection", "value": "1; mode=block" }
-			]
-		}
-	],
 	"redirects": [
-		{ "source": "/articles/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/deals/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/giveaways/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/how-to/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/interviews/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/linked/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/news/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/polls/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/projects/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/reviews/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/roundups/:id", "destination": "/blog/:id", "statusCode": 301 },
-		{ "source": "/dashboard", "destination": "https://dashboard.news47ell.com", "statusCode": 301 },
+		{
+			"source": "/articles/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/deals/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/giveaways/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/how-to/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/interviews/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/linked/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/news/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/polls/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/projects/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/reviews/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/roundups/:id",
+			"destination": "/blog/:id",
+			"statusCode": 301
+		},
+		{
+			"source": "/dashboard",
+			"destination": "https://dashboard.news47ell.com",
+			"statusCode": 301
+		},
 		{
 			"source": "/dashboard/codes",
 			"destination": "https://dashboard.news47ell.com",
@@ -77,7 +96,11 @@
 			"destination": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 			"permanent": true
 		},
-		{ "source": "/recommends/dropbox", "destination": "https://db.tt/rpn4OoHp", "permanent": true },
+		{
+			"source": "/recommends/dropbox",
+			"destination": "https://db.tt/rpn4OoHp",
+			"permanent": true
+		},
 		{
 			"source": "/recommends/nextdns",
 			"destination": "https://nextdns.io/?from=9an823hm",
@@ -183,24 +206,35 @@
 			"destination": "/blog/sync-node-project-ignore-node-modules-rsync-bash-script",
 			"statusCode": 301
 		},
-		{ "source": "/category/:id", "destination": "/blog", "statusCode": 301 },
-		{ "source": "/categories", "destination": "/blog", "statusCode": 301 },
-		{ "source": "/toolbox", "destination": "/uses", "statusCode": 301 },
-		{ "source": "/archive", "destination": "/blog", "statusCode": 301 },
-		{ "source": "/feed", "destination": "/blog/feed.xml", "statusCode": 301 },
-		{ "source": "/feed.xml", "destination": "/blog/feed.xml", "statusCode": 301 }
-	],
-	"rewrites": [
 		{
-			"source": "/",
-			"destination": "/api/curl-card",
-			"has": [
-				{
-					"type": "header",
-					"key": "user-agent",
-					"value": "curl/(.*)"
-				}
-			]
+			"source": "/category/:id",
+			"destination": "/blog",
+			"statusCode": 301
+		},
+		{
+			"source": "/categories",
+			"destination": "/blog",
+			"statusCode": 301
+		},
+		{
+			"source": "/toolbox",
+			"destination": "/uses",
+			"statusCode": 301
+		},
+		{
+			"source": "/archive",
+			"destination": "/blog",
+			"statusCode": 301
+		},
+		{
+			"source": "/feed",
+			"destination": "/blog/feed.xml",
+			"statusCode": 301
+		},
+		{
+			"source": "/feed.xml",
+			"destination": "/blog/feed.xml",
+			"statusCode": 301
 		}
 	]
 }

@@ -58,7 +58,7 @@ import Email from '@/components/icons/Email.html'
 		// Display loading message while waiting for the response
 		button.textContent = 'Loading...'
 
-		const res = await fetch('/api/newsletter', {
+		const res = await fetch('/api/emailoctopus/subscribe', {
 			body: JSON.stringify({
 				email: email.value,
 			}),

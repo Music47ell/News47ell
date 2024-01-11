@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content'
+import Link from '@/components/Link.astro'
+import { getCollection } from 'astro:content'
+
+const { id, slug } = Astro.props
+const blog = await getCollection('blog')
+const series = await getCollection('series')
+const seriesList = blog
+	.filter((post) => post.data.series_id === id)
+	.sort((a, b) => a.data.published_at - b.data.published_at)
+
+const uniqueSeriesIds = [...new Set(seriesList.map((post) => post.data.series_id))]
+
+const seriesTitle = uniqueSeriesIds.map((series_id) => {
+	const matchingSeries = series.find((seriesItem) => seriesItem.data.id === series_id)
+	return matchingSeries ? matchingSeries.data.title : null
+})
+
+const currentPostIndex = seriesList.findIndex((post) => post.slug === slug)
+const currentPostSlug = seriesList[currentPostIndex].slug
+---
+
+<div class="rounded-xl border border-yellow-500 bg-stone-900 p-2">
+	<button
+		id="seriesToggle"
+		class="flex w-full justify-between items-center text-left text-white gap-2"
+	>
+		<div>
+			<div class="text-lg font-medium sm:text-xl">{seriesTitle}</div>
+			<div class="text-sm">({currentPostIndex + 1} out of {seriesList.length} Part Series)</div>
+		</div>
+		<div
+			id="arrow"
+			class="rounded-full bg-yellow-100/10 p-2 w-8 h-8 flex justify-center items-center"
+		>
+			▼
+		</div>
+	</button>
+	<div id="seriesContent" class="hidden">
+		<hr class="not-prose my-4 border-t border-yellow-500" />
+		<ul class="list-decimal mb-0">
+			{
+				seriesList.map((series) => (
+					<li>
+						<Link
+							class={`${series.slug === currentPostSlug ? 'text-white' : ''}`}
+							href={`/blog/${series.slug}`}
+						>
+							{series.data.title}
+						</Link>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+
+<script type="module">
+	document.addEventListener('DOMContentLoaded', function () {
+		const seriesToggle = document.getElementById('seriesToggle')
+		const seriesContent = document.getElementById('seriesContent')
+		const arrow = document.getElementById('arrow')
+
+		seriesToggle.addEventListener('click', function () {
+			seriesContent.classList.toggle('hidden')
+			arrow.classList.toggle('transform')
+			arrow.classList.toggle('rotate-180')
+		})
+	})
+</script>

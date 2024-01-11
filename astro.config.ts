@@ -32,6 +32,11 @@ export default defineConfig({
 		defaultStrategy: 'viewport',
 	},
 	vite: {
+		server: {
+			proxy: {
+				'/api': 'http://localhost:8787',
+			},
+		},
 		resolve: {
 			alias: {
 				'@': '/src',
