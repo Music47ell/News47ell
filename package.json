@@ -16,7 +16,6 @@
 		"find:depcheck": "pnpx depcheck"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^8.1.0",
 		"@astrojs/mdx": "^2.0.1",
 		"@astrojs/rss": "^4.0.1",
 		"@astrojs/tailwind": "^5.0.3",
