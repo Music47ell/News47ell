@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import {
@@ -13,6 +14,8 @@ import astroExpressiveCode from 'astro-expressive-code'
 export default defineConfig({
 	site: siteMetadata.siteUrl,
 	trailingSlash: 'never',
+	output: 'server',
+	adapter: cloudflare(),
 	experimental: {
 		optimizeHoistedScript: true,
 	},
