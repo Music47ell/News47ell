@@ -1,3 +1,4 @@
+http://news47ell.com/* https://www.news47ell.com/:splat 301!
 /articles/:id       /blog/:id           301
 /deals/:id          /blog/:id           301
 /giveaways/:id      /blog/:id           301
