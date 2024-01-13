@@ -1,18 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
-const blog = await getCollection('blog')
 import { Image } from 'astro:assets'
 
 import Newsletter from '@/components/Newsletter.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import siteMetadata from '@/data/siteMetadata'
-import Most from '@/components/Most.astro'
+import Recent from '@/components/Recent.astro'
 import { getTopPosts } from '@/libs/turso'
-
-const recentPosts = blog
-	.sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime())
-	.slice(0, 3)
-const topPosts = await getTopPosts()
 ---
 
 <BaseLayout
@@ -60,7 +53,6 @@ const topPosts = await getTopPosts()
 			</div>
 		</div>
 		<Newsletter />
-		<Most title="Most Recent Blog Posts" blog={recentPosts} />
-		<Most title="Most Viewed Blog Posts" blog={topPosts} />
+		<Recent />
 	</div>
 </BaseLayout>
