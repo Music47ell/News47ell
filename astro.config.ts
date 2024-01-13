@@ -13,6 +13,9 @@ import astroExpressiveCode from 'astro-expressive-code'
 export default defineConfig({
 	site: siteMetadata.siteUrl,
 	trailingSlash: 'never',
+	build: {
+		format: 'file',
+	},
 	experimental: {
 		optimizeHoistedScript: true,
 	},
