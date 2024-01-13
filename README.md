@@ -16,7 +16,7 @@
 - `Tailwind CSS` - A utility-first CSS framework for rapidly building custom user interfaces.
 - `Drizzle ORM` - A lightweight and simple ORM for Node.js that supports multiple databases.
 - `Turso` - A Fast, Easy and Cheap Database.
-- `Vercel` - A cloud platform for static sites and serverless functions.
+- `Cloudflare Pages` - A JAMstack platform for frontend developers.
 
 ## Overview
 
@@ -47,8 +47,6 @@ $ cd News47ell
 $ npm
 $ npm run dev
 ```
-
-Create a `.env` file similar to [`.env.example`](https://github.com/Music47ell/News47ell/blob/main/.env.example).
 
 ## Cloning / Forking
 

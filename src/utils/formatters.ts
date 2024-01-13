@@ -29,21 +29,6 @@ const displayDate = (date: string) => {
 	return `${fullDate} (${formattedDate})`
 }
 
-const displayDateAndTime = (unix: number) => {
-	// human-readable date and time for display purposes (e.g. blog posts)
-	const time = new Date(unix * 1000).toLocaleTimeString(siteMetadata.locale, {
-		hour: 'numeric',
-		minute: 'numeric',
-	})
-	const date = new Date(unix * 1000).toLocaleDateString(siteMetadata.locale, {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	})
-
-	return { time, date }
-}
-
 const hEntryDate = (date: Date) => {
 	// ISO8601 machine-readable datetime for h-entry microformat (https://indieweb.org/h-entry)
 	const now = new Date(date).toISOString()
@@ -51,8 +36,4 @@ const hEntryDate = (date: Date) => {
 	return now
 }
 
-const displayNumbers = new Intl.NumberFormat('en-US', {
-	maximumFractionDigits: 0,
-})
-
-export { displayDate, displayDateAndTime, displayNumbers, hEntryDate }
+export { displayDate, hEntryDate }

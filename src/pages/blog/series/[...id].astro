@@ -13,27 +13,31 @@ export async function getStaticPaths() {
 	const allSeries = (await getCollection('series')) as CollectionEntry[]
 	const allPosts = (await getCollection('blog')) as CollectionEntry[]
 
-	const postsWithSeries = allPosts.map((post) => {
-		const series = allSeries.find((series) => series.slug === post.data.series)
-		return {
-			...post,
-			series,
-		}
-	})
+	const postsWithSeries = allPosts
+		.filter((post) => allSeries.some((series) => series.slug === post.data.series_id))
+		.map((post) => {
+			const series = allSeries.find((series) => series.slug === post.data.series_id) || null
+
+			return {
+				...post,
+				series,
+			}
+		})
 
 	return postsWithSeries.map((post) => ({
 		params: {
-			id: post.slug,
+			id: post.data.series_id,
+		},
+		props: {
+			series: postsWithSeries.filter((p) => p.data.series_id === post.data.series_id),
 		},
 	}))
 }
 
 const { id } = Astro.params
+const { series } = Astro.props
 
 const seriesTitle = (await getCollection('series')).find((series) => series.slug === id).data.title
-const posts = (await getCollection('blog'))
-	.filter((post) => post.data.series_id === id)
-	.sort((a, b) => a.data.published_at.getTime() - b.data.published_at.getTime())
 ---
 
 <BaseLayout title={seriesTitle} description={siteMetadata.description} type="website">
@@ -42,7 +46,7 @@ const posts = (await getCollection('blog'))
 		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
 	>
 		{
-			posts.map((post) => (
+			series.map((post) => (
 				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">
 					<Link href={`/blog/${post.slug}`}>
 						<p class="font-medium">{post.data.title}</p>
