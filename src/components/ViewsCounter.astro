@@ -17,18 +17,10 @@ const { slug, trackViews } = Astro.props
 		})
 
 		data = await res.json()
-		views = data.count
+		views = data.count === 0 ? 0 : data.count
 
-		if (!location.href.includes('localhost') && trackViews) {
-			const res = await fetch(`/api/turso/views/${slug}`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			})
-
-			data = await res.json()
-			views = data.count
+		if (trackViews) {
+			views = data.count + 1
 		}
 
 		const el = document.querySelector(`[data-post-views="${slug}"]`)
