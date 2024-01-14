@@ -1,8 +1,6 @@
 /*
   Accept-Encoding: br, gzip, compress
 
-  Access-Control-Allow-Origin: *
-
   Content-Security-Policy: upgrade-insecure-requests; block-all-mixed-content
 
   Permissions-Policy: ambient-light-sensor=(), autoplay=(), accelerometer=(self), camera=(), document-domain=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(self), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), speaker=(), sync-xhr=(), usb=(), vr=()
@@ -20,3 +18,8 @@
   X-XSS-Protection: 1; mode=block
 
   X-Emoji: 🖤6️⃣4️⃣0️⃣5️⃣0️⃣9️⃣➖0️⃣4️⃣0️⃣1️⃣4️⃣7️⃣🖤
+
+/api*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET
+  Access-Control-Max-Age: 86400
