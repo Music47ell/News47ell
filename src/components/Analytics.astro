@@ -3,17 +3,16 @@
 	class EdgeAnalytics extends HTMLElement {
 		constructor() {
 			super()
-			setTimeout(function () {
-				navigator.sendBeacon(
-					'/api/turso/correct-horse-battery-staple',
-					JSON.stringify({
-						title: document.title,
-						slug: window.location.pathname,
-						referrer: document.referrer,
-					})
-				)
-			}, 10000)
+			navigator.sendBeacon(
+				'/api/turso/correct-horse-battery-staple',
+				JSON.stringify({
+					title: document.title,
+					slug: window.location.pathname,
+					referrer: document.referrer,
+				})
+			)
 		}
 	}
+
 	customElements.define('edge-analytics', EdgeAnalytics)
 </script>

@@ -19,10 +19,6 @@ const { slug, trackViews } = Astro.props
 		data = await res.json()
 		views = data.count === 0 ? 0 : data.count
 
-		if (trackViews) {
-			views = data.count + 1
-		}
-
 		const el = document.querySelector(`[data-post-views="${slug}"]`)
 		el.innerHTML = `${views} ${views === 1 ? 'view' : 'views'}`
 	}
