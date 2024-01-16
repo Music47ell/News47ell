@@ -1,0 +1,61 @@
+---
+title: Set Security Headers in Cloudflare Using Transform Rules
+description: Learn how to set security headers in Cloudflare using Transform Rules.
+published_at: 2023-12-16T12:54:50+03:00
+tags: ['Web Security', 'Cloudflare', 'Security Headers']
+series_id: security-headers
+---
+
+Transform Rules in Cloudflare allow users to manipulate and modify the content of HTTP requests and responses passing through the Cloudflare network. This provides an opportunity to implement security measures, including the enforcement of HTTP security headers.
+
+Security headers play a crucial role in mitigating various web vulnerabilities and bolstering the overall security of a website.
+
+## Enforcing Security Headers
+
+To enforce security headers using Transform Rules, follow these steps:
+
+1. **Access Cloudflare Dashboard:**
+   Log in to your Cloudflare account and navigate to the dashboard.
+
+2. **Select your Domain:**
+   Choose the domain for which you want to enforce security headers using Transform Rules.
+
+3. **Go to the Rules Section:**
+   In the Cloudflare dashboard, go to the "Rules" section.
+
+4. **Navigate to Transform Rules:**
+   Find the "Transform Rules" in the sub-menu and click on it.
+
+5. **Select the "Modify Response Header" Tab:**
+   In the Transform Rules page, select the "Modify Response Header" tab.
+
+6. **Create a Transform Rule:**
+   Click on the "Create rule" button to start defining a rule. And pick a name for the rule.
+
+7. **If, Match, Then:**
+   Now, need to specify the conditions under which the rule will be applied.
+
+   For example:
+
+   - If: Custom filter expression
+   - When incoming requests match: Field: `SSL/TLS`, Operator: `equals`, Value: `On`
+   - Then: Set static `Header name: Strict-Transport-Security`, `Value: max-age=31536000; includeSubDomains; preload;`
+
+   |            | Header name               | Value                                         |
+   | ---------- | ------------------------- | --------------------------------------------- |
+   | Set static | Strict-Transport-Security | max-age=31536000; includeSubDomains; preload; |
+
+   This rule will enforce the Strict-Transport-Security header for all incoming requests that are served over HTTPS.
+
+   You can add more rules to enforce other security headers. For example, you can add a rule to enforce the Content-Security-Policy header.
+
+8. **Save and Deploy:**
+   Once you have configured the Transform Rule, save the settings and deploy the changes.
+
+## Conclusion
+
+Transform Rules in Cloudflare provide a powerful mechanism for web developers and administrators to enforce security headers and enhance their website's overall security posture.
+
+By configuring Transform Rules to implement best practices for security headers, you can not only bolster your defenses against various web vulnerabilities but also aim for the prestigious A+ score on securityheaders.com.
+
+Regularly review and update your security policies to stay ahead of evolving threats and ensure the continued protection of your web assets.

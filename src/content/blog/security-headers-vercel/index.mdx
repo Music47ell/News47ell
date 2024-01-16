@@ -1,0 +1,49 @@
+---
+title: How to Implement Security Headers in a Vercel Project
+description: Learn how to implement security headers in a Vercel project to protect your web applications from common web vulnerabilities.
+published_at: 2023-12-15T12:54:50+03:00
+tags: ['Web Security', 'Vercel', 'Security Headers']
+series_id: security-headers
+---
+
+If your project is hosted on Vercel, you can easily implement security headers to protect your web applications from common web vulnerabilities. In this tutorial, we'll explore how to add security headers to a Vercel project.
+
+## Adding Security Headers
+
+To add security headers to a Vercel project, you need to create a `vercel.json` file in the root directory of your project. This file contains the configuration for your Vercel project, including the security headers.
+
+```json
+{
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "Content-Security-Policy",
+					"value": "default-src 'self'; script-src 'self' example.com; style-src 'self' example.com;"
+				},
+				{
+					"key": "Strict-Transport-Security",
+					"value": "max-age=31536000; includeSubDomains; preload;"
+				},
+				{
+					"key": "X-Content-Type-Options",
+					"value": "nosniff"
+				}
+			]
+		}
+	]
+}
+```
+
+In the above example, we've added three security headers to our project:
+
+- `Content-Security-Policy`
+- `Strict-Transport-Security`
+- `X-Content-Type-Options`
+
+You can add more headers to the `headers` array as needed. For a list of common security headers, check out our [article](/blog/security-headers) on the topic.
+
+## Conclusion
+
+That's it! You've successfully added security headers to your Vercel project. If you're interested in learning more about security headers, make sure to check out our [article](/blog/security-headers) on the topic.
