@@ -13,12 +13,6 @@ import RSS from '@/components/icons/RSS.html'
 		</a>
 	</div>
 	<div class="flex gap-x-4">
-		<a href={`https://twitter.com/${siteMetadata.username}`}>
-			<X />
-		</a>
-		<a rel="me" href={`https://mastodon.social/@${siteMetadata.username}`}>
-			<Mastodon />
-		</a>
 		<a
 			rel="me"
 			style="display:none"
@@ -26,8 +20,14 @@ import RSS from '@/components/icons/RSS.html'
 		>
 			Find Ahmet on Mastodon
 		</a>
-		<a href={`${siteMetadata.siteUrl}/blog/feed.xml`}>
-			<RSS />
+		<a rel="me" href={`https://mastodon.social/@${siteMetadata.username}`}>
+			<Mastodon />
+		</a>
+		<a href={`https://twitter.com/${siteMetadata.username}`}>
+			<X />
+			<a href={`${siteMetadata.siteUrl}/blog/feed.xml`}>
+				<RSS />
+			</a>
 		</a>
 	</div>
 </header>
