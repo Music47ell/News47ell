@@ -11,7 +11,9 @@ import Link from '@/components/Link.astro'
 import ViewsCounter from '@/components/ViewsCounter.astro'
 import Newsletter from '@/components/Newsletter.astro'
 
-const series = (await getCollection('series')) as CollectionEntry[]
+const series = (await getCollection('series')).sort(
+	(a, b) => b.data.published_at - a.data.published_at
+) as CollectionEntry[]
 ---
 
 <BaseLayout title={pageTitle} description={siteMetadata.description} type="website">

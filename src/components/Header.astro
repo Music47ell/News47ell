@@ -2,6 +2,7 @@
 import siteMetadata from '@/data/siteMetadata'
 import News47ell from '@/components/icons/News47ell.html'
 import X from '@/components/icons/X.html'
+import Mastodon from '@/components/icons/Mastodon.html'
 import RSS from '@/components/icons/RSS.html'
 ---
 
@@ -14,6 +15,16 @@ import RSS from '@/components/icons/RSS.html'
 	<div class="flex gap-x-4">
 		<a href={`https://twitter.com/${siteMetadata.username}`}>
 			<X />
+		</a>
+		<a rel="me" href={`https://mastodon.social/@${siteMetadata.username}`}>
+			<Mastodon />
+		</a>
+		<a
+			rel="me"
+			style="display:none"
+			href={`https://mastodon.social/@${siteMetadata.author.username}`}
+		>
+			Find Ahmet on Mastodon
 		</a>
 		<a href={`${siteMetadata.siteUrl}/blog/feed.xml`}>
 			<RSS />
