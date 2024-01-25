@@ -26,6 +26,7 @@ const seriesCollection = defineCollection({
 		id: z.string(),
 		title: z.string(),
 		description: z.string(),
+		published_at: z.date(),
 	}),
 })
 

@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 
 	const postsWithSeries = allPosts
 		.filter((post) => allSeries.some((series) => series.slug === post.data.series_id))
+		.sort((a, b) => a.data.published_at - b.data.published_at)
 		.map((post) => {
 			const series = allSeries.find((series) => series.slug === post.data.series_id) || null
 
