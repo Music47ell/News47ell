@@ -5,6 +5,7 @@
 /dashboard/shows    https://dashboard.news47ell.com   301
 /blog/display-current-show-movie-now-watching-trakt-nextjs    /blog/trakt-api-nextjs   301
 /blog/git-ignore-node-modules-dropbox     /blog/sync-node-project-ignore-node-modules-rsync-bash-script    301
+/how-to/host-google-fonts-locally-wordpress/ /blog/host-google-fonts-locally-wordpress 301
 /categories             /blog            301
 /toolbox                /uses            301
 /archive                /blog            301
