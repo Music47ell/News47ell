@@ -1,4 +1,4 @@
-![tailwind-nextjs-banner](/public/images/brand/news47ell_repo.png)
+![news47ell-banner](/public/images/brand/news47ell_repo.png)
 
 # news47ell.com
 
