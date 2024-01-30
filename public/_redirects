@@ -10,6 +10,7 @@
 /toolbox                /uses            301
 /archive                /blog            301
 /feed                   /blog/feed.xml   301
+/feed/                   /blog/feed.xml   301
 /feed.xml               /blog/feed.xml   301
 /.env               https://www.youtube.com/watch?v=dQw4w9WgXcQ   301
 /wp-login.php       https://www.youtube.com/watch?v=dQw4w9WgXcQ   301
@@ -34,13 +35,6 @@
 /recommends/skiff         https://app.skiff.com/signup?mail&referral=music47ell   301
 /recommends/mailchimp     https://eepurl.com/ijLsYf   301
 /recommends/emailoctopus   https://emailoctopus.com/?urli=3vR3w   301
-# Redirect non-www to www
-http://news47ell.com/* https://www.news47ell.com/:splat 301
-https://news47ell.com/* https://www.news47ell.com/:splat 301
-# Redirect HTTP to HTTPS
-http://www.news47ell.com/* https://www.news47ell.com/:splat 301
-# Redirect URLs ending with slash '/' to no-slash
-https://www.news47ell.com/*/ https://www.news47ell.com/:splat 301
 /articles/:id       /blog/:id           301
 /category/:id           /blog            301
 /deals/:id          /blog/:id           301
