@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Prose from '@/components/Prose.astro'
+import Title from '@/components/Title.astro'
+import Link from '@/components/Link.astro'
+import { hEntryDate, displayDate } from '@/utils/formatters'
+import Newsletter from '@/components/Newsletter.astro'
+import ViewsCounter from '@/components/ViewsCounter.astro'
+
+const blogs = await getCollection('blog')
+
+const { title, description } = Astro.props
+---
+
+<BaseLayout title={title} description={description} type="website">
+	<h1 class="text-4xl font-bold p-4 text-center">Oh, NO! 404!</h1>
+	<Newsletter />
+	<main
+		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
+	>
+		<h3 class="text-2xl font-bold p-4">Here's 5 random posts from my blog</h3>
+		{
+			blogs
+				.sort(() => Math.random() - 0.5)
+				.slice(0, 5)
+				.map((post: CollectionEntry) => (
+					<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">
+						<Link href={`/blog/${post.slug}`}>
+							<p class="font-medium">{post.data.title}</p>
+						</Link>
+						<ViewsCounter slug={post.slug} trackViews={false} />
+					</div>
+				))
+		}
+	</main>
+</BaseLayout>
