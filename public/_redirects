@@ -35,12 +35,12 @@
 /recommends/mailchimp     https://eepurl.com/ijLsYf   301
 /recommends/emailoctopus   https://emailoctopus.com/?urli=3vR3w   301
 # Redirect non-www to www
-http://news47ell.com/* https://www.news47ell.com/:splat 301!
-https://news47ell.com/* https://www.news47ell.com/:splat 301!
+http://news47ell.com/* https://www.news47ell.com/:splat 301
+https://news47ell.com/* https://www.news47ell.com/:splat 301
 # Redirect HTTP to HTTPS
-http://www.news47ell.com/* https://www.news47ell.com/:splat 301!
+http://www.news47ell.com/* https://www.news47ell.com/:splat 301
 # Redirect URLs ending with slash '/' to no-slash
-https://www.news47ell.com/*/ https://www.news47ell.com/:splat 301!
+https://www.news47ell.com/*/ https://www.news47ell.com/:splat 301
 /articles/:id       /blog/:id           301
 /category/:id           /blog            301
 /deals/:id          /blog/:id           301
