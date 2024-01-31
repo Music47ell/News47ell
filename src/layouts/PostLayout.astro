@@ -50,7 +50,7 @@ const {
 						aria-label={`Published at: ${displayDate(published_at)}`}
 						itemprop="dateModified"
 					>
-						{displayDate(lastModified)}
+						{displayDate(lastModified || published_at)}
 					</time>
 					<Link href={slug} class="u-url flex">⌘ Permalink</Link>
 				</div>
@@ -79,9 +79,9 @@ const {
 				</Link>
 				<div class="flex items-center justify-between gap-x-1 text-sm text-gray-100">
 					<span>{readingTime} minutes</span>
-					 /
+					/
 					<span>{wordsCount} words</span>
-					 /
+					/
 					<ViewsCounter slug={slug} trackViews={true} />
 				</div>
 				{series_id && <Series id={series_id} slug={slug} />}
