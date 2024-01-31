@@ -6,11 +6,7 @@ export default function remarkModifiedTime() {
 			const filepath = file.history[0]
 			const result = execSync(`git log -1 --pretty="format:%cI" ${filepath}`)
 
-			if (result.toString() === '') {
-				file.data.astro.frontmatter.lastModified = new Date()
-			}
-
-			file.data.astro.frontmatter.lastModified = new Date(result.toString())
+			file.data.astro.frontmatter.lastModified = result.toString()
 		} catch (e) {
 			console.error(e)
 		}
