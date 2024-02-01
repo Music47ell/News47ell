@@ -2,14 +2,14 @@
 import Email from '@/components/icons/Email.html'
 ---
 
-<div class="rounded-xl border border-yellow-500 bg-stone-900 p-4">
+<div class="rounded-xl border border-zinc-500 p-4">
 	<div class="not-prose mx-auto max-w-screen-md sm:text-center">
-		<h2 class="mb-4 text-2xl tracking-tight text-gray-100">Subscribe to the newsletter</h2>
+		<h2 class="mb-4 text-2xl tracking-tight text-zinc-100">Subscribe to the newsletter</h2>
 
 		<form id="subscribe-form">
 			<div class="mx-auto max-w-screen-sm items-center gap-4 flex flex-col sm:flex-row">
 				<div class="relative w-full">
-					<label for="email" class="mb-2 hidden text-sm font-medium text-gray-100">
+					<label for="email" class="mb-2 hidden text-sm font-medium text-zinc-100">
 						Email address
 					</label>
 
@@ -22,8 +22,8 @@ import Email from '@/components/icons/Email.html'
 						id="email"
 						name="email"
 						class="{success
-							? 'bg-stone-700 placeholder:text-cyan-300'
-							: 'bg-stone-900 placeholder:text-gray-100'} block w-full border border-yellow-500 bg-stone-900 p-3 pl-10 text-sm focus:border-purple-400 focus:ring-purple-400"
+							? 'placeholder:text-cyan-300'
+							: 'placeholder:text-zinc-100'} block w-full border border-zinc-500 bg-zinc-500 p-3 pl-10 text-sm focus:border-zinc-500 focus:ring-zinc-500"
 						autocomplete="email"
 						placeholder="Enter your email"
 						required
@@ -34,7 +34,7 @@ import Email from '@/components/icons/Email.html'
 					<button
 						type="submit"
 						id="submit"
-						class="w-full border border-yellow-500 px-5 py-3 text-center text-sm font-medium text-gray-100 focus:ring-4 focus:ring-purple-400"
+						class="w-full border border-zinc-500 px-5 py-3 text-center text-sm font-medium text-zinc-100 focus:ring-4 focus:ring-zinc-500"
 					>
 						Subscribe
 					</button>
@@ -43,7 +43,7 @@ import Email from '@/components/icons/Email.html'
 		</form>
 	</div>
 	<!-- success or error message -->
-	<div class="mt-4 text-sm text-gray-100" id="message"></div>
+	<div class="mt-4 text-sm text-zinc-100" id="message"></div>
 </div>
 
 <script lang="ts" type="module">

@@ -9,13 +9,13 @@ const recentPosts = blog
 	.slice(0, 3)
 ---
 
-<div class="overflow-hidden rounded-xl border border-yellow-500 bg-stone-900">
-	<div class="relative border-b border-yellow-500 px-4 py-3">
+<div class="overflow-hidden rounded-xl border border-zinc-500">
+	<div class="relative border-b border-zinc-500 px-4 py-3">
 		<div class="flex items-center gap-x-2">
 			<p class="font-bold">Recent Blog Posts</p>
 		</div>
 	</div>
-	<div class="divide-y divide-purple-400 border-yellow-500">
+	<div class="divide-y divide-zinc-500 border-zinc-500">
 		{
 			recentPosts.map((post) => (
 				<div class="flex no-underline items-baseline justify-between gap-x-4 p-4 max-sm:flex-col">

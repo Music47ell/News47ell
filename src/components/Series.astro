@@ -21,7 +21,7 @@ const currentPostIndex = seriesList.findIndex((post) => post.slug === slug)
 const currentPostSlug = seriesList[currentPostIndex].slug
 ---
 
-<div class="rounded-xl border border-yellow-500 bg-stone-900 p-2">
+<div class="rounded-xl border border-zinc-500 p-2">
 	<button
 		id="seriesToggle"
 		class="flex w-full justify-between items-center text-left text-white gap-2"
@@ -33,7 +33,7 @@ const currentPostSlug = seriesList[currentPostIndex].slug
 		<div id="arrow">▼</div>
 	</button>
 	<div id="seriesContent" class="hidden">
-		<hr class="not-prose my-4 border-t border-yellow-500" />
+		<hr class="not-prose my-4 border-t border-zinc-500" />
 		<ul class="list-decimal mb-0">
 			{
 				seriesList.map((series) => (

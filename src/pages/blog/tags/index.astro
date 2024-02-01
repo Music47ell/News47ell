@@ -21,9 +21,7 @@ const tags = blog
 
 <BaseLayout title="Tags" description={siteMetadata.description} type="website">
 	<Newsletter />
-	<main
-		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
-	>
+	<main class="divide-y divide-zinc-500 overflow-hidden rounded-xl border border-zinc-500">
 		<h1 class="text-4xl font-bold p-4">Tags</h1>
 		<div class="flex flex-wrap gap-1 p-2">
 			{
@@ -31,7 +29,7 @@ const tags = blog
 					.sort((a, b) => tags[b] - tags[a])
 					.map((tag) => (
 						<Link
-							class="p-2 m-1 border border-yellow-500 bg-stone-900 hover:bg-yellow-500 hover:text-stone-900"
+							class="p-2 m-1 border border-zinc-500 hover:bg-zinc-600"
 							href={`/blog/tag/${tag.replace(/\s+/g, '-').toLowerCase()}`}
 						>
 							{tag} ({tags[tag]})

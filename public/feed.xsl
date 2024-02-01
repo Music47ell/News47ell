@@ -31,7 +31,7 @@
       </head>
 
       <body
-        class="bg-draculaBg text-draculaTc font-sans text-base leading-6 text-gray-700 max-w-[60ch] mx-auto p-2"
+        class="bg-draculaBg text-draculaTc font-sans text-base leading-6 text-zinc-700 max-w-[60ch] mx-auto p-2"
       >
         <nav class="container mx-auto py-4">
           <div class="bg-yellow-200 px-4 py-2 mb-2">
@@ -43,7 +43,7 @@
                 newsreader.</small>
             </p>
           </div>
-          <p class="text-gray-500">
+          <p class="text-zinc-500">
             Visit
             <a class="text-draculaLc" href="https://aboutfeeds.com">About Feeds</a>
             to get started with newsreaders and subscribing. It's free.
@@ -75,11 +75,11 @@
                 <xsl:value-of select="title" />
               </a>
             </h3>
-            <small class="text-gray-500">
+            <small class="text-zinc-500">
               Published: <xsl:value-of select="pubDate" /> by
 	              <xsl:value-of select="author" />
             </small>
-            <p class="text-gray-500 mt-1">
+            <p class="text-zinc-500 mt-1">
             <small>
         Categories:
         <xsl:for-each select="category">
