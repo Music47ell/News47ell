@@ -1,0 +1,53 @@
+---
+title: How to Convert Country Code to Flag Emoji in JavaScript
+description: In this article, we will learn how to convert country code to flag emoji in JavaScript.
+published_at: 2024-01-29T21:39:45+03:00
+tags: ['JavaScript', 'Emoji']
+---
+
+I recently came across [this tutorial](https://neon.tech/blog/roll-your-own-analytics-with-astro-vercel-edge-functions-and-neon) by [Paul](https://www.paulie.dev/) on how to build a custom analytics tool using Astro, Vercel Edge Functions, and Neon. I was impressed by the simplicity of the tutorial and decided to give it a try.
+
+In the tutorial, Paul used the [@vercel/edge](https://www.npmjs.com/package/@vercel/edge) npm package to build the Edge Function. It comes with an easy way to get the country flag emoji. However, I wanted to use the [Cloudflare Workers](https://workers.cloudflare.com/) to build the Edge Function and needed a way to get the country flag emoji as well.
+
+If you dig deep into Vercel's source code, you will find where the magic happens. They have a [function that converts the country code to flag emoji](https://github.com/vercel/vercel/blob/a03cfa1040c03f4b82629adfd1640dae9a08d752/packages/edge/src/edge-headers.ts#L76-L92).
+
+I did a little bit of research on how to convert country code to flag emoji in JavaScript and found this [Dev.to article](https://dev.to/jorik/country-code-to-flag-emoji-a21). In the comment section, people started to compete on who can write the shortest and fastest code to convert country code to flag emoji. I decided to use the code from [this comment](https://dev.to/jorik/country-code-to-flag-emoji-a21#comment-27fk2).
+
+```ts
+export default function getFlagEmoji(countryCode: string) {
+  return [...countryCode.toUpperCase()]
+    .map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+    .reduce((a, b) => `${a}${b}`);
+}
+```
+
+And according to [this benchmark](https://jsperf.app/peluko), it is the fastest code to convert country code to flag emoji.
+
+## Here's how the code works:
+
+1. **Input Parameter:**
+   - The function takes a `countryCode` parameter, which is expected to be a string representing a country code (e.g., "TR" for the country of Türkiye).
+
+2. **Conversion to Uppercase:**
+   - `countryCode.toUpperCase()`: The provided country code is converted to uppercase to ensure consistency and avoid case-related issues.
+
+3. **Mapping Characters to Emoji Code Points:**
+   - `[...countryCode.toUpperCase()]`: The string is spread into an array of individual characters.
+   - `.map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))`: Each character's Unicode code point is calculated and converted to a string using `String.fromCodePoint`. The magic number 127397 is added to the code point, as this is the offset for regional indicator symbols to get the corresponding flag emoji.
+
+4. **Reducing to a Single String:**
+   - `.reduce((a, b) => ${a}${b})`: The array of emoji characters is reduced to a single string by concatenating each emoji.
+
+5. **Return Value:**
+   - The function returns the final string, which is the concatenation of emoji characters representing the country's flag.
+
+## Example Usage:
+
+```ts
+const usFlagEmoji = getFlagEmoji('TR');
+console.log(usFlagEmoji); // 🇹🇷
+```
+
+## Conclusion
+
+I hope you learned a thing or two about converting country code to flag emoji in JavaScript. If you have any questions or feedback, you can reach out to me on [Twitter](https://twitter.com/music47ell).
