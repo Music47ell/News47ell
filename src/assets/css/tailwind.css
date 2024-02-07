@@ -32,7 +32,7 @@
 }
 
 ::selection {
-	@apply bg-purple-400;
+	@apply bg-zinc-500;
 }
 
 /* Scrollbar */
@@ -44,7 +44,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-yellow-500 transition-colors hover:bg-yellow-500;
+	@apply rounded-full bg-zinc-600 transition-colors hover:bg-zinc-600;
 }
 
 /* Firefox */

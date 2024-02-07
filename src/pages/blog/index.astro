@@ -14,9 +14,7 @@ const posts = blog.sort((a, b) => b.data.published_at.getTime() - a.data.publish
 
 <BaseLayout title="Blog" description={siteMetadata.description} type="website">
 	<Newsletter />
-	<main
-		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
-	>
+	<main class="divide-y divide-zinc-500 overflow-hidden rounded-xl border border-zinc-500">
 		<h1 class="text-4xl font-bold p-4">Blog</h1>
 		{
 			posts.map((post) => (

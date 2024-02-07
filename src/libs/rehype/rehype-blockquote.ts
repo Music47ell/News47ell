@@ -36,7 +36,7 @@ export default function rehypeBlockquote() {
 
 						switch (bqType) {
 							case 'info':
-								cssClass = 'text-gray-500' // Replace with your desired tailwind CSS class for info.
+								cssClass = 'text-zinc-500' // Replace with your desired tailwind CSS class for info.
 								break
 							case 'danger':
 								cssClass = 'text-yellow-500' // Replace with your desired tailwind CSS class for danger.

@@ -18,9 +18,7 @@ const series = (await getCollection('series')).sort(
 
 <BaseLayout title={pageTitle} description={siteMetadata.description} type="website">
 	<Newsletter />
-	<main
-		class="divide-y divide-purple-400 overflow-hidden rounded-xl border border-yellow-500 bg-stone-900"
-	>
+	<main class="divide-y divide-zinc-500 overflow-hidden rounded-xl border border-zinc-500">
 		<h1 class="text-4xl font-bold p-4">Series</h1>
 		{
 			series.map((post) => (
