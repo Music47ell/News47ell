@@ -1,11 +1,12 @@
 <now-playing>
-	<div data-card class="hidden overflow-hidden p-4 rounded-xl border border-zinc-500">
-		<a data-url class="flex relative items-center gap-5" href="/">
-			<div class="relative origin-center">
-				<img data-image class="block" alt="" />
+	<div data-card class="hidden overflow-hidden p-4 rounded-xl border border-zinc-500 shadow-lg">
+		<a data-url class="flex items-center gap-5" href="/">
+			<div class="relative flex-shrink-0">
+				<img data-image class="block rounded-full animate-spin-slow" alt="Album Art" />
 			</div>
-			<div>
-				<p data-title class="origin-left text-base font-semibold text-white md:text-xl"></p>
+			<div class="flex flex-col">
+				<p data-artist class="text-sm font-medium text-gray-300 md:text-lg"></p>
+				<p data-title class="text-lg font-semibold text-white md:text-2xl"></p>
 			</div>
 		</a>
 	</div>
@@ -15,20 +16,22 @@
 	class NowPlaying extends HTMLElement {
 		async connectedCallback() {
 			const fetchNowPlaying = async () => {
-				const res = await fetch('/api/spotify/now-playing')
+				const res = await fetch('/api/listenbrainz/now-playing')
 				const data = await res.json()
 				return data
 			}
 
 			const updateUI = (data) => {
-				const url = data.url || ''
+				const artist = data.artist || ''
 				const title = data.title || ''
 				const image = data.image || ''
+				const url = data.url || ''
 				const isPlaying = data.isPlaying || false
 
-				const urlEl = this.querySelector('[data-url]')
+				const artistEl = this.querySelector('[data-artist]')
 				const titleEl = this.querySelector('[data-title]')
 				const imageEl = this.querySelector('[data-image]')
+				const urlEl = this.querySelector('[data-url]')
 
 				if (isPlaying) {
 					this.querySelector('[data-card]').classList.remove('hidden')
@@ -36,10 +39,11 @@
 					this.querySelector('[data-card]').classList.add('hidden')
 				}
 
-				urlEl.href = url
+				artistEl.textContent = artist
 				imageEl.src = image
 				imageEl.width = imageEl.height = 100
 				titleEl.textContent = imageEl.alt = imageEl.title = title
+				urlEl.href = url
 			}
 
 			const fetchDataAndUpdateUI = async () => {
